@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------------------------------------------------
+   Tibyān — design tokens
+   Theme colours are stored as space-separated RGB channels so Tailwind can
+   apply opacity (bg-gold/10). Grammatical-role colours are full hex, used
+   directly via inline styles in the word-by-word breakdowns.
+   Layout: a calm reading surface on warm paper (light) / deep night (dark),
+   gold + emerald accents.
+---------------------------------------------------------------------------- */
+:root {
+  --paper: 246 241 231;
+  --surface: 255 253 248;
+  --surface-2: 239 232 216;
+  --ink: 43 38 32;
+  --muted: 124 112 89;
+  --line: 227 217 196;
+  --gold: 168 121 42;
+  --gold-soft: 201 163 90;
+  --emerald: 31 107 84;
+
+  /* grammatical roles — [text], [tint bg] (full colours) */
+  --role-verb: #1f6b54;        --role-verb-bg: #e2efe9;
+  --role-noun: #2b5a8c;        --role-noun-bg: #e2ebf5;
+  --role-proper: #9a6a16;      --role-proper-bg: #f4ead0;
+  --role-pronoun: #7a4bbd;     --role-pronoun-bg: #ece3f8;
+  --role-adjective: #0f7a86;   --role-adjective-bg: #dcf0f1;
+  --role-preposition: #b2476a; --role-preposition-bg: #f6e3ea;
+  --role-conjunction: #6b6150; --role-conjunction-bg: #ece6d8;
+  --role-determiner: #8a8373;  --role-determiner-bg: #ece7db;
+  --role-negation: #b63d33;    --role-negation-bg: #f6e0dd;
+  --role-particle: #9a6336;    --role-particle-bg: #f1e4d6;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --paper: 20 17 12;
+    --surface: 29 25 19;
+    --surface-2: 39 33 24;
+    --ink: 236 227 207;
+    --muted: 169 158 134;
+    --line: 50 43 32;
+    --gold: 217 173 92;
+    --gold-soft: 182 138 63;
+    --emerald: 91 191 156;
+
+    --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
+    --role-noun: #7db0e6;        --role-noun-bg: #152436;
+    --role-proper: #e0b05a;      --role-proper-bg: #322611;
+    --role-pronoun: #bfa0ef;     --role-pronoun-bg: #241a36;
+    --role-adjective: #5fc9d4;   --role-adjective-bg: #112e31;
+    --role-preposition: #e78aa6; --role-preposition-bg: #331824;
+    --role-conjunction: #c9bda1; --role-conjunction-bg: #2a2418;
+    --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
+    --role-negation: #ee8a80;    --role-negation-bg: #351916;
+    --role-particle: #e0a56f;    --role-particle-bg: #31220f;
+
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --paper: 20 17 12;
+  --surface: 29 25 19;
+  --surface-2: 39 33 24;
+  --ink: 236 227 207;
+  --muted: 169 158 134;
+  --line: 50 43 32;
+  --gold: 217 173 92;
+  --gold-soft: 182 138 63;
+  --emerald: 91 191 156;
+
+  --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
+  --role-noun: #7db0e6;        --role-noun-bg: #152436;
+  --role-proper: #e0b05a;      --role-proper-bg: #322611;
+  --role-pronoun: #bfa0ef;     --role-pronoun-bg: #241a36;
+  --role-adjective: #5fc9d4;   --role-adjective-bg: #112e31;
+  --role-preposition: #e78aa6; --role-preposition-bg: #331824;
+  --role-conjunction: #c9bda1; --role-conjunction-bg: #2a2418;
+  --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
+  --role-negation: #ee8a80;    --role-negation-bg: #351916;
+  --role-particle: #e0a56f;    --role-particle-bg: #31220f;
+
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+
+body {
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(120% 80% at 50% -10%,
+    color-mix(in srgb, rgb(var(--gold)) 7%, transparent), transparent 60%);
+}
+
+#root { position: relative; z-index: 1; }
+
+.ar {
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  line-height: 2.1;
+}
+.ar-naskh { font-family: 'Scheherazade New', 'Amiri', serif; direction: rtl; }
+
+:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 2px; border-radius: 4px; }
+::selection { background: color-mix(in srgb, rgb(var(--gold)) 30%, transparent); }
+* { scrollbar-width: thin; scrollbar-color: rgb(var(--line)) transparent; }
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+.tnum { font-variant-numeric: tabular-nums; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }

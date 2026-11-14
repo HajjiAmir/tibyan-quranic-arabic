@@ -1,0 +1,52 @@
+{
+  "verb": {
+    "label": "Verb",
+    "arabic": "فِعْل",
+    "desc": "An action or state (past, present or command)."
+  },
+  "noun": {
+    "label": "Noun",
+    "arabic": "اِسْم",
+    "desc": "A person, place, thing or idea."
+  },
+  "proper": {
+    "label": "Proper noun",
+    "arabic": "عَلَم",
+    "desc": "A specific name, such as Allah or a person or place."
+  },
+  "pronoun": {
+    "label": "Pronoun",
+    "arabic": "ضَمِير",
+    "desc": "Stands in for a noun (he, you, it, this, who)."
+  },
+  "adjective": {
+    "label": "Adjective",
+    "arabic": "صِفَة",
+    "desc": "Describes a noun."
+  },
+  "preposition": {
+    "label": "Preposition",
+    "arabic": "حَرْف جَرّ",
+    "desc": "Relates words, and puts the following noun in the genitive."
+  },
+  "conjunction": {
+    "label": "Conjunction",
+    "arabic": "حَرْف عَطْف",
+    "desc": "Joins words or clauses (and, or, then)."
+  },
+  "determiner": {
+    "label": "Determiner",
+    "arabic": "أَل",
+    "desc": "The definite article \"the\" (al-)."
+  },
+  "negation": {
+    "label": "Negation",
+    "arabic": "نَفْي",
+    "desc": "Negates or prohibits."
+  },
+  "particle": {
+    "label": "Particle",
+    "arabic": "حَرْف",
+    "desc": "A function word carrying grammatical meaning."
+  }
+}

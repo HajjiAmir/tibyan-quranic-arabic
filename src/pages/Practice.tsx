@@ -1,0 +1,290 @@
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { loadSurah } from '../lib/data';
+import type { Surah } from '../types';
+import {
+  buildItems,
+  buildQuiz,
+  buildSession,
+  rate,
+  stats,
+  type Item,
+  type Question,
+} from '../lib/practice';
+import GrammarPanel from '../components/GrammarPanel';
+
+type Mode = 'flashcards' | 'quiz';
+
+export default function Practice() {
+  const { id } = useParams();
+  const surahId = Number(id);
+  const [surah, setSurah] = useState<Surah | null>(null);
+  const [mode, setMode] = useState<Mode>('flashcards');
+
+  useEffect(() => {
+    setSurah(null);
+    window.scrollTo(0, 0);
+    loadSurah(surahId).then(setSurah).catch(() => {});
+  }, [surahId]);
+
+  const items = useMemo(() => (surah ? buildItems(surah) : []), [surah]);
+
+  if (!surah) return <div className="h-64 animate-pulse rounded-3xl border border-line bg-surface" />;
+
+  return (
+    <div className="mx-auto flex max-w-reading flex-col gap-5">
+      <div className="flex flex-col items-center gap-1 text-center">
+        <span className="text-xs uppercase tracking-widest text-muted">Practice</span>
+        <h1 className="ar text-4xl text-gold">{surah.name}</h1>
+        <h2 className="font-display text-xl font-semibold">{surah.transliteration}</h2>
+        <Link to={`/surah/${surah.id}`} className="mt-1 text-xs text-muted hover:text-ink">
+          ← Back to reading
+        </Link>
+      </div>
+
+      <div className="mx-auto flex gap-1.5 rounded-xl border border-line bg-surface p-1 text-sm">
+        {(['flashcards', 'quiz'] as Mode[]).map((m) => (
+          <button
+            key={m}
+            onClick={() => setMode(m)}
+            className={`rounded-lg px-4 py-1.5 font-medium capitalize transition-colors ${
+              mode === m ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink'
+            }`}
+          >
+            {m}
+          </button>
+        ))}
+      </div>
+
+      {mode === 'flashcards' ? (
+        <Flashcards items={items} />
+      ) : (
+        <Quiz items={items} />
+      )}
+    </div>
+  );
+}
+
+/* --------------------------------- Flashcards ---------------------------- */
+
+function Flashcards({ items }: { items: Item[] }) {
+  const [session, setSession] = useState<Item[]>(() => buildSession(items));
+  const [idx, setIdx] = useState(0);
+  const [revealed, setRevealed] = useState(false);
+  const [done, setDone] = useState(0);
+
+  const s = stats(items);
+  const card = session[idx];
+
+  function next(good: boolean) {
+    if (!card) return;
+    rate(card.key, good);
+    setDone((d) => d + 1);
+    setRevealed(false);
+    setIdx((i) => i + 1);
+  }
+
+  function restart() {
+    setSession(buildSession(items));
+    setIdx(0);
+    setRevealed(false);
+    setDone(0);
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      <StatBar known={s.known} learning={s.learning} unseen={s.unseen} />
+
+      {!card ? (
+        <div className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-surface p-10 text-center">
+          <p className="font-display text-lg font-semibold">
+            {done > 0 ? `Reviewed ${done} ${done === 1 ? 'word' : 'words'}. Well done.` : 'Nothing due right now.'}
+          </p>
+          <p className="max-w-sm text-sm text-muted">
+            Missed words return sooner; words you knew come back later. Come back anytime to keep them fresh.
+          </p>
+          <button
+            onClick={restart}
+            className="rounded-xl border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold"
+          >
+            New session
+          </button>
+        </div>
+      ) : (
+        <>
+          <div className="flex items-center justify-between text-xs text-muted">
+            <span>
+              Card {idx + 1} of {session.length}
+            </span>
+            <span className="tnum">
+              {card.surah}:{card.verse}
+            </span>
+          </div>
+
+          <div className="rounded-2xl border border-line bg-surface p-6">
+            <p className="ar mb-2 text-center text-5xl leading-tight">{card.arabic}</p>
+            {!revealed ? (
+              <div className="mt-6 flex flex-col items-center gap-3">
+                <p className="text-sm text-muted">Recall its role, root and form.</p>
+                <button
+                  onClick={() => setRevealed(true)}
+                  className="rounded-xl border border-line bg-surface-2 px-5 py-2.5 text-sm font-medium"
+                >
+                  Show answer
+                </button>
+              </div>
+            ) : (
+              <div className="mt-2">
+                <GrammarPanel word={card.word} />
+                <p className="mt-3 text-center text-sm italic text-muted">
+                  &ldquo;{card.verseTranslation}&rdquo;
+                </p>
+              </div>
+            )}
+          </div>
+
+          {revealed && (
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={() => next(false)}
+                className="rounded-xl border px-4 py-3 text-sm font-semibold"
+                style={{ borderColor: 'var(--role-negation)', color: 'var(--role-negation)' }}
+              >
+                Again
+              </button>
+              <button
+                onClick={() => next(true)}
+                className="rounded-xl border border-emerald bg-emerald/10 px-4 py-3 text-sm font-semibold text-emerald"
+              >
+                Got it
+              </button>
+            </div>
+          )}
+        </>
+      )}
+    </div>
+  );
+}
+
+/* ------------------------------------ Quiz ------------------------------- */
+
+function Quiz({ items }: { items: Item[] }) {
+  const [questions, setQuestions] = useState<Question[]>(() => buildQuiz(items));
+  const [idx, setIdx] = useState(0);
+  const [picked, setPicked] = useState<string | null>(null);
+  const [score, setScore] = useState(0);
+
+  const q = questions[idx];
+  const finished = idx >= questions.length;
+
+  function pick(opt: string) {
+    if (picked) return;
+    setPicked(opt);
+    const correct = opt === q.answer;
+    if (correct) setScore((s) => s + 1);
+    rate(q.item.key, correct);
+  }
+  function next() {
+    setPicked(null);
+    setIdx((i) => i + 1);
+  }
+  function restart() {
+    setQuestions(buildQuiz(items));
+    setIdx(0);
+    setPicked(null);
+    setScore(0);
+  }
+
+  if (finished) {
+    const pct = Math.round((score / questions.length) * 100);
+    return (
+      <div className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-surface p-10 text-center">
+        <p className="font-display text-3xl font-semibold text-gold">
+          {score} / {questions.length}
+        </p>
+        <p className="text-sm text-muted">
+          {pct >= 80 ? 'Excellent work, mashallah.' : pct >= 50 ? 'Good — keep practising.' : 'Keep going, it builds fast.'}
+        </p>
+        <button
+          onClick={restart}
+          className="rounded-xl border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold"
+        >
+          New quiz
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex items-center justify-between text-xs text-muted">
+        <span>
+          Question {idx + 1} of {questions.length}
+        </span>
+        <span className="tnum">Score {score}</span>
+      </div>
+
+      <div className="rounded-2xl border border-line bg-surface p-6 text-center">
+        <p className="ar mb-3 text-5xl leading-tight">{q.item.arabic}</p>
+        <p className="text-sm font-medium text-muted">{q.prompt}</p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+        {q.options.map((opt) => {
+          const isAnswer = opt === q.answer;
+          const isPicked = opt === picked;
+          let cls = 'border-line bg-surface hover:border-gold/50';
+          if (picked) {
+            if (isAnswer) cls = 'border-emerald bg-emerald/10 text-emerald';
+            else if (isPicked) cls = 'bg-surface-2';
+          }
+          const isRoot = q.kind === 'root';
+          return (
+            <button
+              key={opt}
+              onClick={() => pick(opt)}
+              disabled={!!picked}
+              className={`rounded-xl border px-4 py-3 text-center font-medium transition-colors ${cls}`}
+              style={
+                picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined
+              }
+            >
+              <span className={isRoot ? 'ar-naskh text-2xl' : 'text-sm'}>{opt}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      {picked && (
+        <div className="flex flex-col gap-3">
+          <p className="text-center text-sm italic text-muted">&ldquo;{q.item.verseTranslation}&rdquo;</p>
+          <button
+            onClick={next}
+            className="self-center rounded-xl border border-line bg-surface-2 px-6 py-2.5 text-sm font-medium"
+          >
+            {idx + 1 >= questions.length ? 'See results' : 'Next →'}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function StatBar({ known, learning, unseen }: { known: number; learning: number; unseen: number }) {
+  const total = known + learning + unseen || 1;
+  const seg = (n: number, color: string) =>
+    n > 0 ? <div style={{ width: `${(n / total) * 100}%`, background: color }} /> : null;
+  return (
+    <div className="flex flex-col gap-1.5">
+      <div className="flex h-2 overflow-hidden rounded-full bg-surface-2">
+        {seg(known, 'var(--emerald)')}
+        {seg(learning, 'rgb(var(--gold))')}
+      </div>
+      <div className="flex justify-between text-[11px] text-muted">
+        <span>{known} known</span>
+        <span>{learning} learning</span>
+        <span>{unseen} new</span>
+      </div>
+    </div>
+  );
+}

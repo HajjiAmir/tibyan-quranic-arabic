@@ -1,0 +1,16 @@
+node_modules
+dist
+dist-ssr
+*.local
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+
+# Raw source datasets (large, re-cloneable). The pipeline reads these to
+# generate public/data. See scripts/raw/SOURCES.md for where to get them.
+scripts/raw/
+
+# tsc -b build outputs
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
