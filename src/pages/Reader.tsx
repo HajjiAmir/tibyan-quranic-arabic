@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { loadIndex, loadSurah, loadTajweedLegend } from '../lib/data';
-import { useRecitation } from '../lib/useRecitation';
+import { BASMALA, useRecitation } from '../lib/useRecitation';
 import { ListenToggle, PlayerRow, RecitationCredit } from '../components/AudioControls';
 import { studiedVerses, toggleVerse } from '../lib/progress';
 import type { Surah, TajweedLegend as TajweedLegendT } from '../types';
@@ -81,7 +81,7 @@ export default function Reader() {
   const [globalOffset, setGlobalOffset] = useState<number | null>(null);
   const rec = useRecitation(surahId, surah?.totalVerses ?? 0, globalOffset);
   const recitingVerse = rec.state.verse;
-  const following = rec.state.mode === 'continuous';
+  const following = rec.state.plan != null && rec.state.plan.mode !== 'single';
 
   useEffect(() => {
     setGlobalOffset(null);
@@ -95,9 +95,11 @@ export default function Reader() {
   // Keep the āyah being recited in view, gently, during continuous play.
   useEffect(() => {
     if (recitingVerse == null || !following) return;
-    const el = document.getElementById(`v${recitingVerse}`);
+    const el = document.getElementById(recitingVerse === BASMALA ? 'basmala' : `v${recitingVerse}`);
     if (!el) return;
-    const top = 16 * 9.5; // header + sticky toolbar + player row
+    // Below the sticky toolbar (its height changes with the player row).
+    const bar = document.getElementById('reader-toolbar');
+    const top = (bar ? bar.getBoundingClientRect().bottom : 16 * 9.5) + 12;
     const r = el.getBoundingClientRect();
     const fits = r.height < window.innerHeight - top;
     const visible = r.top >= top - 8 && (fits ? r.bottom <= window.innerHeight : r.top < window.innerHeight / 2);
@@ -170,6 +172,7 @@ export default function Reader() {
       </header>
 
       <div
+        id="reader-toolbar"
         className="sticky top-16 z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
         style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)' }}
       >
@@ -210,7 +213,14 @@ export default function Reader() {
       )}
 
       {surah.bismillah && (
-        <p className="ar pb-2 pt-10 text-center text-[2.1rem] leading-[2] text-ink/90 sm:text-[2.5rem]">
+        <p
+          id="basmala"
+          aria-current={recitingVerse === BASMALA ? 'true' : undefined}
+          title={rec.basmalaAvailable ? 'Recited before āyah 1 when you play from the start' : undefined}
+          className={`ar scroll-mt-40 pb-2 pt-10 text-center text-[2.1rem] leading-[2] transition-colors duration-500 sm:text-[2.5rem] ${
+            recitingVerse === BASMALA ? 'text-gold' : 'text-ink/90'
+          }`}
+        >
           {surah.bismillah}
         </p>
       )}

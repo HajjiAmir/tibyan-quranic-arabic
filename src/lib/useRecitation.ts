@@ -2,23 +2,46 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { readAudioPrefs, reciterById, recitersFor, writeAudioPrefs, type AudioPrefs } from './audio';
 
 export type PlayStatus = 'idle' | 'loading' | 'playing' | 'paused' | 'ended' | 'error';
-export type PlayMode = 'single' | 'continuous';
+/** single = one āyah; continuous = from an āyah to the end; range = a passage looped. */
+export type PlayMode = 'single' | 'continuous' | 'range';
+
+/** What to recite. `each`/`loops` of 0 mean "until stopped" (∞). */
+export interface Plan {
+  mode: PlayMode;
+  from: number;
+  to: number;
+  /** Times each āyah is recited before moving on. */
+  each: number;
+  /** Times the whole from–to passage is recited. */
+  loops: number;
+  /** Recite the basmala first (only ever before āyah 1 of surahs 2–114 except 9). */
+  basmala: boolean;
+}
 
 export interface RecitationState {
+  /** Āyah being recited; 0 = the basmala; null = nothing. */
   verse: number | null;
-  mode: PlayMode;
+  plan: Plan | null;
+  /** Repetition of the current āyah (1-based). */
+  rep: number;
+  /** Pass through the passage (1-based). */
+  loop: number;
   status: PlayStatus;
   message: string | null;
 }
 
-const IDLE: RecitationState = { verse: null, mode: 'continuous', status: 'idle', message: null };
+export const BASMALA = 0;
+
+const IDLE: RecitationState = { verse: null, plan: null, rep: 1, loop: 1, status: 'idle', message: null };
 
 const OFFLINE_MSG = 'You appear to be offline. Recitation streams from the internet.';
 const FAILED_MSG = 'This recitation could not be loaded. Check your connection and try again.';
 
+const more = (done: number, total: number) => total === 0 || done < total;
+
 /**
- * One <audio> element per reader. Plays a single āyah, or plays continuously
- * from a chosen āyah to the end of the surah, then stops cleanly.
+ * One <audio> element per reader: plays an āyah (optionally repeated), the
+ * surah onwards from an āyah, or a passage looped, then stops cleanly.
  */
 export function useRecitation(surah: number, totalVerses: number, globalOffset: number | null) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -27,6 +50,8 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
   const [prefs, setPrefs] = useState<AudioPrefs>(readAudioPrefs);
   const stateRef = useRef(state);
   stateRef.current = state;
+  const speedRef = useRef(prefs.speed);
+  speedRef.current = prefs.speed;
 
   const reciter = reciterById(prefs.reciter, surah);
   const reciterRef = useRef(reciter);
@@ -34,11 +59,15 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
 
   useEffect(() => writeAudioPrefs(prefs), [prefs]);
 
+  /** The basmala is recited before āyah 1 everywhere except al-Fātiḥah (where it is āyah 1) and at-Tawbah. */
+  const basmalaAvailable = surah !== 1 && surah !== 9 && !!reciter.basmala;
+
   const urlFor = useCallback(
-    (verse: number) =>
-      globalOffset == null
-        ? null
-        : reciterRef.current.url({ surah, ayah: verse, global: globalOffset + verse }),
+    (verse: number) => {
+      const r = reciterRef.current;
+      if (verse === BASMALA) return r.basmala ? r.basmala() : null;
+      return globalOffset == null ? null : r.url({ surah, ayah: verse, global: globalOffset + verse });
+    },
     [surah, globalOffset],
   );
 
@@ -53,33 +82,48 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     [surah],
   );
 
-  const start = useCallback(
-    (verse: number, mode: PlayMode) => {
+  const applySpeed = (audio: HTMLAudioElement) => {
+    // Loading a new src resets playbackRate to defaultPlaybackRate, so set both.
+    audio.defaultPlaybackRate = speedRef.current;
+    audio.playbackRate = speedRef.current;
+    audio.preservesPitch = true;
+  };
+
+  const fail = () => setState((s) => ({ ...s, status: 'error', message: FAILED_MSG }));
+
+  /** Load and play one item of the plan. */
+  const load = useCallback(
+    (verse: number, plan: Plan, rep: number, loop: number) => {
       const audio = audioRef.current;
       const url = urlFor(verse);
       if (!audio || !url) return;
       if (typeof navigator !== 'undefined' && navigator.onLine === false) {
-        setState({ verse, mode, status: 'error', message: OFFLINE_MSG });
+        setState({ verse, plan, rep, loop, status: 'error', message: OFFLINE_MSG });
         return;
       }
-      setState({ verse, mode, status: 'loading', message: null });
+      setState({ verse, plan, rep, loop, status: 'loading', message: null });
       audio.src = url;
+      applySpeed(audio);
       audio.play().catch((e: unknown) => {
         // AbortError just means a newer play() replaced this one.
         if (e instanceof DOMException && e.name === 'AbortError') return;
-        setState((s) => ({ ...s, status: 'error', message: FAILED_MSG }));
+        fail();
       });
-      if (mode === 'continuous') {
-        rememberVerse(verse);
-        // Warm the next file so the hand-over between āyāt is seamless.
-        const next = verse < totalVerses ? urlFor(verse + 1) : null;
-        if (next && preloadRef.current) {
-          preloadRef.current.src = next;
-          preloadRef.current.load();
-        }
+      if (plan.mode === 'continuous' && verse !== BASMALA) rememberVerse(verse);
+      // Warm the next file so the hand-over between āyāt is seamless.
+      const nextVerse = verse === BASMALA ? plan.from : verse < plan.to ? verse + 1 : plan.loops !== 1 ? plan.from : null;
+      const next = nextVerse != null && nextVerse !== verse ? urlFor(nextVerse) : null;
+      if (next && preloadRef.current) {
+        preloadRef.current.src = next;
+        preloadRef.current.load();
       }
     },
-    [urlFor, rememberVerse, totalVerses],
+    [urlFor, rememberVerse],
+  );
+
+  const begin = useCallback(
+    (plan: Plan) => load(plan.basmala ? BASMALA : plan.from, plan, 1, 1),
+    [load],
   );
 
   // Create the elements once; tear down when leaving the surah.
@@ -125,25 +169,31 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     };
   }, [surah]);
 
-  // Auto-advance (or finish) when an āyah ends.
+  // When a file ends: repeat the āyah, advance, loop the passage, or finish.
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     const onEnded = () => {
-      const s = stateRef.current;
-      if (s.verse == null) return;
-      if (s.mode === 'continuous' && s.verse < totalVerses) {
-        start(s.verse + 1, 'continuous');
-      } else {
-        if (s.mode === 'continuous') rememberVerse(null);
-        setState({ verse: null, mode: s.mode, status: 'ended', message: null });
+      const { verse, plan, rep, loop } = stateRef.current;
+      if (verse == null || !plan) return;
+      if (verse === BASMALA) return load(plan.from, plan, 1, loop);
+      if (more(rep, plan.each)) {
+        // Same file again: rewind rather than reload.
+        setState((s) => ({ ...s, rep: rep + 1 }));
+        audio.currentTime = 0;
+        audio.play().catch(fail);
+        return;
       }
+      if (verse < plan.to) return load(verse + 1, plan, 1, loop);
+      if (more(loop, plan.loops)) return load(plan.from, plan, 1, loop + 1);
+      if (plan.mode === 'continuous') rememberVerse(null);
+      setState({ ...IDLE, plan, status: 'ended' });
     };
     audio.addEventListener('ended', onEnded);
     return () => audio.removeEventListener('ended', onEnded);
-  }, [start, rememberVerse, totalVerses, surah]);
+  }, [load, rememberVerse, surah]);
 
-  const resumeVerse = Math.min(Math.max(prefs.resume[surah] ?? 1, 1), totalVerses);
+  const resumeVerse = Math.min(Math.max(prefs.resume[surah] ?? 1, 1), Math.max(totalVerses, 1));
 
   const pause = useCallback(() => audioRef.current?.pause(), []);
 
@@ -151,12 +201,9 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     const audio = audioRef.current;
     if (!audio) return;
     const s = stateRef.current;
-    if (s.status === 'paused') {
-      audio.play().catch(() => setState((x) => ({ ...x, status: 'error', message: FAILED_MSG })));
-    } else if (s.status === 'error' && s.verse != null) {
-      start(s.verse, s.mode);
-    }
-  }, [start]);
+    if (s.status === 'paused') audio.play().catch(fail);
+    else if (s.status === 'error' && s.verse != null && s.plan) load(s.verse, s.plan, s.rep, s.loop);
+  }, [load]);
 
   const stop = useCallback(() => {
     const audio = audioRef.current;
@@ -168,39 +215,82 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     setState(IDLE);
   }, []);
 
-  /** Toolbar play/pause: resumes, or starts the surah from the remembered āyah. */
+  const continuousFrom = useCallback(
+    (from: number): Plan => ({
+      mode: 'continuous',
+      from,
+      to: totalVerses,
+      each: prefs.repeat,
+      loops: 1,
+      basmala: from === 1 && basmalaAvailable,
+    }),
+    [totalVerses, prefs.repeat, basmalaAvailable],
+  );
+
+  const isBusy = (s: RecitationState) => s.status === 'playing' || s.status === 'loading';
+
+  /** Toolbar play/pause: resumes, or plays the surah from the remembered āyah. */
   const togglePlay = useCallback(() => {
     const s = stateRef.current;
-    if (s.status === 'playing' || s.status === 'loading') pause();
+    if (isBusy(s)) pause();
     else if (s.status === 'paused' || (s.status === 'error' && s.verse != null)) resume();
-    else start(resumeVerse, 'continuous');
-  }, [pause, resume, start, resumeVerse]);
+    else begin(continuousFrom(resumeVerse));
+  }, [pause, resume, begin, continuousFrom, resumeVerse]);
 
-  /** Per-āyah button: plays just that āyah, or pauses/resumes it if it is current. */
+  /** Per-āyah buttons: play that āyah (repeated) or the surah from it; pause/resume if current. */
   const toggleVerse = useCallback(
-    (verse: number, mode: PlayMode) => {
+    (verse: number, mode: 'single' | 'continuous') => {
       const s = stateRef.current;
-      if (s.verse === verse && s.mode === mode) {
-        if (s.status === 'playing' || s.status === 'loading') return pause();
+      if (s.plan?.mode === mode && (s.verse === verse || (mode === 'continuous' && s.plan.from === verse && s.verse === BASMALA))) {
+        if (isBusy(s)) return pause();
         if (s.status === 'paused' || s.status === 'error') return resume();
       }
-      start(verse, mode);
+      begin(
+        mode === 'single'
+          ? { mode, from: verse, to: verse, each: prefs.repeat, loops: 1, basmala: false }
+          : continuousFrom(verse),
+      );
     },
-    [pause, resume, start],
+    [pause, resume, begin, continuousFrom, prefs.repeat],
+  );
+
+  /** Loop a passage: āyāt from–to, the whole passage `loops` times (0 = ∞). */
+  const playRange = useCallback(
+    (from: number, to: number, loops: number) => {
+      const a = Math.max(1, Math.min(from, to));
+      const b = Math.min(totalVerses, Math.max(from, to));
+      begin({ mode: 'range', from: a, to: b, each: 1, loops, basmala: false });
+    },
+    [begin, totalVerses],
   );
 
   const setReciter = useCallback(
     (id: string) => {
       setPrefs((p) => ({ ...p, reciter: id }));
       const s = stateRef.current;
-      // Switch voices mid-recitation: restart the current āyah with the new reciter.
-      if (s.verse != null && s.status !== 'idle' && s.status !== 'ended') {
+      // Switch voices mid-recitation: restart the current item with the new reciter.
+      if (s.verse != null && s.plan && s.status !== 'idle' && s.status !== 'ended') {
         reciterRef.current = reciterById(id, surah);
-        start(s.verse, s.mode);
+        if (s.verse === BASMALA && !reciterRef.current.basmala) load(s.plan.from, s.plan, 1, s.loop);
+        else load(s.verse, s.plan, s.rep, s.loop);
       }
     },
-    [start, surah],
+    [load, surah],
   );
+
+  /** Repeat count for each āyah; also applies to what is playing now. */
+  const setRepeat = useCallback((n: number) => {
+    setPrefs((p) => ({ ...p, repeat: n }));
+    setState((s) =>
+      s.plan && s.plan.mode !== 'range' ? { ...s, plan: { ...s.plan, each: n } } : s,
+    );
+  }, []);
+
+  const setSpeed = useCallback((speed: number) => {
+    setPrefs((p) => ({ ...p, speed }));
+    speedRef.current = speed;
+    if (audioRef.current) applySpeed(audioRef.current);
+  }, []);
 
   const setOpen = useCallback((open: boolean) => setPrefs((p) => ({ ...p, open })), []);
 
@@ -208,7 +298,7 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
   useEffect(() => {
     if (!('mediaSession' in navigator) || state.verse == null) return;
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: `Surah ${surah}, āyah ${state.verse}`,
+      title: state.verse === BASMALA ? `Surah ${surah}, basmala` : `Surah ${surah}, āyah ${state.verse}`,
       artist: reciter.name,
       album: 'Tibyān',
     });
@@ -225,12 +315,18 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     reciter,
     reciters: recitersFor(surah),
     open: prefs.open,
+    repeat: prefs.repeat,
+    speed: prefs.speed,
     resumeVerse,
+    basmalaAvailable,
     ready: globalOffset != null,
     togglePlay,
     toggleVerse,
+    playRange,
     stop,
     setReciter,
+    setRepeat,
+    setSpeed,
     setOpen,
   };
 }

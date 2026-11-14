@@ -33,11 +33,23 @@ export interface Reciter {
   style: string;
   covers: (surah: number) => boolean;
   url: (ref: AyahRef) => string;
+  /**
+   * The same reciter's basmala, from the same source, played before āyah 1 of
+   * surahs 2–114 (not 9). Omit it when no faithful recording exists: the app
+   * then plays no basmala rather than a mismatched file.
+   */
+  basmala?: () => string;
   credit: string;
 }
 
 const islamicNetwork = (edition: string) => (ref: AyahRef) =>
   `https://cdn.islamic.network/quran/audio/128/${edition}/${ref.global}.mp3`;
+
+// The CDN has no separate basmala file, but every reciter's al-Fātiḥah 1:1
+// (global āyah 1) is the basmala itself, recited alone (5–6 s; no taʿawwudh).
+// For Husary, EveryAyah serves this very recording as its bismillah.mp3.
+const islamicNetworkBasmala = (edition: string) => () =>
+  `https://cdn.islamic.network/quran/audio/128/${edition}/1.mp3`;
 
 const CDN_CREDIT = 'Audio: Islamic Network CDN (alquran.cloud), recordings from EveryAyah.com';
 
@@ -49,6 +61,7 @@ export const RECITERS: Reciter[] = [
     style: 'Murattal',
     covers: () => true,
     url: islamicNetwork('ar.husary'),
+    basmala: islamicNetworkBasmala('ar.husary'),
     credit: CDN_CREDIT,
   },
   {
@@ -58,6 +71,7 @@ export const RECITERS: Reciter[] = [
     style: 'Murattal',
     covers: () => true,
     url: islamicNetwork('ar.alafasy'),
+    basmala: islamicNetworkBasmala('ar.alafasy'),
     credit: CDN_CREDIT,
   },
   {
@@ -67,6 +81,7 @@ export const RECITERS: Reciter[] = [
     style: 'Murattal',
     covers: () => true,
     url: islamicNetwork('ar.minshawi'),
+    basmala: islamicNetworkBasmala('ar.minshawi'),
     credit: CDN_CREDIT,
   },
 ];
@@ -89,13 +104,24 @@ export interface AudioPrefs {
   reciter: string;
   open: boolean;
   resume: Record<string, number>;
+  /** Times each āyah is recited; 0 means repeat until stopped (∞). */
+  repeat: number;
+  /** Playback rate, pitch preserved. */
+  speed: number;
 }
 
+export const REPEAT_OPTIONS = [1, 3, 5, 10, 0] as const;
+export const SPEED_OPTIONS = [0.5, 0.75, 1, 1.25, 1.5] as const;
+export const repeatLabel = (n: number) => (n === 0 ? '∞' : `${n}×`);
+
 export function readAudioPrefs(): AudioPrefs {
-  const base: AudioPrefs = { reciter: DEFAULT_RECITER, open: false, resume: {} };
+  const base: AudioPrefs = { reciter: DEFAULT_RECITER, open: false, resume: {}, repeat: 1, speed: 1 };
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? { ...base, ...(JSON.parse(raw) as Partial<AudioPrefs>) } : base;
+    const p: AudioPrefs = raw ? { ...base, ...(JSON.parse(raw) as Partial<AudioPrefs>) } : base;
+    if (!(REPEAT_OPTIONS as readonly number[]).includes(p.repeat)) p.repeat = 1;
+    if (!(SPEED_OPTIONS as readonly number[]).includes(p.speed)) p.speed = 1;
+    return p;
   } catch {
     return base;
   }

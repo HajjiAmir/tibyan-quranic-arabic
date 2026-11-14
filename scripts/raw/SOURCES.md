@@ -95,6 +95,14 @@ Nothing is downloaded by the pipeline; the reader streams one MP3 per āyah.
   The app is free and educational; a paid version would need fresh permission.
 - **Credit:** the reader shows the current reciter's name (English and Arabic) and
   the source under every surah.
+- **Basmala (before āyah 1 of surahs 2–114, never 9; al-Fātiḥah's basmala is its
+  āyah 1):** the CDN has no separate basmala file, so the app plays each reciter's
+  own al-Fātiḥah 1:1 file from the same CDN, which is the basmala recited on its own.
+  Checks (2026-11-14): every 1:1 file lasts 5.0–6.1 s, too short to also hold the
+  taʿawwudh (about 7 s on its own); and for Husary, EveryAyah's own `bismillah.mp3` is
+  byte-identical to its `001001.mp3`. Alafasy has a separate `bismillah.mp3` on
+  EveryAyah, but that file is not on the licensed CDN, so it is not used. Minshawi has
+  no separate file. A reciter added without a `basmala` source plays none.
 - **Not used:** Quran.com / Quran Foundation audio. It has word-level timings, but they
   belong to Quran.com's own recordings and their developer terms tie use to API
   credentials, so word-by-word highlighting was left out.
