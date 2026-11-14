@@ -47,7 +47,7 @@ function SegmentGloss({ seg }: { seg: Segment }) {
 export default function GrammarPanel({ word }: { word: Word }) {
   const anySegGloss = word.segments.some((s) => s.gloss);
   return (
-    <div className="mt-4 overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04)]">
+    <div className="relative mt-4 overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04)]">
       <div className="flex items-start justify-between gap-4 border-b border-line/80 px-5 py-4">
         <div className="flex min-w-0 flex-col gap-1.5">
           {word.gloss && (

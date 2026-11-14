@@ -185,3 +185,12 @@ body::before {
 
 .tnum { font-variant-numeric: tabular-nums; }
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* recitation "now playing" bars */
+@keyframes eq {
+  0%, 100% { transform: scaleY(0.35); }
+  50% { transform: scaleY(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[eq_0\.9s_ease-in-out_infinite\] { animation: none; }
+}

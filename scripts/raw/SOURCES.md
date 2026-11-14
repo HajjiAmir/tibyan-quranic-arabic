@@ -75,6 +75,33 @@ npm run build:data   # regenerates public/data/
   The tajweed annotations come from an automated classifier (decision trees),
   not a hand-checked muṣḥaf. The app says so next to the colour key.
 
+## Audio recitation (streamed, not stored here)
+
+Nothing is downloaded by the pipeline; the reader streams one MP3 per āyah.
+
+- **Host:** Islamic Network audio CDN, `https://cdn.islamic.network/quran/audio/128/<edition>/<n>.mp3`,
+  where `<n>` is the global āyah number (1–6236), computed from the verse counts in
+  `public/data/index.json`. Editions used: `ar.husary` (default), `ar.alafasy`, `ar.minshawi`.
+- **Recordings:** EveryAyah.com (https://everyayah.com/). alquran.cloud credits Every Ayah
+  for its ayah-by-ayah audio (https://alquran.cloud/contributors), and spot checks
+  (Alafasy 2:1 and 114:6, Minshawi 3:10) are byte-identical to the EveryAyah files.
+- **Reciters (all Ḥafṣ ʿan ʿĀṣim, murattal):** Mahmoud Khalil Al-Husary,
+  Mishary Rashid Alafasy, Muhammad Siddiq Al-Minshawi.
+- **Terms:** alquran.cloud's terms (https://alquran.cloud/terms-and-conditions, read
+  2026-11-14) say recitations remain the reciters' copyright and may be streamed,
+  embedded and downloaded for personal and educational use, and that a commercial product
+  may be asked to remove them. They ask heavy users to cache audio. EveryAyah.com
+  itself publishes no terms of use, which is why the app streams from the CDN that does.
+  The app is free and educational; a paid version would need fresh permission.
+- **Credit:** the reader shows the current reciter's name (English and Arabic) and
+  the source under every surah.
+- **Not used:** Quran.com / Quran Foundation audio. It has word-level timings, but they
+  belong to Quran.com's own recordings and their developer terms tie use to API
+  credentials, so word-by-word highlighting was left out.
+- **Your own recitations:** add a `Reciter` in `src/lib/audio.ts` with `covers` set
+  to the surahs you recorded and `url` pointing at your files (e.g.
+  `public/audio/own/<surah>/<ayah>.mp3`). It then appears in the selector for those surahs only.
+
 ## Fonts
 
 Self-hosted from npm (Fontsource), all SIL Open Font License 1.1: **Amiri Quran**

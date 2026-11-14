@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { loadSurah, loadTajweedLegend } from '../lib/data';
+import { loadIndex, loadSurah, loadTajweedLegend } from '../lib/data';
+import { useRecitation } from '../lib/useRecitation';
+import { ListenToggle, PlayerRow, RecitationCredit } from '../components/AudioControls';
 import { studiedVerses, toggleVerse } from '../lib/progress';
 import type { Surah, TajweedLegend as TajweedLegendT } from '../types';
 import Verse from '../components/Verse';
@@ -74,6 +76,35 @@ export default function Reader() {
   const [prefs, setPrefs] = useState<Prefs>(readPrefs);
   const [tajweedLegend, setTajweedLegend] = useState<TajweedLegendT | null>(null);
   const [studied, setStudied] = useState<Set<number>>(new Set());
+  // Global āyah number of this surah's first verse minus one (audio files are
+  // numbered 1–6236), derived from the verse counts in index.json.
+  const [globalOffset, setGlobalOffset] = useState<number | null>(null);
+  const rec = useRecitation(surahId, surah?.totalVerses ?? 0, globalOffset);
+  const recitingVerse = rec.state.verse;
+  const following = rec.state.mode === 'continuous';
+
+  useEffect(() => {
+    setGlobalOffset(null);
+    loadIndex()
+      .then((idx) =>
+        setGlobalOffset(idx.filter((m) => m.id < surahId).reduce((n, m) => n + m.totalVerses, 0)),
+      )
+      .catch(() => {});
+  }, [surahId]);
+
+  // Keep the āyah being recited in view, gently, during continuous play.
+  useEffect(() => {
+    if (recitingVerse == null || !following) return;
+    const el = document.getElementById(`v${recitingVerse}`);
+    if (!el) return;
+    const top = 16 * 9.5; // header + sticky toolbar + player row
+    const r = el.getBoundingClientRect();
+    const fits = r.height < window.innerHeight - top;
+    const visible = r.top >= top - 8 && (fits ? r.bottom <= window.innerHeight : r.top < window.innerHeight / 2);
+    if (visible) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    window.scrollTo({ top: window.scrollY + r.top - top, behavior: reduce ? 'auto' : 'smooth' });
+  }, [recitingVerse, following]);
 
   useEffect(() => {
     setSurah(null);
@@ -139,10 +170,10 @@ export default function Reader() {
       </header>
 
       <div
-        className="sticky top-16 z-10 -mx-4 mb-2 flex items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
+        className="sticky top-16 z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
         style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)' }}
       >
-        <div className="no-scrollbar -mx-1 flex min-w-0 gap-0.5 overflow-x-auto px-1 py-0.5">
+        <div className="no-scrollbar -mx-1 flex min-w-0 flex-1 basis-0 gap-0.5 overflow-x-auto px-1 py-0.5">
           <Toggle on={prefs.gloss} onClick={toggle('gloss')}>
             Meanings
           </Toggle>
@@ -156,12 +187,20 @@ export default function Reader() {
             Translation
           </Toggle>
         </div>
-        <Link
-          to={`/surah/${surah.id}/practice`}
-          className="shrink-0 rounded-full border border-emerald/40 bg-emerald/10 px-3.5 py-1 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/15"
-        >
-          Practice
-        </Link>
+        <div className="flex shrink-0 items-center gap-1.5">
+          <ListenToggle rec={rec} />
+          <Link
+            to={`/surah/${surah.id}/practice`}
+            className="shrink-0 rounded-full border border-emerald/40 bg-emerald/10 px-3.5 py-1 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/15"
+          >
+            Practice
+          </Link>
+        </div>
+        {(rec.open || recitingVerse != null) && (
+          <div className="min-w-0 basis-full">
+            <PlayerRow rec={rec} totalVerses={surah.totalVerses} />
+          </div>
+        )}
       </div>
 
       {prefs.tajweed && tajweedLegend && (
@@ -189,9 +228,12 @@ export default function Reader() {
             tajweedLegend={tajweedLegend}
             studied={studied.has(v.id)}
             onToggleStudied={() => setStudied(new Set(toggleVerse(surah.id, v.id)))}
+            rec={rec}
           />
         ))}
       </section>
+
+      <RecitationCredit rec={rec} />
 
       <nav className="mt-12 flex items-center justify-between gap-3">
         {surah.id > 1 ? (

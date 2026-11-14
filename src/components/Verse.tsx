@@ -1,6 +1,8 @@
 import { useState, type ReactNode } from 'react';
 import { roleVar } from '../lib/data';
 import type { TajweedLegend, Verse as VerseT } from '../types';
+import type { Recitation } from '../lib/useRecitation';
+import { VerseAudio } from './AudioControls';
 import GrammarPanel from './GrammarPanel';
 import TajweedText from './TajweedText';
 
@@ -14,6 +16,7 @@ interface Props {
   tajweedLegend: TajweedLegend | null;
   studied: boolean;
   onToggleStudied: () => void;
+  rec: Recitation;
 }
 
 // Saheeh International footnotes arrive as "[2]- text\n[3]- text".
@@ -51,7 +54,7 @@ function Translation({ text, footnotes }: { text: string; footnotes: string }) {
   parts.push(text.slice(last));
 
   return (
-    <div className="mt-6 max-w-reading">
+    <div className="relative mt-6 max-w-reading">
       <p className="text-[0.975rem] leading-7 text-ink/75">{parts}</p>
       {open && notes.get(open) && (
         <p className="mt-3 rounded-xl border border-line/80 bg-surface/70 px-4 py-3 text-[0.8rem] leading-relaxed text-muted">
@@ -75,15 +78,41 @@ export default function Verse({
   tajweedLegend,
   studied,
   onToggleStudied,
+  rec,
 }: Props) {
+  const reciting = rec.state.verse === verse.id;
   const [selected, setSelected] = useState<number | null>(null);
   const selectedWord = verse.words.find((w) => w.position === selected) ?? null;
 
   return (
-    <article className="scroll-mt-28 border-b border-line/60 py-8 sm:py-10" id={`v${verse.id}`}>
-      <div className="mb-2 flex items-center justify-between gap-3">
-        <span className="tnum text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
-          Āyah {verse.id}
+    <article
+      className="relative scroll-mt-40 border-b border-line/60 py-8 sm:py-10"
+      id={`v${verse.id}`}
+      aria-current={reciting ? 'true' : undefined}
+    >
+      {/* the āyah being recited: a quiet gold rule and wash, nothing heavier */}
+      <span
+        aria-hidden
+        className={`pointer-events-none absolute -inset-x-3 inset-y-2 rounded-2xl bg-gold/[0.06] transition-opacity duration-500 sm:-inset-x-5 ${
+          reciting ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      <span
+        aria-hidden
+        className={`pointer-events-none absolute -left-3 top-8 bottom-8 w-[2px] rounded-full bg-gold transition-opacity duration-500 sm:-left-5 ${
+          reciting ? 'opacity-100' : 'opacity-0'
+        }`}
+      />
+      <div className="relative mb-2 flex items-center justify-between gap-3">
+        <span className="flex items-center gap-2">
+          <span
+            className={`tnum text-[11px] font-medium uppercase tracking-[0.14em] transition-colors ${
+              reciting ? 'text-gold' : 'text-muted'
+            }`}
+          >
+            Āyah {verse.id}
+          </span>
+          <VerseAudio verse={verse.id} rec={rec} />
         </span>
         <button
           onClick={onToggleStudied}
@@ -99,7 +128,7 @@ export default function Verse({
       </div>
 
       {/* the authentic reading line — the centrepiece */}
-      <p className="quran-line">
+      <p className="quran-line relative">
         {tajweed && verse.tajweed ? (
           <TajweedText text={verse.arabic} spans={verse.tajweed} legend={tajweedLegend} />
         ) : (
@@ -113,7 +142,7 @@ export default function Verse({
       {/* interlinear, colour-coded word-by-word analysis */}
       <div
         dir="rtl"
-        className="mt-5 flex flex-wrap items-start gap-x-1 gap-y-3 border-t border-dashed border-line/70 pt-5"
+        className="relative mt-5 flex flex-wrap items-start gap-x-1 gap-y-3 border-t border-dashed border-line/70 pt-5"
       >
         {verse.words.map((w) => {
           const isSel = w.position === selected;

@@ -63,5 +63,4 @@ build works from any path.
 ## Roadmap
 
 - Per-surah context and authentic hadith on virtues (sourced and cited only)
-- Per-verse audio recitation
 - Bookmarks, a cross-surah practice deck and a progress dashboard
