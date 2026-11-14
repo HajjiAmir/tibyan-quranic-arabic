@@ -1,0 +1,110 @@
+{
+  "hamzat_wasl": {
+    "label": "Hamzat al-waṣl",
+    "arabic": "همزة الوصل",
+    "group": "silent",
+    "desc": "Connecting hamza: pronounced only when starting from this word, silent when joined to what comes before."
+  },
+  "lam_shamsiyyah": {
+    "label": "Lām shamsiyyah",
+    "arabic": "اللام الشمسية",
+    "group": "silent",
+    "desc": "The lām of \"al-\" is not pronounced; it merges into the following \"sun letter\", which is doubled."
+  },
+  "silent": {
+    "label": "Silent letter",
+    "arabic": "حرف لا يُنطق",
+    "group": "silent",
+    "desc": "Written but not pronounced in recitation."
+  },
+  "madd_2": {
+    "label": "Natural madd (2)",
+    "arabic": "مد طبيعي",
+    "group": "madd2",
+    "desc": "Natural prolongation of 2 counts (ḥarakāt)."
+  },
+  "madd_246": {
+    "label": "Madd ʿāriḍ / līn (2, 4, 6)",
+    "arabic": "مد عارض / لين",
+    "group": "madd246",
+    "desc": "Prolongation of 2, 4 or 6 counts when stopping on the word."
+  },
+  "madd_munfasil": {
+    "label": "Madd munfaṣil (4–5)",
+    "arabic": "مد منفصل",
+    "group": "madd45",
+    "desc": "Separated madd: a madd letter at the end of a word followed by a hamza at the start of the next; 4–5 counts."
+  },
+  "madd_muttasil": {
+    "label": "Madd muttaṣil (4–5)",
+    "arabic": "مد متصل",
+    "group": "madd45",
+    "desc": "Connected madd: a madd letter followed by a hamza in the same word; 4–5 counts."
+  },
+  "madd_6": {
+    "label": "Madd lāzim (6)",
+    "arabic": "مد لازم",
+    "group": "madd6",
+    "desc": "Necessary madd: prolonged 6 counts."
+  },
+  "ghunnah": {
+    "label": "Ghunnah",
+    "arabic": "غنة",
+    "group": "ghunnah",
+    "desc": "Nasalisation held for about 2 counts, typically on a doubled nūn or mīm."
+  },
+  "ikhfa": {
+    "label": "Ikhfāʾ",
+    "arabic": "إخفاء",
+    "group": "ikhfa",
+    "desc": "Nūn sākinah or tanwīn is partially hidden, with ghunnah, before one of the 15 ikhfāʾ letters."
+  },
+  "ikhfa_shafawi": {
+    "label": "Ikhfāʾ shafawī",
+    "arabic": "إخفاء شفوي",
+    "group": "ikhfa",
+    "desc": "Mīm sākinah is hidden, with ghunnah, before bāʾ."
+  },
+  "idghaam_ghunnah": {
+    "label": "Idghām with ghunnah",
+    "arabic": "إدغام بغنة",
+    "group": "idgham",
+    "desc": "Nūn sākinah or tanwīn merges into the next letter (ي ن م و) with ghunnah."
+  },
+  "idghaam_no_ghunnah": {
+    "label": "Idghām without ghunnah",
+    "arabic": "إدغام بلا غنة",
+    "group": "idghamNo",
+    "desc": "Nūn sākinah or tanwīn merges into the next letter (ل ر) without ghunnah."
+  },
+  "idghaam_shafawi": {
+    "label": "Idghām shafawī",
+    "arabic": "إدغام شفوي",
+    "group": "idgham",
+    "desc": "Mīm sākinah merges into a following mīm, with ghunnah."
+  },
+  "idghaam_mutajanisayn": {
+    "label": "Idghām mutajānisayn",
+    "arabic": "إدغام متجانسين",
+    "group": "idghamNo",
+    "desc": "Merging of two letters that share a point of articulation but differ in qualities."
+  },
+  "idghaam_mutaqaribayn": {
+    "label": "Idghām mutaqāribayn",
+    "arabic": "إدغام متقاربين",
+    "group": "idghamNo",
+    "desc": "Merging of two letters that are close in articulation and qualities."
+  },
+  "iqlab": {
+    "label": "Iqlāb",
+    "arabic": "إقلاب",
+    "group": "iqlab",
+    "desc": "Nūn sākinah or tanwīn becomes a hidden mīm, with ghunnah, before bāʾ."
+  },
+  "qalqalah": {
+    "label": "Qalqalah",
+    "arabic": "قلقلة",
+    "group": "qalqalah",
+    "desc": "An echoing bounce on a sākin ق ط ب ج د."
+  }
+}

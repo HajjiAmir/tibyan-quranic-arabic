@@ -10,11 +10,17 @@
 //   - english_saheeh.json   Saheeh International translation      (QuranEnc, via risan/quran-json)
 //   - chapters.json         Surah metadata                       (risan/quran-json)
 //   - quran-morphology.txt  Quranic Arabic Corpus morphology      (mustafa0x/quran-morphology)
+//   - wbw-en/<id>.json      word-by-word English gloss           (Quranic Arabic Corpus wording, via Quran.com API v4)
+//   - tajweed.hafs.uthmani-pause-sajdah.json + tajweed-quran-uthmani.txt
+//                           tajweed rule spans + the text they index (cpfair/quran-tajweed)
+//
+// Fetch them all with `npm run fetch:data`.
 //
 // Output:
 //   public/data/index.json          list of all 114 surahs (metadata)
 //   public/data/surahs/<id>.json    full surah: verses -> words -> grammar segments
 //   public/data/legend.json         grammatical roles + descriptions used for colour-coding
+//   public/data/tajweed-legend.json tajweed rules, colour groups and descriptions
 
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
@@ -163,7 +169,141 @@ function parseSegment(arabic, type, features) {
 // Load raw files
 // ---------------------------------------------------------------------------
 
+// The basmala prefix, built from the source's own 1:1 text so the match is
+// exact to the code point. 95 and 97 carry an extra shadda on the bā' in
+// Tanzil, which is allowed for and kept exactly as written.
+function basmalaPattern(fatiha1) {
+  const esc = fatiha1.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return new RegExp(`^(${esc.replace(/^ب/, 'ب\u0651?')}) `);
+}
+
 function loadJson(name) { return JSON.parse(readFileSync(join(RAW, name), 'utf8')); }
+
+// ---------------------------------------------------------------------------
+// Word-by-word English (Quranic Arabic Corpus glosses, via the Quran.com API).
+// Words are keyed "sura:verse:word" — the same numbering as the morphology.
+// Before a gloss is attached, the source's own Arabic for that position is
+// compared with the morphology word (letters only), so a gloss can never land
+// on the wrong word. Any mismatch drops the gloss rather than guessing.
+// ---------------------------------------------------------------------------
+
+function skeleton(s) {
+  return s
+    .normalize('NFC')
+    .replace(/[ً-ٰٟۖ-ۭـࣰ-ࣿ‏۞۩]/g, '') // marks, tatweel, signs
+    .replace(/[ءٔ]/g, '') // hamza spelling varies (ء vs ـٔ)
+    .replace(/[ٱأإآ]/g, 'ا')
+    .replace(/[ىي]/g, 'ا') // alif maqsura / ya spellings (e.g. ٱفْتَرَىٰهُ vs افْتَرَاهُ)
+    .replace(/\s/g, '');
+}
+
+// Positions where the two sources spell the same word differently in a way the
+// letter skeleton cannot reconcile; each was checked by hand against both texts
+// (same position, same word, same gloss) and is accepted explicitly.
+//   12:39:1, 12:41:1  يَٰصَىٰحِبَىِ (Tanzil/QAC) vs يَـٰصَـٰحِبَىِ (Quran.com) — "O my two companions"
+const VERIFIED_SPELLING_VARIANTS = new Set(['12:39:1', '12:41:1']);
+
+function loadGlosses() {
+  const dir = join(RAW, 'wbw-en');
+  const byLoc = new Map();
+  if (!existsSync(dir)) return byLoc;
+  for (let id = 1; id <= 114; id++) {
+    const f = join(dir, `${id}.json`);
+    if (!existsSync(f)) continue;
+    for (const w of JSON.parse(readFileSync(f, 'utf8'))) byLoc.set(w.location, w);
+  }
+  return byLoc;
+}
+
+// ---------------------------------------------------------------------------
+// Tajweed (cpfair/quran-tajweed). Annotation offsets refer to a 2017 copy of
+// the Tanzil Uthmani text; ours is a later Tanzil encoding that differs only in
+// a few code points (tatweel, hamza and small-ya spelling). Each verse is
+// aligned character-by-character (LCS) and every span is mapped through that
+// alignment. Spans that cannot be mapped cleanly are dropped, never guessed.
+// ---------------------------------------------------------------------------
+
+function loadTajweed() {
+  const textFile = join(RAW, 'tajweed-quran-uthmani.txt');
+  const annFile = join(RAW, 'tajweed.hafs.uthmani-pause-sajdah.json');
+  if (!existsSync(textFile) || !existsSync(annFile)) return null;
+  const text = new Map();
+  for (const line of readFileSync(textFile, 'utf8').split(/\r?\n/)) {
+    const m = line.match(/^(\d+)\|(\d+)\|(.*)$/);
+    if (m) text.set(`${m[1]}:${m[2]}`, m[3]);
+  }
+  const ann = new Map();
+  for (const a of JSON.parse(readFileSync(annFile, 'utf8'))) ann.set(`${a.surah}:${a.ayah}`, a.annotations);
+  return { text, ann };
+}
+
+// For each index in `a`, the matching index in `b` (or -1), via LCS.
+function alignChars(a, b) {
+  const n = a.length, m = b.length;
+  const dp = Array.from({ length: n + 1 }, () => new Uint16Array(m + 1));
+  for (let i = n - 1; i >= 0; i--)
+    for (let j = m - 1; j >= 0; j--)
+      dp[i][j] = a[i] === b[j] ? dp[i + 1][j + 1] + 1 : Math.max(dp[i + 1][j], dp[i][j + 1]);
+  const map = new Int32Array(n).fill(-1);
+  let i = 0, j = 0;
+  while (i < n && j < m) {
+    if (a[i] === b[j]) { map[i] = j; i++; j++; }
+    else if (dp[i + 1][j] >= dp[i][j + 1]) i++;
+    else j++;
+  }
+  return map;
+}
+
+function mapTajweed(src, ours, spans, stats) {
+  if (!spans?.length) return [];
+  const a = [...src], b = [...ours];
+  const identical = src === ours;
+  const map = identical ? null : alignChars(a, b);
+  const at = (i) => (identical ? i : map[i]);
+  const out = [];
+  for (const { start, end, rule } of spans) {
+    stats.total++;
+    let s, e;
+    if (identical) { s = start; e = end; }
+    else {
+      // start: first char of the span, or (if it was re-encoded) just after
+      // the previous matched char; end likewise from the right.
+      let k = start;
+      while (k < end && at(k) < 0) k++;
+      if (k === start) s = at(start);
+      else { let p = start - 1; while (p >= 0 && at(p) < 0) p--; s = p >= 0 ? at(p) + 1 : 0; }
+      k = end - 1;
+      while (k >= start && at(k) < 0) k--;
+      if (k === end - 1) e = at(end - 1) + 1;
+      else { let q = end; while (q < a.length && at(q) < 0) q++; e = q < a.length ? at(q) : b.length; }
+    }
+    // Sanity: a non-empty span of about the same length as the original.
+    if (!(e > s) || e - s > end - start + 3) { stats.dropped++; continue; }
+    out.push([s, e, rule]);
+  }
+  return out.sort((x, y) => x[0] - y[0] || y[1] - x[1]);
+}
+
+const TAJWEED_INFO = {
+  hamzat_wasl:          { label: 'Hamzat al-waṣl', arabic: 'همزة الوصل', group: 'silent', desc: 'Connecting hamza: pronounced only when starting from this word, silent when joined to what comes before.' },
+  lam_shamsiyyah:       { label: 'Lām shamsiyyah', arabic: 'اللام الشمسية', group: 'silent', desc: 'The lām of "al-" is not pronounced; it merges into the following "sun letter", which is doubled.' },
+  silent:               { label: 'Silent letter', arabic: 'حرف لا يُنطق', group: 'silent', desc: 'Written but not pronounced in recitation.' },
+  madd_2:               { label: 'Natural madd (2)', arabic: 'مد طبيعي', group: 'madd2', desc: 'Natural prolongation of 2 counts (ḥarakāt).' },
+  madd_246:             { label: 'Madd ʿāriḍ / līn (2, 4, 6)', arabic: 'مد عارض / لين', group: 'madd246', desc: 'Prolongation of 2, 4 or 6 counts when stopping on the word.' },
+  madd_munfasil:        { label: 'Madd munfaṣil (4–5)', arabic: 'مد منفصل', group: 'madd45', desc: 'Separated madd: a madd letter at the end of a word followed by a hamza at the start of the next; 4–5 counts.' },
+  madd_muttasil:        { label: 'Madd muttaṣil (4–5)', arabic: 'مد متصل', group: 'madd45', desc: 'Connected madd: a madd letter followed by a hamza in the same word; 4–5 counts.' },
+  madd_6:               { label: 'Madd lāzim (6)', arabic: 'مد لازم', group: 'madd6', desc: 'Necessary madd: prolonged 6 counts.' },
+  ghunnah:              { label: 'Ghunnah', arabic: 'غنة', group: 'ghunnah', desc: 'Nasalisation held for about 2 counts, typically on a doubled nūn or mīm.' },
+  ikhfa:                { label: 'Ikhfāʾ', arabic: 'إخفاء', group: 'ikhfa', desc: 'Nūn sākinah or tanwīn is partially hidden, with ghunnah, before one of the 15 ikhfāʾ letters.' },
+  ikhfa_shafawi:        { label: 'Ikhfāʾ shafawī', arabic: 'إخفاء شفوي', group: 'ikhfa', desc: 'Mīm sākinah is hidden, with ghunnah, before bāʾ.' },
+  idghaam_ghunnah:      { label: 'Idghām with ghunnah', arabic: 'إدغام بغنة', group: 'idgham', desc: 'Nūn sākinah or tanwīn merges into the next letter (ي ن م و) with ghunnah.' },
+  idghaam_no_ghunnah:   { label: 'Idghām without ghunnah', arabic: 'إدغام بلا غنة', group: 'idghamNo', desc: 'Nūn sākinah or tanwīn merges into the next letter (ل ر) without ghunnah.' },
+  idghaam_shafawi:      { label: 'Idghām shafawī', arabic: 'إدغام شفوي', group: 'idgham', desc: 'Mīm sākinah merges into a following mīm, with ghunnah.' },
+  idghaam_mutajanisayn: { label: 'Idghām mutajānisayn', arabic: 'إدغام متجانسين', group: 'idghamNo', desc: 'Merging of two letters that share a point of articulation but differ in qualities.' },
+  idghaam_mutaqaribayn: { label: 'Idghām mutaqāribayn', arabic: 'إدغام متقاربين', group: 'idghamNo', desc: 'Merging of two letters that are close in articulation and qualities.' },
+  iqlab:                { label: 'Iqlāb', arabic: 'إقلاب', group: 'iqlab', desc: 'Nūn sākinah or tanwīn becomes a hidden mīm, with ghunnah, before bāʾ.' },
+  qalqalah:             { label: 'Qalqalah', arabic: 'قلقلة', group: 'qalqalah', desc: 'An echoing bounce on a sākin ق ط ب ج د.' },
+};
 
 function loadMorphology() {
   const text = readFileSync(join(RAW, 'quran-morphology.txt'), 'utf8');
@@ -197,22 +337,44 @@ function run() {
   const uthmani = loadJson('uthmani.json');      // { "1": [ {chapter,verse,text}, ... ] }
   const saheeh = loadJson('english_saheeh.json'); // { "1": [ {chapter,verse,text,footnotes}, ... ] }
   const morph = loadMorphology();
+  const glosses = loadGlosses();
+  const tajweed = loadTajweed();
+  if (!glosses.size) console.warn('No word-by-word gloss data (scripts/raw/wbw-en/) — glosses skipped.');
+  if (!tajweed) console.warn('No tajweed data in scripts/raw/ — tajweed skipped.');
 
   const index = [];
   let totalWords = 0;
   let alignWarnings = 0;
+  const glossStats = { attached: 0, missing: 0, mismatched: [] };
+  const tajStats = { total: 0, dropped: 0, verses: 0 };
+  let basmalaCount = 0;
 
   for (const ch of chapters) {
     const id = ch.id;
     const arVerses = uthmani[String(id)];
     const enVerses = saheeh[String(id)];
     const verses = [];
+    let bismillah = null;
 
     for (const av of arVerses) {
       const vno = av.verse;
       const en = enVerses.find((x) => x.verse === vno) || {};
       const words = morph.get(`${id}:${vno}`) || new Map();
-      const displayWords = av.text.trim().split(/\s+/);
+      // Tanzil prefixes the basmala to verse 1 of every surah except 1 and 9.
+      // In the Ḥafṣ numbering it is not part of that verse (the morphology and
+      // the translation both start after it), so it is split off and shown as
+      // the surah's opening line instead.
+      let text = av.text;
+      let cut = 0;
+      if (vno === 1 && id !== 1) {
+        const m = text.match(basmalaPattern(uthmani['1'][0].text));
+        if (m) {
+          bismillah = m[1];
+          cut = [...m[0]].length;
+          text = text.slice(m[0].length);
+        }
+      }
+      const displayWords = text.trim().split(/\s+/);
 
       const wordList = [];
       const positions = [...words.keys()].sort((a, b) => a - b);
@@ -227,25 +389,46 @@ function run() {
         const display = aligned ? (displayWords[pos - 1] || reconstructed) : reconstructed;
         // Stem segment: the one carrying the root/lemma, else the last.
         const stem = segs.find((s) => s.root) || segs.find((s) => s.lemma) || segs[segs.length - 1];
-        wordList.push({
+        const word = {
           position: pos,
           arabic: display,
           root: stem?.root || null,
           lemma: stem?.lemma || null,
           role: stem?.role || segs[0]?.role || 'particle',
           segments: segs,
-        });
+        };
+        const g = glosses.get(`${id}:${vno}:${pos}`);
+        if (!g?.gloss) glossStats.missing++;
+        else if (skeleton(g.text) !== skeleton(reconstructed) && !VERIFIED_SPELLING_VARIANTS.has(`${id}:${vno}:${pos}`)) glossStats.mismatched.push(`${id}:${vno}:${pos}`);
+        else {
+          word.gloss = g.gloss.trim();
+          if (g.translit) word.translit = g.translit.trim();
+          glossStats.attached++;
+        }
+        wordList.push(word);
       }
       if (positions.length && displayWords.length !== positions.length) alignWarnings++;
       totalWords += wordList.length;
 
-      verses.push({
+      const verse = {
         id: vno,
-        arabic: av.text,
+        arabic: text,
         translation: (en.text || '').replace(/^\(\d+\)\s*/, ''),
         footnotes: en.footnotes || '',
         words: wordList,
-      });
+      };
+      if (tajweed) {
+        const src = tajweed.text.get(`${id}:${vno}`);
+        if (src != null) {
+          // [start, end, rule] in code-point offsets into `arabic`
+          const spans = mapTajweed(src, av.text, tajweed.ann.get(`${id}:${vno}`), tajStats);
+          verse.tajweed = cut
+            ? spans.filter(([s]) => s >= cut).map(([s, e, r]) => [s - cut, e - cut, r])
+            : spans;
+          if (src !== av.text) tajStats.verses++;
+        }
+      }
+      verses.push(verse);
     }
 
     const meta = {
@@ -257,14 +440,30 @@ function run() {
       totalVerses: ch.total_verses,
     };
     index.push(meta);
-    writeFileSync(join(OUT_SURAHS, `${id}.json`), JSON.stringify({ ...meta, verses }));
+    if (bismillah) basmalaCount++;
+    writeFileSync(
+      join(OUT_SURAHS, `${id}.json`),
+      JSON.stringify({ ...meta, ...(bismillah ? { bismillah } : {}), verses }),
+    );
   }
 
   writeFileSync(join(OUT, 'index.json'), JSON.stringify(index));
   writeFileSync(join(OUT, 'legend.json'), JSON.stringify(ROLE_INFO, null, 2));
+  if (tajweed) writeFileSync(join(OUT, 'tajweed-legend.json'), JSON.stringify(TAJWEED_INFO, null, 2));
 
   console.log(`Built ${index.length} surahs, ${totalWords} words.`);
+  console.log(`Basmala split from verse 1 in ${basmalaCount} surahs.`);
   console.log(`Word/segment alignment warnings: ${alignWarnings} verses (display-split vs morphology grouping).`);
+  console.log(
+    `Glosses: ${glossStats.attached} attached, ${glossStats.missing} missing, ` +
+      `${glossStats.mismatched.length} dropped (Arabic mismatch)` +
+      (glossStats.mismatched.length ? `: ${glossStats.mismatched.slice(0, 10).join(', ')}` : ''),
+  );
+  if (tajweed)
+    console.log(
+      `Tajweed: ${tajStats.total - tajStats.dropped}/${tajStats.total} spans kept ` +
+        `(${tajStats.dropped} dropped; ${tajStats.verses} verses re-aligned to this text encoding).`,
+    );
 }
 
 run();

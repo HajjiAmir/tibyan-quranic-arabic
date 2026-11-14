@@ -8,7 +8,8 @@ dist-ssr
 
 # Raw source datasets (large, re-cloneable). The pipeline reads these to
 # generate public/data. See scripts/raw/SOURCES.md for where to get them.
-scripts/raw/
+scripts/raw/*
+!scripts/raw/SOURCES.md
 
 # tsc -b build outputs
 *.tsbuildinfo

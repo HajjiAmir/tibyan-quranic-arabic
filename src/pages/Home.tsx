@@ -43,9 +43,9 @@ export default function Home() {
           Understand every word of the Qur&rsquo;an
         </h1>
         <p className="max-w-reading text-sm leading-relaxed text-muted">
-          Tap any word to see its grammar, root and form — colour-coded by its role in the
-          sentence. Built on the Quranic Arabic Corpus, the Uthmani text and the Saheeh
-          International translation.
+          Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
+          the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
+          the Tanzil Uthmani text and the Saheeh International translation.
         </p>
         {index && (
           <p className="tnum text-xs text-muted">

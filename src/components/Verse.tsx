@@ -1,21 +1,75 @@
-import { useState } from 'react';
+import { useState, type ReactNode } from 'react';
 import { roleVar } from '../lib/data';
-import type { Verse as VerseT } from '../types';
+import type { TajweedLegend, Verse as VerseT } from '../types';
 import GrammarPanel from './GrammarPanel';
+import TajweedText from './TajweedText';
 
 interface Props {
   surahId: number;
   verse: VerseT;
   showTranslation: boolean;
   colorWords: boolean;
+  showGloss: boolean;
+  tajweed: boolean;
+  tajweedLegend: TajweedLegend | null;
   studied: boolean;
   onToggleStudied: () => void;
+}
+
+// Saheeh International footnotes arrive as "[2]- text\n[3]- text".
+function parseFootnotes(raw: string): Map<string, string> {
+  const notes = new Map<string, string>();
+  for (const m of raw.matchAll(/\[(\d+)\]-\s*([\s\S]*?)(?=\n\[\d+\]-|$)/g)) notes.set(m[1], m[2].trim());
+  return notes;
+}
+
+function Translation({ text, footnotes }: { text: string; footnotes: string }) {
+  const [open, setOpen] = useState<string | null>(null);
+  const notes = parseFootnotes(footnotes);
+  const parts: ReactNode[] = [];
+  let last = 0;
+  for (const m of text.matchAll(/\[(\d+)\]/g)) {
+    const n = m[1];
+    const idx = m.index ?? 0;
+    if (!notes.has(n)) continue; // leave anything that is not a known footnote as written
+    parts.push(text.slice(last, idx));
+    parts.push(
+      <button
+        key={idx}
+        onClick={() => setOpen(open === n ? null : n)}
+        aria-expanded={open === n}
+        aria-label={`Footnote ${n}`}
+        className={`mx-0.5 align-super text-[0.65rem] font-semibold leading-none ${
+          open === n ? 'text-ink' : 'text-gold hover:text-ink'
+        }`}
+      >
+        {n}
+      </button>,
+    );
+    last = idx + m[0].length;
+  }
+  parts.push(text.slice(last));
+
+  return (
+    <div className="mt-4 max-w-reading">
+      <p className="text-[0.95rem] leading-relaxed text-muted">{parts}</p>
+      {open && notes.get(open) && (
+        <p className="mt-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs leading-relaxed text-muted">
+          <span className="mr-1 font-semibold text-gold">{open}</span>
+          {notes.get(open)}
+        </p>
+      )}
+    </div>
+  );
 }
 
 export default function Verse({
   verse,
   showTranslation,
   colorWords,
+  showGloss,
+  tajweed,
+  tajweedLegend,
   studied,
   onToggleStudied,
 }: Props) {
@@ -41,7 +95,13 @@ export default function Verse({
       </div>
 
       {/* authentic reading line */}
-      <p className="ar mb-4 text-right text-[2rem] leading-[2.2] sm:text-[2.4rem]">{verse.arabic}</p>
+      <p className="ar mb-4 text-right text-[2rem] leading-[2.2] sm:text-[2.4rem]">
+        {tajweed && verse.tajweed ? (
+          <TajweedText text={verse.arabic} spans={verse.tajweed} legend={tajweedLegend} />
+        ) : (
+          verse.arabic
+        )}
+      </p>
 
       {/* interactive, colour-coded word-by-word analysis */}
       <div dir="rtl" className="flex flex-wrap gap-x-1.5 gap-y-2">
@@ -51,21 +111,26 @@ export default function Verse({
             <button
               key={w.position}
               onClick={() => setSelected(isSel ? null : w.position)}
-              className={`rounded-lg px-2 py-1 transition-all ${
+              className={`flex flex-col items-center rounded-lg px-2 py-1 transition-all ${
                 isSel ? 'bg-surface-2 ring-1 ring-gold' : 'hover:bg-surface-2/60'
               }`}
-              title={w.segments.map((s) => s.description).join(' · ')}
+              title={[w.gloss, ...w.segments.map((s) => s.description)].filter(Boolean).join(' · ')}
             >
               <span className="ar text-2xl leading-tight">
                 {w.segments.map((s, i) => (
                   <span
                     key={i}
-                    style={{ color: colorWords ? roleVar(s.role) : 'var(--ink)' }}
+                    style={{ color: colorWords ? roleVar(s.role) : 'rgb(var(--ink))' }}
                   >
                     {s.arabic}
                   </span>
                 ))}
               </span>
+              {showGloss && w.gloss && (
+                <span dir="ltr" className="max-w-[9rem] text-center text-[11px] leading-tight text-muted">
+                  {w.gloss}
+                </span>
+              )}
             </button>
           );
         })}
@@ -73,11 +138,7 @@ export default function Verse({
 
       {selectedWord && <GrammarPanel word={selectedWord} />}
 
-      {showTranslation && (
-        <p className="mt-4 max-w-reading text-[0.95rem] leading-relaxed text-muted">
-          {verse.translation}
-        </p>
-      )}
+      {showTranslation && <Translation text={verse.translation} footnotes={verse.footnotes} />}
     </article>
   );
 }

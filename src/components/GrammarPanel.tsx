@@ -14,7 +14,15 @@ export default function GrammarPanel({ word }: { word: Word }) {
   return (
     <div className="mt-3 overflow-hidden rounded-2xl border border-line bg-surface">
       <div className="flex items-center justify-between gap-4 border-b border-line bg-surface-2/60 px-4 py-3">
-        <span className="ar text-3xl leading-none">{word.arabic}</span>
+        <div className="flex min-w-0 flex-col gap-1">
+          <span className="ar text-3xl leading-none">{word.arabic}</span>
+          {(word.gloss || word.translit) && (
+            <span className="text-sm leading-snug">
+              {word.translit && <span className="mr-2 italic text-muted">{word.translit}</span>}
+              {word.gloss && <span className="font-medium">&ldquo;{word.gloss}&rdquo;</span>}
+            </span>
+          )}
+        </div>
         <div className="flex flex-wrap items-center justify-end gap-1.5">
           {word.root && (
             <span className="inline-flex items-baseline gap-1 rounded-md border border-line bg-surface px-2 py-1 text-xs">

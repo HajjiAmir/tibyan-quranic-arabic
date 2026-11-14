@@ -28,6 +28,10 @@ export interface Word {
   lemma: string | null;
   role: Role;
   segments: Segment[];
+  /** Word-by-word English gloss (Quranic Arabic Corpus wording, via Quran.com). */
+  gloss?: string;
+  /** Romanised pronunciation of the word (Quran.com). */
+  translit?: string;
 }
 
 export interface Verse {
@@ -36,7 +40,32 @@ export interface Verse {
   translation: string;
   footnotes: string;
   words: Word[];
+  /** Tajweed spans: [start, end, rule], code-point offsets into `arabic`. */
+  tajweed?: TajweedSpan[];
 }
+
+export type TajweedRule =
+  | 'hamzat_wasl' | 'lam_shamsiyyah' | 'silent'
+  | 'madd_2' | 'madd_246' | 'madd_munfasil' | 'madd_muttasil' | 'madd_6'
+  | 'ghunnah' | 'ikhfa' | 'ikhfa_shafawi' | 'iqlab' | 'qalqalah'
+  | 'idghaam_ghunnah' | 'idghaam_no_ghunnah' | 'idghaam_shafawi'
+  | 'idghaam_mutajanisayn' | 'idghaam_mutaqaribayn';
+
+export type TajweedSpan = [number, number, TajweedRule];
+
+/** Colour group shared by closely related rules. */
+export type TajweedGroup =
+  | 'silent' | 'madd2' | 'madd246' | 'madd45' | 'madd6'
+  | 'ghunnah' | 'ikhfa' | 'idgham' | 'idghamNo' | 'iqlab' | 'qalqalah';
+
+export interface TajweedInfo {
+  label: string;
+  arabic: string;
+  group: TajweedGroup;
+  desc: string;
+}
+
+export type TajweedLegend = Record<TajweedRule, TajweedInfo>;
 
 export interface SurahMeta {
   id: number;
@@ -48,6 +77,8 @@ export interface SurahMeta {
 }
 
 export interface Surah extends SurahMeta {
+  /** Basmala as written in the source, shown before verse 1 (absent for 1 and 9). */
+  bismillah?: string;
   verses: Verse[];
 }
 

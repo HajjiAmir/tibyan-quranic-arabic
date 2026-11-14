@@ -33,6 +33,12 @@
   --role-negation: #b63d33;    --role-negation-bg: #f6e0dd;
   --role-particle: #9a6336;    --role-particle-bg: #f1e4d6;
 
+  /* tajweed rule groups (reading-line highlighting) */
+  --tj-silent: #9b9384;   --tj-madd2: #b8860b;   --tj-madd246: #d0661a;
+  --tj-madd45: #c8372d;   --tj-madd6: #8b1a2b;   --tj-ghunnah: #1e8a45;
+  --tj-ikhfa: #a8399a;    --tj-idgham: #2468b4;  --tj-idghamNo: #5e7286;
+  --tj-iqlab: #0b8790;    --tj-qalqalah: #4b4fd0;
+
   color-scheme: light;
 }
 
@@ -59,6 +65,11 @@
     --role-negation: #ee8a80;    --role-negation-bg: #351916;
     --role-particle: #e0a56f;    --role-particle-bg: #31220f;
 
+    --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
+    --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
+    --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
+    --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
+
     color-scheme: dark;
   }
 }
@@ -84,6 +95,11 @@
   --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
   --role-negation: #ee8a80;    --role-negation-bg: #351916;
   --role-particle: #e0a56f;    --role-particle-bg: #31220f;
+
+  --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
+  --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
+  --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
+  --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
 
   color-scheme: dark;
 }

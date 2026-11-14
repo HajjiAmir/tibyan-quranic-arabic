@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "fetch:data": "node scripts/fetch-raw.mjs",
     "build:data": "node scripts/build-data.mjs",
     "preview": "vite preview"
   },

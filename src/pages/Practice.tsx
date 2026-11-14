@@ -6,20 +6,53 @@ import {
   buildItems,
   buildQuiz,
   buildSession,
+  deckItems,
+  deckKey,
   rate,
   stats,
+  type Deck,
   type Item,
   type Question,
+  type QuizFocus,
 } from '../lib/practice';
 import GrammarPanel from '../components/GrammarPanel';
 
 type Mode = 'flashcards' | 'quiz';
+
+function Segmented<T extends string>({
+  value,
+  options,
+  onChange,
+}: {
+  value: T;
+  options: [T, string][];
+  onChange: (v: T) => void;
+}) {
+  return (
+    <div className="mx-auto flex gap-1 rounded-lg border border-line/70 p-0.5 text-xs">
+      {options.map(([v, label]) => (
+        <button
+          key={v}
+          onClick={() => onChange(v)}
+          aria-pressed={value === v}
+          className={`rounded-md px-3 py-1 font-medium transition-colors ${
+            value === v ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink'
+          }`}
+        >
+          {label}
+        </button>
+      ))}
+    </div>
+  );
+}
 
 export default function Practice() {
   const { id } = useParams();
   const surahId = Number(id);
   const [surah, setSurah] = useState<Surah | null>(null);
   const [mode, setMode] = useState<Mode>('flashcards');
+  const [deck, setDeck] = useState<Deck>('meaning');
+  const [focus, setFocus] = useState<QuizFocus>('mixed');
 
   useEffect(() => {
     setSurah(null);
@@ -57,9 +90,30 @@ export default function Practice() {
       </div>
 
       {mode === 'flashcards' ? (
-        <Flashcards items={items} />
+        <>
+          <Segmented
+            value={deck}
+            onChange={setDeck}
+            options={[
+              ['meaning', 'Meaning'],
+              ['grammar', 'Grammar'],
+            ]}
+          />
+          <Flashcards key={deck} deck={deck} items={deckItems(items, deck)} />
+        </>
       ) : (
-        <Quiz items={items} />
+        <>
+          <Segmented
+            value={focus}
+            onChange={setFocus}
+            options={[
+              ['mixed', 'Mixed'],
+              ['meaning', 'Meaning'],
+              ['grammar', 'Grammar'],
+            ]}
+          />
+          <Quiz key={focus} focus={focus} items={items} />
+        </>
       )}
     </div>
   );
@@ -67,25 +121,25 @@ export default function Practice() {
 
 /* --------------------------------- Flashcards ---------------------------- */
 
-function Flashcards({ items }: { items: Item[] }) {
-  const [session, setSession] = useState<Item[]>(() => buildSession(items));
+function Flashcards({ items, deck }: { items: Item[]; deck: Deck }) {
+  const [session, setSession] = useState<Item[]>(() => buildSession(items, deck));
   const [idx, setIdx] = useState(0);
   const [revealed, setRevealed] = useState(false);
   const [done, setDone] = useState(0);
 
-  const s = stats(items);
+  const s = stats(items, deck);
   const card = session[idx];
 
   function next(good: boolean) {
     if (!card) return;
-    rate(card.key, good);
+    rate(deckKey(card, deck), good);
     setDone((d) => d + 1);
     setRevealed(false);
     setIdx((i) => i + 1);
   }
 
   function restart() {
-    setSession(buildSession(items));
+    setSession(buildSession(items, deck));
     setIdx(0);
     setRevealed(false);
     setDone(0);
@@ -125,7 +179,9 @@ function Flashcards({ items }: { items: Item[] }) {
             <p className="ar mb-2 text-center text-5xl leading-tight">{card.arabic}</p>
             {!revealed ? (
               <div className="mt-6 flex flex-col items-center gap-3">
-                <p className="text-sm text-muted">Recall its role, root and form.</p>
+                <p className="text-sm text-muted">
+                  {deck === 'meaning' ? 'What does this word mean?' : 'Recall its role, root and form.'}
+                </p>
                 <button
                   onClick={() => setRevealed(true)}
                   className="rounded-xl border border-line bg-surface-2 px-5 py-2.5 text-sm font-medium"
@@ -135,6 +191,12 @@ function Flashcards({ items }: { items: Item[] }) {
               </div>
             ) : (
               <div className="mt-2">
+                {deck === 'meaning' && card.gloss && (
+                  <div className="mb-1 flex flex-col items-center gap-0.5 text-center">
+                    <p className="font-display text-2xl font-semibold">{card.gloss}</p>
+                    {card.translit && <p className="text-sm italic text-muted">{card.translit}</p>}
+                  </div>
+                )}
                 <GrammarPanel word={card.word} />
                 <p className="mt-3 text-center text-sm italic text-muted">
                   &ldquo;{card.verseTranslation}&rdquo;
@@ -168,8 +230,8 @@ function Flashcards({ items }: { items: Item[] }) {
 
 /* ------------------------------------ Quiz ------------------------------- */
 
-function Quiz({ items }: { items: Item[] }) {
-  const [questions, setQuestions] = useState<Question[]>(() => buildQuiz(items));
+function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
+  const [questions, setQuestions] = useState<Question[]>(() => buildQuiz(items, focus));
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<string | null>(null);
   const [score, setScore] = useState(0);
@@ -182,14 +244,14 @@ function Quiz({ items }: { items: Item[] }) {
     setPicked(opt);
     const correct = opt === q.answer;
     if (correct) setScore((s) => s + 1);
-    rate(q.item.key, correct);
+    rate(deckKey(q.item, q.deck), correct);
   }
   function next() {
     setPicked(null);
     setIdx((i) => i + 1);
   }
   function restart() {
-    setQuestions(buildQuiz(items));
+    setQuestions(buildQuiz(items, focus));
     setIdx(0);
     setPicked(null);
     setScore(0);
@@ -225,7 +287,11 @@ function Quiz({ items }: { items: Item[] }) {
       </div>
 
       <div className="rounded-2xl border border-line bg-surface p-6 text-center">
-        <p className="ar mb-3 text-5xl leading-tight">{q.item.arabic}</p>
+        {q.kind === 'word' ? (
+          <p className="mb-3 font-display text-3xl font-semibold leading-tight">{q.cue}</p>
+        ) : (
+          <p className="ar mb-3 text-5xl leading-tight">{q.cue}</p>
+        )}
         <p className="text-sm font-medium text-muted">{q.prompt}</p>
       </div>
 
@@ -238,7 +304,7 @@ function Quiz({ items }: { items: Item[] }) {
             if (isAnswer) cls = 'border-emerald bg-emerald/10 text-emerald';
             else if (isPicked) cls = 'bg-surface-2';
           }
-          const isRoot = q.kind === 'root';
+          const arabicOpt = q.kind === 'root' || q.kind === 'word';
           return (
             <button
               key={opt}
@@ -249,7 +315,7 @@ function Quiz({ items }: { items: Item[] }) {
                 picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined
               }
             >
-              <span className={isRoot ? 'ar-naskh text-2xl' : 'text-sm'}>{opt}</span>
+              <span className={arabicOpt ? 'ar-naskh text-2xl' : 'text-sm'}>{opt}</span>
             </button>
           );
         })}
@@ -257,6 +323,14 @@ function Quiz({ items }: { items: Item[] }) {
 
       {picked && (
         <div className="flex flex-col gap-3">
+          {(q.kind === 'meaning' || q.kind === 'word') && (
+            <p className="text-center text-sm">
+              <span className="ar-naskh text-xl">{q.item.arabic}</span>
+              <span className="text-muted"> — </span>
+              <span className="font-medium">{q.item.gloss}</span>
+              <span className="tnum text-muted"> ({q.item.surah}:{q.item.verse})</span>
+            </p>
+          )}
           <p className="text-center text-sm italic text-muted">&ldquo;{q.item.verseTranslation}&rdquo;</p>
           <button
             onClick={next}
@@ -277,7 +351,7 @@ function StatBar({ known, learning, unseen }: { known: number; learning: number;
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex h-2 overflow-hidden rounded-full bg-surface-2">
-        {seg(known, 'var(--emerald)')}
+        {seg(known, 'rgb(var(--emerald))')}
         {seg(learning, 'rgb(var(--gold))')}
       </div>
       <div className="flex justify-between text-[11px] text-muted">

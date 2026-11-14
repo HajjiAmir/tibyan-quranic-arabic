@@ -1,9 +1,29 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { loadSurah } from '../lib/data';
+import { loadSurah, loadTajweedLegend } from '../lib/data';
 import { studiedVerses, toggleVerse } from '../lib/progress';
-import type { Surah } from '../types';
+import type { Surah, TajweedLegend as TajweedLegendT } from '../types';
 import Verse from '../components/Verse';
+import TajweedLegend from '../components/TajweedLegend';
+
+// Reader display preferences, remembered per browser.
+const PREFS_KEY = 'tibyan.reader.v1';
+interface Prefs {
+  translation: boolean;
+  colors: boolean;
+  gloss: boolean;
+  tajweed: boolean;
+}
+const DEFAULT_PREFS: Prefs = { translation: true, colors: true, gloss: true, tajweed: false };
+
+function readPrefs(): Prefs {
+  try {
+    const raw = localStorage.getItem(PREFS_KEY);
+    return raw ? { ...DEFAULT_PREFS, ...(JSON.parse(raw) as Partial<Prefs>) } : DEFAULT_PREFS;
+  } catch {
+    return DEFAULT_PREFS;
+  }
+}
 
 function Toggle({
   on,
@@ -32,8 +52,8 @@ export default function Reader() {
   const surahId = Number(id);
   const [surah, setSurah] = useState<Surah | null>(null);
   const [err, setErr] = useState<string | null>(null);
-  const [showTranslation, setShowTranslation] = useState(true);
-  const [colorWords, setColorWords] = useState(true);
+  const [prefs, setPrefs] = useState<Prefs>(readPrefs);
+  const [tajweedLegend, setTajweedLegend] = useState<TajweedLegendT | null>(null);
   const [studied, setStudied] = useState<Set<number>>(new Set());
 
   useEffect(() => {
@@ -47,6 +67,20 @@ export default function Reader() {
       })
       .catch((e) => setErr(String(e)));
   }, [surahId]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(PREFS_KEY, JSON.stringify(prefs));
+    } catch {
+      /* ignore */
+    }
+  }, [prefs]);
+
+  useEffect(() => {
+    loadTajweedLegend().then(setTajweedLegend).catch(() => {});
+  }, []);
+
+  const toggle = (k: keyof Prefs) => () => setPrefs((p) => ({ ...p, [k]: !p[k] }));
 
   const progress = useMemo(
     () => (surah ? Math.round((studied.size / surah.totalVerses) * 100) : 0),
@@ -87,12 +121,18 @@ export default function Reader() {
       </header>
 
       <div className="sticky top-[57px] z-10 -mx-4 mb-2 flex items-center justify-between gap-2 border-b border-line/70 px-4 py-2.5 backdrop-blur-md"
-        style={{ background: 'color-mix(in srgb, var(--paper) 86%, transparent)' }}>
-        <div className="flex gap-2">
-          <Toggle on={colorWords} onClick={() => setColorWords((v) => !v)}>
+        style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)' }}>
+        <div className="flex flex-wrap gap-2">
+          <Toggle on={prefs.colors} onClick={toggle('colors')}>
             Grammar colours
           </Toggle>
-          <Toggle on={showTranslation} onClick={() => setShowTranslation((v) => !v)}>
+          <Toggle on={prefs.gloss} onClick={toggle('gloss')}>
+            Word meanings
+          </Toggle>
+          <Toggle on={prefs.tajweed} onClick={toggle('tajweed')}>
+            Tajweed
+          </Toggle>
+          <Toggle on={prefs.translation} onClick={toggle('translation')}>
             Translation
           </Toggle>
         </div>
@@ -104,14 +144,23 @@ export default function Reader() {
         </Link>
       </div>
 
+      {prefs.tajweed && tajweedLegend && <TajweedLegend legend={tajweedLegend} />}
+
+      {surah.bismillah && (
+        <p className="ar py-4 text-center text-3xl text-ink/90 sm:text-4xl">{surah.bismillah}</p>
+      )}
+
       <section>
         {surah.verses.map((v) => (
           <Verse
             key={v.id}
             surahId={surah.id}
             verse={v}
-            showTranslation={showTranslation}
-            colorWords={colorWords}
+            showTranslation={prefs.translation}
+            colorWords={prefs.colors}
+            showGloss={prefs.gloss}
+            tajweed={prefs.tajweed}
+            tajweedLegend={tajweedLegend}
             studied={studied.has(v.id)}
             onToggleStudied={() => setStudied(new Set(toggleVerse(surah.id, v.id)))}
           />
