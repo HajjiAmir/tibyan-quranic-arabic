@@ -208,8 +208,64 @@ function skeleton(s) {
 //     translation for (purpose lām, future sa, the article al-) get none.
 //  2. Stems: a short English gloss per lemma (lemmas.txt, ~1,600 lemmas). It is
 //     a dictionary sense of the lemma, not a contextual translation.
-// Suffixed pronouns have no English in the QAC, so they get none.
+// Suffixed pronouns have no English in the QAC; see REVIEWED_PRONOUNS below.
 // ---------------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------
+// Reviewed table (signed off by the project owner, brief 3): standard
+// grammatical English equivalents for the definite article and for attached
+// object/possessive pronoun suffixes ONLY. These are not interpretation; they
+// follow from person, gender and number.
+//
+// - Which suffixes: only those the QAC v2 morphology lists as an explicit
+//   PRON:<features> token on the word. Verb subject markers (e.g. the وا of
+//   كَفَرُوا) have no such token and are never glossed.
+// - Possessive vs object form, by the host (the segment the suffix attaches to):
+//     noun                          -> possessive ("his")
+//     verb or preposition           -> object     ("him")
+//     anything else (inna & sisters, other particles) or a place/time adverb
+//     such as مَعَ / عِندَ / قَبْلَ (nouns in the QAC, but rendered "with you",
+//     "before him" in English)       -> both       ("his / him")
+// ---------------------------------------------------------------------------
+
+const ARTICLE_GLOSS = 'the';
+
+// key: person + number (+ gender for 3rd singular) -> [possessive, object, expected letters]
+const REVIEWED_PRONOUNS = {
+  // 1S also appears with its yā' dropped in the Uthmani spelling (an empty
+  // segment, ـنِ, or a small ۦ), 1P with its nūn merged into a preceding nūn
+  // (إِنَّا -> segment ا / آ). Both QAC releases agree on the features there.
+  '1S': ['my', 'me', /^$|[يىۦ]|^ن$/],
+  '1P': ['our', 'us', /نا|^[اآ]/],
+  '2S': ['your', 'you', /ك/],
+  '2D': ['your', 'you', /كما/],
+  '2P': ['your', 'you', /ك[من]/],
+  '3MS': ['his', 'him', /ه/],
+  '3FS': ['her', 'her', /ها/],
+  '3D': ['their', 'them', /هما/],
+  '3P': ['their', 'them', /ه[من]/],
+};
+
+function pronounKey(feat) {
+  const m = feat.match(/^([123])([MF]?)([SDP])$/);
+  if (!m) return null;
+  const [, p, g, n] = m;
+  if (p === '3' && n === 'S') return `3${g}S`;
+  return `${p}${n}`;
+}
+
+function hostForm(host) {
+  if (!host) return 'both';
+  if (host.type === 'V') return 'object';
+  if (host.type === 'P' && host.flags.includes('P')) return 'object';
+  if (host.type === 'N') {
+    if (host.flags.some((f) => ['LOC', 'T', 'PRON', 'DEM', 'REL'].includes(f))) return 'both';
+    return 'possessive';
+  }
+  return 'both';
+}
+
+const letters = (s) => s.replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '');
 
 // [part-of-speech flag, first letter of the prefix lemma or '*'] -> QAC phrase
 const QAC_PREFIX_GLOSS = [
@@ -263,12 +319,12 @@ function loadLemmaGlosses() {
     const [lem, en] = line.split('\t');
     if (lem && en) gloss.set(lem, en.trim());
   }
-  // one line per word, in Quran order: "<prefixes> POS:X LEM:<bw> ... <suffix>"
-  const stemLemma = readFileSync(morFile, 'utf8')
-    .split(/\r?\n/)
-    .filter((l) => l.trim())
-    .map((l) => l.match(/LEM:(\S+)/)?.[1] ?? null);
-  return { gloss, stemLemma };
+  // one line per word, in Quran order: "<prefixes> POS:X LEM:<bw> ... PRON:3MS"
+  const lines = readFileSync(morFile, 'utf8').split(/\r?\n/).filter((l) => l.trim());
+  const stemLemma = lines.map((l) => l.match(/LEM:(\S+)/)?.[1] ?? null);
+  // attached object/possessive pronouns (subject markers have no PRON: token)
+  const attachedPron = lines.map((l) => [...l.matchAll(/PRON:(\S+)/g)].map((m) => m[1]));
+  return { gloss, stemLemma, attachedPron };
 }
 
 // Positions where the two sources spell the same word differently in a way the
@@ -430,6 +486,7 @@ function run() {
   const glossStats = { attached: 0, missing: 0, mismatched: [] };
   const tajStats = { total: 0, dropped: 0, verses: 0 };
   let basmalaCount = 0;
+  const pronStats = { possessive: 0, object: 0, both: 0, article: 0, unmatched: [] };
 
   for (const ch of chapters) {
     const id = ch.id;
@@ -479,9 +536,41 @@ function run() {
           role: stem?.role || segs[0]?.role || 'particle',
           segments: segs,
         };
+        // Attached pronouns: the last N PRON suffixes, N = QAC v2 PRON: tokens.
+        if (lemmaGlosses) {
+          const v2 = lemmaGlosses.attachedPron[segs[0]._word] || [];
+          const sufIdx = segs.map((sg, i) => (sg.flags.includes('PRON') && sg.flags.includes('SUFF') ? i : -1)).filter((i) => i >= 0);
+          if (v2.length > sufIdx.length) pronStats.unmatched.push(`${id}:${vno}:${pos}`);
+          else {
+            const take = sufIdx.slice(sufIdx.length - v2.length);
+            take.forEach((si, k) => {
+              const seg = segs[si];
+              const ours = pronounKey(`${seg.person ?? ''}${seg.gender ?? ''}${seg.number ?? ''}`);
+              const theirs = pronounKey(v2[k].replace(/^([123])[MF]([DP])$/, '$1$2'));
+              const entry = ours && REVIEWED_PRONOUNS[ours];
+              if (!entry || ours !== theirs || !entry[2].test(letters(seg.arabic))) {
+                pronStats.unmatched.push(`${id}:${vno}:${pos} ${seg.arabic} ${ours}/${v2[k]}`);
+                return;
+              }
+              let h = si - 1;
+              while (h >= 0 && segs[h].flags.includes('SUFF')) h--;
+              const form = hostForm(segs[h]);
+              seg.gloss = form === 'possessive' ? entry[0] : form === 'object' ? entry[1] : entry[0] === entry[1] ? entry[0] : `${entry[0]} / ${entry[1]}`;
+              seg.glossSource = 'reviewed-table';
+              seg.pronounForm = form;
+              pronStats[form]++;
+            });
+          }
+        }
+
         // Per-segment English from the QAC (see QAC_PREFIX_GLOSS / loadLemmaGlosses).
         for (const seg of segs) {
-          if (seg.prefix) {
+          if (seg.gloss) continue;
+          if (seg.prefix && seg.flags.includes('DET')) {
+            seg.gloss = ARTICLE_GLOSS;
+            seg.glossSource = 'reviewed-table';
+            pronStats.article++;
+          } else if (seg.prefix) {
             const pg = prefixGloss(seg);
             if (pg) { seg.gloss = pg; seg.glossSource = 'qac-prefix'; segStats.prefix++; } else segStats.prefixNone++;
           } else if (seg.flags.includes('SUFF')) {
@@ -561,6 +650,11 @@ function run() {
       `stems ${segStats.stem} (no QAC lemma gloss: ${segStats.stemNone}, lemma mismatch: ${segStats.stemMismatch}); ` +
       `suffixes ${segStats.suffix} (QAC gives none).` +
       (segStats.mismatchSamples.length ? ` Dropped e.g.: ${segStats.mismatchSamples.slice(0, 8).join(', ')}` : ''),
+  );
+  console.log(
+    `Reviewed table: article ${pronStats.article}; attached pronouns ${pronStats.possessive} possessive, ` +
+      `${pronStats.object} object, ${pronStats.both} both; ${pronStats.unmatched.length} left blank` +
+      (pronStats.unmatched.length ? `: ${pronStats.unmatched.slice(0, 8).join(', ')}` : ''),
   );
   if (tajweed)
     console.log(

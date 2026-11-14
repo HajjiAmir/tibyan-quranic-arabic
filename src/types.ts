@@ -23,10 +23,14 @@ export interface Segment {
    * English for this segment, from the Quranic Arabic Corpus only:
    * 'qac-prefix' = the QAC's "usually translated as" phrase for a prefixed particle;
    * 'qac-lemma'  = the QAC's short gloss for the stem's lemma (a dictionary sense).
-   * Absent where the QAC has no English (e.g. attached pronouns, al-).
+   * 'reviewed-table' = the owner-reviewed grammatical equivalent for the
+   *   article al- ("the") or an attached object/possessive pronoun.
+   * Absent where no source has English (e.g. verb subject markers, many stems).
    */
   gloss?: string;
-  glossSource?: 'qac-prefix' | 'qac-lemma';
+  glossSource?: 'qac-prefix' | 'qac-lemma' | 'reviewed-table';
+  /** For attached pronouns: the form chosen from the host's part of speech. */
+  pronounForm?: 'possessive' | 'object' | 'both';
 }
 
 export interface Word {

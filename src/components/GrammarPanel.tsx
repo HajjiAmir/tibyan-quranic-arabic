@@ -10,22 +10,35 @@ function Tag({ label, value, arabic }: { label: string; value: string; arabic?: 
   );
 }
 
-// English for one segment, exactly as the Quranic Arabic Corpus gives it.
+const FORM_NOTE: Record<NonNullable<Segment['pronounForm']>, string> = {
+  possessive: 'possessive — attached to a noun',
+  object: 'object — attached to a verb or preposition',
+  both: 'both forms — the host is a particle or adverb',
+};
+
+// English for one segment: the QAC's own wording, or the reviewed grammatical table.
 function SegmentGloss({ seg }: { seg: Segment }) {
   if (!seg.gloss) return null;
-  const isPrefix = seg.glossSource === 'qac-prefix';
+  const [label, title] =
+    seg.glossSource === 'qac-prefix'
+      ? ['usually', 'How the Quranic Arabic Corpus says this prefix is usually translated']
+      : seg.glossSource === 'qac-lemma'
+        ? ['lemma sense', 'The Quranic Arabic Corpus gloss for this lemma (a dictionary sense, not tied to this verse)']
+        : [
+            seg.pronounForm
+              ? seg.pronounForm === 'both'
+                ? 'both forms'
+                : seg.pronounForm
+              : 'article',
+            seg.pronounForm
+              ? `Standard English equivalent of this attached pronoun: ${FORM_NOTE[seg.pronounForm]}`
+              : 'Standard English equivalent of the definite article',
+          ];
   return (
     <span className="inline-flex items-baseline gap-1.5">
       <span className="text-[0.95rem] font-medium text-ink">&ldquo;{seg.gloss}&rdquo;</span>
-      <span
-        className="text-[10px] uppercase tracking-[0.08em] text-muted"
-        title={
-          isPrefix
-            ? 'How the Quranic Arabic Corpus says this prefix is usually translated'
-            : 'The Quranic Arabic Corpus gloss for this lemma (a dictionary sense, not tied to this verse)'
-        }
-      >
-        {isPrefix ? 'usually' : 'lemma sense'}
+      <span className="text-[10px] uppercase tracking-[0.08em] text-muted" title={title}>
+        {label}
       </span>
     </span>
   );
@@ -86,9 +99,11 @@ export default function GrammarPanel({ word }: { word: Word }) {
       </ul>
 
       <p className="border-t border-line/70 bg-surface-2/40 px-5 py-2.5 text-[11px] leading-relaxed text-muted">
-        Word meaning and part meanings from the Quranic Arabic Corpus
-        {anySegGloss ? ' (prefix: its usual translation; stem: the lemma’s gloss)' : ''}. Parts the
-        corpus gives no English for are left blank.
+        Word meaning from the Quranic Arabic Corpus.
+        {anySegGloss
+          ? ' Part meanings: prefixes and stems from the corpus; the article and attached pronouns are standard grammatical equivalents.'
+          : ''}{' '}
+        Parts with no sourced English are left blank.
       </p>
     </div>
   );

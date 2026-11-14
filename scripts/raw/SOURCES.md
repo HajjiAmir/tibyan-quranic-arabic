@@ -38,8 +38,18 @@ npm run build:data   # regenerates public/data/
     some lemmas differently). 27,520 stems glossed; 62 dropped where the two
     releases disagree on the lemma. Many common lemmas (e.g. عَبْد, اسْم,
     رَبّ) have no gloss in this file yet, so their stems show nothing.
-  - *Suffixed pronouns:* the QAC gives grammatical features only (e.g. "third
-    person masculine singular"), no English, so they show nothing.
+  - *The article and attached pronouns* use a small **reviewed table** of
+    standard grammatical equivalents, signed off by the project owner (brief 3):
+    al- = "the"; attached pronouns by person/number/gender (1S my/me, 1P our/us,
+    2nd person your/you, 3MS his/him, 3FS her, 3rd dual/plural their/them).
+    Only suffixes the QAC v2 morphology lists as an explicit `PRON:` token are
+    glossed, so verb subject markers (e.g. the وا of كَفَرُوا) never are; each
+    one's features must agree in both QAC releases and its spelling must fit
+    the pronoun. Form by host: noun = possessive, verb or preposition = object,
+    particles (إِنَّ etc.) and place/time adverbs (مَعَ, عِندَ, قَبْلَ…) = both
+    forms. Current counts: 8,377 articles; 5,140 possessive, 5,567 object, 1,533
+    both; 4 left blank where the two releases disagree. Stems without a QAC
+    gloss stay blank.
 
 - **Basmala.** Tanzil prefixes the basmala to verse 1 of every surah except 1
   and 9. In the Ḥafṣ numbering it is not part of that verse (the morphology and
