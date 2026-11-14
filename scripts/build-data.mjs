@@ -225,7 +225,9 @@ function skeleton(s) {
 //     verb or preposition           -> object     ("him")
 //     place/time adverb (QAC LOC/T tags: مَعَ, عِندَ, قَبْلَ, بَعْدَ …) -> object,
 //       since English treats them as prepositions ("with you", "before him")
-//       (owner decision, brief 4)
+//       (owner decision, brief 4). The QAC tags these as plain nouns after a
+//       preposition (مِن قَبْلِكَ), so a signed-off whitelist of twelve adverb
+//       lemmas (brief 5) also routes to object when matched exactly.
 //     anything else (inna & sisters, other particles, pronoun hosts)
 //                                   -> both       ("his / him")
 // ---------------------------------------------------------------------------
@@ -256,12 +258,19 @@ function pronounKey(feat) {
   return `${p}${n}`;
 }
 
+// Signed off by the owner (brief 5): exact lemma match, nothing broader, so
+// genuine possessives on other nouns (وَجْهَهُۥ "his face") are untouched.
+const ADVERB_LEMMAS = new Set([
+  'قَبْل', 'بَعْد', 'دُون', 'تَحْت', 'فَوْق', 'خَلْف', 'وَراء', 'بَيْن', 'حَوْل', 'عِند', 'لَدُن', 'قِبَل',
+]);
+
 function hostForm(host) {
   if (!host) return 'both';
   if (host.type === 'V') return 'object';
   if (host.type === 'P' && host.flags.includes('P')) return 'object';
   if (host.type === 'N') {
     if (host.flags.some((f) => ['LOC', 'T'].includes(f))) return 'object';
+    if (host.lemma && ADVERB_LEMMAS.has(host.lemma)) return 'object';
     if (host.flags.some((f) => ['PRON', 'DEM', 'REL'].includes(f))) return 'both';
     return 'possessive';
   }

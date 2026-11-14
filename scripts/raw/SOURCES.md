@@ -47,10 +47,12 @@ npm run build:data   # regenerates public/data/
     one's features must agree in both QAC releases and its spelling must fit
     the pronoun. Form by host: noun = possessive; verb, preposition, or a host the
     QAC tags as a place/time adverb (LOC/T: مَعَ, عِندَ, حَوْلَ…) = object
-    (brief 4); particles (إِنَّ etc.) and pronoun hosts = both forms. Note: the
-    QAC tags قَبْل/بَعْد/دُون… as plain nouns after a preposition (مِن قَبْلِكَ),
-    so those follow the noun rule. Current counts: 8,377 articles; 5,140
-    possessive, 5,969 object, 1,131 both; 4 left blank where the two releases disagree. Stems without a QAC
+    (brief 4); particles (إِنَّ etc.) and pronoun hosts = both forms. The QAC
+    tags adverbs as plain nouns after a preposition (مِن قَبْلِكَ), so a
+    signed-off whitelist (brief 5) also gives the object form when the host's
+    lemma is exactly one of: قَبْل، بَعْد، دُون، تَحْت، فَوْق، خَلْف، وَراء، بَيْن،
+    حَوْل، عِند، لَدُن، قِبَل. Current counts: 8,377 articles; 4,799
+    possessive, 6,310 object, 1,131 both; 4 left blank where the two releases disagree. Stems without a QAC
     gloss stay blank.
 
 - **Basmala.** Tanzil prefixes the basmala to verse 1 of every surah except 1
