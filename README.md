@@ -19,7 +19,11 @@ Nothing about the Qur'an is authored by hand in this app. See
   lemma, case, mood and agreement for every word segment)
 - **Translation** — Saheeh International
 - **Word-by-word English** — Quranic Arabic Corpus glosses, via the Quran.com API
+- **Per-segment English** — Quranic Arabic Corpus prefix glosses and lemma glosses
+  (where the corpus has them; see SOURCES.md)
 - **Tajweed** — cpfair/quran-tajweed (automated rule annotation, ḥafṣ ʿan ʿāṣim)
+
+Typography: Amiri Quran for the Qur'an text, self-hosted (SIL OFL), no font CDN.
 
 ## Develop
 

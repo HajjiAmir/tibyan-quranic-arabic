@@ -51,10 +51,10 @@ function Translation({ text, footnotes }: { text: string; footnotes: string }) {
   parts.push(text.slice(last));
 
   return (
-    <div className="mt-4 max-w-reading">
-      <p className="text-[0.95rem] leading-relaxed text-muted">{parts}</p>
+    <div className="mt-6 max-w-reading">
+      <p className="text-[0.975rem] leading-7 text-ink/75">{parts}</p>
       {open && notes.get(open) && (
-        <p className="mt-2 rounded-xl border border-line bg-surface px-3 py-2 text-xs leading-relaxed text-muted">
+        <p className="mt-3 rounded-xl border border-line/80 bg-surface/70 px-4 py-3 text-[0.8rem] leading-relaxed text-muted">
           <span className="mr-1 font-semibold text-gold">{open}</span>
           {notes.get(open)}
         </p>
@@ -62,6 +62,9 @@ function Translation({ text, footnotes }: { text: string; footnotes: string }) {
     </div>
   );
 }
+
+const AR_DIGITS = '٠١٢٣٤٥٦٧٨٩';
+const arabicNumber = (n: number) => String(n).replace(/\d/g, (d) => AR_DIGITS[Number(d)]);
 
 export default function Verse({
   verse,
@@ -77,46 +80,53 @@ export default function Verse({
   const selectedWord = verse.words.find((w) => w.position === selected) ?? null;
 
   return (
-    <article className="scroll-mt-24 border-b border-line/70 py-6" id={`v${verse.id}`}>
-      <div className="mb-3 flex items-center justify-between gap-3">
-        <span className="tnum flex h-7 min-w-7 items-center justify-center rounded-full border border-line bg-surface px-2 text-xs font-semibold text-gold">
-          {verse.id}
+    <article className="scroll-mt-28 border-b border-line/60 py-8 sm:py-10" id={`v${verse.id}`}>
+      <div className="mb-2 flex items-center justify-between gap-3">
+        <span className="tnum text-[11px] font-medium uppercase tracking-[0.14em] text-muted">
+          Āyah {verse.id}
         </span>
         <button
           onClick={onToggleStudied}
-          className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+          aria-pressed={studied}
+          className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
             studied
               ? 'border-emerald/40 bg-emerald/10 text-emerald'
-              : 'border-line text-muted hover:text-ink'
+              : 'border-transparent text-muted hover:border-line hover:text-ink'
           }`}
         >
           {studied ? '✓ Studied' : 'Mark studied'}
         </button>
       </div>
 
-      {/* authentic reading line */}
-      <p className="ar mb-4 text-right text-[2rem] leading-[2.2] sm:text-[2.4rem]">
+      {/* the authentic reading line — the centrepiece */}
+      <p className="quran-line">
         {tajweed && verse.tajweed ? (
           <TajweedText text={verse.arabic} spans={verse.tajweed} legend={tajweedLegend} />
         ) : (
           verse.arabic
         )}
+        <span className="ayah-mark" aria-label={`end of verse ${verse.id}`}>
+          {'\u06DD' + arabicNumber(verse.id)}
+        </span>
       </p>
 
-      {/* interactive, colour-coded word-by-word analysis */}
-      <div dir="rtl" className="flex flex-wrap gap-x-1.5 gap-y-2">
+      {/* interlinear, colour-coded word-by-word analysis */}
+      <div
+        dir="rtl"
+        className="mt-5 flex flex-wrap items-start gap-x-1 gap-y-3 border-t border-dashed border-line/70 pt-5"
+      >
         {verse.words.map((w) => {
           const isSel = w.position === selected;
           return (
             <button
               key={w.position}
               onClick={() => setSelected(isSel ? null : w.position)}
-              className={`flex flex-col items-center rounded-lg px-2 py-1 transition-all ${
-                isSel ? 'bg-surface-2 ring-1 ring-gold' : 'hover:bg-surface-2/60'
+              className={`flex min-w-[2.75rem] flex-col items-center gap-0.5 rounded-xl px-2.5 pb-1.5 pt-0.5 transition-colors ${
+                isSel ? 'bg-surface ring-1 ring-gold/60 shadow-sm' : 'hover:bg-surface/80'
               }`}
               title={[w.gloss, ...w.segments.map((s) => s.description)].filter(Boolean).join(' · ')}
             >
-              <span className="ar text-2xl leading-tight">
+              <span className="ar text-[1.65rem] leading-[1.9]">
                 {w.segments.map((s, i) => (
                   <span
                     key={i}
@@ -127,7 +137,7 @@ export default function Verse({
                 ))}
               </span>
               {showGloss && w.gloss && (
-                <span dir="ltr" className="max-w-[9rem] text-center text-[11px] leading-tight text-muted">
+                <span dir="ltr" className="max-w-[8.5rem] text-center text-[11.5px] leading-snug text-muted">
                   {w.gloss}
                 </span>
               )}

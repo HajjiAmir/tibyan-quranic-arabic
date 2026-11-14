@@ -38,14 +38,33 @@ function Toggle({
     <button
       onClick={onClick}
       aria-pressed={on}
-      className={`rounded-full border px-3 py-1.5 text-xs font-medium transition-colors ${
-        on ? 'border-gold/50 bg-gold/10 text-gold' : 'border-line text-muted hover:text-ink'
+      className={`flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+        on
+          ? 'border-line bg-surface text-ink shadow-[0_1px_2px_rgb(0_0_0/0.05)]'
+          : 'border-transparent text-muted hover:text-ink'
       }`}
     >
+      <span
+        aria-hidden
+        className={`h-1.5 w-1.5 rounded-full transition-colors ${on ? 'bg-gold' : 'bg-line'}`}
+      />
       {children}
     </button>
   );
 }
+
+function Ornament() {
+  return (
+    <div aria-hidden className="flex items-center justify-center gap-3 text-gold/70">
+      <span className="h-px w-12 bg-gradient-to-l from-gold/50 to-transparent" />
+      <span className="h-1.5 w-1.5 rotate-45 bg-gold/60" />
+      <span className="h-px w-12 bg-gradient-to-r from-gold/50 to-transparent" />
+    </div>
+  );
+}
+
+const navLink =
+  'group flex items-center gap-2 rounded-full border border-line bg-surface px-4 py-2 text-sm font-medium text-muted transition-colors hover:border-gold/50 hover:text-ink';
 
 export default function Reader() {
   const { id } = useParams();
@@ -91,43 +110,44 @@ export default function Reader() {
   if (!surah) return <ReaderSkeleton />;
 
   return (
-    <div className="flex flex-col">
-      <header className="relative mb-2 overflow-hidden rounded-3xl border border-line bg-surface p-6 sm:p-8">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-60"
-          style={{
-            background:
-              'radial-gradient(90% 120% at 100% 0%, color-mix(in srgb, rgb(var(--gold)) 14%, transparent), transparent 55%)',
-          }}
-        />
-        <div className="relative flex flex-col items-center gap-2 text-center">
-          <span className="tnum text-xs font-medium uppercase tracking-widest text-muted">
-            Surah {surah.id} · {surah.type} · {surah.totalVerses} verses
-          </span>
-          <h1 className="ar text-5xl leading-tight text-gold sm:text-6xl">{surah.name}</h1>
+    <div className="mx-auto flex max-w-[52rem] flex-col">
+      <header className="flex flex-col items-center gap-3 pb-8 pt-6 text-center sm:pt-10">
+        <span className="tnum text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
+          Surah {surah.id} · {surah.type === 'meccan' ? 'Meccan' : 'Medinan'} · {surah.totalVerses}{' '}
+          verses
+        </span>
+        <h1 className="ar-title text-[3.4rem] text-gold sm:text-[4.2rem]">{surah.name}</h1>
+        <div className="flex flex-col items-center gap-1">
           <h2 className="font-display text-2xl font-semibold tracking-tight">
             {surah.transliteration}
           </h2>
-          <p className="text-sm text-muted">{surah.translation}</p>
-          {studied.size > 0 && (
-            <div className="mt-2 flex w-full max-w-xs items-center gap-2">
-              <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-surface-2">
-                <div className="h-full rounded-full bg-emerald" style={{ width: `${progress}%` }} />
-              </div>
-              <span className="tnum text-xs text-muted">{studied.size}/{surah.totalVerses}</span>
+          <p className="font-display text-[0.95rem] italic text-muted">{surah.translation}</p>
+        </div>
+        {studied.size > 0 && (
+          <div className="mt-2 flex w-full max-w-[14rem] items-center gap-2.5">
+            <div className="h-1 flex-1 overflow-hidden rounded-full bg-surface-2">
+              <div className="h-full rounded-full bg-emerald" style={{ width: `${progress}%` }} />
             </div>
-          )}
+            <span className="tnum text-[11px] text-muted">
+              {studied.size}/{surah.totalVerses}
+            </span>
+          </div>
+        )}
+        <div className="mt-3">
+          <Ornament />
         </div>
       </header>
 
-      <div className="sticky top-[57px] z-10 -mx-4 mb-2 flex items-center justify-between gap-2 border-b border-line/70 px-4 py-2.5 backdrop-blur-md"
-        style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)' }}>
-        <div className="flex flex-wrap gap-2">
-          <Toggle on={prefs.colors} onClick={toggle('colors')}>
-            Grammar colours
-          </Toggle>
+      <div
+        className="sticky top-16 z-10 -mx-4 mb-2 flex items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
+        style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)' }}
+      >
+        <div className="no-scrollbar -mx-1 flex min-w-0 gap-0.5 overflow-x-auto px-1 py-0.5">
           <Toggle on={prefs.gloss} onClick={toggle('gloss')}>
-            Word meanings
+            Meanings
+          </Toggle>
+          <Toggle on={prefs.colors} onClick={toggle('colors')}>
+            Grammar
           </Toggle>
           <Toggle on={prefs.tajweed} onClick={toggle('tajweed')}>
             Tajweed
@@ -138,16 +158,22 @@ export default function Reader() {
         </div>
         <Link
           to={`/surah/${surah.id}/practice`}
-          className="rounded-full border border-emerald/50 bg-emerald/10 px-3 py-1.5 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/20"
+          className="shrink-0 rounded-full border border-emerald/40 bg-emerald/10 px-3.5 py-1 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/15"
         >
-          Practice ✦
+          Practice
         </Link>
       </div>
 
-      {prefs.tajweed && tajweedLegend && <TajweedLegend legend={tajweedLegend} />}
+      {prefs.tajweed && tajweedLegend && (
+        <div className="mt-3">
+          <TajweedLegend legend={tajweedLegend} />
+        </div>
+      )}
 
       {surah.bismillah && (
-        <p className="ar py-4 text-center text-3xl text-ink/90 sm:text-4xl">{surah.bismillah}</p>
+        <p className="ar pb-2 pt-10 text-center text-[2.1rem] leading-[2] text-ink/90 sm:text-[2.5rem]">
+          {surah.bismillah}
+        </p>
       )}
 
       <section>
@@ -167,23 +193,19 @@ export default function Reader() {
         ))}
       </section>
 
-      <nav className="mt-8 flex items-center justify-between gap-3">
+      <nav className="mt-12 flex items-center justify-between gap-3">
         {surah.id > 1 ? (
-          <Link
-            to={`/surah/${surah.id - 1}`}
-            className="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium transition-colors hover:border-gold/50"
-          >
-            ← Previous
+          <Link to={`/surah/${surah.id - 1}`} className={navLink}>
+            <span className="transition-transform group-hover:-translate-x-0.5">←</span> Surah{' '}
+            {surah.id - 1}
           </Link>
         ) : (
           <span />
         )}
         {surah.id < 114 ? (
-          <Link
-            to={`/surah/${surah.id + 1}`}
-            className="rounded-xl border border-line bg-surface px-4 py-2.5 text-sm font-medium transition-colors hover:border-gold/50"
-          >
-            Next →
+          <Link to={`/surah/${surah.id + 1}`} className={navLink}>
+            Surah {surah.id + 1}{' '}
+            <span className="transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
         ) : (
           <span />
@@ -196,9 +218,9 @@ export default function Reader() {
 function ReaderSkeleton() {
   return (
     <div className="flex flex-col gap-4">
-      <div className="h-48 animate-pulse rounded-3xl border border-line bg-surface" />
+      <div className="mx-auto mt-8 h-40 w-full max-w-[52rem] animate-pulse rounded-3xl bg-surface/70" />
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="h-28 animate-pulse rounded-2xl border border-line bg-surface" />
+        <div key={i} className="mx-auto h-28 w-full max-w-[52rem] animate-pulse rounded-2xl bg-surface/70" />
       ))}
     </div>
   );

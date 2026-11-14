@@ -19,6 +19,14 @@ export interface Segment {
   verbForm?: string;
   prefix?: boolean;
   flags: string[];
+  /**
+   * English for this segment, from the Quranic Arabic Corpus only:
+   * 'qac-prefix' = the QAC's "usually translated as" phrase for a prefixed particle;
+   * 'qac-lemma'  = the QAC's short gloss for the stem's lemma (a dictionary sense).
+   * Absent where the QAC has no English (e.g. attached pronouns, al-).
+   */
+  gloss?: string;
+  glossSource?: 'qac-prefix' | 'qac-lemma';
 }
 
 export interface Word {

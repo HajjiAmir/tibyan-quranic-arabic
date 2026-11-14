@@ -38,17 +38,18 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="flex flex-col items-center gap-3 pt-4 text-center">
-        <h1 className="max-w-reading font-display text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
+      <section className="flex flex-col items-center gap-4 pb-2 pt-10 text-center sm:pt-14">
+        <span className="ar-title text-[2.6rem] leading-none text-gold sm:text-5xl">تِبْيَان</span>
+        <h1 className="max-w-reading font-display text-[2rem] font-semibold leading-tight tracking-tight text-balance sm:text-[2.6rem]">
           Understand every word of the Qur&rsquo;an
         </h1>
-        <p className="max-w-reading text-sm leading-relaxed text-muted">
+        <p className="max-w-[38rem] text-[0.95rem] leading-7 text-muted text-pretty">
           Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
           the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
           the Tanzil Uthmani text and the Saheeh International translation.
         </p>
         {index && (
-          <p className="tnum text-xs text-muted">
+          <p className="tnum text-[11px] uppercase tracking-[0.14em] text-muted">
             114 surahs · {index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString()} verses ·{' '}
             {totalStudied()} verses studied
           </p>
@@ -105,19 +106,23 @@ function SurahCard({ s }: { s: SurahMeta }) {
     <li>
       <Link
         to={`/surah/${s.id}`}
-        className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-line bg-surface p-4 transition-all hover:-translate-y-0.5 hover:border-gold/50 hover:shadow-lg"
+        className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-line/80 bg-surface px-4 py-3.5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-gold/40 hover:shadow-[0_6px_20px_-12px_rgb(var(--ink)/0.25)]"
       >
-        <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-line bg-surface-2">
-          <span className="tnum font-display text-sm font-semibold text-gold">{s.id}</span>
+        <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
+          <span
+            aria-hidden
+            className="absolute inset-[5px] rotate-45 rounded-[5px] border border-gold/35 transition-colors group-hover:border-gold/70"
+          />
+          <span className="tnum relative font-display text-[0.8rem] font-semibold text-gold">{s.id}</span>
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline justify-between gap-2">
             <h3 className="truncate font-display text-base font-semibold">{s.transliteration}</h3>
-            <span className="ar shrink-0 text-xl text-ink/90">{s.name}</span>
+            <span className="ar-title shrink-0 text-[1.35rem] leading-none text-ink/85">{s.name}</span>
           </div>
           <div className="mt-0.5 flex items-center justify-between gap-2">
             <p className="truncate text-xs text-muted">{s.translation}</p>
-            <span className="shrink-0 text-[10px] uppercase tracking-wide text-muted">
+            <span className="tnum shrink-0 text-[10px] uppercase tracking-[0.1em] text-muted/90">
               {s.type} · {s.totalVerses}
             </span>
           </div>
@@ -136,7 +141,7 @@ function SkeletonGrid() {
   return (
     <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: 9 }).map((_, i) => (
-        <li key={i} className="h-[78px] animate-pulse rounded-2xl border border-line bg-surface" />
+        <li key={i} className="h-[74px] animate-pulse rounded-2xl bg-surface/70" />
       ))}
     </ul>
   );

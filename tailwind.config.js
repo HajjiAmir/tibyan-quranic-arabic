@@ -7,8 +7,8 @@ export default {
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
         display: ['Lora', 'Georgia', 'serif'],
-        arabic: ['Amiri', 'Scheherazade New', 'serif'],
-        naskh: ['"Scheherazade New"', 'Amiri', 'serif'],
+        arabic: ['"Amiri Quran"', '"Scheherazade New"', 'serif'],
+        naskh: ['"Scheherazade New"', '"Amiri Quran"', 'serif'],
       },
       colors: {
         ink: 'rgb(var(--ink) / <alpha-value>)',

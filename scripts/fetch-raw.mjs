@@ -13,6 +13,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const RAW = join(__dirname, 'raw');
 const FORCE = process.argv.includes('--force');
 
+const QAC_V2 = '17a9062416eccc332111ef3e84f74072d709e187';
+
 const FILES = [
   // Tanzil Uthmani text, Saheeh International translation, surah metadata
   ['uthmani.json', 'https://raw.githubusercontent.com/risan/quran-json/main/data/tanzil/uthmani.json'],
@@ -25,6 +27,11 @@ const FILES = [
   // text file their character offsets refer to.
   ['tajweed.hafs.uthmani-pause-sajdah.json', 'https://raw.githubusercontent.com/cpfair/quran-tajweed/master/output/tajweed.hafs.uthmani-pause-sajdah.json'],
   ['tajweed-quran-uthmani.txt', 'https://github.com/cpfair/quran-tajweed/files/7281388/quran-uthmani.txt'],
+  // Quranic Arabic Corpus v2 (kaisdukes/quranic-corpus-api), pinned commit:
+  // per-lemma English glosses and the per-word morphology (Buckwalter) used to
+  // join them to our words.
+  ['qac-lemmas.txt', `https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/${QAC_V2}/src/main/resources/data/lemmas.txt`],
+  ['qac-morphology.txt', `https://raw.githubusercontent.com/kaisdukes/quranic-corpus-api/${QAC_V2}/src/main/resources/data/morphology.txt`],
 ];
 
 async function get(url, as = 'text') {

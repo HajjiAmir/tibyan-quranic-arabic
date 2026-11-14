@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { useTheme } from './lib/theme';
 import Home from './pages/Home';
@@ -25,15 +26,20 @@ export default function App() {
   const loc = useLocation();
   const onReader = loc.pathname.startsWith('/surah/');
 
+  // Each page starts at the top (hash routing would otherwise keep the old offset).
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [loc.pathname]);
+
   return (
     <div className="min-h-screen">
       <header
         className="sticky top-0 z-20 border-b border-line/80 backdrop-blur-md"
         style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)' }}
       >
-        <div className="gutter mx-auto flex max-w-5xl items-center justify-between py-3">
+        <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">
           <Link to="/" className="group flex items-baseline gap-2.5">
-            <span className="ar text-2xl leading-none text-gold" style={{ direction: 'rtl' }}>
+            <span className="ar-title text-[1.6rem] leading-none text-gold">
               تِبيان
             </span>
             <span className="hidden font-display text-lg font-semibold tracking-tight sm:inline">
@@ -47,7 +53,7 @@ export default function App() {
                 to="/"
                 className="rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:text-ink"
               >
-                ← All Surahs
+                ← Surahs
               </Link>
             )}
             <ThemeButton />

@@ -197,6 +197,80 @@ function skeleton(s) {
     .replace(/\s/g, '');
 }
 
+// ---------------------------------------------------------------------------
+// Per-segment English (Quranic Arabic Corpus only; nothing is authored here).
+//
+// The QAC has no English gloss for each segment of a word. What it does have:
+//  1. Prefixes: its word pages describe each prefixed particle with a fixed
+//     "usually translated as …" phrase. These are copied verbatim from the QAC
+//     description generator (kaisdukes/quranic-corpus-api,
+//     nlg/SummaryGenerator.java, writePrefixDescription). Prefixes it gives no
+//     translation for (purpose lām, future sa, the article al-) get none.
+//  2. Stems: a short English gloss per lemma (lemmas.txt, ~1,600 lemmas). It is
+//     a dictionary sense of the lemma, not a contextual translation.
+// Suffixed pronouns have no English in the QAC, so they get none.
+// ---------------------------------------------------------------------------
+
+// [part-of-speech flag, first letter of the prefix lemma or '*'] -> QAC phrase
+const QAC_PREFIX_GLOSS = [
+  ['INTG', '*', 'is / are / do'],
+  ['EQ', '*', 'whether'],
+  ['EMPH', '*', 'surely / indeed'],
+  ['IMPV', '*', 'let'],
+  ['CONJ', '*', 'and'],
+  ['REM', '*', 'then / so'],
+  ['SUP', '*', 'then / so'],
+  ['RSLT', '*', 'then / so'],
+  ['CIRC', '*', 'while'],
+  ['COM', '*', 'with'],
+  ['CAUS', '*', 'then / so'],
+  ['P', 'ب', 'with / by'],
+  ['P', 'ك', 'like / as'],
+  ['P', 'ت', 'by (oath)'],
+  ['P', 'و', 'by (oath)'],
+  ['P', 'ل', 'for'],
+];
+
+function prefixGloss(seg) {
+  const first = (seg.lemma || seg.arabic).replace(/[\u064B-\u0652\u0670]/g, '')[0];
+  for (const [flag, letter, gloss] of QAC_PREFIX_GLOSS) {
+    if (seg.flags.includes(flag) && (letter === '*' || letter === first)) return gloss;
+  }
+  return null;
+}
+
+// Buckwalter (QAC extended) -> Arabic, for matching lemmas between datasets.
+const BW = {
+  "'": 'ء', '|': 'آ', '>': 'أ', '&': 'ؤ', '<': 'إ', '}': 'ئ', A: 'ا', b: 'ب', p: 'ة', t: 'ت', v: 'ث',
+  j: 'ج', H: 'ح', x: 'خ', d: 'د', '*': 'ذ', r: 'ر', z: 'ز', s: 'س', $: 'ش', S: 'ص', D: 'ض', T: 'ط',
+  Z: 'ظ', E: 'ع', g: 'غ', _: 'ـ', f: 'ف', q: 'ق', k: 'ك', l: 'ل', m: 'م', n: 'ن', h: 'ه', w: 'و',
+  Y: 'ى', y: 'ي', F: 'ً', N: 'ٌ', K: 'ٍ', a: 'َ', u: 'ُ', i: 'ِ', '~': 'ّ', o: 'ْ', '`': 'ٰ', '{': 'ٱ',
+  '^': 'ٓ', '#': 'ٔ', ':': 'ۜ', '@': '۟', '"': '۠', '[': 'ۢ', ';': 'ۣ', ',': 'ۥ', '.': 'ۦ', '!': 'ۨ', '-': '۪', '+': '۫', '%': '۬', ']': 'ۭ',
+};
+const fromBuckwalter = (s) => [...s].map((c) => BW[c] ?? c).join('');
+
+// Consonants only: the two QAC releases spell some lemmas differently (dagger
+// vs full alif, hamza seat), which must not block a match; a different lemma
+// (e.g. أَم vs مَن) still fails.
+const lemmaKey = (s) => skeleton(s).replace(/[اوۥۦ@#\[]/g, '');
+
+function loadLemmaGlosses() {
+  const lemFile = join(RAW, 'qac-lemmas.txt');
+  const morFile = join(RAW, 'qac-morphology.txt');
+  if (!existsSync(lemFile) || !existsSync(morFile)) return null;
+  const gloss = new Map();
+  for (const line of readFileSync(lemFile, 'utf8').split(/\r?\n/)) {
+    const [lem, en] = line.split('\t');
+    if (lem && en) gloss.set(lem, en.trim());
+  }
+  // one line per word, in Quran order: "<prefixes> POS:X LEM:<bw> ... <suffix>"
+  const stemLemma = readFileSync(morFile, 'utf8')
+    .split(/\r?\n/)
+    .filter((l) => l.trim())
+    .map((l) => l.match(/LEM:(\S+)/)?.[1] ?? null);
+  return { gloss, stemLemma };
+}
+
 // Positions where the two sources spell the same word differently in a way the
 // letter skeleton cannot reconcile; each was checked by hand against both texts
 // (same position, same word, same gloss) and is accepted explicitly.
@@ -309,6 +383,8 @@ function loadMorphology() {
   const text = readFileSync(join(RAW, 'quran-morphology.txt'), 'utf8');
   // key: "sura:verse" -> ordered list of words, each word = list of segments
   const byVerse = new Map();
+  let wordIndex = -1;
+  let lastWord = '';
   for (const line of text.split('\n')) {
     if (!line.trim()) continue;
     const [loc, arabic, type, features = ''] = line.split('\t');
@@ -317,7 +393,10 @@ function loadMorphology() {
     if (!byVerse.has(vk)) byVerse.set(vk, new Map());
     const words = byVerse.get(vk);
     if (!words.has(w)) words.set(w, []);
-    words.get(w).push(parseSegment(arabic, type, features));
+    if (`${vk}:${w}` !== lastWord) { wordIndex++; lastWord = `${vk}:${w}`; }
+    const seg = parseSegment(arabic, type, features);
+    Object.defineProperty(seg, '_word', { value: wordIndex, enumerable: false });
+    words.get(w).push(seg);
   }
   return byVerse;
 }
@@ -339,6 +418,9 @@ function run() {
   const morph = loadMorphology();
   const glosses = loadGlosses();
   const tajweed = loadTajweed();
+  const lemmaGlosses = loadLemmaGlosses();
+  if (!lemmaGlosses) console.warn('No QAC v2 lemma data in scripts/raw/ — segment stem glosses skipped.');
+  const segStats = { prefix: 0, prefixNone: 0, stem: 0, stemNone: 0, stemMismatch: 0, suffix: 0, mismatchSamples: [] };
   if (!glosses.size) console.warn('No word-by-word gloss data (scripts/raw/wbw-en/) — glosses skipped.');
   if (!tajweed) console.warn('No tajweed data in scripts/raw/ — tajweed skipped.');
 
@@ -397,6 +479,21 @@ function run() {
           role: stem?.role || segs[0]?.role || 'particle',
           segments: segs,
         };
+        // Per-segment English from the QAC (see QAC_PREFIX_GLOSS / loadLemmaGlosses).
+        for (const seg of segs) {
+          if (seg.prefix) {
+            const pg = prefixGloss(seg);
+            if (pg) { seg.gloss = pg; seg.glossSource = 'qac-prefix'; segStats.prefix++; } else segStats.prefixNone++;
+          } else if (seg.flags.includes('SUFF')) {
+            segStats.suffix++;
+          } else if (lemmaGlosses && seg.lemma) {
+            const bw = lemmaGlosses.stemLemma[seg._word];
+            const en = bw && lemmaGlosses.gloss.get(bw);
+            if (!en) segStats.stemNone++;
+            else if (lemmaKey(fromBuckwalter(bw)) !== lemmaKey(seg.lemma)) { segStats.stemMismatch++; segStats.mismatchSamples.push(`${id}:${vno}:${pos} ${fromBuckwalter(bw)}≠${seg.lemma}`); }
+            else { seg.gloss = en; seg.glossSource = 'qac-lemma'; segStats.stem++; }
+          }
+        }
         const g = glosses.get(`${id}:${vno}:${pos}`);
         if (!g?.gloss) glossStats.missing++;
         else if (skeleton(g.text) !== skeleton(reconstructed) && !VERIFIED_SPELLING_VARIANTS.has(`${id}:${vno}:${pos}`)) glossStats.mismatched.push(`${id}:${vno}:${pos}`);
@@ -458,6 +555,12 @@ function run() {
     `Glosses: ${glossStats.attached} attached, ${glossStats.missing} missing, ` +
       `${glossStats.mismatched.length} dropped (Arabic mismatch)` +
       (glossStats.mismatched.length ? `: ${glossStats.mismatched.slice(0, 10).join(', ')}` : ''),
+  );
+  console.log(
+    `Segment glosses: prefixes ${segStats.prefix} (none in QAC: ${segStats.prefixNone}); ` +
+      `stems ${segStats.stem} (no QAC lemma gloss: ${segStats.stemNone}, lemma mismatch: ${segStats.stemMismatch}); ` +
+      `suffixes ${segStats.suffix} (QAC gives none).` +
+      (segStats.mismatchSamples.length ? ` Dropped e.g.: ${segStats.mismatchSamples.slice(0, 8).join(', ')}` : ''),
   );
   if (tajweed)
     console.log(

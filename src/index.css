@@ -129,11 +129,48 @@ body::before {
 #root { position: relative; z-index: 1; }
 
 .ar {
-  font-family: 'Amiri', 'Scheherazade New', serif;
+  font-family: 'Amiri Quran', 'Scheherazade New', serif;
   direction: rtl;
   line-height: 2.1;
+  font-kerning: normal;
+  /* never letter-space Arabic: it breaks the joins between letters */
+  letter-spacing: 0;
 }
-.ar-naskh { font-family: 'Scheherazade New', 'Amiri', serif; direction: rtl; }
+.ar-title {
+  font-family: 'Amiri', 'Scheherazade New', serif;
+  direction: rtl;
+  line-height: 1.5;
+  letter-spacing: 0;
+}
+.ar-naskh {
+  font-family: 'Scheherazade New', 'Amiri Quran', serif;
+  direction: rtl;
+  letter-spacing: 0;
+}
+
+/* The reading line: the page's centrepiece. Amiri Quran stacks marks high
+   and low, so it needs generous leading to keep lines from colliding. */
+.quran-line {
+  font-family: 'Amiri Quran', 'Scheherazade New', serif;
+  direction: rtl;
+  text-align: right;
+  font-size: clamp(1.9rem, 1.35rem + 2.3vw, 2.75rem);
+  line-height: 2.45;
+  word-spacing: 0.06em;
+  font-kerning: normal;
+  letter-spacing: 0;
+  color: rgb(var(--ink));
+  text-wrap: pretty;
+}
+
+/* Verse-end ornament drawn by the font from ۝ + Arabic-Indic digits. */
+.ayah-mark {
+  font-family: 'Amiri Quran', serif;
+  color: rgb(var(--gold));
+  font-size: 0.92em;
+  margin-inline-start: 0.2em;
+  white-space: nowrap;
+}
 
 :focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 2px; border-radius: 4px; }
 ::selection { background: color-mix(in srgb, rgb(var(--gold)) 30%, transparent); }
@@ -142,6 +179,9 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
 }
+
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
 
 .tnum { font-variant-numeric: tabular-nums; }
 .gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }

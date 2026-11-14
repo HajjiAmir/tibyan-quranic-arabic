@@ -68,7 +68,7 @@ export default function Practice() {
     <div className="mx-auto flex max-w-reading flex-col gap-5">
       <div className="flex flex-col items-center gap-1 text-center">
         <span className="text-xs uppercase tracking-widest text-muted">Practice</span>
-        <h1 className="ar text-4xl text-gold">{surah.name}</h1>
+        <h1 className="ar-title text-[2.6rem] text-gold">{surah.name}</h1>
         <h2 className="font-display text-xl font-semibold">{surah.transliteration}</h2>
         <Link to={`/surah/${surah.id}`} className="mt-1 text-xs text-muted hover:text-ink">
           ← Back to reading
@@ -176,7 +176,7 @@ function Flashcards({ items, deck }: { items: Item[]; deck: Deck }) {
           </div>
 
           <div className="rounded-2xl border border-line bg-surface p-6">
-            <p className="ar mb-2 text-center text-5xl leading-tight">{card.arabic}</p>
+            <p className="ar mb-2 text-center text-[3.2rem] leading-[1.9]">{card.arabic}</p>
             {!revealed ? (
               <div className="mt-6 flex flex-col items-center gap-3">
                 <p className="text-sm text-muted">
@@ -290,7 +290,7 @@ function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
         {q.kind === 'word' ? (
           <p className="mb-3 font-display text-3xl font-semibold leading-tight">{q.cue}</p>
         ) : (
-          <p className="ar mb-3 text-5xl leading-tight">{q.cue}</p>
+          <p className="ar mb-3 text-[3.2rem] leading-[1.9]">{q.cue}</p>
         )}
         <p className="text-sm font-medium text-muted">{q.prompt}</p>
       </div>
