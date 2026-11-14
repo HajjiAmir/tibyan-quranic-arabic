@@ -223,9 +223,11 @@ function skeleton(s) {
 // - Possessive vs object form, by the host (the segment the suffix attaches to):
 //     noun                          -> possessive ("his")
 //     verb or preposition           -> object     ("him")
-//     anything else (inna & sisters, other particles) or a place/time adverb
-//     such as مَعَ / عِندَ / قَبْلَ (nouns in the QAC, but rendered "with you",
-//     "before him" in English)       -> both       ("his / him")
+//     place/time adverb (QAC LOC/T tags: مَعَ, عِندَ, قَبْلَ, بَعْدَ …) -> object,
+//       since English treats them as prepositions ("with you", "before him")
+//       (owner decision, brief 4)
+//     anything else (inna & sisters, other particles, pronoun hosts)
+//                                   -> both       ("his / him")
 // ---------------------------------------------------------------------------
 
 const ARTICLE_GLOSS = 'the';
@@ -259,7 +261,8 @@ function hostForm(host) {
   if (host.type === 'V') return 'object';
   if (host.type === 'P' && host.flags.includes('P')) return 'object';
   if (host.type === 'N') {
-    if (host.flags.some((f) => ['LOC', 'T', 'PRON', 'DEM', 'REL'].includes(f))) return 'both';
+    if (host.flags.some((f) => ['LOC', 'T'].includes(f))) return 'object';
+    if (host.flags.some((f) => ['PRON', 'DEM', 'REL'].includes(f))) return 'both';
     return 'possessive';
   }
   return 'both';
