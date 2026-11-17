@@ -152,7 +152,17 @@ their sources. Nothing is hand-written.
   `meaning`: the corpus's dictionary gloss for the lemma (about 1,600 lemmas have
   one), or the sources above for the new entries. `inContext`: the three most
   frequent Quran.com word-by-word glosses of its occurrences (case variants
-  merged). Example verses: the two shortest occurrences (3–14 words preferred),
+  merged). Those glosses translate the whole word, prefixes included, so for the
+  lemma's meaning the leading words that translate an attached prefix are
+  removed (brief 11): "and mercy" → "mercy", "for the people" → "people". Only
+  removal, never rewording, and only when the word carries that prefix and the
+  English word is one the QAC gives as that prefix's translation: wa-/fa- uses
+  "and / then / so / while / with", bi- "with / by", li- "for", ka- "like / as",
+  the oath ta-/wa- "by", emphatic la- "surely / indeed", and "the" for al-
+  (also in brackets, "[the]"). Other renderings ("but", "in", "O" …) stay.
+  16,629 of 77,429 glosses lost a leading prefix word; 807 displayed meanings
+  changed. Example verses keep the full word gloss ("here: and a mercy").
+  Example verses: the two shortest occurrences (3–14 words preferred),
   from different surahs, with the Saheeh International translation (footnote
   markers removed), in `public/data/vocab/ex-<n>.json`; each links to its exact
   verse in the reader (`#/surah/<s>?v=<v>`).
