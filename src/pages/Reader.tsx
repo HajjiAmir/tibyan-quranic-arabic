@@ -82,16 +82,19 @@ export default function Reader() {
   const [studied, setStudied] = useState<Set<number>>(new Set());
   // Global āyah number of this surah's first verse minus one (audio files are
   // numbered 1–6236), derived from the verse counts in index.json.
-  const [globalOffset, setGlobalOffset] = useState<number | null>(null);
-  const rec = useRecitation(surahId, surah?.totalVerses ?? 0, globalOffset);
+  // Both are kept with the surah they belong to: for one render after a surah
+  // change they still hold the previous surah's values, which the player must
+  // never use.
+  const [offsetFor, setOffsetFor] = useState<{ id: number; offset: number } | null>(null);
+  const globalOffset = offsetFor && offsetFor.id === surahId ? offsetFor.offset : null;
+  const rec = useRecitation(surahId, surah && surah.id === surahId ? surah.totalVerses : 0, globalOffset);
   const recitingVerse = rec.state.verse;
   const following = rec.state.plan != null && rec.state.plan.mode !== 'single';
 
   useEffect(() => {
-    setGlobalOffset(null);
     loadIndex()
       .then((idx) =>
-        setGlobalOffset(idx.filter((m) => m.id < surahId).reduce((n, m) => n + m.totalVerses, 0)),
+        setOffsetFor({ id: surahId, offset: idx.filter((m) => m.id < surahId).reduce((n, m) => n + m.totalVerses, 0) }),
       )
       .catch(() => {});
   }, [surahId]);

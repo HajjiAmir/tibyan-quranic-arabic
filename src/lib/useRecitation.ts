@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { readAudioPrefs, reciterById, recitersFor, writeAudioPrefs, type AudioPrefs } from './audio';
 
 export type PlayStatus = 'idle' | 'loading' | 'playing' | 'paused' | 'ended' | 'error';
@@ -39,9 +40,19 @@ const FAILED_MSG = 'This recitation could not be loaded. Check your connection a
 
 const more = (done: number, total: number) => total === 0 || done < total;
 
+const LAST_SURAH = 114;
+
 /**
  * One <audio> element per reader: plays an āyah (optionally repeated), the
  * surah onwards from an āyah, or a passage looped, then stops cleanly.
+ *
+ * Playback always belongs to the surah on screen. The element lives as long
+ * as the reader, so it keeps the browser's play permission between surahs:
+ * - moving to another surah while reciting carries the recitation there,
+ *   from its start;
+ * - a surah recited to its end carries on into the next surah, and the
+ *   reader moves with it.
+ * `totalVerses` and `globalOffset` must describe `surah` (0 / null while it loads).
  */
 export function useRecitation(surah: number, totalVerses: number, globalOffset: number | null) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -52,6 +63,13 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
   stateRef.current = state;
   const speedRef = useRef(prefs.speed);
   speedRef.current = prefs.speed;
+
+  const navigate = useNavigate();
+  // Set when the recitation should start the next surah shown on screen.
+  const carryRef = useRef(false);
+  const shownSurahRef = useRef(surah);
+  const totalRef = useRef(totalVerses);
+  totalRef.current = totalVerses;
 
   const reciter = reciterById(prefs.reciter, surah);
   const reciterRef = useRef(reciter);
@@ -126,7 +144,7 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
     [load],
   );
 
-  // Create the elements once; tear down when leaving the surah.
+  // Create the elements once; tear down when leaving the reader.
   useEffect(() => {
     const audio = new Audio();
     audio.preload = 'auto';
@@ -157,9 +175,6 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
 
     return () => {
       audio.pause();
-      // The reader stays mounted between surahs: clear the player so it never
-      // shows the previous surah's āyah as playing.
-      setState(IDLE);
       audio.removeAttribute('src');
       audio.load();
       preload.removeAttribute('src');
@@ -170,6 +185,24 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
       audio.removeEventListener('pause', onPause);
       audio.removeEventListener('error', onError);
     };
+  }, []);
+
+  // A new surah on screen: silence the previous one at once (audio and
+  // highlight never belong to a surah that is not shown), and carry the
+  // recitation over if it was running.
+  useEffect(() => {
+    if (shownSurahRef.current === surah) return;
+    shownSurahRef.current = surah;
+    const s = stateRef.current;
+    if (s.status === 'playing' || s.status === 'loading') carryRef.current = true;
+    const audio = audioRef.current;
+    if (audio) {
+      audio.pause();
+      audio.removeAttribute('src');
+      audio.load();
+    }
+    preloadRef.current?.removeAttribute('src');
+    setState(IDLE);
   }, [surah]);
 
   // When a file ends: repeat the āyah, advance, loop the passage, or finish.
@@ -190,11 +223,18 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
       if (verse < plan.to) return load(verse + 1, plan, 1, loop);
       if (more(loop, plan.loops)) return load(plan.from, plan, 1, loop + 1);
       if (plan.mode === 'continuous') rememberVerse(null);
+      // Recited to the end of the surah: carry on into the next one.
+      if (plan.mode === 'continuous' && plan.to === totalRef.current && surah < LAST_SURAH) {
+        carryRef.current = true;
+        setState({ ...IDLE, plan, status: 'loading' });
+        navigate(`/surah/${surah + 1}`);
+        return;
+      }
       setState({ ...IDLE, plan, status: 'ended' });
     };
     audio.addEventListener('ended', onEnded);
     return () => audio.removeEventListener('ended', onEnded);
-  }, [load, rememberVerse, surah]);
+  }, [load, rememberVerse, surah, navigate]);
 
   const resumeVerse = Math.min(Math.max(prefs.resume[surah] ?? 1, 1), Math.max(totalVerses, 1));
 
@@ -231,6 +271,14 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
   );
 
   const isBusy = (s: RecitationState) => s.status === 'playing' || s.status === 'loading';
+
+  // Start a carried recitation once the new surah's verses and audio offset are known.
+  useEffect(() => {
+    if (!carryRef.current || globalOffset == null || totalVerses <= 0) return;
+    if (shownSurahRef.current !== surah) return;
+    carryRef.current = false;
+    begin(continuousFrom(1));
+  }, [surah, globalOffset, totalVerses, begin, continuousFrom]);
 
   /** Toolbar play/pause: resumes, or plays the surah from the remembered āyah. */
   const togglePlay = useCallback(() => {
