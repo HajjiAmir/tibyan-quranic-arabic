@@ -1,4 +1,5 @@
-import { useEffect, useMemo, useState, type ReactNode } from 'react';
+import { useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
+import { createPortal } from 'react-dom';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { loadIndex, loadSurah, loadTajweedLegend } from '../lib/data';
 import { BASMALA, useRecitation } from '../lib/useRecitation';
@@ -8,6 +9,7 @@ import type { Surah, TajweedLegend as TajweedLegendT } from '../types';
 import Verse from '../components/Verse';
 import TajweedLegend from '../components/TajweedLegend';
 import SurahContext from '../components/SurahContext';
+import { usePhone } from '../lib/useMedia';
 
 // Reader display preferences, remembered per browser.
 const PREFS_KEY = 'tibyan.reader.v1';
@@ -28,15 +30,7 @@ function readPrefs(): Prefs {
   }
 }
 
-function Toggle({
-  on,
-  onClick,
-  children,
-}: {
-  on: boolean;
-  onClick: () => void;
-  children: ReactNode;
-}) {
+function Toggle({ on, onClick, children }: { on: boolean; onClick: () => void; children: ReactNode }) {
   return (
     <button
       onClick={onClick}
@@ -47,10 +41,7 @@ function Toggle({
           : 'border-transparent text-muted hover:text-ink'
       }`}
     >
-      <span
-        aria-hidden
-        className={`h-1.5 w-1.5 rounded-full transition-colors ${on ? 'bg-accent' : 'bg-line'}`}
-      />
+      <span aria-hidden className={`h-1.5 w-1.5 rounded-full transition-colors ${on ? 'bg-accent' : 'bg-line'}`} />
       {children}
     </button>
   );
@@ -66,8 +57,7 @@ function Ornament() {
   );
 }
 
-const navLink =
-  'group btn btn-secondary btn-pill font-medium text-muted hover:text-ink';
+const navLink = 'group btn btn-secondary btn-pill font-medium text-muted hover:text-ink';
 
 export default function Reader() {
   const { id } = useParams();
@@ -88,6 +78,7 @@ export default function Reader() {
   const [offsetFor, setOffsetFor] = useState<{ id: number; offset: number } | null>(null);
   const globalOffset = offsetFor && offsetFor.id === surahId ? offsetFor.offset : null;
   const rec = useRecitation(surahId, surah && surah.id === surahId ? surah.totalVerses : 0, globalOffset);
+  const phone = usePhone();
   const recitingVerse = rec.state.verse;
   const following = rec.state.plan != null && rec.state.plan.mode !== 'single';
 
@@ -172,15 +163,14 @@ export default function Reader() {
   }, [prefs]);
 
   useEffect(() => {
-    loadTajweedLegend().then(setTajweedLegend).catch(() => {});
+    loadTajweedLegend()
+      .then(setTajweedLegend)
+      .catch(() => {});
   }, []);
 
   const toggle = (k: keyof Prefs) => () => setPrefs((p) => ({ ...p, [k]: !p[k] }));
 
-  const progress = useMemo(
-    () => (surah ? Math.round((studied.size / surah.totalVerses) * 100) : 0),
-    [studied, surah],
-  );
+  const progress = useMemo(() => (surah ? Math.round((studied.size / surah.totalVerses) * 100) : 0), [studied, surah]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load this surah. {err}</p>;
   if (!surah) return <ReaderSkeleton />;
@@ -189,14 +179,11 @@ export default function Reader() {
     <div className="mx-auto flex max-w-[52rem] flex-col">
       <header className="flex flex-col items-center gap-3 pb-8 pt-6 text-center sm:pt-10">
         <span className="tnum text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-          Surah {surah.id} · {surah.type === 'meccan' ? 'Meccan' : 'Medinan'} · {surah.totalVerses}{' '}
-          verses
+          Surah {surah.id} · {surah.type === 'meccan' ? 'Meccan' : 'Medinan'} · {surah.totalVerses} verses
         </span>
         <h1 className="ar-title text-[3.4rem] text-accent sm:text-[4.2rem]">{surah.name}</h1>
         <div className="flex flex-col items-center gap-1">
-          <h2 className="font-display text-2xl font-semibold tracking-tight">
-            {surah.transliteration}
-          </h2>
+          <h2 className="font-display text-2xl font-semibold tracking-tight">{surah.transliteration}</h2>
           <p className="font-display text-[0.95rem] italic text-muted">{surah.translation}</p>
         </div>
         {studied.size > 0 && (
@@ -218,8 +205,11 @@ export default function Reader() {
 
       <div
         id="reader-toolbar"
-        className="sticky top-16 z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
-        style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)' }}
+        className="sticky z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
+        style={{
+          top: 'calc(4rem + env(safe-area-inset-top, 0px))',
+          background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)',
+        }}
       >
         <div className="no-scrollbar -mx-1 flex min-w-0 flex-1 basis-0 gap-0.5 overflow-x-auto px-1 py-0.5">
           <Toggle on={prefs.gloss} onClick={toggle('gloss')}>
@@ -244,7 +234,7 @@ export default function Reader() {
             Practice
           </Link>
         </div>
-        {(rec.open || recitingVerse != null) && (
+        {!phone && (rec.open || recitingVerse != null) && (
           <div className="min-w-0 basis-full">
             <PlayerRow rec={rec} totalVerses={surah.totalVerses} />
           </div>
@@ -293,22 +283,64 @@ export default function Reader() {
       <nav className="mt-12 flex items-center justify-between gap-3">
         {surah.id > 1 ? (
           <Link to={`/surah/${surah.id - 1}`} className={navLink}>
-            <span className="transition-transform group-hover:-translate-x-0.5">←</span> Surah{' '}
-            {surah.id - 1}
+            <span className="transition-transform group-hover:-translate-x-0.5">←</span> Surah {surah.id - 1}
           </Link>
         ) : (
           <span />
         )}
         {surah.id < 114 ? (
           <Link to={`/surah/${surah.id + 1}`} className={navLink}>
-            Surah {surah.id + 1}{' '}
-            <span className="transition-transform group-hover:translate-x-0.5">→</span>
+            Surah {surah.id + 1} <span className="transition-transform group-hover:translate-x-0.5">→</span>
           </Link>
         ) : (
           <span />
         )}
       </nav>
+
+      {phone && (rec.open || recitingVerse != null) && (
+        <PhoneDock>
+          <PlayerRow rec={rec} totalVerses={surah.totalVerses} docked />
+        </PhoneDock>
+      )}
     </div>
+  );
+}
+
+/**
+ * The phone player: a bar fixed to the bottom of the screen, above the home
+ * indicator, so play and pause sit under the thumb and the top of the screen
+ * stays for the text. A spacer of the same height keeps the last āyah reachable.
+ */
+function PhoneDock({ children }: { children: ReactNode }) {
+  const bar = useRef<HTMLDivElement>(null);
+  const [h, setH] = useState(0);
+  useEffect(() => {
+    const el = bar.current;
+    if (!el) return;
+    const ro = new ResizeObserver(() => setH(el.offsetHeight));
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+  return (
+    <>
+      <div aria-hidden style={{ height: h }} />
+      {/* Portalled to <body>: the page fade's transform would otherwise pin "fixed" to the page, not the screen. */}
+      {createPortal(
+        <div
+          ref={bar}
+          data-dock=""
+          className="gutter fixed inset-x-0 bottom-0 z-30 border-t border-line/70 pt-2 backdrop-blur-md"
+          style={{
+            background: 'color-mix(in srgb, rgb(var(--paper)) 92%, transparent)',
+            paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom, 0px))',
+            boxShadow: '0 -14px 40px -24px rgb(0 0 0 / 0.5)',
+          }}
+        >
+          {children}
+        </div>,
+        document.body,
+      )}
+    </>
   );
 }
 

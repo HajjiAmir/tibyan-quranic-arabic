@@ -39,11 +39,11 @@ export default function Practice() {
   if (!surah) return <div className="h-64 animate-pulse card" />;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-5">
-      <div className="flex flex-col items-center gap-1 text-center">
+    <div className="mx-auto flex max-w-reading flex-col gap-4 sm:gap-5">
+      <div className="flex flex-col items-center gap-0.5 text-center sm:gap-1">
         <span className="text-xs uppercase tracking-widest text-muted">Practice</span>
-        <h1 className="ar-title text-[2.6rem] text-accent">{surah.name}</h1>
-        <h2 className="font-display text-xl font-semibold">{surah.transliteration}</h2>
+        <h1 className="ar-title text-[2.2rem] leading-[1.5] text-accent sm:text-[2.6rem]">{surah.name}</h1>
+        <h2 className="font-display text-lg font-semibold sm:text-xl">{surah.transliteration}</h2>
         <Link to={`/surah/${surah.id}`} className="tap mt-1 inline-flex items-center text-xs text-muted hover:text-ink">
           ← Back to reading
         </Link>

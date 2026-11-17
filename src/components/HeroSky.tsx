@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from 'react';
+
 /**
  * The night sky behind the landing hero: a faint starfield (layered CSS
  * radial-gradients), a few brighter stars that breathe slowly, one rare
@@ -15,16 +17,27 @@ const BRIGHT: { left: string; top: string; size?: 'sm'; delay: string; dur: stri
 ];
 
 export default function HeroSky() {
+  // Pause the sky once the hero has scrolled away, so a phone GPU is not kept busy.
+  const ref = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(true);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el || !('IntersectionObserver' in window)) return;
+    const io = new IntersectionObserver(([e]) => setVisible(e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-      <div className="night-only sky">
+    <div ref={ref} aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
+      <div className="night-only sky" data-paused={visible ? undefined : ''}>
         <div className="sky-dust absolute inset-0" />
         <div className="sky-twinkle absolute inset-0" />
         <div className="sky-twinkle-b absolute inset-0" />
-        {BRIGHT.map((s) => (
+        {BRIGHT.map((s, i) => (
           <span
             key={s.left + s.top}
-            className={`star-bright ${s.size ?? ''}`}
+            className={`star-bright ${s.size ?? ''} ${i >= 4 ? 'hidden sm:block' : ''}`}
             style={{ left: s.left, top: s.top, animationDelay: s.delay, animationDuration: s.dur }}
           />
         ))}

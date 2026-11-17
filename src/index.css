@@ -419,6 +419,7 @@ html, #root { overflow-x: clip; }
 /* Phones and touch screens: every control is at least 44px tall. */
 @media (max-width: 639px), (pointer: coarse) {
   .btn, .btn-sm, .btn-lg, .seg > button, .field, .tap { min-height: 44px; }
+  .seg > button { min-width: 44px; }
   .btn-sm { padding: 0 1rem; font-size: 0.8125rem; }
   .tap { min-width: 44px; }
   .tap-y { min-height: 44px; }
@@ -504,6 +505,7 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
     radial-gradient(circle at 420px 40px, rgb(233 237 251 / 0.8) 0 1px, transparent 1.8px);
   background-size: 457px 409px;
   animation: twinkle 7s ease-in-out infinite alternate;
+  will-change: opacity;
 }
 .sky-twinkle-b {
   background-image:
@@ -512,7 +514,14 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
     radial-gradient(circle at 260px 30px, rgb(233 237 251 / 0.7) 0 0.9px, transparent 1.6px);
   background-size: 523px 467px;
   animation: twinkle 9s ease-in-out 2.5s infinite alternate-reverse;
+  will-change: opacity;
 }
+/* Phones: one twinkle layer instead of two (the HeroSky also drops two bright stars). */
+@media (max-width: 639px) {
+  .sky-twinkle-b { display: none; }
+}
+/* Off screen: everything in the sky holds still (opacity and transform only, all on the compositor). */
+.sky[data-paused] *, .sky[data-paused] { animation-play-state: paused !important; }
 @keyframes twinkle {
   0% { opacity: 0.35; }
   100% { opacity: 1; }
@@ -574,3 +583,12 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 
 /* A role label: role-coloured text in Midnight, ink in Day (see --role-label-ink). */
 .role-label { color: var(--role-label-ink, var(--role-c)); }
+
+/* Phone bottom sheet (word grammar). Slides up; still under reduced motion. */
+.sheet-panel { animation: sheet-up 0.26s cubic-bezier(0.2, 0.8, 0.2, 1); }
+.sheet-backdrop { animation: sheet-fade 0.2s ease-out; }
+@keyframes sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes sheet-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .sheet-panel, .sheet-backdrop { animation: none; }
+}

@@ -45,10 +45,11 @@ export function SegmentGloss({ seg }: { seg: Segment }) {
   );
 }
 
-export default function GrammarPanel({ word }: { word: Word }) {
+/** One word's grammar. `bare` drops the card chrome, for use inside the phone bottom sheet. */
+export default function GrammarPanel({ word, bare = false }: { word: Word; bare?: boolean }) {
   const anySegGloss = word.segments.some((s) => s.gloss);
   return (
-    <div className="relative mt-4 overflow-hidden card">
+    <div className={bare ? 'relative' : 'relative mt-4 overflow-hidden card'}>
       <div className="flex items-start justify-between gap-4 border-b border-line/80 px-5 py-4">
         <div className="flex min-w-0 flex-col gap-1.5">
           {word.gloss && (

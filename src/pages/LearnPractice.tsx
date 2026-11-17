@@ -30,8 +30,8 @@ export default function LearnPractice() {
   if (!index) return <div className="mx-auto h-64 max-w-reading animate-pulse card" />;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-5">
-      <div className="flex flex-col items-center gap-1 text-center">
+    <div className="mx-auto flex max-w-reading flex-col gap-4 sm:gap-5">
+      <div className="flex flex-col items-center gap-0.5 text-center sm:gap-1">
         <span className="text-xs uppercase tracking-widest text-muted">Vocabulary practice</span>
         <h1 className="font-display text-2xl font-semibold">The whole Qur’an, most frequent first</h1>
         <Link to="/learn" className="tap mt-1 inline-flex items-center text-xs text-muted hover:text-ink">

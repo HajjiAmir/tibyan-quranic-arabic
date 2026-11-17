@@ -55,9 +55,9 @@ export default function Home() {
         <HeroSky />
         <HeroMotif className="-z-10" />
 
-        <div className="gutter mx-auto grid max-w-5xl items-center gap-10 pb-14 pt-14 sm:pb-16 sm:pt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-20 lg:pt-24">
+        <div className="gutter mx-auto grid max-w-5xl items-center gap-9 pb-12 pt-10 sm:gap-10 sm:pb-16 sm:pt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-20 lg:pt-24">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <span lang="ar" className="wordmark-glow ar-title text-[3.3rem] leading-[1.2] sm:text-[4.4rem]">
+            <span lang="ar" className="wordmark-glow ar-title text-[clamp(2.75rem,14vw,3.3rem)] leading-[1.2] sm:text-[4.4rem]">
               تِبْيَان
             </span>
             <span aria-hidden className="mb-5 mt-1 flex items-center gap-2.5">
@@ -65,16 +65,16 @@ export default function Home() {
               <span className="h-1.5 w-1.5 rotate-45 border border-accent/70" />
               <span className="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent" />
             </span>
-            <h1 className="max-w-[34rem] font-display text-[2.35rem] leading-[1.06] text-balance sm:text-[3.3rem]">
+            <h1 className="max-w-[34rem] font-display text-[clamp(1.9rem,8.6vw,2.35rem)] leading-[1.08] text-balance sm:text-[3.3rem]">
               Understand <em className="text-accent">every word</em> of the Qur&rsquo;an
             </h1>
-            <p className="mt-5 max-w-[36rem] text-[0.97rem] leading-7 text-muted text-pretty">
+            <p className="mt-4 max-w-[36rem] text-[0.94rem] leading-[1.7] sm:mt-5 sm:text-[0.97rem] sm:leading-7 text-muted text-pretty">
               Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
               the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
               the Tanzil Uthmani text and the Saheeh International translation.
             </p>
 
-            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+            <div className="mt-7 flex w-full flex-col gap-3 sm:mt-8 sm:w-auto sm:flex-row">
               <Link to="/surah/1" className="btn btn-primary btn-lg w-full sm:w-auto">
                 Begin with Al-Fātiḥa
                 <span aria-hidden>→</span>
@@ -84,7 +84,7 @@ export default function Home() {
               </Link>
             </div>
 
-            <dl className="tnum mt-9 grid w-full max-w-sm grid-cols-3 divide-x divide-[color:var(--border-strong)] sm:w-auto sm:max-w-none">
+            <dl className="tnum mt-8 grid sm:mt-9 w-full max-w-sm grid-cols-3 divide-x divide-[color:var(--border-strong)] sm:w-auto sm:max-w-none">
               <Stat value="114" label="Surahs" />
               <Stat value={index ? index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString() : '—'} label="Verses" />
               <Stat value={words ? words.toLocaleString() : '—'} label="Words" />

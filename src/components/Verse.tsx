@@ -1,9 +1,11 @@
-import { useState, type ReactNode } from 'react';
+import { useCallback, useState, type ReactNode } from 'react';
 import { roleVar } from '../lib/data';
 import type { TajweedLegend, Verse as VerseT } from '../types';
 import type { Recitation } from '../lib/useRecitation';
 import { VerseAudio } from './AudioControls';
+import BottomSheet from './BottomSheet';
 import GrammarPanel from './GrammarPanel';
+import { usePhone } from '../lib/useMedia';
 import TajweedText from './TajweedText';
 
 interface Props {
@@ -83,6 +85,13 @@ export default function Verse({
   const reciting = rec.state.verse === verse.id;
   const [selected, setSelected] = useState<number | null>(null);
   const selectedWord = verse.words.find((w) => w.position === selected) ?? null;
+  const phone = usePhone();
+  const close = useCallback(() => setSelected(null), []);
+  const idx = selectedWord ? verse.words.indexOf(selectedWord) : -1;
+  const step = (d: number) => {
+    const w = verse.words[idx + d];
+    if (w) setSelected(w.position);
+  };
 
   return (
     <article
@@ -175,7 +184,38 @@ export default function Verse({
         })}
       </div>
 
-      {selectedWord && <GrammarPanel word={selectedWord} />}
+      {/* On a phone the word's grammar opens as a bottom sheet; on wider screens, inline. */}
+      {selectedWord && !phone && <GrammarPanel word={selectedWord} />}
+      {selectedWord && phone && (
+        <BottomSheet
+          label={`Grammar of ${selectedWord.arabic}`}
+          onClose={close}
+          footer={
+            <div className="flex items-center justify-between gap-2">
+              {/* Reading order is right to left, so the next word sits on the left. */}
+              <button
+                onClick={() => step(1)}
+                disabled={idx >= verse.words.length - 1}
+                className="btn btn-sm btn-secondary flex-1 disabled:opacity-35"
+              >
+                ← Next word
+              </button>
+              <span className="tnum shrink-0 px-1 text-[11px] text-muted">
+                {idx + 1} / {verse.words.length}
+              </span>
+              <button
+                onClick={() => step(-1)}
+                disabled={idx <= 0}
+                className="btn btn-sm btn-secondary flex-1 disabled:opacity-35"
+              >
+                Previous word →
+              </button>
+            </div>
+          }
+        >
+          <GrammarPanel word={selectedWord} bare />
+        </BottomSheet>
+      )}
 
       {showTranslation && <Translation text={verse.translation} footnotes={verse.footnotes} />}
     </article>

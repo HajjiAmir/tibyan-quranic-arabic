@@ -98,7 +98,16 @@ export function ListenToggle({ rec }: { rec: Recitation }) {
 
 function RepeatIcon({ className = icon }: { className?: string }) {
   return (
-    <svg viewBox="0 0 16 16" className={className} aria-hidden fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      viewBox="0 0 16 16"
+      className={className}
+      aria-hidden
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M3 7.5V6a2 2 0 0 1 2-2h7.5M10.5 2 12.5 4l-2 2M13 8.5V10a2 2 0 0 1-2 2H3.5M5.5 14l-2-2 2-2" />
     </svg>
   );
@@ -109,7 +118,11 @@ const pillSelect =
 
 function Caret() {
   return (
-    <svg viewBox="0 0 12 12" aria-hidden className="pointer-events-none absolute right-2.5 top-1/2 h-2.5 w-2.5 -translate-y-1/2 text-muted">
+    <svg
+      viewBox="0 0 12 12"
+      aria-hidden
+      className="pointer-events-none absolute right-2.5 top-1/2 h-2.5 w-2.5 -translate-y-1/2 text-muted"
+    >
       <path d="m3 4.5 3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" />
     </svg>
   );
@@ -194,7 +207,15 @@ function PassageForm({ rec, totalVerses, onDone }: { rec: Recitation; totalVerse
       <span className="font-medium text-ink">Loop a passage</span>
       <span className="flex items-center gap-1.5">
         āyah
-        <PillSelect label="From āyah" value={from} options={verses} onChange={(v) => { setFrom(v); if (to < v) setTo(v); }} />
+        <PillSelect
+          label="From āyah"
+          value={from}
+          options={verses}
+          onChange={(v) => {
+            setFrom(v);
+            if (to < v) setTo(v);
+          }}
+        />
         to
         <PillSelect label="To āyah" value={to} options={verses.filter((o) => o.value >= from)} onChange={setTo} />
       </span>
@@ -216,16 +237,39 @@ function PassageForm({ rec, totalVerses, onDone }: { rec: Recitation; totalVerse
 }
 
 /** Compact player row shown under the toolbar when Listen is open. */
-export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: number }) {
+/**
+ * The player. `docked` is the phone layout: it sits in a bar at the bottom of the
+ * screen (within thumb reach) and keeps repeat, passage and speed behind "More".
+ */
+export function PlayerRow({
+  rec,
+  totalVerses,
+  docked = false,
+}: {
+  rec: Recitation;
+  totalVerses: number;
+  docked?: boolean;
+}) {
   const { state } = rec;
   const busy = state.status === 'playing' || state.status === 'loading';
   const active = state.verse != null;
   const [passage, setPassage] = useState(false);
+  const [more, setMore] = useState(false);
   const status = statusLine(rec, totalVerses);
   const inRange = state.plan?.mode === 'range' && active;
+  const reciter = (
+    <PillSelect
+      label="Reciter"
+      value={rec.reciter.id}
+      options={rec.reciters.map((r) => ({ value: r.id, label: r.name }))}
+      onChange={rec.setReciter}
+      className="max-w-[8rem] truncate sm:max-w-none"
+      title={`${rec.reciter.name} · ${rec.reciter.style}`}
+    />
+  );
 
   return (
-    <div className="flex flex-col pb-1 pt-2">
+    <div className={docked ? 'flex flex-col' : 'flex flex-col pb-1 pt-2'}>
       <div className="flex items-center gap-2.5">
         <button
           onClick={rec.togglePlay}
@@ -233,7 +277,13 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
           aria-label={busy ? 'Pause recitation' : 'Play surah'}
           className="tap flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent shadow-sm transition-transform hover:scale-[1.04] active:scale-95 disabled:opacity-40"
         >
-          {state.status === 'loading' ? <Spinner /> : busy ? <PauseIcon /> : <PlayIcon className="ml-0.5 h-3.5 w-3.5" />}
+          {state.status === 'loading' ? (
+            <Spinner />
+          ) : busy ? (
+            <PauseIcon />
+          ) : (
+            <PlayIcon className="ml-0.5 h-3.5 w-3.5" />
+          )}
         </button>
 
         <p
@@ -255,17 +305,24 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
           </button>
         )}
 
-        <PillSelect
-          label="Reciter"
-          value={rec.reciter.id}
-          options={rec.reciters.map((r) => ({ value: r.id, label: r.name }))}
-          onChange={rec.setReciter}
-          className="max-w-[8rem] truncate sm:max-w-none"
-          title={`${rec.reciter.name} · ${rec.reciter.style}`}
-        />
+        {docked && (
+          <button
+            onClick={() => setMore((m) => !m)}
+            aria-expanded={more}
+            aria-label="More playback options"
+            className={`tap flex shrink-0 items-center justify-center rounded-full border text-sm font-semibold transition-colors ${
+              more ? 'border-accent/50 bg-accent/10 text-accent' : 'border-line bg-surface text-muted hover:text-ink'
+            }`}
+          >
+            ⋯
+          </button>
+        )}
+
+        {!docked && reciter}
       </div>
 
-      <div className="mt-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
+
+      <div className={`mt-2 flex-wrap items-center gap-1.5 sm:gap-2 ${docked && !more ? 'hidden' : 'flex'}`}>
         {/* Repeat each āyah: the core memorisation control */}
         <div
           role="radiogroup"
@@ -299,7 +356,9 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
           onClick={() => setPassage((o) => !o)}
           aria-expanded={passage}
           className={`tap shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors ${
-            passage || inRange ? 'border-accent/50 bg-accent/10 text-accent' : 'border-line bg-surface text-muted hover:text-ink'
+            passage || inRange
+              ? 'border-accent/50 bg-accent/10 text-accent'
+              : 'border-line bg-surface text-muted hover:text-ink'
           }`}
           title="Loop a passage of āyāt"
         >
@@ -307,6 +366,8 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
         </button>
 
         <span className="flex-1" />
+
+        {docked && reciter}
 
         <PillSelect
           label="Playback speed"
@@ -359,22 +420,14 @@ export function RecitationCredit({ rec }: { rec: Recitation }) {
 }
 
 /** The per-āyah controls: play this āyah, and play onwards from it. */
-export function VerseAudio({
-  verse,
-  rec,
-}: {
-  verse: number;
-  rec: Recitation;
-}) {
+export function VerseAudio({ verse, rec }: { verse: number; rec: Recitation }) {
   const { state } = rec;
   const current = state.verse === verse;
   const busy = current && (state.status === 'playing' || state.status === 'loading');
   const mode = state.plan?.mode;
   const single = current && mode === 'single';
   // "From here" stays lit while the basmala that precedes āyah 1 plays.
-  const cont =
-    mode === 'continuous' &&
-    (current || (state.verse === BASMALA && state.plan?.from === verse));
+  const cont = mode === 'continuous' && (current || (state.verse === BASMALA && state.plan?.from === verse));
   const contBusy = cont && (state.status === 'playing' || state.status === 'loading');
   const btn =
     'tap flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[11px] font-medium transition-colors disabled:opacity-40';

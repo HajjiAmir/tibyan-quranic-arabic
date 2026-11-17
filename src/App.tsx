@@ -23,7 +23,8 @@ function ThemeButton() {
       <span aria-hidden className="text-sm leading-none">
         {icon}
       </span>
-      <span>{label}</span>
+      {/* On phones the icon alone keeps the header from crowding the wordmark. */}
+      <span className="hidden min-[400px]:inline">{label}</span>
     </button>
   );
 }
@@ -47,6 +48,7 @@ export default function App() {
         className="sticky top-0 z-20 border-b border-line/80 backdrop-blur-md"
         style={{
           background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)',
+          paddingTop: 'env(safe-area-inset-top, 0px)',
         }}
       >
         <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">
@@ -57,7 +59,7 @@ export default function App() {
             <span className="hidden font-display text-lg font-semibold tracking-tight sm:inline">Tibyān</span>
             <span className="hidden text-xs text-muted md:inline">· Quranic Arabic</span>
           </Link>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
             {onReader && (
               <Link to="/" className="btn btn-sm btn-pill btn-secondary font-medium text-muted hover:text-ink">
                 ← Surahs
@@ -73,7 +75,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="gutter mx-auto max-w-5xl pb-24 pt-6">
+      <main className="gutter mx-auto max-w-5xl pt-6" style={{ paddingBottom: 'calc(6rem + env(safe-area-inset-bottom, 0px))' }}>
         <div key={fadeKey} className="route-fade">
           <Routes>
             <Route path="/" element={<Home />} />
