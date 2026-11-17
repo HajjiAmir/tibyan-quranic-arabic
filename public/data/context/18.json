@@ -1,10 +1,10 @@
 {
  "surah": 18,
  "review": {
-  "status": "pending",
-  "reviewer": null,
-  "date": null,
-  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+  "status": "approved",
+  "reviewer": "Owner (personal project; no formal scholarly review)",
+  "date": "2026-11-16",
+  "note": "Approved for release by the owner without formal scholarly review; entries keep verified: false."
  },
  "context": {
   "revelation": {

@@ -113,9 +113,10 @@ Nothing is downloaded by the pipeline; the reader streams one MP3 per āyah.
 ## Surah context and virtue narrations (`scripts/raw/context/`)
 
 Built into `public/data/context/<id>.json` by `scripts/build-context.mjs`; the
-reviewer's checklist is `docs/context-review.md`. **Status: draft, pending
-scholarly review.** Every entry carries `verified: false` and the reader shows a
-draft banner until `REVIEW` in the build script is set to approved.
+audit sheet is `docs/context-review.md`. **Status: approved by the owner on
+2026-11-16 (a personal project, without formal scholarly sign-off).** The draft
+banner is off; every entry still carries `verified: false`, since no scholar has
+checked it, and each links to its source.
 
 | File | What | Source (fetched 2026-11-16) | Terms |
 |---|---|---|---|
