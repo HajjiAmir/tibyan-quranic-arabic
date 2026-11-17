@@ -12,7 +12,7 @@ import { RootFamily, RootsIndex } from './pages/LearnRoots';
 function ThemeButton() {
   const [theme, cycle] = useTheme();
   const label = theme === 'system' ? 'Auto' : theme === 'light' ? 'Light' : 'Dark';
-  const icon = theme === 'light' ? '☀' : theme === 'dark' ? '☾' : '◐';
+
   return (
     <button
       onClick={cycle}
@@ -20,12 +20,48 @@ function ThemeButton() {
       aria-label={`Theme: ${label}`}
       title={`Theme: ${label}`}
     >
-      <span aria-hidden className="text-sm leading-none">
-        {icon}
-      </span>
+      <ThemeIcon theme={theme} />
       {/* On phones the icon alone keeps the header from crowding the wordmark. */}
       <span className="hidden min-[400px]:inline">{label}</span>
     </button>
+  );
+}
+
+/**
+ * Theme icons: one hairline set, drawn in currentColor so they take the button's
+ * muted ink in both themes. Same 24-unit grid, size and stroke for all three.
+ */
+function ThemeIcon({ theme }: { theme: 'light' | 'dark' | 'system' }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 24 24"
+      width="16"
+      height="16"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="shrink-0"
+    >
+      {theme === 'dark' && (
+        // a thin crescent, lit from the lower left like the hero moon
+        <path d="M19.5 14.6A7.6 7.6 0 0 1 9.4 4.5a7.6 7.6 0 1 0 10.1 10.1Z" />
+      )}
+      {theme === 'light' && (
+        <>
+          <circle cx="12" cy="12" r="3.6" />
+          <path d="M12 3.5v1.6M12 18.9v1.6M3.5 12h1.6M18.9 12h1.6M6 6l1.1 1.1M16.9 16.9 18 18M6 18l1.1-1.1M16.9 7.1 18 6" />
+        </>
+      )}
+      {theme === 'system' && (
+        <>
+          <circle cx="12" cy="12" r="7.5" />
+          <path d="M12 4.5a7.5 7.5 0 0 0 0 15Z" fill="currentColor" stroke="none" />
+        </>
+      )}
+    </svg>
   );
 }
 
