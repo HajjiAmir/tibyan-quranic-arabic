@@ -128,8 +128,9 @@ their sources. Nothing is hand-written.
     you, 3MS he, 3FS she, 3rd dual/plural they; `SUBJECT_FORMS` in
     `scripts/reviewed-pronouns.mjs`). The build fails unless each subject form
     occurs in that pronoun's Quran.com word-by-word glosses (it does for all 10).
-    **This subject column extends the table signed off in brief 3 and is
-    awaiting the owner's sign-off.**
+    This subject column extends the brief 3 table and was **confirmed by the
+    project owner on 2026-11-16** (brief 11). هِيَ stays "she", in line with the
+    table's "her"; its word page also shows the in-context glosses (mostly "it").
   - *Quranic initials* (31 words, 14 entries: الٓمٓ، حمٓ، يسٓ …). No meaning is
     given; the word-by-word gloss is their letter names, shown as such.
 - **Attached forms (23 entries, not part of the word count).** Attached prefixes

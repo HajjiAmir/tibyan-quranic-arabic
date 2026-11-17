@@ -83,14 +83,49 @@ function entry(key, kind, lemma) {
   return e;
 }
 
+// In-context glosses (Quran.com word-by-word) translate the whole word, so a
+// word with an attached prefix often reads "and mercy" or "for the people".
+// For the lemma's meaning the leading words that translate those prefixes are
+// removed, and nothing else: a leading word is removed only when the word has
+// that prefix and the word is one the Quranic Arabic Corpus itself gives as the
+// prefix's translation (its "usually translated as" phrases, in build-data.mjs),
+// plus "the" for the article. Other renderings ("but", "in", "o" …) are left as
+// they are. The example verses keep the full gloss ("here: …").
+const CONNECTIVE = ['and', 'then', 'so', 'while', 'with']; // wa- / fa- uses: CONJ, REM, SUP, RSLT, CAUS, CIRC, COM
+const PREP_BY_LETTER = { 'ب': ['with', 'by'], 'ل': ['for'], 'ك': ['like', 'as'], 'ت': ['by'], 'و': ['by'] };
+function prefixWords(g) {
+  const f = flagsOf(g);
+  if (f.includes('DET')) return [ARTICLE_GLOSS];
+  if (f.includes('EMPH')) return ['surely', 'indeed'];
+  if (['CONJ', 'REM', 'SUP', 'RSLT', 'CAUS', 'CIRC', 'COM'].some((x) => f.includes(x))) return CONNECTIVE;
+  if (f.includes('P')) return PREP_BY_LETTER[letters(g.lemma ?? g.arabic)[0]] ?? [];
+  return [];
+}
+const stripStats = { glosses: 0, changed: 0 };
+function contextGloss(w, headSeg) {
+  stripStats.glosses++;
+  let words = w.gloss.trim().split(/\s+/);
+  for (const g of w.segments) {
+    if (g === headSeg || !g.prefix) continue;
+    const allowed = prefixWords(g);
+    // "and", "And", "[and]", "surely," all match "and" / "surely".
+    const first = (words[0] ?? '').toLowerCase().replace(/^\[(.*)\]$/, '$1').replace(/[,;:]$/, '');
+    if (words.length > 1 && allowed.includes(first)) words = words.slice(1);
+  }
+  const out = words.join(' ');
+  if (out !== w.gloss.trim()) stripStats.changed++;
+  return out;
+}
+
 function note(e, w, seg, s, v, wi) {
   if (seg.root) count(e.roots, seg.root);
   count(e.roles, seg.role);
   count(e.pos, seg.pos);
   if (seg.verbForm) count(e.forms, seg.verbForm);
   if (w.gloss && (e.kind === 'word' || e.kind === 'pronoun' || e.kind === 'initials')) {
-    count(e.ctx, w.gloss.toLowerCase());
-    count(e.ctxRaw, w.gloss);
+    const g = contextGloss(w, seg);
+    count(e.ctx, g.toLowerCase());
+    count(e.ctxRaw, g);
   }
   count(e.desc, `${w.arabic}\u0000${seg.description}`);
   e.occ.push({ s, v: v.id, wi, len: v.words.length });
@@ -295,6 +330,7 @@ const words = entries.filter((e) => e.kind !== 'prefix' && e.kind !== 'suffix');
 const cov = (n) => words.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
 console.log(`vocab: ${entries.length} entries (${JSON.stringify(out.totals.kinds)}), ${rootStats.size} roots, ${totalWords} words (${noEntry} without an entry)`);
 console.log(`attached: ${attachedTotals.prefix} prefixes, ${attachedTotals.suffix} pronoun suffixes`);
+console.log(`in-context glosses: ${stripStats.changed} of ${stripStats.glosses} had leading prefix words removed`);
 console.log(
   [10, 20, 100, 300, 500, 1000].map((n) => `top ${n}: ${(cov(n) * 100).toFixed(1)}%`).join(' · ') + ` · all: ${(cov(words.length) * 100).toFixed(2)}%`,
 );

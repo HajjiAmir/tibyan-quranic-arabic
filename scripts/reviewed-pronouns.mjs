@@ -30,8 +30,8 @@ export function pronounKey(feat) {
 }
 
 // Subject forms for the separate (independent) pronouns هُوَ، هُمْ، نَحْنُ …
-// (brief 10). The same person/number/gender equivalents as the table above,
-// in the subject case. build-vocab.mjs checks each one against the Quran.com
+// (brief 10; confirmed by the project owner 2026-11-16, brief 11). The same
+// person/number/gender equivalents as the table above, in the subject case. build-vocab.mjs checks each one against the Quran.com
 // word-by-word glosses of that pronoun and fails if any is never used there.
 export const SUBJECT_FORMS = {
   '1S': 'I',
