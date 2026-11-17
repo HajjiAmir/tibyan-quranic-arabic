@@ -171,6 +171,7 @@ body {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 body::before {
@@ -433,7 +434,7 @@ html { scroll-behavior: smooth; }
 }
 
 /* Calm theme changes: colours ease rather than snap. */
-body, header, .card, .card-raised, .seg, .field {
+body, .card, .card-raised, .seg, .field {
   transition-property: background-color, border-color, color, box-shadow, transform, filter;
   transition-duration: 200ms;
   transition-timing-function: ease;
@@ -480,7 +481,7 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   left: 50%;
   top: 38%;
   width: min(62rem, 120vw);
-  height: min(34rem, 80vh);
+  height: min(34rem, 80svh);
   transform: translate(-50%, -50%);
   border-radius: 9999px;
   background: radial-gradient(closest-side, rgb(var(--hero-bloom)) 0%, rgb(var(--hero-bloom) / 0.4) 45%, transparent 100%);
@@ -500,20 +501,49 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 /* The site header: transparent and borderless at the top of the page, a faint
    veil once the page scrolls (App sets data-scrolled). */
 .site-header {
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background-color 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease;
+  /* its own compositor layer: scrolling never repaints the page under it */
+  transform: translateZ(0);
+  isolation: isolate;
 }
-.site-header[data-scrolled='hero'] {
-  background-color: rgb(var(--paper) / 0.3);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+/* Two veils that only fade (opacity is compositor-only): a light frost over the
+   hero and the fuller veil with its hairline past it. The header's box never changes. */
+.site-header::before,
+.site-header::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  will-change: opacity;
 }
-.site-header[data-scrolled='past'] {
+.site-header::before {
+  background-color: rgb(var(--paper) / 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+.site-header::after {
   background-color: rgb(var(--paper) / 0.86);
-  border-bottom-color: var(--border);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  backdrop-filter: blur(14px) saturate(1.2);
+  box-shadow: inset 0 -1px 0 var(--border);
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+  backdrop-filter: blur(8px) saturate(1.15);
+}
+.site-header[data-scrolled='hero']::before { opacity: 1; }
+.site-header[data-scrolled='past']::after { opacity: 1; }
+/* Phones: no backdrop blur at all (iOS momentum scroll can make it shimmer); a
+   near-opaque wash of the page colour instead. Legibility and stability first. */
+@media (max-width: 639px) {
+  .site-header::before,
+  .site-header::after {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+  .site-header::before { background-color: rgb(var(--paper) / 0.96); }
+  .site-header::after { background-color: rgb(var(--paper) / 0.98); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .site-header::before, .site-header::after { transition: none; }
 }
 
 /* Landing entrance: each hero element rises in, one after another (--i sets the order). */
@@ -729,8 +759,16 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 .reader-toolbar {
   background-color: rgb(var(--paper) / 0.88);
   border-bottom: 1px solid var(--border);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(8px) saturate(1.15);
+  backdrop-filter: blur(8px) saturate(1.15);
+  transform: translateZ(0);
+}
+@media (max-width: 639px) {
+  .reader-toolbar {
+    background-color: rgb(var(--paper) / 0.98);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 /* The crescent sits just under the header, clear of the eyebrow on phones. */

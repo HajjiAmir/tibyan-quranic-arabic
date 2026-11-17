@@ -37,25 +37,48 @@ export default function App() {
   // reader mounted, as it was before the fade existed.
   const fadeKey = loc.pathname.replace(/^\/surah\/\d+$/, '/surah');
 
-  // The header is transparent at the top of the page and gains a faint veil once
-  // the page scrolls. On the landing it stays clear until the hero has scrolled past.
-  // Over the hero it is only frosted (no fill, no border), so the night sky stays one surface.
-  const [scrolled, setScrolled] = useState<'' | 'hero' | 'past'>('');
+  // The header is transparent at the top of the page and fades in a veil as the page
+  // scrolls. Its scroll state only changes paint (two overlay layers fade their
+  // opacity; height, padding and border never change), so it cannot move the
+  // layout and re-trigger itself.
+  //  - frosted: on past 60px of scroll, off only back under 10px (hysteresis), read
+  //    once per animation frame;
+  //  - past: driven by an IntersectionObserver on a sentinel at the end of the
+  //    landing hero; pages without a hero use the frosted state for it.
+  const [frosted, setFrosted] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   useEffect(() => {
-    const update = () => {
+    let raf = 0;
+    const read = () => {
+      raf = 0;
       const y = window.scrollY;
-      const hero = document.querySelector<HTMLElement>('[data-hero]');
-      const limit = hero ? hero.offsetTop + hero.offsetHeight - 72 : 8;
-      setScrolled(y > limit ? 'past' : y > 24 ? 'hero' : '');
+      setFrosted((on) => (on ? y > 10 : y > 60));
     };
-    update();
-    window.addEventListener('scroll', update, { passive: true });
-    window.addEventListener('resize', update);
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(read);
+    };
+    read();
+    window.addEventListener('scroll', onScroll, { passive: true });
     return () => {
-      window.removeEventListener('scroll', update);
-      window.removeEventListener('resize', update);
+      window.removeEventListener('scroll', onScroll);
+      if (raf) cancelAnimationFrame(raf);
     };
   }, [loc.pathname]);
+  const [hasHero, setHasHero] = useState(false);
+  useEffect(() => {
+    const end = document.querySelector('[data-hero-end]');
+    setHasHero(!!end);
+    setPastHero(false);
+    if (!end || !('IntersectionObserver' in window)) return;
+    // The sentinel counts as passed once it has gone up behind the header (4rem + inset).
+    const io = new IntersectionObserver(
+      ([e]) => setPastHero(!e.isIntersecting && e.boundingClientRect.top < window.innerHeight / 2),
+      { rootMargin: '-80px 0px 0px 0px' },
+    );
+    io.observe(end);
+    return () => io.disconnect();
+  }, [loc.pathname]);
+  const headerState = (hasHero ? pastHero : frosted) ? 'past' : frosted ? 'hero' : '';
 
   // Each page starts at the top (hash routing would otherwise keep the old offset).
   useEffect(() => {
@@ -63,10 +86,10 @@ export default function App() {
   }, [loc.pathname]);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-[100svh]">
       <header
         className="site-header sticky top-0 z-20"
-        data-scrolled={scrolled || undefined}
+        data-scrolled={headerState || undefined}
         style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
       >
         <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">

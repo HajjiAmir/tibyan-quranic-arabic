@@ -116,6 +116,8 @@ export default function Home() {
             <HeroSpecimen />
           </div>
         </div>
+        {/* the header watches this to know when the hero has scrolled away */}
+        <span aria-hidden data-hero-end className="pointer-events-none absolute inset-x-0 bottom-0 h-px" />
       </section>
 
       {vocab && (
