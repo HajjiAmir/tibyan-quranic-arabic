@@ -68,9 +68,20 @@ src/lib/                 data loading, theme, progress, practice (spaced repetit
 
 ## Deploy
 
-Pushing to `main` builds and deploys to GitHub Pages via
-`.github/workflows/deploy.yml`. Relative `base` + HashRouter mean the static
-build works from any path.
+Hosted on **Vercel** (project `tibyan-quranic-arabic`, team-organizer):
+https://tibyan-quranic-arabic.vercel.app. Pushing to `main` deploys to
+production; other branches get preview deployments (behind the team's Vercel
+login). Settings live in `vercel.json`: Vite preset, `npm ci`, `npm run build`,
+output `dist`.
+
+The build only compiles the app. The data in `public/data` is committed and
+served as is: `build:data`, `build:context` and `build:vocab` need the raw
+datasets in `scripts/raw/` (not in the repo), so run them locally and commit
+their output.
+
+Relative `base` + HashRouter mean the static build works from any path. The
+old GitHub Pages workflow (`.github/workflows/deploy.yml`) is disabled in the
+repository's Actions settings since the move to Vercel (2026-11-16).
 
 ## Roadmap
 
