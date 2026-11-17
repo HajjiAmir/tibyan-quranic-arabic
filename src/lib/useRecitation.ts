@@ -157,6 +157,9 @@ export function useRecitation(surah: number, totalVerses: number, globalOffset: 
 
     return () => {
       audio.pause();
+      // The reader stays mounted between surahs: clear the player so it never
+      // shows the previous surah's āyah as playing.
+      setState(IDLE);
       audio.removeAttribute('src');
       audio.load();
       preload.removeAttribute('src');

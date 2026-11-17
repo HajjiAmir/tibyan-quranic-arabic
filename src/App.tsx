@@ -32,6 +32,10 @@ export default function App() {
   const loc = useLocation();
   const onReader = loc.pathname.startsWith('/surah/') || loc.pathname.startsWith('/learn');
 
+  // The fade replays per page, but not between surahs: next/previous keeps the
+  // reader mounted, as it was before the fade existed.
+  const fadeKey = loc.pathname.replace(/^\/surah\/\d+$/, '/surah');
+
   // Each page starts at the top (hash routing would otherwise keep the old offset).
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -70,7 +74,7 @@ export default function App() {
       </header>
 
       <main className="gutter mx-auto max-w-5xl pb-24 pt-6">
-        <div key={loc.pathname} className="route-fade">
+        <div key={fadeKey} className="route-fade">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/surah/:id" element={<Reader />} />
