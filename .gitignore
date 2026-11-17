@@ -18,3 +18,7 @@ scripts/raw/*
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
+
+# Vercel CLI link (per machine)
+.vercel
+.env*
