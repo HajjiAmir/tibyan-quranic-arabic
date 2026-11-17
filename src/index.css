@@ -201,3 +201,16 @@ body::before {
 @media (prefers-reduced-motion: reduce) {
   .animate-\[eq_0\.9s_ease-in-out_infinite\] { animation: none; }
 }
+
+/* A verse opened from a link (?v=): a brief gold wash that fades. */
+.verse-target {
+  animation: verse-target 2.6s ease-out;
+  border-radius: 1rem;
+}
+@keyframes verse-target {
+  0%, 35% { background-color: rgb(var(--gold) / 0.13); }
+  100% { background-color: transparent; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .verse-target { animation-duration: 1.2s; }
+}

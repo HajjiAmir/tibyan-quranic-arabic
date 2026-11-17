@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { loadIndex, loadSurah, loadTajweedLegend } from '../lib/data';
 import { BASMALA, useRecitation } from '../lib/useRecitation';
 import { ListenToggle, PlayerRow, RecitationCredit } from '../components/AudioControls';
@@ -72,6 +72,9 @@ const navLink =
 export default function Reader() {
   const { id } = useParams();
   const surahId = Number(id);
+  // ?v=<verse>: open at that verse (links from vocabulary examples).
+  const [params] = useSearchParams();
+  const targetVerse = Number(params.get('v')) || null;
   const [surah, setSurah] = useState<Surah | null>(null);
   const [err, setErr] = useState<string | null>(null);
   const [prefs, setPrefs] = useState<Prefs>(readPrefs);
@@ -120,6 +123,42 @@ export default function Reader() {
       })
       .catch((e) => setErr(String(e)));
   }, [surahId]);
+
+  // Jump to ?v= once the surah is on screen, and mark the verse briefly. The
+  // surah's context panel loads after the verses and can push them down, so
+  // the jump is repeated until the reader scrolls on their own.
+  useEffect(() => {
+    if (!surah || !targetVerse) return;
+    const el = document.getElementById(`v${targetVerse}`);
+    if (!el) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let userMoved = false;
+    const stop = () => (userMoved = true);
+    window.addEventListener('wheel', stop, { passive: true });
+    window.addEventListener('touchmove', stop, { passive: true });
+    window.addEventListener('keydown', stop);
+    // Just below the sticky toolbar, whose height depends on the width and
+    // on whether the player row is open.
+    const jump = () => {
+      if (userMoved) return;
+      const bar = document.getElementById('reader-toolbar');
+      const top = (bar ? bar.getBoundingClientRect().bottom : 160) + 12;
+      window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - top, behavior: 'auto' });
+    };
+    const raf = requestAnimationFrame(jump);
+    const timers = [250, 700, 1500].map((t) => window.setTimeout(jump, t));
+    el.classList.add('verse-target');
+    const clear = window.setTimeout(() => el.classList.remove('verse-target'), reduce ? 1200 : 2600);
+    return () => {
+      cancelAnimationFrame(raf);
+      timers.forEach(clearTimeout);
+      clearTimeout(clear);
+      el.classList.remove('verse-target');
+      window.removeEventListener('wheel', stop);
+      window.removeEventListener('touchmove', stop);
+      window.removeEventListener('keydown', stop);
+    };
+  }, [surah, targetVerse]);
 
   useEffect(() => {
     try {

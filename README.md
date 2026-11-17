@@ -24,8 +24,11 @@ Nothing about the Qur'an is authored by hand in this app. See
 - **Tajweed** — cpfair/quran-tajweed (automated rule annotation, ḥafṣ ʿan ʿāṣim)
 - **Vocabulary mastery** — a frequency index of every Quranic lemma, computed by
   `scripts/build-vocab.mjs` from the Quranic Arabic Corpus data above (head
-  lemma per word; 4,769 lemmas, 1,651 roots over 77,429 words). Learn path,
-  whole-Qur'an practice and a coverage dashboard at `#/learn`
+  lemma per word; 4,769 lemmas and 1,651 roots over 77,429 words), plus
+  separate pronouns, Quranic initials and the attached prefixes and pronouns, so
+  every word has an entry. Learn path, word pages, root families, whole-Qur'an
+  practice and a coverage dashboard at `#/learn`; example verses open at the
+  exact verse (`#/surah/2?v=255`)
 - **Context & Virtues** (approved by the owner; no formal scholarly review) — virtue narrations
   from sunnah.com's *Special Virtues of the Qur'an's Chapters and Verses*, with
   wording and gradings from each narration's sunnah.com page, cross-checked with

@@ -1,16 +1,17 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Segmented } from '../components/PracticeKit';
-import { Dashboard, ExampleVerse, LemmaFacts, StatusDot, useExamples } from '../components/VocabBits';
+import { Dashboard, ExampleVerse, LemmaFacts, StatusActions, StatusDot, useExamples } from '../components/VocabBits';
+import { RootsPreview } from './LearnRoots';
 import {
+  KIND_LABEL,
   displayMeaning,
-  forget,
   inPool,
   loadVocab,
-  markKnown,
   mastery,
   statusOf,
   vocabTrack,
+  wordPath,
   type Lemma,
   type Pool,
   type VocabIndex,
@@ -78,12 +79,14 @@ export default function Learn() {
         <p className="text-xs text-muted">Flashcards and quizzes over the whole Qur’an, due words first.</p>
       </div>
 
+      <RootsPreview index={index} />
+
       <section className="flex flex-col gap-3">
         <div className="flex flex-wrap items-end justify-between gap-3">
           <div>
             <h2 className="font-display text-xl font-semibold tracking-tight">Learning path</h2>
             <p className="text-xs text-muted">
-              {list.length.toLocaleString()} words in frequency order
+              {list.length.toLocaleString()} words and forms in frequency order
               {firstNew ? ` · next new word: #${firstNew.id}` : ''}
             </p>
           </div>
@@ -121,12 +124,14 @@ export default function Learn() {
         )}
         <p className="text-xs leading-relaxed text-muted">
           Counted per word: each of the Qur’an’s {index.totals.words.toLocaleString()} words counts once, for its main
-          lemma (attached prefixes such as <span className="ar-naskh">وَ</span> and{' '}
-          <span className="ar-naskh">بِ</span>, and pronoun endings, are not counted separately).{' '}
-          {index.totals.noLemma.toLocaleString()} words — mostly independent pronouns and the disjoined letters — have no
-          lemma in the Quranic Arabic Corpus and are left out of the list. A word counts as known after a few spaced
-          correct answers, or when you mark it known. Lemmas, roots and grammar: Quranic Arabic Corpus; meanings in
-          context: Quran.com word-by-word; verse translations: Saheeh International.
+          word — a corpus lemma, a separate pronoun (<bdi lang="ar" className="ar-naskh">هُوَ</bdi>,{' '}
+          <bdi lang="ar" className="ar-naskh">نَحْنُ</bdi> …) or a set of Quranic initials. Attached prefixes (
+          <bdi lang="ar" className="ar-naskh">وَ</bdi>, <bdi lang="ar" className="ar-naskh">بِ</bdi>,{' '}
+          <bdi lang="ar" className="ar-naskh">ٱل</bdi> …) and attached pronouns (<bdi lang="ar" className="ar-naskh">ـهُ</bdi>,{' '}
+          <bdi lang="ar" className="ar-naskh">ـكُمْ</bdi> …) are listed too, ranked by how often they are attached, but are not
+          added to coverage. A word counts as known after a few spaced correct answers, or when you mark it known.
+          Lemmas, roots, grammar and prefix meanings: Quranic Arabic Corpus; pronoun and article meanings: the reviewed
+          pronoun table; meanings in context: Quran.com word-by-word; verse translations: Saheeh International.
         </p>
       </section>
     </div>
@@ -164,7 +169,7 @@ function Row({
         <span className="flex min-w-0 flex-1 flex-col">
           <span className="truncate text-[0.92rem] font-medium">{displayMeaning(l)}</span>
           <span className="truncate text-[11px] text-muted">
-            {l.pos[0]?.[0]}
+            {l.kind ? KIND_LABEL[l.kind] : l.pos[0]?.[0]}
             {l.root ? ` · root ${l.root}` : ''}
           </span>
         </span>
@@ -178,31 +183,11 @@ function Row({
           ) : (
             examples.map((ex) => <ExampleVerse key={ex.ref} ex={ex} />)
           )}
-          <div className="flex flex-wrap gap-2">
-            {status !== 'known' ? (
-              <button
-                onClick={() => {
-                  markKnown(l);
-                  onChange();
-                }}
-                className="rounded-lg border border-emerald/60 bg-emerald/10 px-3 py-1.5 text-xs font-semibold text-emerald"
-              >
-                I know this word
-              </button>
-            ) : (
-              <span className="rounded-lg bg-emerald/10 px-3 py-1.5 text-xs font-semibold text-emerald">Known ✓</span>
-            )}
-            {status !== 'new' && (
-              <button
-                onClick={() => {
-                  forget(l);
-                  onChange();
-                }}
-                className="rounded-lg border border-line px-3 py-1.5 text-xs font-medium text-muted hover:text-ink"
-              >
-                Reset
-              </button>
-            )}
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <StatusActions l={l} status={status} onChange={onChange} />
+            <Link to={wordPath(l)} className="text-xs font-medium text-gold underline underline-offset-4">
+              Word page →
+            </Link>
           </div>
         </div>
       )}

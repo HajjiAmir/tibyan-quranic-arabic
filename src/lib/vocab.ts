@@ -24,10 +24,30 @@ export interface Lemma {
   sample: { arabic: string; description: string };
   count: number;
   refs: string[];
+  /**
+   * Absent for corpus lemmas. 'pronoun': a separate pronoun (هُوَ، نَحْنُ …);
+   * 'initials': Quranic initials (الٓمٓ …); 'prefix' / 'suffix': an attached
+   * particle or pronoun, counted per attachment and not part of the word count.
+   */
+  kind?: 'pronoun' | 'initials' | 'prefix' | 'suffix';
+  /** Storage key for entries that are not corpus lemmas (e.g. "pre:و"). */
+  key?: string;
+  /** Attached forms: each use with its sourced meaning and count. */
+  senses?: [string, string | null, number][];
+  /** Other spellings of the same entry in the Uthmani text. */
+  spellings?: string[];
 }
 
 export interface VocabIndex {
-  totals: { words: number; withLemma: number; noLemma: number; lemmas: number; roots: number };
+  totals: {
+    words: number;
+    withLemma: number;
+    noLemma: number;
+    lemmas: number;
+    roots: number;
+    kinds?: Record<string, number>;
+    attached?: { prefix: number; suffix: number };
+  };
   chunk: number;
   lemmas: Lemma[];
   roots: Record<string, { count: number; lemmas: number[] }>;
@@ -69,7 +89,28 @@ export async function loadExamples(id: number, chunk: number): Promise<Example[]
 }
 
 /** Meaning shown on cards and quizzes: the dictionary gloss, else the commonest in-context one. */
-export const displayMeaning = (l: Lemma) => l.meaning ?? l.inContext[0] ?? '—';
+export const displayMeaning = (l: Lemma) =>
+  l.meaning ?? l.inContext[0] ?? (l.pos[0] ? `(${l.pos[0][0].toLowerCase()})` : '—');
+
+/** Attached prefixes and pronoun endings: studied, but not whole words. */
+export const isAttached = (l: Lemma) => l.kind === 'prefix' || l.kind === 'suffix';
+
+export const KIND_LABEL: Record<NonNullable<Lemma['kind']>, string> = {
+  pronoun: 'Separate pronoun',
+  initials: 'Quranic initials',
+  prefix: 'Attached prefix',
+  suffix: 'Attached pronoun',
+};
+
+export const wordPath = (l: Lemma) => `/learn/word/${encodeURIComponent(keyOf(l))}`;
+export const rootPath = (root: string) => `/learn/root/${encodeURIComponent(root)}`;
+export const findByKey = (index: VocabIndex, key: string) => index.lemmas.find((l) => keyOf(l) === key) ?? null;
+
+/** Every lemma of a root, most frequent first. */
+export function rootFamily(index: VocabIndex, root: string): Lemma[] {
+  const ids = index.roots[root]?.lemmas ?? [];
+  return ids.map((id) => index.lemmas[id - 1]).filter((l): l is Lemma => !!l && l.root === root);
+}
 
 // ---- storage ---------------------------------------------------------------
 // tibyan.vocab.v1      lemma -> Leitner box (keyed by the lemma itself, so a
@@ -102,7 +143,7 @@ function markToday() {
 }
 
 export const vocabTrack = createTrack('tibyan.vocab.v1', markToday);
-export const keyOf = (l: Lemma) => l.lemma;
+export const keyOf = (l: Lemma) => l.key ?? l.lemma;
 
 /** Consecutive days with a review, ending today (or yesterday, if today has none yet). */
 export function streak(now = new Date()): number {
@@ -145,6 +186,9 @@ export interface Mastery {
   streak: number;
   /** Fewest further words, in frequency order, to reach the next 5% step. */
   nextStep: { target: number; words: number } | null;
+  /** Attached prefixes/pronouns known, of all of them (outside coverage). */
+  attachedKnown: number;
+  attachedTotal: number;
 }
 
 export function mastery(index: VocabIndex): Mastery {
@@ -153,10 +197,21 @@ export function mastery(index: VocabIndex): Mastery {
   let known = 0,
     learning = 0,
     due = 0,
-    covered = 0;
+    covered = 0,
+    attachedKnown = 0,
+    attachedTotal = 0;
   const roots = new Set<string>();
   for (const l of index.lemmas) {
     const b = store[keyOf(l)];
+    if (isAttached(l)) {
+      // Studied like any entry, but each word already counts once for its
+      // main word, so attached forms stay out of coverage.
+      attachedTotal++;
+      if (b && b.due <= now) due++;
+      if (b && b.box >= KNOWN_BOX) attachedKnown++;
+      else if (b) learning++;
+      continue;
+    }
     if (!b) continue;
     if (b.due <= now) due++;
     if (b.box >= KNOWN_BOX) {
@@ -174,7 +229,7 @@ export function mastery(index: VocabIndex): Mastery {
     let c = covered,
       n = 0;
     for (const l of index.lemmas) {
-      if ((store[keyOf(l)]?.box ?? 0) >= KNOWN_BOX) continue;
+      if (isAttached(l) || (store[keyOf(l)]?.box ?? 0) >= KNOWN_BOX) continue;
       c += l.count;
       n++;
       if (c / index.totals.words >= target) {
@@ -183,7 +238,18 @@ export function mastery(index: VocabIndex): Mastery {
       }
     }
   }
-  return { known, learning, rootsKnown: roots.size, due, coveredWords: covered, coverage, streak: streak(), nextStep };
+  return {
+    known,
+    learning,
+    rootsKnown: roots.size,
+    due,
+    coveredWords: covered,
+    coverage,
+    streak: streak(),
+    nextStep,
+    attachedKnown,
+    attachedTotal,
+  };
 }
 
 // ---- global practice -----------------------------------------------------------
@@ -225,14 +291,21 @@ const posLabel = (l: Lemma) => l.pos[0]?.[0] ?? ROLE_LABEL[l.role];
  * answer's meaning, form or root, so exactly one option is right.
  */
 export function vocabQuiz(index: VocabIndex, pool: Pool, count = 10): VocabQuestion[] {
-  let chosen = vocabSession(index, pool, count, count);
+  const quizzable = (l: Lemma) => l.kind !== 'initials';
+  let chosen = vocabSession(index, pool, count * 2, count * 2).filter(quizzable).slice(0, count);
   if (chosen.length < count) {
     // Everything is known and nothing is due: revisit known words, most frequent first.
-    const extra = index.lemmas.filter((l) => inPool(l, pool) && !chosen.includes(l)).slice(0, 200);
+    const extra = index.lemmas.filter((l) => quizzable(l) && inPool(l, pool) && !chosen.includes(l)).slice(0, 200);
     chosen = [...chosen, ...shuffle(extra).slice(0, count - chosen.length)];
   }
   const all = index.lemmas;
-  const near = (l: Lemma) => all.slice(Math.max(0, l.id - 80), l.id + 80).filter((x) => x.id !== l.id);
+  // Wrong options come from the same class: words of similar frequency for a
+  // word, other attached forms for an attached form.
+  const attachedAll = all.filter(isAttached);
+  const near = (l: Lemma) =>
+    isAttached(l)
+      ? attachedAll.filter((x) => x.id !== l.id)
+      : all.slice(Math.max(0, l.id - 80), l.id + 80).filter((x) => x.id !== l.id && quizzable(x) && !isAttached(x));
   const posPool = [...new Set(all.slice(0, 600).map(posLabel))];
 
   return shuffle(chosen).map((l): VocabQuestion => {

@@ -25,6 +25,7 @@
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
+import { ARTICLE_GLOSS, REVIEWED_PRONOUNS, pronounKey } from './reviewed-pronouns.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const RAW = join(__dirname, 'raw');
@@ -232,31 +233,7 @@ function skeleton(s) {
 //                                   -> both       ("his / him")
 // ---------------------------------------------------------------------------
 
-const ARTICLE_GLOSS = 'the';
-
-// key: person + number (+ gender for 3rd singular) -> [possessive, object, expected letters]
-const REVIEWED_PRONOUNS = {
-  // 1S also appears with its yā' dropped in the Uthmani spelling (an empty
-  // segment, ـنِ, or a small ۦ), 1P with its nūn merged into a preceding nūn
-  // (إِنَّا -> segment ا / آ). Both QAC releases agree on the features there.
-  '1S': ['my', 'me', /^$|[يىۦ]|^ن$/],
-  '1P': ['our', 'us', /نا|^[اآ]/],
-  '2S': ['your', 'you', /ك/],
-  '2D': ['your', 'you', /كما/],
-  '2P': ['your', 'you', /ك[من]/],
-  '3MS': ['his', 'him', /ه/],
-  '3FS': ['her', 'her', /ها/],
-  '3D': ['their', 'them', /هما/],
-  '3P': ['their', 'them', /ه[من]/],
-};
-
-function pronounKey(feat) {
-  const m = feat.match(/^([123])([MF]?)([SDP])$/);
-  if (!m) return null;
-  const [, p, g, n] = m;
-  if (p === '3' && n === 'S') return `3${g}S`;
-  return `${p}${n}`;
-}
+// The table itself lives in reviewed-pronouns.mjs, shared with build-vocab.mjs.
 
 // Signed off by the owner (brief 5): exact lemma match, nothing broader, so
 // genuine possessives on other nouns (وَجْهَهُۥ "his face") are untouched.

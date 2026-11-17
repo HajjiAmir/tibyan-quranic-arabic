@@ -13,13 +13,21 @@
 //   2. the first segment with a lemma that is neither a prefix nor a suffix
 //      (so وَلَا counts for لا, not for the conjunction و); else
 //   3. the first segment with a lemma (e.g. a lone prefixed preposition).
-// Attached prefixes (wa-, fa-, bi-, li-, al-) and pronoun suffixes are not
-// counted as separate words. Words with no lemma in the corpus (independent
-// pronouns, the disjoined letters) stay in the total but have no entry.
+// Words with no lemma in the corpus get entries of their own (brief 10):
+//   - separate pronouns (هُوَ، هُمْ، نَحْنُ …), one per person/gender/number,
+//     meaning from the reviewed pronoun table's subject forms;
+//   - the Quranic initials (الٓمٓ، حمٓ …), one per letter group, no meaning
+//     (read by their letter names, as the word-by-word gloss gives them).
+// Attached prefixes (wa-, fa-, bi-, li-, al- …) and attached object/possessive
+// pronouns (-hu, -hum, -kum …) are study entries too, counted per attachment.
+// They are marked `kind: 'prefix' | 'suffix'` and are NOT part of the word
+// count: every word is already counted once, for its head, so coverage stays a
+// share of the Qur'an's words.
 
 import { mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { ARTICLE_GLOSS, REVIEWED_PRONOUNS, SUBJECT_FORMS, pronounKey } from './reviewed-pronouns.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'public/data');
@@ -43,7 +51,50 @@ const cleanTranslation = (t) => t.replace(/\[\d+\]/g, '').replace(/\s+/g, ' ').t
 
 const lemmas = new Map();
 let totalWords = 0;
-let noLemma = 0;
+let noEntry = 0;
+const attachedTotals = { prefix: 0, suffix: 0 };
+const flagsOf = (s) => s.flags ?? [];
+const feats = (s) => `${s.person ?? ''}${s.gender ?? ''}${s.number ?? ''}`;
+const letters = (s) => s.replace(/[\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g, '');
+// Dual pronouns share one spelling (هُمَا، كُمَا) whatever the gender.
+const pronFeat = (f) => f.replace(/^([123])[MF]D$/, '$1D');
+
+function entry(key, kind, lemma) {
+  let e = lemmas.get(key);
+  if (!e) {
+    e = {
+      key,
+      kind,
+      lemma,
+      spellings: new Map(),
+      roots: new Map(),
+      roles: new Map(),
+      pos: new Map(),
+      forms: new Map(),
+      meaning: new Map(),
+      senses: new Map(),
+      ctx: new Map(),
+      ctxRaw: new Map(),
+      desc: new Map(),
+      occ: [],
+    };
+    lemmas.set(key, e);
+  }
+  return e;
+}
+
+function note(e, w, seg, s, v, wi) {
+  if (seg.root) count(e.roots, seg.root);
+  count(e.roles, seg.role);
+  count(e.pos, seg.pos);
+  if (seg.verbForm) count(e.forms, seg.verbForm);
+  if (w.gloss && (e.kind === 'word' || e.kind === 'pronoun' || e.kind === 'initials')) {
+    count(e.ctx, w.gloss.toLowerCase());
+    count(e.ctxRaw, w.gloss);
+  }
+  count(e.desc, `${w.arabic}\u0000${seg.description}`);
+  e.occ.push({ s, v: v.id, wi, len: v.words.length });
+}
 
 for (let s = 1; s <= 114; s++) {
   const surah = JSON.parse(readFileSync(join(DATA, 'surahs', `${s}.json`), 'utf8'));
@@ -52,38 +103,88 @@ for (let s = 1; s <= 114; s++) {
       const w = v.words[wi];
       totalWords++;
       const seg = head(w);
-      if (!seg) {
-        noLemma++;
-        continue;
+      let headSeg = seg;
+      if (seg) {
+        const e = entry(seg.lemma, 'word', seg.lemma);
+        if (seg.glossSource === 'qac-lemma' && seg.gloss) count(e.meaning, seg.gloss);
+        note(e, w, seg, s, v, wi);
+      } else {
+        const pron = w.segments.find((x) => flagsOf(x).includes('PRON'));
+        const inl = w.segments.find((x) => flagsOf(x).includes('INL'));
+        if (pron) {
+          const f = pronFeat(feats(pron));
+          const e = entry(`pron:${f}`, 'pronoun', null);
+          e.feat = f;
+          count(e.spellings, w.arabic);
+          note(e, w, pron, s, v, wi);
+          headSeg = pron;
+        } else if (inl) {
+          const e = entry(`init:${letters(w.arabic)}`, 'initials', w.arabic);
+          note(e, w, inl, s, v, wi);
+          headSeg = inl;
+        } else {
+          noEntry++;
+        }
       }
-      let e = lemmas.get(seg.lemma);
-      if (!e) {
-        e = {
-          lemma: seg.lemma,
-          roots: new Map(),
-          roles: new Map(),
-          pos: new Map(),
-          forms: new Map(),
-          meaning: new Map(),
-          ctx: new Map(),
-          ctxRaw: new Map(),
-          desc: new Map(),
-          occ: [],
-        };
-        lemmas.set(seg.lemma, e);
+
+      // Attached parts of this word (never its head).
+      for (const g of w.segments) {
+        if (g === headSeg) continue;
+        if (g.prefix && g.lemma) {
+          const e = entry(`pre:${g.lemma}`, 'prefix', null);
+          count(e.spellings, g.arabic);
+          count(e.senses, `${g.pos}\u0000${g.gloss ?? ''}`);
+          if (g.gloss) count(e.meaning, g.gloss);
+          note(e, w, g, s, v, wi);
+          attachedTotals.prefix++;
+        } else if (flagsOf(g).includes('SUFF') && flagsOf(g).includes('PRON') && g.glossSource === 'reviewed-table') {
+          // Only suffixes the reviewed table glosses: object/possessive
+          // pronouns, never verb subject markers.
+          const f = pronFeat(feats(g));
+          const e = entry(`suf:${f}`, 'suffix', null);
+          e.feat = f;
+          count(e.spellings, g.arabic);
+          count(e.senses, g.pronounForm);
+          note(e, w, g, s, v, wi);
+          attachedTotals.suffix++;
+        }
       }
-      if (seg.root) count(e.roots, seg.root);
-      count(e.roles, seg.role);
-      count(e.pos, seg.pos);
-      if (seg.verbForm) count(e.forms, seg.verbForm);
-      if (seg.glossSource === 'qac-lemma' && seg.gloss) count(e.meaning, seg.gloss);
-      if (w.gloss) {
-        count(e.ctx, w.gloss.toLowerCase());
-        count(e.ctxRaw, w.gloss);
-      }
-      count(e.desc, `${w.arabic}\u0000${seg.description}`);
-      e.occ.push({ s, v: v.id, wi, len: v.words.length });
     }
+  }
+}
+
+// Meanings for the entries built here, from the reviewed table only.
+const FORM_LABEL = { possessive: 'Possessive', object: 'Object', both: 'After a particle or pronoun' };
+for (const e of lemmas.values()) {
+  if (e.kind === 'pronoun' || e.kind === 'suffix') {
+    const k = pronounKey(e.feat);
+    if (!k || !REVIEWED_PRONOUNS[k]) throw new Error(`No reviewed-table entry for ${e.key}`);
+    const [poss, obj] = REVIEWED_PRONOUNS[k];
+    if (e.kind === 'pronoun') {
+      const subj = SUBJECT_FORMS[k];
+      // Cross-check: the subject form must occur in the Quran.com glosses.
+      const re = new RegExp(`\\b${subj}\\b`, 'i');
+      if (![...e.ctxRaw.keys()].some((g) => re.test(g)))
+        throw new Error(`Subject form "${subj}" for ${e.key} never appears in its word-by-word glosses`);
+      e.fixedMeaning = subj;
+    } else {
+      e.fixedMeaning = poss === obj ? poss : `${poss} / ${obj}`;
+      e.senseList = top(e.senses, 3).map(([f, n]) => [FORM_LABEL[f], f === 'possessive' ? poss : f === 'object' ? obj : poss === obj ? poss : `${poss} / ${obj}`, n]);
+    }
+  }
+  if (e.kind === 'prefix') {
+    e.senseList = top(e.senses, 8).map(([k, n]) => {
+      const [pos, gloss] = k.split('\u0000');
+      return [pos, gloss || null, n];
+    });
+    if (e.key === 'pre:ال' && top(e.meaning, 1)[0]?.[0] !== ARTICLE_GLOSS) throw new Error('article gloss mismatch');
+  }
+  if (e.spellings.size) {
+    // Spellings that keep at least one letter (the 1S yā' is sometimes dropped).
+    const sp = top(new Map([...e.spellings].filter(([x]) => letters(x))), 4).map(([x]) => x);
+    const tat = (x) => (e.kind === 'prefix' ? `${x}ـ` : e.kind === 'suffix' ? `ـ${x}` : x);
+    e.lemma = tat(sp[0]);
+    e.spellingList = sp.map(tat);
   }
 }
 
@@ -105,7 +206,7 @@ function pickExamples(occ) {
   return out;
 }
 
-const ranked = [...lemmas.values()].sort((a, b) => b.occ.length - a.occ.length || a.lemma.localeCompare(b.lemma));
+const ranked = [...lemmas.values()].sort((a, b) => b.occ.length - a.occ.length || a.key.localeCompare(b.key));
 
 const rootStats = new Map();
 const entries = ranked.map((e, i) => {
@@ -120,15 +221,15 @@ const entries = ranked.map((e, i) => {
     r.lemmas.push(id);
     rootStats.set(root, r);
   }
-  return {
+  const out = {
     id,
     lemma: e.lemma,
     root,
     role,
-    content: CONTENT_ROLES.has(role),
+    content: e.kind === 'word' && CONTENT_ROLES.has(role),
     pos: top(e.pos, 3),
     form: e.forms.size ? top(e.forms, 1)[0][0] : null,
-    meaning: e.meaning.size ? top(e.meaning, 1)[0][0] : null,
+    meaning: e.fixedMeaning ?? (e.meaning.size ? top(e.meaning, 1)[0][0] : null),
     // Variants differing only in capitals are counted together (word-by-word
     // glosses capitalise sentence starts); each shows its most common spelling.
     inContext: top(e.ctx, 3).map(([g]) => top(new Map([...e.ctxRaw].filter(([r]) => r.toLowerCase() === g)), 1)[0][0]),
@@ -136,6 +237,13 @@ const entries = ranked.map((e, i) => {
     count: e.occ.length,
     examples: pickExamples(e.occ),
   };
+  if (e.kind !== 'word') {
+    out.kind = e.kind;
+    out.key = e.key;
+  }
+  if (e.senseList) out.senses = e.senseList;
+  if (e.spellingList && e.spellingList.length > 1) out.spellings = e.spellingList;
+  return out;
 });
 
 // Example verse text, chunked by rank.
@@ -165,13 +273,16 @@ for (let c = 0; c * CHUNK < entries.length; c++) {
 
 const out = {
   about:
-    'Frequency index of Quranic lemmas (head lemma per word occurrence). Lemmas, roots, parts of speech and dictionary glosses: Quranic Arabic Corpus. In-context glosses: Quran.com word-by-word. Built by scripts/build-vocab.mjs.',
+    'Frequency index of Quranic lemmas (head lemma per word occurrence), plus separate pronouns, Quranic initials and attached prefixes/pronouns (kind: prefix|suffix, counted per attachment, not in the word total). Lemmas, roots, parts of speech, dictionary and prefix glosses: Quranic Arabic Corpus. Pronoun and article meanings: the reviewed table (scripts/reviewed-pronouns.mjs). In-context glosses: Quran.com word-by-word. Built by scripts/build-vocab.mjs.',
   totals: {
     words: totalWords,
-    withLemma: totalWords - noLemma,
-    noLemma,
+    // Words with an entry (a lemma, a separate pronoun or Quranic initials).
+    withLemma: totalWords - noEntry,
+    noLemma: noEntry,
     lemmas: entries.length,
     roots: rootStats.size,
+    kinds: Object.fromEntries(['word', 'pronoun', 'initials', 'prefix', 'suffix'].map((k) => [k, entries.filter((e) => (e.kind ?? 'word') === k).length])),
+    attached: attachedTotals,
   },
   chunk: CHUNK,
   lemmas: entries.map(({ examples, ...e }) => ({ ...e, refs: examples.map((o) => `${o.s}:${o.v}`) })),
@@ -179,9 +290,11 @@ const out = {
 };
 writeFileSync(join(DATA, 'vocab.json'), JSON.stringify(out));
 
-// Sanity output: coverage of the top-N lemmas.
-const cov = (n) => entries.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
-console.log(`vocab: ${entries.length} lemmas, ${rootStats.size} roots, ${totalWords} words (${noLemma} without a lemma)`);
+// Sanity output: coverage of the top-N whole-word entries.
+const words = entries.filter((e) => e.kind !== 'prefix' && e.kind !== 'suffix');
+const cov = (n) => words.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
+console.log(`vocab: ${entries.length} entries (${JSON.stringify(out.totals.kinds)}), ${rootStats.size} roots, ${totalWords} words (${noEntry} without an entry)`);
+console.log(`attached: ${attachedTotals.prefix} prefixes, ${attachedTotals.suffix} pronoun suffixes`);
 console.log(
-  [10, 20, 100, 300, 500, 1000].map((n) => `top ${n}: ${(cov(n) * 100).toFixed(1)}%`).join(' · '),
+  [10, 20, 100, 300, 500, 1000].map((n) => `top ${n}: ${(cov(n) * 100).toFixed(1)}%`).join(' · ') + ` · all: ${(cov(words.length) * 100).toFixed(2)}%`,
 );

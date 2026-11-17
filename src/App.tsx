@@ -6,6 +6,8 @@ import Reader from './pages/Reader';
 import Practice from './pages/Practice';
 import Learn from './pages/Learn';
 import LearnPractice from './pages/LearnPractice';
+import LearnWord from './pages/LearnWord';
+import { RootFamily, RootsIndex } from './pages/LearnRoots';
 
 function ThemeButton() {
   const [theme, cycle] = useTheme();
@@ -78,6 +80,9 @@ export default function App() {
           <Route path="/surah/:id/practice" element={<Practice />} />
           <Route path="/learn" element={<Learn />} />
           <Route path="/learn/practice" element={<LearnPractice />} />
+          <Route path="/learn/word/:key" element={<LearnWord />} />
+          <Route path="/learn/roots" element={<RootsIndex />} />
+          <Route path="/learn/root/:root" element={<RootFamily />} />
         </Routes>
       </main>
     </div>
