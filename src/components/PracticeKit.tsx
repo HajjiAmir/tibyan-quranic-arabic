@@ -32,7 +32,7 @@ export function StatBar({ known, learning, unseen }: { known: number; learning: 
     <div className="flex flex-col gap-1.5">
       <div className="flex h-2 overflow-hidden rounded-full bg-surface-2">
         {seg(known, 'rgb(var(--emerald))')}
-        {seg(learning, 'rgb(var(--gold))')}
+        {seg(learning, 'rgb(var(--accent))')}
       </div>
       <div className="flex justify-between text-[11px] text-muted">
         <span>{known} known</span>

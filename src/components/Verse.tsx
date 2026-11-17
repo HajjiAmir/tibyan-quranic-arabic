@@ -42,8 +42,8 @@ function Translation({ text, footnotes }: { text: string; footnotes: string }) {
         onClick={() => setOpen(open === n ? null : n)}
         aria-expanded={open === n}
         aria-label={`Footnote ${n}`}
-        className={`mx-0.5 align-super text-[0.65rem] font-semibold leading-none ${
-          open === n ? 'text-ink' : 'text-gold hover:text-ink'
+        className={`hit mx-0.5 align-super text-[0.65rem] font-semibold leading-none ${
+          open === n ? 'text-ink' : 'text-accent hover:text-ink'
         }`}
       >
         {n}
@@ -58,7 +58,7 @@ function Translation({ text, footnotes }: { text: string; footnotes: string }) {
       <p className="text-[0.975rem] leading-7 text-ink/75">{parts}</p>
       {open && notes.get(open) && (
         <p className="mt-3 rounded-xl border border-line/80 bg-surface/70 px-4 py-3 text-[0.8rem] leading-relaxed text-muted">
-          <span className="mr-1 font-semibold text-gold">{open}</span>
+          <span className="mr-1 font-semibold text-accent">{open}</span>
           {notes.get(open)}
         </p>
       )}
@@ -93,13 +93,13 @@ export default function Verse({
       {/* the āyah being recited: a quiet gold rule and wash, nothing heavier */}
       <span
         aria-hidden
-        className={`pointer-events-none absolute -inset-x-3 inset-y-2 rounded-2xl bg-gold/[0.06] transition-opacity duration-500 sm:-inset-x-5 ${
+        className={`pointer-events-none absolute -inset-x-3 inset-y-2 rounded-2xl bg-accent/[0.06] transition-opacity duration-500 sm:-inset-x-5 ${
           reciting ? 'opacity-100' : 'opacity-0'
         }`}
       />
       <span
         aria-hidden
-        className={`pointer-events-none absolute -left-3 top-8 bottom-8 w-[2px] rounded-full bg-gold transition-opacity duration-500 sm:-left-5 ${
+        className={`pointer-events-none absolute -left-3 top-8 bottom-8 w-[2px] rounded-full bg-accent transition-opacity duration-500 sm:-left-5 ${
           reciting ? 'opacity-100' : 'opacity-0'
         }`}
       />
@@ -107,7 +107,7 @@ export default function Verse({
         <span className="flex items-center gap-2">
           <span
             className={`tnum text-[11px] font-medium uppercase tracking-[0.14em] transition-colors ${
-              reciting ? 'text-gold' : 'text-muted'
+              reciting ? 'text-accent' : 'text-muted'
             }`}
           >
             Āyah {verse.id}
@@ -117,7 +117,7 @@ export default function Verse({
         <button
           onClick={onToggleStudied}
           aria-pressed={studied}
-          className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
+          className={`tap rounded-full border px-2.5 py-0.5 text-[11px] font-medium transition-colors ${
             studied
               ? 'border-emerald/40 bg-emerald/10 text-emerald'
               : 'border-transparent text-muted hover:border-line hover:text-ink'
@@ -151,7 +151,7 @@ export default function Verse({
               key={w.position}
               onClick={() => setSelected(isSel ? null : w.position)}
               className={`flex min-w-[2.75rem] flex-col items-center gap-0.5 rounded-xl px-2.5 pb-1.5 pt-0.5 transition-colors ${
-                isSel ? 'bg-surface ring-1 ring-gold/60 shadow-sm' : 'hover:bg-surface/80'
+                isSel ? 'bg-surface ring-1 ring-accent/60 shadow-sm' : 'hover:bg-surface/80'
               }`}
               title={[w.gloss, ...w.segments.map((s) => s.description)].filter(Boolean).join(' · ')}
             >

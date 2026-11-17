@@ -28,7 +28,7 @@ export default function LearnWord() {
     return (
       <div className="mx-auto flex max-w-reading flex-col items-center gap-3 pt-10 text-center">
         <p className="font-display text-lg font-semibold">That word is not in the index.</p>
-        <Link to="/learn" className="text-sm text-gold underline underline-offset-4">
+        <Link to="/learn" className="tap inline-flex items-center text-sm text-accent underline underline-offset-4">
           Back to the learning path
         </Link>
       </div>
@@ -37,7 +37,7 @@ export default function LearnWord() {
   return (
     <div className="mx-auto flex max-w-reading flex-col gap-6">
       <header className="flex flex-col items-center gap-1 pt-4 text-center sm:pt-8">
-        <Link to="/learn" className="text-xs text-muted hover:text-ink">
+        <Link to="/learn" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← Learning path
         </Link>
         <span className="tnum mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
@@ -69,11 +69,11 @@ export default function LearnWord() {
           <div className="flex flex-wrap items-end justify-between gap-2">
             <h2 className="font-display text-xl font-semibold tracking-tight">
               Root family{' '}
-              <span lang="ar" className="ar-naskh font-normal text-gold">
+              <span lang="ar" className="ar-naskh font-normal text-accent">
                 {l.root.split('').join(' ')}
               </span>
             </h2>
-            <Link to={rootPath(l.root)} className="text-xs font-medium text-gold underline underline-offset-4">
+            <Link to={rootPath(l.root)} className="text-xs font-medium text-accent underline underline-offset-4">
               Open the family →
             </Link>
           </div>

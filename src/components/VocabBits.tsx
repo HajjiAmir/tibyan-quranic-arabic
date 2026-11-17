@@ -26,7 +26,7 @@ export function ExampleVerse({ ex }: { ex: Example }) {
         {ex.words.map((w, i) => (
           <span key={i}>
             {i > 0 && ' '}
-            <span className={i === ex.hit ? 'rounded-md bg-gold/15 px-1 text-gold' : undefined}>{w}</span>
+            <span className={i === ex.hit ? 'rounded-md bg-accent/15 px-1 text-accent' : undefined}>{w}</span>
           </span>
         ))}
       </p>
@@ -105,13 +105,13 @@ export function LemmaFacts({ l }: { l: Lemma }) {
           <Chip label="Root">
             <Link
               to={rootPath(l.root)}
-              className="inline-flex items-center gap-1 underline decoration-gold/40 underline-offset-4 hover:text-gold"
+              className="inline-flex items-center gap-1 underline decoration-accent/40 underline-offset-4 hover:text-accent"
               aria-label={`Root ${l.root}: see its word family`}
             >
               <span lang="ar" className="ar-naskh text-[0.95rem] leading-none">
                 {l.root.split('').join(' ')}
               </span>
-              <span className="text-gold">family →</span>
+              <span className="text-accent">family →</span>
             </Link>
           </Chip>
         )}
@@ -155,7 +155,7 @@ function Chip({ label, children }: { label: string; children: ReactNode }) {
 }
 
 export function StatusDot({ status }: { status: Status }) {
-  const cls = status === 'known' ? 'bg-emerald' : status === 'learning' ? 'bg-gold' : 'bg-line';
+  const cls = status === 'known' ? 'bg-emerald' : status === 'learning' ? 'bg-accent' : 'bg-line';
   return <span aria-label={status} title={status} className={`inline-block h-2 w-2 shrink-0 rounded-full ${cls}`} />;
 }
 
@@ -172,7 +172,7 @@ function Ring({ value }: { value: number }) {
         cy="60"
         r={r}
         fill="none"
-        stroke="rgb(var(--gold))"
+        stroke="rgb(var(--accent))"
         strokeWidth="9"
         strokeLinecap="round"
         strokeDasharray={`${Math.max(value, value > 0 ? 0.004 : 0) * c} ${c}`}
@@ -197,7 +197,7 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
         <div className="relative">
           <Ring value={m.coverage} />
           <div className="absolute inset-0 flex flex-col items-center justify-center">
-            <span className="tnum font-display text-[1.9rem] font-semibold leading-none text-gold">{pct(m.coverage)}%</span>
+            <span className="tnum font-display text-[1.9rem] font-semibold leading-none text-accent">{pct(m.coverage)}%</span>
             <span className="mt-1 text-[10px] uppercase tracking-[0.14em] text-muted">of the Qur’an</span>
           </div>
         </div>
@@ -230,7 +230,7 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
 
       <div className="flex flex-col gap-1.5" aria-hidden>
         <div className="relative h-2 rounded-full bg-surface-2">
-          <div className="h-full rounded-full bg-gold transition-[width] duration-700" style={{ width: `${m.coverage * 100}%` }} />
+          <div className="h-full rounded-full bg-accent transition-[width] duration-700" style={{ width: `${m.coverage * 100}%` }} />
           {marks.map((k) => (
             <span key={k.n} className="absolute top-[-3px] h-[14px] w-px bg-muted/50" style={{ left: `${k.at * 100}%` }} />
           ))}
@@ -312,7 +312,7 @@ export function LemmaLink({ l, status, current }: { l: Lemma; status: Status; cu
       to={wordPath(l)}
       aria-current={current ? 'page' : undefined}
       className={`flex items-center gap-3 px-3.5 py-2.5 transition-colors hover:bg-surface-2/40 sm:px-4 ${
-        current ? 'bg-gold/[0.07]' : ''
+        current ? 'bg-accent/[0.07]' : ''
       }`}
     >
       <StatusDot status={status} />

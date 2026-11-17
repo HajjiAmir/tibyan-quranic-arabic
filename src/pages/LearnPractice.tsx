@@ -34,7 +34,7 @@ export default function LearnPractice() {
       <div className="flex flex-col items-center gap-1 text-center">
         <span className="text-xs uppercase tracking-widest text-muted">Vocabulary practice</span>
         <h1 className="font-display text-2xl font-semibold">The whole Qur’an, most frequent first</h1>
-        <Link to="/learn" className="mt-1 text-xs text-muted hover:text-ink">
+        <Link to="/learn" className="tap mt-1 inline-flex items-center text-xs text-muted hover:text-ink">
           ← Progress and word list
         </Link>
       </div>
@@ -191,7 +191,7 @@ function Quiz({ index, pool }: { index: VocabIndex; pool: Pool }) {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0;
     return (
       <div className="flex flex-col items-center gap-3 card p-10 text-center">
-        <p className="font-display text-3xl font-semibold text-gold">
+        <p className="font-display text-3xl font-semibold text-accent">
           {score} / {questions.length}
         </p>
         <p className="text-sm text-muted">
@@ -226,7 +226,7 @@ function Quiz({ index, pool }: { index: VocabIndex; pool: Pool }) {
         {q.options.map((opt) => {
           const isAnswer = opt === q.answer;
           const isPicked = opt === picked;
-          let cls = 'border-line bg-surface hover:border-gold/50';
+          let cls = 'border-line bg-surface hover:border-accent/50';
           if (picked) {
             if (isAnswer) cls = 'border-emerald bg-emerald/10 text-emerald';
             else if (isPicked) cls = 'bg-surface-2';

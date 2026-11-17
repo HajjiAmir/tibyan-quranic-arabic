@@ -3,16 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta name="theme-color" content="#f6f1e7" media="(prefers-color-scheme: light)" />
-    <meta name="theme-color" content="#14110c" media="(prefers-color-scheme: dark)" />
+    <meta name="theme-color" content="#f3f5fa" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#05070e" media="(prefers-color-scheme: dark)" />
     <meta name="description" content="Learn and master Quranic Arabic: word-by-word grammar, roots, tajweed and meaning for every surah." />
     <title>Tibyān — Quranic Arabic</title>
     <script>
-      // Apply a saved theme before first paint, so the page never fades from the other theme on load.
+      // Apply the saved theme (Midnight by default) before first paint, so the page never fades from the other theme on load.
       try {
         var t = localStorage.getItem('tibyan.theme');
         if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
-      } catch (e) {}
+        else if (t !== 'system') document.documentElement.setAttribute('data-theme', 'dark');
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
     </script>
   </head>
   <body>

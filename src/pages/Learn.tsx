@@ -185,7 +185,7 @@ function Row({
           )}
           <div className="flex flex-wrap items-center justify-between gap-2">
             <StatusActions l={l} status={status} onChange={onChange} />
-            <Link to={wordPath(l)} className="text-xs font-medium text-gold underline underline-offset-4">
+            <Link to={wordPath(l)} className="text-xs font-medium text-accent underline underline-offset-4">
               Word page →
             </Link>
           </div>

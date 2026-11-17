@@ -10,7 +10,8 @@ function stored(): Theme {
   } catch {
     /* ignore */
   }
-  return 'system';
+  // Midnight is the flagship: the default until the reader chooses otherwise.
+  return 'dark';
 }
 
 function apply(theme: Theme): void {
@@ -31,9 +32,9 @@ export function useTheme(): [Theme, () => void] {
     }
   }, [theme]);
 
-  // cycle: system -> light -> dark -> system
+  // cycle: dark -> light -> system -> dark
   const cycle = () =>
-    setTheme((t) => (t === 'system' ? 'light' : t === 'light' ? 'dark' : 'system'));
+    setTheme((t) => (t === 'dark' ? 'light' : t === 'light' ? 'system' : 'dark'));
 
   return [theme, cycle];
 }

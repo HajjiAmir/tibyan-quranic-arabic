@@ -5,6 +5,8 @@ import { surahStudiedCount, totalStudied } from '../lib/progress';
 import type { Legend, SurahMeta } from '../types';
 import GrammarLegend from '../components/GrammarLegend';
 import HeroMotif from '../components/HeroMotif';
+import HeroSky from '../components/HeroSky';
+import HeroSpecimen from '../components/HeroSpecimen';
 import { loadVocab, mastery, type Mastery } from '../lib/vocab';
 
 type Filter = 'all' | 'meccan' | 'medinan';
@@ -49,47 +51,55 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="relative isolate -mx-4 -mt-6 flex flex-col items-center overflow-hidden px-4 pb-10 pt-14 text-center sm:pb-12 sm:pt-20">
-        <div aria-hidden className="hero-glow pointer-events-none absolute inset-0 -z-10" />
+      <section className="hero-bleed relative isolate -mt-6">
+        <HeroSky />
         <HeroMotif className="-z-10" />
 
-        <span lang="ar" className="ar-title text-[3.1rem] leading-[1.25] text-gold sm:text-[3.9rem]">
-          تِبْيَان
-        </span>
-        <span aria-hidden className="mb-4 mt-1 flex items-center gap-2.5">
-          <span className="h-px w-10 bg-gradient-to-l from-gold/60 to-transparent" />
-          <span className="h-1.5 w-1.5 rotate-45 border border-gold/70" />
-          <span className="h-px w-10 bg-gradient-to-r from-gold/60 to-transparent" />
-        </span>
-        <h1 className="max-w-reading font-display text-[2.05rem] font-semibold leading-[1.12] text-balance sm:text-[2.9rem]">
-          Understand every word of the Qur&rsquo;an
-        </h1>
-        <p className="mt-4 max-w-[38rem] text-[0.95rem] leading-7 text-muted text-pretty">
-          Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
-          the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
-          the Tanzil Uthmani text and the Saheeh International translation.
-        </p>
+        <div className="gutter mx-auto grid max-w-5xl items-center gap-10 pb-14 pt-14 sm:pb-16 sm:pt-20 lg:grid-cols-[1.1fr_1fr] lg:gap-12 lg:pb-20 lg:pt-24">
+          <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
+            <span lang="ar" className="wordmark-glow ar-title text-[3.3rem] leading-[1.2] sm:text-[4.4rem]">
+              تِبْيَان
+            </span>
+            <span aria-hidden className="mb-5 mt-1 flex items-center gap-2.5">
+              <span className="h-px w-10 bg-gradient-to-l from-accent/60 to-transparent" />
+              <span className="h-1.5 w-1.5 rotate-45 border border-accent/70" />
+              <span className="h-px w-10 bg-gradient-to-r from-accent/60 to-transparent" />
+            </span>
+            <h1 className="max-w-[34rem] font-display text-[2.35rem] leading-[1.06] text-balance sm:text-[3.3rem]">
+              Understand <em className="text-accent">every word</em> of the Qur&rsquo;an
+            </h1>
+            <p className="mt-5 max-w-[36rem] text-[0.97rem] leading-7 text-muted text-pretty">
+              Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
+              the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
+              the Tanzil Uthmani text and the Saheeh International translation.
+            </p>
 
-        <div className="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-          <Link to="/surah/1" className="btn btn-primary btn-lg w-full sm:w-auto">
-            Begin with Al-Fātiḥa
-            <span aria-hidden>→</span>
-          </Link>
-          <Link to="/learn" className="btn btn-secondary btn-lg w-full sm:w-auto">
-            Learn the vocabulary
-          </Link>
+            <div className="mt-8 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+              <Link to="/surah/1" className="btn btn-primary btn-lg w-full sm:w-auto">
+                Begin with Al-Fātiḥa
+                <span aria-hidden>→</span>
+              </Link>
+              <Link to="/learn" className="btn btn-secondary btn-lg w-full sm:w-auto">
+                Learn the vocabulary
+              </Link>
+            </div>
+
+            <dl className="tnum mt-9 grid w-full max-w-sm grid-cols-3 divide-x divide-[color:var(--border-strong)] sm:w-auto sm:max-w-none">
+              <Stat value="114" label="Surahs" />
+              <Stat value={index ? index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString() : '—'} label="Verses" />
+              <Stat value={words ? words.toLocaleString() : '—'} label="Words" />
+            </dl>
+            {studied > 0 && (
+              <p className="tnum mt-3 text-xs text-muted">
+                <span className="font-semibold text-accent">{studied.toLocaleString()}</span> verses studied so far
+              </p>
+            )}
+          </div>
+
+          <div className="mx-auto w-full max-w-md lg:max-w-none">
+            <HeroSpecimen />
+          </div>
         </div>
-
-        <dl className="tnum mt-9 flex items-stretch justify-center divide-x divide-line">
-          <Stat value="114" label="Surahs" />
-          <Stat value={index ? index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString() : '—'} label="Verses" />
-          <Stat value={words ? words.toLocaleString() : '—'} label="Words" />
-        </dl>
-        {studied > 0 && (
-          <p className="tnum mt-3 text-xs text-muted">
-            <span className="font-semibold text-gold">{studied.toLocaleString()}</span> verses studied so far
-          </p>
-        )}
       </section>
 
       {vocab && (
@@ -97,7 +107,7 @@ export default function Home() {
           to="/learn"
           className="card card-link group flex items-center gap-4 px-5 py-4"
         >
-          <span className="tnum flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold/40 bg-gold/[0.06] font-display text-[0.95rem] font-semibold text-gold">
+          <span className="tnum flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-accent/40 bg-accent/[0.06] font-display text-[0.95rem] font-semibold text-accent">
             {vocab.coverage === 0 ? '0' : (vocab.coverage * 100).toFixed(vocab.coverage < 0.1 ? 1 : 0)}%
           </span>
           <span className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -166,9 +176,9 @@ function SurahCard({ s }: { s: SurahMeta }) {
         <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
           <span
             aria-hidden
-            className="absolute inset-[6px] rotate-45 rounded-[4px] border border-gold/45 transition-colors duration-200 group-hover:border-gold/80 group-hover:bg-gold/10"
+            className="absolute inset-[6px] rotate-45 rounded-[4px] border border-accent/45 transition-colors duration-200 group-hover:border-accent/80 group-hover:bg-accent/10"
           />
-          <span className="tnum relative font-display text-[0.8rem] font-semibold text-gold">{s.id}</span>
+          <span className="tnum relative font-display text-[0.8rem] font-semibold text-accent">{s.id}</span>
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex items-baseline justify-between gap-2">
@@ -204,9 +214,9 @@ function SkeletonGrid() {
 
 function Stat({ value, label }: { value: string; label: string }) {
   return (
-    <div className="flex flex-col-reverse items-center gap-1.5 px-4 sm:px-7">
+    <div className="flex flex-col-reverse items-center gap-1.5 px-3 sm:px-7 lg:items-start lg:first:pl-0">
       <dt className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-muted">{label}</dt>
-      <dd className="font-display text-[1.45rem] font-semibold leading-none text-gold sm:text-[1.65rem]">{value}</dd>
+      <dd className="font-display text-[1.6rem] leading-none text-accent sm:text-[1.85rem]" style={{ fontWeight: 380 }}>{value}</dd>
     </div>
   );
 }

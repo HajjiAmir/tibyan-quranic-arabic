@@ -5,51 +5,57 @@
 /* ----------------------------------------------------------------------------
    Tibyān — design tokens
    Theme colours are stored as space-separated RGB channels so Tailwind can
-   apply opacity (bg-gold/10). Grammatical-role colours are full hex, used
+   apply opacity (bg-accent/10). Grammatical-role colours are full hex, used
    directly via inline styles in the word-by-word breakdowns.
-   Layout: a calm reading surface on warm paper (light) / deep night (dark),
-   gold + emerald accents.
+   Identity: Midnight & starlight (dark, the default) and its cool Day
+   counterpart (light). Accent: starlight periwinkle; emerald for progress.
+   Role and tajweed colours are signed off: hues unchanged.
 ---------------------------------------------------------------------------- */
 :root {
-  --paper: 246 241 231;
-  --surface: 255 253 248;
-  --surface-2: 239 232 216;
-  --ink: 43 38 32;
-  --muted: 110 98 76;
-  --line: 227 217 196;
-  --gold: 146 102 30;
-  --gold-soft: 201 163 90;
-  --emerald: 31 107 84;
+  /* Day — the calm, cool counterpart to Midnight */
+  --paper: 243 245 250;          /* #f3f5fa page */
+  --surface: 255 255 255;        /* resting card */
+  --surface-2: 231 235 245;      /* recessed fills, tracks */
+  --surface-raised: 255 255 255; /* raised card */
+  --ink: 16 22 42;               /* #10162a */
+  --muted: 82 92 122;
+  --line: 218 224 238;
+  --line-strong: 184 194 220;
+  --border: rgb(40 60 120 / 0.13);
+  --border-strong: rgb(40 60 120 / 0.26);
+  --hero-bg: radial-gradient(130% 100% at 50% -16%, #dde5ff 0%, #ebeffa 40%, #f3f5fa 76%);
+  --accent: 61 84 196;           /* deep periwinkle: AA as text on white */
+  --accent-bright: 92 116 230;
+  --accent-soft: 162 184 255;
+  --on-accent: 255 255 255;
+  --emerald: 22 112 86;
 
-  /* elevation: page (paper) < resting card (surface) < raised card */
-  --surface-raised: 255 254 251;
-  --hl: inset 0 1px 0 rgb(255 255 255 / 0.7);
-  --elev-1: 0 1px 2px rgb(74 56 24 / 0.06), 0 2px 8px -2px rgb(74 56 24 / 0.07);
-  --elev-2: 0 2px 4px rgb(74 56 24 / 0.06), 0 8px 22px -8px rgb(74 56 24 / 0.16);
-  --elev-3: 0 4px 8px rgb(74 56 24 / 0.06), 0 16px 34px -12px rgb(74 56 24 / 0.24);
-  --glow-gold: 0 6px 18px -6px rgb(146 102 30 / 0.45);
-  --vignette: rgb(120 90 40 / 0.07);
-  --motif-opacity: 0.11;
+  --hl: inset 0 1px 0 rgb(255 255 255 / 0.9);
+  --elev-1: 0 1px 2px rgb(30 44 92 / 0.06), 0 2px 8px -2px rgb(30 44 92 / 0.08);
+  --elev-2: 0 1px 0 rgb(255 255 255 / 0.6), 0 14px 34px -20px rgb(61 84 196 / 0.32);
+  --elev-3: 0 1px 0 rgb(255 255 255 / 0.6), 0 20px 46px -22px rgb(61 84 196 / 0.42);
+  --glow-accent: 0 10px 26px -10px rgb(61 84 196 / 0.55);
+  --vignette: rgb(40 60 140 / 0.05);
+  --motif-opacity: 0.08;
 
-  /* grammatical roles — [text], [tint bg] (full colours) */
+  /* Grammatical roles [text, tint] and tajweed groups: signed off, hues kept.
+     Day only (brief 14): proper, adjective, preposition, negation and particle
+     text darkened a touch for AA as small text on their tints; tajweed silent
+     and madd2 darkened a touch to reach 3:1 as large Arabic text. Dark unchanged. */
   --role-verb: #1f6b54;        --role-verb-bg: #e2efe9;
   --role-noun: #2b5a8c;        --role-noun-bg: #e2ebf5;
-  --role-proper: #9a6a16;      --role-proper-bg: #f4ead0;
+  --role-proper: #8d6114;      --role-proper-bg: #f4ead0;
   --role-pronoun: #7a4bbd;     --role-pronoun-bg: #ece3f8;
-  --role-adjective: #0f7a86;   --role-adjective-bg: #dcf0f1;
-  --role-preposition: #b2476a; --role-preposition-bg: #f6e3ea;
+  --role-adjective: #0e7681;   --role-adjective-bg: #dcf0f1;
+  --role-preposition: #ab4466; --role-preposition-bg: #f6e3ea;
   --role-conjunction: #6b6150; --role-conjunction-bg: #ece6d8;
   --role-determiner: #8a8373;  --role-determiner-bg: #ece7db;
-  --role-negation: #b63d33;    --role-negation-bg: #f6e0dd;
-  --role-particle: #9a6336;    --role-particle-bg: #f1e4d6;
-
-  /* tajweed rule groups (reading-line highlighting) */
-  --tj-silent: #9b9384;   --tj-madd2: #b8860b;   --tj-madd246: #d0661a;
+  --role-negation: #b43c32;    --role-negation-bg: #f6e0dd;
+  --role-particle: #8d5b31;    --role-particle-bg: #f1e4d6;
+  --tj-silent: #958d7d;   --tj-madd2: #b6840b;   --tj-madd246: #d0661a;
   --tj-madd45: #c8372d;   --tj-madd6: #8b1a2b;   --tj-ghunnah: #1e8a45;
   --tj-ikhfa: #a8399a;    --tj-idgham: #2468b4;  --tj-idghamNo: #5e7286;
   --tj-iqlab: #0b8790;    --tj-qalqalah: #4b4fd0;
-
-  /* draft / pending-review notices */
   --draft: 138 86 0;  --draft-bg: 251 240 214;  --draft-line: 236 210 154;
 
   color-scheme: light;
@@ -57,23 +63,30 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --paper: 20 17 12;
-    --surface: 33 29 22;
-    --surface-2: 52 45 34;
-    --ink: 236 227 207;
-    --muted: 184 173 149;
-    --line: 50 43 32;
-    --gold: 217 173 92;
-    --gold-soft: 182 138 63;
+    /* Midnight & starlight — the flagship */
+    --paper: 5 7 14;               /* #05070e page */
+    --surface: 12 18 32;           /* #0c1220 resting card */
+    --surface-2: 34 46 78;         /* recessed fills, tracks */
+    --surface-raised: 20 29 51;    /* #141d33 raised card */
+    --ink: 233 237 251;            /* #e9edfb */
+    --muted: 149 160 195;          /* #95a0c3 */
+    --line: 32 40 60;              /* rgba(160,182,236,.14) over the surfaces */
+    --line-strong: 56 67 95;       /* rgba(160,182,236,.3) over the surfaces */
+    --border: rgb(160 182 236 / 0.14);
+    --border-strong: rgb(160 182 236 / 0.3);
+    --hero-bg: radial-gradient(130% 100% at 50% -16%, #1b2f66 0%, #0a1026 38%, #05070e 76%);
+    --accent: 162 184 255;         /* #a2b8ff starlight periwinkle */
+    --accent-bright: 205 216 255;  /* #cdd8ff */
+    --accent-soft: 120 142 230;
+    --on-accent: 10 15 32;         /* #0a0f20 text on accent fills */
     --emerald: 91 191 156;
 
-    --surface-raised: 41 36 28;
-    --hl: inset 0 1px 0 rgb(255 240 210 / 0.06);
-    --elev-1: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px -2px rgb(0 0 0 / 0.3);
-    --elev-2: 0 2px 4px rgb(0 0 0 / 0.35), 0 10px 24px -8px rgb(0 0 0 / 0.5);
-    --elev-3: 0 4px 8px rgb(0 0 0 / 0.35), 0 18px 38px -12px rgb(0 0 0 / 0.6);
-    --glow-gold: 0 6px 20px -6px rgb(217 173 92 / 0.35);
-    --vignette: rgb(0 0 0 / 0.35);
+    --hl: inset 0 1px 0 rgb(255 255 255 / 0.05);
+    --elev-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 10px 28px -18px rgb(0 0 0 / 0.8);
+    --elev-2: 0 1px 0 rgb(255 255 255 / 0.05), 0 20px 52px -26px rgb(96 126 255 / 0.5);
+    --elev-3: 0 1px 0 rgb(255 255 255 / 0.06), 0 26px 60px -24px rgb(96 126 255 / 0.62);
+    --glow-accent: 0 12px 32px -10px rgb(96 126 255 / 0.65);
+    --vignette: rgb(0 0 0 / 0.45);
     --motif-opacity: 0.09;
 
     --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
@@ -86,12 +99,10 @@
     --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
     --role-negation: #ee8a80;    --role-negation-bg: #351916;
     --role-particle: #e0a56f;    --role-particle-bg: #31220f;
-
     --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
     --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
     --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
     --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
-
     --draft: 240 196 106;  --draft-bg: 46 36 18;  --draft-line: 90 69 25;
 
     color-scheme: dark;
@@ -99,23 +110,30 @@
 }
 
 :root[data-theme='dark'] {
-  --paper: 20 17 12;
-  --surface: 33 29 22;
-  --surface-2: 52 45 34;
-  --ink: 236 227 207;
-  --muted: 184 173 149;
-  --line: 50 43 32;
-  --gold: 217 173 92;
-  --gold-soft: 182 138 63;
+  /* Midnight & starlight — the flagship */
+  --paper: 5 7 14;               /* #05070e page */
+  --surface: 12 18 32;           /* #0c1220 resting card */
+  --surface-2: 34 46 78;         /* recessed fills, tracks */
+  --surface-raised: 20 29 51;    /* #141d33 raised card */
+  --ink: 233 237 251;            /* #e9edfb */
+  --muted: 149 160 195;          /* #95a0c3 */
+  --line: 32 40 60;              /* rgba(160,182,236,.14) over the surfaces */
+  --line-strong: 56 67 95;       /* rgba(160,182,236,.3) over the surfaces */
+  --border: rgb(160 182 236 / 0.14);
+  --border-strong: rgb(160 182 236 / 0.3);
+  --hero-bg: radial-gradient(130% 100% at 50% -16%, #1b2f66 0%, #0a1026 38%, #05070e 76%);
+  --accent: 162 184 255;         /* #a2b8ff starlight periwinkle */
+  --accent-bright: 205 216 255;  /* #cdd8ff */
+  --accent-soft: 120 142 230;
+  --on-accent: 10 15 32;         /* #0a0f20 text on accent fills */
   --emerald: 91 191 156;
 
-  --surface-raised: 41 36 28;
-  --hl: inset 0 1px 0 rgb(255 240 210 / 0.06);
-  --elev-1: 0 1px 2px rgb(0 0 0 / 0.35), 0 2px 8px -2px rgb(0 0 0 / 0.3);
-  --elev-2: 0 2px 4px rgb(0 0 0 / 0.35), 0 10px 24px -8px rgb(0 0 0 / 0.5);
-  --elev-3: 0 4px 8px rgb(0 0 0 / 0.35), 0 18px 38px -12px rgb(0 0 0 / 0.6);
-  --glow-gold: 0 6px 20px -6px rgb(217 173 92 / 0.35);
-  --vignette: rgb(0 0 0 / 0.35);
+  --hl: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  --elev-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 10px 28px -18px rgb(0 0 0 / 0.8);
+  --elev-2: 0 1px 0 rgb(255 255 255 / 0.05), 0 20px 52px -26px rgb(96 126 255 / 0.5);
+  --elev-3: 0 1px 0 rgb(255 255 255 / 0.06), 0 26px 60px -24px rgb(96 126 255 / 0.62);
+  --glow-accent: 0 12px 32px -10px rgb(96 126 255 / 0.65);
+  --vignette: rgb(0 0 0 / 0.45);
   --motif-opacity: 0.09;
 
   --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
@@ -128,12 +146,10 @@
   --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
   --role-negation: #ee8a80;    --role-negation-bg: #351916;
   --role-particle: #e0a56f;    --role-particle-bg: #31220f;
-
   --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
   --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
   --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
   --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
-
   --draft: 240 196 106;  --draft-bg: 46 36 18;  --draft-line: 90 69 25;
 
   color-scheme: dark;
@@ -158,10 +174,11 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(120% 80% at 50% -10%, color-mix(in srgb, rgb(var(--gold)) 7%, transparent), transparent 60%),
+    radial-gradient(120% 70% at 50% -12%, rgb(var(--accent) / 0.08), transparent 60%),
     radial-gradient(140% 110% at 50% 35%, transparent 60%, var(--vignette) 100%);
 }
 
+html, #root { overflow-x: clip; }
 #root { position: relative; z-index: 1; }
 
 .ar {
@@ -202,14 +219,14 @@ body::before {
 /* Verse-end ornament drawn by the font from ۝ + Arabic-Indic digits. */
 .ayah-mark {
   font-family: 'Amiri Quran', serif;
-  color: rgb(var(--gold));
+  color: rgb(var(--accent));
   font-size: 0.92em;
   margin-inline-start: 0.2em;
   white-space: nowrap;
 }
 
-:focus-visible { outline: 2px solid rgb(var(--gold)); outline-offset: 2px; border-radius: 4px; }
-::selection { background: color-mix(in srgb, rgb(var(--gold)) 30%, transparent); }
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; border-radius: 4px; }
+::selection { background: color-mix(in srgb, rgb(var(--accent)) 30%, transparent); }
 * { scrollbar-width: thin; scrollbar-color: rgb(var(--line)) transparent; }
 
 @media (prefers-reduced-motion: reduce) {
@@ -231,13 +248,13 @@ body::before {
   .animate-\[eq_0\.9s_ease-in-out_infinite\] { animation: none; }
 }
 
-/* A verse opened from a link (?v=): a brief gold wash that fades. */
+/* A verse opened from a link (?v=): a brief accent wash that fades. */
 .verse-target {
   animation: verse-target 2.6s ease-out;
   border-radius: 1rem;
 }
 @keyframes verse-target {
-  0%, 35% { background-color: rgb(var(--gold) / 0.13); }
+  0%, 35% { background-color: rgb(var(--accent) / 0.13); }
   100% { background-color: transparent; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -245,20 +262,20 @@ body::before {
 }
 
 /* ----------------------------------------------------------------------------
-   Elevation, buttons and motion (brief 13)
+   Elevation, buttons and motion
    Radius system: controls 12px · cards and panels 18px · chips fully round.
-   Gold is an accent only: numbers, active states, the primary action.
+   The accent is for numbers, active states and the primary action only.
 ---------------------------------------------------------------------------- */
 @layer components {
   .card {
     border-radius: 18px;
-    border: 1px solid rgb(var(--line) / 0.75);
+    border: 1px solid var(--border);
     background-color: rgb(var(--surface));
     box-shadow: var(--hl), var(--elev-1);
   }
   .card-raised {
     border-radius: 18px;
-    border: 1px solid rgb(var(--line) / 0.85);
+    border: 1px solid var(--border);
     background-color: rgb(var(--surface-raised));
     box-shadow: var(--hl), var(--elev-2);
   }
@@ -267,12 +284,13 @@ body::before {
   }
   .card-link:hover {
     transform: translateY(-2px);
-    border-color: rgb(var(--gold) / 0.45);
+    border-color: rgb(var(--accent) / 0.45);
     box-shadow: var(--hl), var(--elev-3);
   }
   .card-link:active { transform: translateY(0); box-shadow: var(--hl), var(--elev-1); }
 
   .btn {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -287,66 +305,56 @@ body::before {
     white-space: nowrap;
     cursor: pointer;
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
     transition: transform 160ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease,
       color 200ms ease, filter 200ms ease;
   }
   .btn:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--gold));
+    box-shadow: 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent));
   }
   .btn:disabled { opacity: 0.45; cursor: default; transform: none; }
   .btn-sm { height: 2rem; padding: 0 0.875rem; font-size: 0.75rem; border-radius: 10px; gap: 0.375rem; }
   .btn-lg { height: 3rem; padding: 0 1.5rem; font-size: 0.95rem; border-radius: 14px; }
   .btn-pill { border-radius: 9999px; }
 
-  /* Primary: a soft gold gradient with dark text (AA in both themes). */
+  /* Primary: a soft starlight gradient, a fine top highlight and the periwinkle glow. */
   .btn-primary {
-    color: rgb(33 24 10);
-    background-image: linear-gradient(180deg, rgb(226 190 120), rgb(201 152 66) 55%, rgb(186 138 56));
-    border-color: rgb(150 106 34 / 0.55);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), var(--glow-gold);
-  }
-  :root[data-theme='dark'] .btn-primary {
-    background-image: linear-gradient(180deg, rgb(236 200 128), rgb(214 168 86));
-    border-color: rgb(240 205 140 / 0.35);
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme='light']) .btn-primary {
-      background-image: linear-gradient(180deg, rgb(236 200 128), rgb(214 168 86));
-      border-color: rgb(240 205 140 / 0.35);
-    }
+    color: rgb(var(--on-accent));
+    background-image: var(--btn-primary-bg);
+    border-color: var(--btn-primary-edge);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55), inset 0 -1px 0 rgb(0 0 0 / 0.08), var(--glow-accent);
   }
   .btn-primary:hover:not(:disabled) {
-    transform: translateY(-1px);
-    filter: brightness(1.05) saturate(1.05);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), 0 10px 24px -8px rgb(var(--gold) / 0.55);
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -1px 0 rgb(0 0 0 / 0.08), var(--glow-accent-hover);
   }
   .btn-primary:active:not(:disabled) {
     transform: translateY(1px);
-    filter: brightness(0.97);
-    box-shadow: inset 0 2px 4px rgb(60 40 10 / 0.3);
+    filter: brightness(0.96);
+    box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.28), 0 4px 12px -8px rgb(var(--accent) / 0.6);
   }
   .btn-primary:focus-visible {
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.45), 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--gold));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55), 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent-bright));
   }
 
-  /* Secondary: refined border, soft fill on hover. */
+  /* Secondary (the ghost button): a refined border, a soft accent wash on hover. */
   .btn-secondary {
     color: rgb(var(--ink));
-    background-color: rgb(var(--surface));
-    border-color: rgb(var(--line));
-    box-shadow: var(--hl), var(--elev-1);
+    background-color: rgb(var(--surface) / 0.35);
+    border-color: var(--border-strong);
   }
   .btn-secondary:hover:not(:disabled) {
-    background-color: rgb(var(--surface-2) / 0.7);
-    border-color: rgb(var(--gold) / 0.4);
+    background-color: rgb(var(--accent) / 0.14);
+    border-color: rgb(var(--accent) / 0.5);
   }
-  .btn-secondary:active:not(:disabled) { transform: translateY(1px); box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.12); }
+  .btn-secondary:active:not(:disabled) { transform: translateY(1px); background-color: rgb(var(--accent) / 0.2); }
 
-  /* Ghost: no fill at rest. */
+  /* Ghost: no border or fill at rest. */
   .btn-ghost { color: rgb(var(--muted)); background-color: transparent; }
-  .btn-ghost:hover:not(:disabled) { color: rgb(var(--ink)); background-color: rgb(var(--surface-2) / 0.6); }
-  .btn-ghost:active:not(:disabled) { background-color: rgb(var(--surface-2)); }
+  .btn-ghost:hover:not(:disabled) { color: rgb(var(--ink)); background-color: rgb(var(--accent) / 0.1); }
+  .btn-ghost:active:not(:disabled) { background-color: rgb(var(--accent) / 0.16); }
 
   /* Segmented control: one recessed track, raised active segment. */
   .seg {
@@ -354,9 +362,9 @@ body::before {
     gap: 0.25rem;
     padding: 0.25rem;
     border-radius: 12px;
-    border: 1px solid rgb(var(--line) / 0.8);
+    border: 1px solid var(--border);
     background-color: rgb(var(--surface-2) / 0.45);
-    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.05);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.08);
   }
   .seg > button {
     border-radius: 9px;
@@ -369,18 +377,49 @@ body::before {
   .seg > button[aria-pressed='true'] {
     color: rgb(var(--ink));
     background-color: rgb(var(--surface-raised));
-    box-shadow: var(--hl), var(--elev-1);
+    box-shadow: var(--hl), 0 0 0 1px var(--border-strong);
   }
 
   .field {
     border-radius: 12px;
-    border: 1px solid rgb(var(--line));
+    border: 1px solid var(--border-strong);
     background-color: rgb(var(--surface));
-    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.04);
+    box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.08);
     outline: none;
     transition: border-color 180ms ease, box-shadow 180ms ease;
   }
-  .field:focus { border-color: rgb(var(--gold) / 0.7); box-shadow: 0 0 0 3px rgb(var(--gold) / 0.15); }
+  .field:focus { border-color: rgb(var(--accent) / 0.7); box-shadow: 0 0 0 3px rgb(var(--accent) / 0.18); }
+}
+
+/* Primary button colours per theme (dark text on starlight; white on deep periwinkle by day). */
+:root {
+  --btn-primary-bg: linear-gradient(180deg, #4e64d4 0%, #4259cc 55%, #3a4fbd 100%);
+  --btn-primary-edge: rgb(40 56 150 / 0.6);
+  --glow-accent-hover: 0 16px 34px -12px rgb(61 84 196 / 0.6);
+}
+:root[data-theme='dark'] {
+  --btn-primary-bg: linear-gradient(180deg, #d6e0ff 0%, #b2c4ff 48%, #98aefb 100%);
+  --btn-primary-edge: rgb(205 216 255 / 0.65);
+  --glow-accent-hover: 0 18px 42px -10px rgb(110 140 255 / 0.75);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --btn-primary-bg: linear-gradient(180deg, #d6e0ff 0%, #b2c4ff 48%, #98aefb 100%);
+    --btn-primary-edge: rgb(205 216 255 / 0.65);
+    --glow-accent-hover: 0 18px 42px -10px rgb(110 140 255 / 0.75);
+  }
+}
+
+/* Phones and touch screens: every control is at least 44px tall. */
+@media (max-width: 639px), (pointer: coarse) {
+  .btn, .btn-sm, .btn-lg, .seg > button, .field, .tap { min-height: 44px; }
+  .btn-sm { padding: 0 1rem; font-size: 0.8125rem; }
+  .tap { min-width: 44px; }
+  .tap-y { min-height: 44px; }
+  /* Inline controls inside running text (footnote markers, credit links): an
+     invisible 44px hit area, so the sentence keeps its shape. */
+  .hit { position: relative; }
+  .hit::after { content: ''; position: absolute; left: 50%; top: 50%; width: max(100%, 44px); height: 44px; transform: translate(-50%, -50%); }
 }
 
 /* Calm theme changes: colours ease rather than snap. */
@@ -397,21 +436,132 @@ body, header, .card, .card-raised, .seg, .field {
   to { opacity: 1; transform: none; }
 }
 
-/* Large Lora headings: slightly tighter tracking. */
-h1.font-display, h2.font-display { letter-spacing: -0.02em; }
+/* Fraunces: light and airy for large headings, a touch firmer for small ones. */
+.font-display { font-weight: 500; font-optical-sizing: auto; }
+h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spacing: -0.015em; }
 
-/* Landing hero */
-.hero-glow {
-  background: radial-gradient(55% 65% at 50% 22%, rgb(var(--gold) / 0.16), transparent 70%);
+/* ----------------------------------------------------------------------------
+   Landing hero: the night sky. Pure CSS and inline SVG; all decorative.
+---------------------------------------------------------------------------- */
+.hero-bleed {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  background: var(--hero-bg);
 }
 .hero-motif {
-  color: rgb(var(--gold));
+  color: rgb(var(--accent));
   opacity: var(--motif-opacity);
-  -webkit-mask-image: radial-gradient(60% 75% at 50% 30%, #000 20%, transparent 75%);
-  mask-image: radial-gradient(60% 75% at 50% 30%, #000 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(48% 70% at 50% 34%, #000 18%, transparent 74%);
+  mask-image: radial-gradient(48% 70% at 50% 34%, #000 18%, transparent 74%);
+}
+.wordmark-glow {
+  color: rgb(var(--accent-bright));
+  text-shadow: 0 0 28px rgb(var(--accent) / 0.55), 0 0 4px rgb(var(--accent) / 0.35);
+}
+:root:not([data-theme='dark']) .wordmark-glow { color: rgb(var(--accent)); text-shadow: 0 0 22px rgb(var(--accent) / 0.2); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .wordmark-glow {
+    color: rgb(var(--accent-bright));
+    text-shadow: 0 0 28px rgb(var(--accent) / 0.55), 0 0 4px rgb(var(--accent) / 0.35);
+  }
+}
+
+/* Starfield: three tiles of different sizes so the pattern never visibly repeats. */
+.sky {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 92%);
+  mask-image: linear-gradient(to bottom, #000 35%, transparent 92%);
+}
+.sky-dust {
+  background-image:
+    radial-gradient(circle at 18px 26px, rgb(233 237 251 / 0.7) 0 0.6px, transparent 1.1px),
+    radial-gradient(circle at 92px 140px, rgb(233 237 251 / 0.55) 0 0.5px, transparent 1px),
+    radial-gradient(circle at 160px 60px, rgb(205 216 255 / 0.6) 0 0.6px, transparent 1.1px),
+    radial-gradient(circle at 210px 190px, rgb(233 237 251 / 0.5) 0 0.5px, transparent 1px),
+    radial-gradient(circle at 40px 220px, rgb(233 237 251 / 0.45) 0 0.5px, transparent 1px),
+    radial-gradient(circle at 130px 250px, rgb(205 216 255 / 0.5) 0 0.6px, transparent 1.1px),
+    radial-gradient(circle at 250px 100px, rgb(233 237 251 / 0.6) 0 0.5px, transparent 1px),
+    radial-gradient(circle at 70px 300px, rgb(233 237 251 / 0.4) 0 0.6px, transparent 1.1px),
+    radial-gradient(circle at 37px 61px, rgb(233 237 251 / 0.55) 0 0.7px, transparent 1.3px),
+    radial-gradient(circle at 151px 173px, rgb(205 216 255 / 0.5) 0 0.6px, transparent 1.1px),
+    radial-gradient(circle at 288px 37px, rgb(233 237 251 / 0.45) 0 0.6px, transparent 1.1px);
+  background-size: 271px 311px, 271px 311px, 271px 311px, 271px 311px, 271px 311px, 271px 311px, 271px 311px,
+    271px 311px, 347px 389px, 347px 389px, 347px 389px;
+}
+.sky-twinkle {
+  background-image:
+    radial-gradient(circle at 60px 80px, rgb(233 237 251 / 0.85) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 300px 210px, rgb(205 216 255 / 0.8) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 190px 330px, rgb(233 237 251 / 0.75) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 420px 40px, rgb(233 237 251 / 0.8) 0 1px, transparent 1.8px);
+  background-size: 457px 409px;
+  animation: twinkle 7s ease-in-out infinite alternate;
+}
+.sky-twinkle-b {
+  background-image:
+    radial-gradient(circle at 120px 160px, rgb(205 216 255 / 0.8) 0 0.9px, transparent 1.6px),
+    radial-gradient(circle at 380px 300px, rgb(233 237 251 / 0.8) 0 0.8px, transparent 1.5px),
+    radial-gradient(circle at 260px 30px, rgb(233 237 251 / 0.7) 0 0.9px, transparent 1.6px);
+  background-size: 523px 467px;
+  animation: twinkle 9s ease-in-out 2.5s infinite alternate-reverse;
+}
+@keyframes twinkle {
+  0% { opacity: 0.35; }
+  100% { opacity: 1; }
+}
+/* A few brighter stars, each with a soft halo and its own slow breath. */
+.star-bright {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background: rgb(240 244 255);
+  box-shadow: 0 0 6px 1px rgb(205 216 255 / 0.7), 0 0 14px 3px rgb(162 184 255 / 0.25);
+  animation: star-breathe 8s ease-in-out infinite;
+}
+.star-bright.sm { width: 2px; height: 2px; box-shadow: 0 0 5px 1px rgb(205 216 255 / 0.55); }
+@keyframes star-breathe {
+  0%, 100% { opacity: 0.55; transform: scale(0.85); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+/* One shooting star, rarely. */
+.shooting-star {
+  position: absolute;
+  top: 14%;
+  left: 8%;
+  width: 130px;
+  height: 1px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, rgb(205 216 255 / 0), rgb(205 216 255 / 0.9));
+  transform: rotate(16deg);
+  transform-origin: right center;
+  opacity: 0;
+  animation: shoot 15s ease-out 5s infinite;
+}
+@keyframes shoot {
+  0% { opacity: 0; transform: rotate(16deg) translateX(0); }
+  2% { opacity: 1; }
+  7% { opacity: 0; transform: rotate(16deg) translateX(280px); }
+  100% { opacity: 0; transform: rotate(16deg) translateX(280px); }
+}
+.crescent { filter: drop-shadow(0 0 14px rgb(162 184 255 / 0.45)) drop-shadow(0 0 40px rgb(96 126 255 / 0.25)); }
+
+/* Day: no stars; the moon stays, faint, as a daytime moon. */
+:root:not([data-theme='dark']) .night-only { display: none; }
+:root:not([data-theme='dark']) .crescent { opacity: 0.55; filter: drop-shadow(0 0 10px rgb(61 84 196 / 0.2)); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .night-only { display: block; }
+  :root:not([data-theme='light']) .crescent {
+    opacity: 1;
+    filter: drop-shadow(0 0 14px rgb(162 184 255 / 0.45)) drop-shadow(0 0 40px rgb(96 126 255 / 0.25));
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card-link:hover, .btn:hover, .btn:active { transform: none !important; }
   .route-fade { animation: none; }
+  .sky-twinkle, .sky-twinkle-b, .star-bright { animation: none !important; opacity: 0.8; }
+  .shooting-star { display: none; }
 }

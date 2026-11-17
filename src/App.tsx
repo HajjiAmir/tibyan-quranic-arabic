@@ -50,8 +50,8 @@ export default function App() {
         }}
       >
         <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">
-          <Link to="/" className="group flex items-baseline gap-2.5">
-            <span className="ar-title text-[1.6rem] leading-none text-gold transition-opacity group-hover:opacity-85">
+          <Link to="/" className="tap group flex items-center gap-2.5">
+            <span className="ar-title text-[1.6rem] leading-none text-accent transition-opacity group-hover:opacity-85">
               تِبيان
             </span>
             <span className="hidden font-display text-lg font-semibold tracking-tight sm:inline">Tibyān</span>

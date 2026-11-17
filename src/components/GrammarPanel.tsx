@@ -17,7 +17,7 @@ const FORM_NOTE: Record<NonNullable<Segment['pronounForm']>, string> = {
 };
 
 // English for one segment: the QAC's own wording, or the reviewed grammatical table.
-function SegmentGloss({ seg }: { seg: Segment }) {
+export function SegmentGloss({ seg }: { seg: Segment }) {
   if (!seg.gloss) return null;
   const [label, title] =
     seg.glossSource === 'qac-prefix'

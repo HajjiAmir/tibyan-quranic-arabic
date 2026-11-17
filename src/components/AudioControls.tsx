@@ -72,9 +72,9 @@ export function ListenToggle({ rec }: { rec: Recitation }) {
       onClick={() => rec.setOpen(!rec.open)}
       aria-expanded={rec.open}
       aria-label="Listen to the recitation"
-      className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
+      className={`tap flex shrink-0 items-center justify-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
         rec.open || active
-          ? 'border-gold/50 bg-gold/10 text-gold'
+          ? 'border-accent/50 bg-accent/10 text-accent'
           : 'border-line bg-surface text-muted hover:text-ink'
       }`}
     >
@@ -105,7 +105,7 @@ function RepeatIcon({ className = icon }: { className?: string }) {
 }
 
 const pillSelect =
-  'cursor-pointer appearance-none rounded-full border border-line bg-surface py-1 pl-3 pr-7 text-xs font-medium text-ink transition-colors hover:border-gold/50 focus:outline-none focus-visible:ring-1 focus-visible:ring-gold/60';
+  'tap cursor-pointer appearance-none rounded-full border border-line bg-surface py-1 pl-3 pr-7 text-xs font-medium text-ink transition-colors hover:border-accent/50 focus:outline-none focus-visible:ring-1 focus-visible:ring-accent/60';
 
 function Caret() {
   return (
@@ -207,7 +207,7 @@ function PassageForm({ rec, totalVerses, onDone }: { rec: Recitation; totalVerse
       <button
         type="submit"
         disabled={!rec.ready}
-        className="ml-auto flex items-center gap-1.5 rounded-full bg-gold px-3 py-1 text-xs font-semibold text-paper shadow-sm transition-transform active:scale-95 disabled:opacity-40"
+        className="tap ml-auto flex items-center gap-1.5 rounded-full bg-accent px-3 py-1 text-xs font-semibold text-on-accent shadow-sm transition-transform active:scale-95 disabled:opacity-40"
       >
         <PlayIcon className="h-3 w-3" /> Start
       </button>
@@ -231,7 +231,7 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
           onClick={rec.togglePlay}
           disabled={!rec.ready}
           aria-label={busy ? 'Pause recitation' : 'Play surah'}
-          className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gold text-paper shadow-sm transition-transform hover:scale-[1.04] active:scale-95 disabled:opacity-40"
+          className="tap flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-accent text-on-accent shadow-sm transition-transform hover:scale-[1.04] active:scale-95 disabled:opacity-40"
         >
           {state.status === 'loading' ? <Spinner /> : busy ? <PauseIcon /> : <PlayIcon className="ml-0.5 h-3.5 w-3.5" />}
         </button>
@@ -239,7 +239,7 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
         <p
           role="status"
           aria-live="polite"
-          className={`tnum min-w-0 flex-1 truncate text-xs ${state.status === 'error' ? 'text-gold' : 'text-muted'}`}
+          className={`tnum min-w-0 flex-1 truncate text-xs ${state.status === 'error' ? 'text-accent' : 'text-muted'}`}
           title={status}
         >
           {status}
@@ -249,7 +249,7 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
           <button
             onClick={rec.stop}
             aria-label="Stop recitation"
-            className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-gold/50 hover:text-ink"
+            className="tap flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent/50 hover:text-ink"
           >
             <StopIcon className="h-3 w-3" />
           </button>
@@ -265,7 +265,7 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
         />
       </div>
 
-      <div className="mt-2 flex items-center gap-1.5 sm:gap-2">
+      <div className="mt-2 flex flex-wrap items-center gap-1.5 sm:gap-2">
         {/* Repeat each āyah: the core memorisation control */}
         <div
           role="radiogroup"
@@ -285,8 +285,8 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
                 aria-checked={on}
                 aria-label={n === 0 ? 'Repeat until stopped' : n === 1 ? 'Recite once' : `Repeat ${n} times`}
                 onClick={() => rec.setRepeat(n)}
-                className={`tnum min-w-[1.6rem] rounded-full px-1 py-0.5 sm:min-w-[1.85rem] sm:px-1.5 text-[11px] font-semibold transition-colors ${
-                  on ? 'bg-gold text-paper' : 'text-muted hover:text-ink'
+                className={`tap-y tnum min-w-[1.6rem] rounded-full px-1 py-0.5 sm:min-w-[1.85rem] sm:px-1.5 text-[11px] font-semibold transition-colors ${
+                  on ? 'bg-accent text-on-accent' : 'text-muted hover:text-ink'
                 }`}
               >
                 {repeatLabel(n)}
@@ -298,8 +298,8 @@ export function PlayerRow({ rec, totalVerses }: { rec: Recitation; totalVerses: 
         <button
           onClick={() => setPassage((o) => !o)}
           aria-expanded={passage}
-          className={`shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors ${
-            passage || inRange ? 'border-gold/50 bg-gold/10 text-gold' : 'border-line bg-surface text-muted hover:text-ink'
+          className={`tap shrink-0 rounded-full border px-2.5 py-1 text-[11px] font-medium transition-colors ${
+            passage || inRange ? 'border-accent/50 bg-accent/10 text-accent' : 'border-line bg-surface text-muted hover:text-ink'
           }`}
           title="Loop a passage of āyāt"
         >
@@ -333,7 +333,7 @@ export function RecitationCredit({ rec }: { rec: Recitation }) {
         <>
           Audio streamed from the{' '}
           <a
-            className="underline decoration-line underline-offset-2 hover:text-ink"
+            className="hit underline decoration-line underline-offset-2 hover:text-ink"
             href="https://alquran.cloud/terms-and-conditions"
             target="_blank"
             rel="noreferrer"
@@ -342,7 +342,7 @@ export function RecitationCredit({ rec }: { rec: Recitation }) {
           </a>{' '}
           (recordings from{' '}
           <a
-            className="underline decoration-line underline-offset-2 hover:text-ink"
+            className="hit underline decoration-line underline-offset-2 hover:text-ink"
             href="https://everyayah.com/"
             target="_blank"
             rel="noreferrer"
@@ -377,8 +377,8 @@ export function VerseAudio({
     (current || (state.verse === BASMALA && state.plan?.from === verse));
   const contBusy = cont && (state.status === 'playing' || state.status === 'loading');
   const btn =
-    'flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[11px] font-medium transition-colors disabled:opacity-40';
-  const on = 'border-gold/50 bg-gold/10 text-gold';
+    'tap flex h-7 items-center justify-center gap-1 rounded-full border px-2 text-[11px] font-medium transition-colors disabled:opacity-40';
+  const on = 'border-accent/50 bg-accent/10 text-accent';
   const off = 'border-transparent text-muted hover:border-line hover:text-ink';
 
   return (

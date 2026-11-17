@@ -32,7 +32,7 @@ function External({ href, children }: { href: string; children: ReactNode }) {
       href={href}
       target="_blank"
       rel="noreferrer noopener"
-      className="inline-flex items-center gap-0.5 underline decoration-line underline-offset-2 transition-colors hover:text-ink hover:decoration-gold/60"
+      className="inline-flex items-center gap-0.5 underline decoration-line underline-offset-2 transition-colors hover:text-ink hover:decoration-accent/60"
     >
       {children}
       <span aria-hidden className="text-[0.8em]">↗</span>
@@ -71,7 +71,7 @@ function Quote({ label, q }: { label: string; q: ContextQuote }) {
   return (
     <figure className="flex flex-col gap-1.5">
       <figcaption className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">{label}</figcaption>
-      <blockquote className="border-l-2 border-gold/40 pl-3.5 font-display text-[0.95rem] leading-relaxed text-ink/90">
+      <blockquote className="border-l-2 border-accent/40 pl-3.5 font-display text-[0.95rem] leading-relaxed text-ink/90">
         {q.text}
         {q.truncated ? ' …' : ''}
       </blockquote>

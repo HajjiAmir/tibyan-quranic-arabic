@@ -41,7 +41,7 @@ function Toggle({
     <button
       onClick={onClick}
       aria-pressed={on}
-      className={`flex items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
+      className={`tap flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
         on
           ? 'border-line bg-surface text-ink shadow-[0_1px_2px_rgb(0_0_0/0.05)]'
           : 'border-transparent text-muted hover:text-ink'
@@ -49,7 +49,7 @@ function Toggle({
     >
       <span
         aria-hidden
-        className={`h-1.5 w-1.5 rounded-full transition-colors ${on ? 'bg-gold' : 'bg-line'}`}
+        className={`h-1.5 w-1.5 rounded-full transition-colors ${on ? 'bg-accent' : 'bg-line'}`}
       />
       {children}
     </button>
@@ -58,10 +58,10 @@ function Toggle({
 
 function Ornament() {
   return (
-    <div aria-hidden className="flex items-center justify-center gap-3 text-gold/70">
-      <span className="h-px w-12 bg-gradient-to-l from-gold/50 to-transparent" />
-      <span className="h-1.5 w-1.5 rotate-45 bg-gold/60" />
-      <span className="h-px w-12 bg-gradient-to-r from-gold/50 to-transparent" />
+    <div aria-hidden className="flex items-center justify-center gap-3 text-accent/70">
+      <span className="h-px w-12 bg-gradient-to-l from-accent/50 to-transparent" />
+      <span className="h-1.5 w-1.5 rotate-45 bg-accent/60" />
+      <span className="h-px w-12 bg-gradient-to-r from-accent/50 to-transparent" />
     </div>
   );
 }
@@ -192,7 +192,7 @@ export default function Reader() {
           Surah {surah.id} · {surah.type === 'meccan' ? 'Meccan' : 'Medinan'} · {surah.totalVerses}{' '}
           verses
         </span>
-        <h1 className="ar-title text-[3.4rem] text-gold sm:text-[4.2rem]">{surah.name}</h1>
+        <h1 className="ar-title text-[3.4rem] text-accent sm:text-[4.2rem]">{surah.name}</h1>
         <div className="flex flex-col items-center gap-1">
           <h2 className="font-display text-2xl font-semibold tracking-tight">
             {surah.transliteration}
@@ -239,7 +239,7 @@ export default function Reader() {
           <ListenToggle rec={rec} />
           <Link
             to={`/surah/${surah.id}/practice`}
-            className="shrink-0 rounded-full border border-emerald/40 bg-emerald/10 px-3.5 py-1 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/15"
+            className="tap inline-flex shrink-0 items-center rounded-full border border-emerald/40 bg-emerald/10 px-3.5 py-1 text-xs font-semibold text-emerald transition-colors hover:bg-emerald/15"
           >
             Practice
           </Link>
@@ -263,7 +263,7 @@ export default function Reader() {
           aria-current={recitingVerse === BASMALA ? 'true' : undefined}
           title={rec.basmalaAvailable ? 'Recited before āyah 1 when you play from the start' : undefined}
           className={`ar scroll-mt-40 pb-2 pt-10 text-center text-[2.1rem] leading-[2] transition-colors duration-500 sm:text-[2.5rem] ${
-            recitingVerse === BASMALA ? 'text-gold' : 'text-ink/90'
+            recitingVerse === BASMALA ? 'text-accent' : 'text-ink/90'
           }`}
         >
           {surah.bismillah}

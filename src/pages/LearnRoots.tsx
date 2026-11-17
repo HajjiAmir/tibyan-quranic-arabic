@@ -50,7 +50,7 @@ export function RootFamily() {
     return (
       <div className="mx-auto flex max-w-reading flex-col items-center gap-3 pt-10 text-center">
         <p className="font-display text-lg font-semibold">That root is not in the index.</p>
-        <Link to="/learn/roots" className="text-sm text-gold underline underline-offset-4">
+        <Link to="/learn/roots" className="text-sm text-accent underline underline-offset-4">
           All roots
         </Link>
       </div>
@@ -63,13 +63,13 @@ export function RootFamily() {
   return (
     <div className="mx-auto flex max-w-reading flex-col gap-6">
       <header className="flex flex-col items-center gap-1 pt-4 text-center sm:pt-8">
-        <Link to="/learn/roots" className="text-xs text-muted hover:text-ink">
+        <Link to="/learn/roots" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← All roots
         </Link>
         <span className="tnum mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
           Root family · #{rank} of {index.totals.roots.toLocaleString()}
         </span>
-        <h1 lang="ar" className="ar-title text-[3.6rem] leading-[1.5] text-gold">
+        <h1 lang="ar" className="ar-title text-[3.6rem] leading-[1.5] text-accent">
           {spaced(root)}
         </h1>
         <p className="tnum text-sm text-muted">
@@ -83,7 +83,7 @@ export function RootFamily() {
         {sense.length > 0 ? (
           <ul className="flex flex-wrap gap-1.5">
             {sense.map((m) => (
-              <li key={m} className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1 text-sm font-medium">
+              <li key={m} className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1 text-sm font-medium">
                 {m}
               </li>
             ))}
@@ -142,7 +142,7 @@ export function RootsIndex() {
   return (
     <div className="mx-auto flex max-w-reading flex-col gap-6">
       <header className="flex flex-col items-center gap-2 pt-4 text-center sm:pt-8">
-        <Link to="/learn" className="text-xs text-muted hover:text-ink">
+        <Link to="/learn" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← Learning path
         </Link>
         <span className="mt-1 text-[11px] font-medium uppercase tracking-[0.18em] text-muted">Root families</span>
@@ -173,7 +173,7 @@ export function RootsIndex() {
               to={rootPath(r.root)}
               className="flex items-center gap-3 px-3.5 py-2.5 transition-colors hover:bg-surface-2/40 sm:px-4"
             >
-              <span lang="ar" className="ar-naskh w-[5.5rem] shrink-0 text-right text-[1.4rem] leading-[1.6] text-gold sm:w-24">
+              <span lang="ar" className="ar-naskh w-[5.5rem] shrink-0 text-right text-[1.4rem] leading-[1.6] text-accent sm:w-24">
                 {spaced(r.root)}
               </span>
               <span className="flex min-w-0 flex-1 flex-col">
@@ -213,7 +213,7 @@ export function RootsPreview({ index }: { index: VocabIndex }) {
           <h2 className="font-display text-xl font-semibold tracking-tight">Root families</h2>
           <p className="text-xs text-muted">Study a root with every word built from it.</p>
         </div>
-        <Link to="/learn/roots" className="text-xs font-medium text-gold underline underline-offset-4">
+        <Link to="/learn/roots" className="tap inline-flex items-center text-xs font-medium text-accent underline underline-offset-4">
           All {index.totals.roots.toLocaleString()} roots →
         </Link>
       </div>
@@ -226,7 +226,7 @@ export function RootsPreview({ index }: { index: VocabIndex }) {
                 to={rootPath(r)}
                 className="card card-link flex h-full flex-col gap-0.5 px-3.5 py-3"
               >
-                <span lang="ar" className="ar-naskh text-[1.5rem] leading-[1.5] text-gold">
+                <span lang="ar" className="ar-naskh text-[1.5rem] leading-[1.5] text-accent">
                   {spaced(r)}
                 </span>
                 <span className="truncate text-xs font-medium">{familySense(fam)[0] ?? fam[0]?.inContext[0] ?? ''}</span>

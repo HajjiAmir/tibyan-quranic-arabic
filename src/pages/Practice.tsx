@@ -42,9 +42,9 @@ export default function Practice() {
     <div className="mx-auto flex max-w-reading flex-col gap-5">
       <div className="flex flex-col items-center gap-1 text-center">
         <span className="text-xs uppercase tracking-widest text-muted">Practice</span>
-        <h1 className="ar-title text-[2.6rem] text-gold">{surah.name}</h1>
+        <h1 className="ar-title text-[2.6rem] text-accent">{surah.name}</h1>
         <h2 className="font-display text-xl font-semibold">{surah.transliteration}</h2>
-        <Link to={`/surah/${surah.id}`} className="mt-1 text-xs text-muted hover:text-ink">
+        <Link to={`/surah/${surah.id}`} className="tap mt-1 inline-flex items-center text-xs text-muted hover:text-ink">
           ← Back to reading
         </Link>
       </div>
@@ -234,7 +234,7 @@ function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
     const pct = Math.round((score / questions.length) * 100);
     return (
       <div className="flex flex-col items-center gap-3 card p-10 text-center">
-        <p className="font-display text-3xl font-semibold text-gold">
+        <p className="font-display text-3xl font-semibold text-accent">
           {score} / {questions.length}
         </p>
         <p className="text-sm text-muted">
@@ -272,7 +272,7 @@ function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
         {q.options.map((opt) => {
           const isAnswer = opt === q.answer;
           const isPicked = opt === picked;
-          let cls = 'border-line bg-surface hover:border-gold/50';
+          let cls = 'border-line bg-surface hover:border-accent/50';
           if (picked) {
             if (isAnswer) cls = 'border-emerald bg-emerald/10 text-emerald';
             else if (isPicked) cls = 'bg-surface-2';
