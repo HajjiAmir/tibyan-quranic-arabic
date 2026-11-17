@@ -110,6 +110,28 @@ Nothing is downloaded by the pipeline; the reader streams one MP3 per āyah.
   to the surahs you recorded and `url` pointing at your files (e.g.
   `public/audio/own/<surah>/<ayah>.mp3`). It then appears in the selector for those surahs only.
 
+## Vocabulary frequency index (`public/data/vocab.json`)
+
+Built by `scripts/build-vocab.mjs` from the generated surah files, so it inherits
+their sources. Nothing is hand-written.
+
+- **Counting unit.** Each of the Qur'an's 77,429 words counts once, for its head
+  lemma: the segment carrying the root, else the first lemma-bearing segment that
+  is neither a prefix nor a suffix (so وَلَا counts for لا, not و), else the first
+  lemma-bearing segment. Attached prefixes (wa-, fa-, bi-, li-, al-) and pronoun
+  suffixes are not counted separately. 857 words have no lemma in the Quranic
+  Arabic Corpus (mostly independent pronouns such as هُمْ, نَحْنُ, أَنتَ, and the
+  disjoined letters); they stay in the total, so coverage can reach at most 98.9%.
+- **Fields.** Lemma, root, part of speech and verb form: Quranic Arabic Corpus.
+  `meaning`: the corpus's dictionary gloss for the lemma (about 1,600 lemmas have
+  one). `inContext`: the three most frequent Quran.com word-by-word glosses of its
+  occurrences (case variants merged). Example verses: the two shortest
+  occurrences (3–14 words preferred), from different surahs, with the Saheeh
+  International translation (footnote markers removed), in `public/data/vocab/ex-<n>.json`.
+- **Check.** The top lemmas match published corpus frequency lists (مِن 3,226,
+  اللَّه 2,699, فِي 1,701, قالَ 1,618). Top 20 lemmas cover 34.9% of words, top 100
+  58.0%, top 500 80.6%, top 1,000 88.4%.
+
 ## Surah context and virtue narrations (`scripts/raw/context/`)
 
 Built into `public/data/context/<id>.json` by `scripts/build-context.mjs`; the

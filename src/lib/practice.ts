@@ -31,31 +31,99 @@ export function deckKey(item: Item, deck: Deck): string {
   return deck === 'meaning' ? `m:${item.key}` : item.key;
 }
 
-interface Box {
+// ---- spaced repetition (shared) ------------------------------------------
+// A Leitner box per card: a right answer moves it up a box (seen again later),
+// a miss sends it back to box 1. Boxes 4–5 count as "known". Each track is its
+// own localStorage store, so per-surah practice and lemma-level vocabulary
+// mastery never overwrite each other.
+
+export interface Box {
   box: number; // 1..5
   due: number; // epoch ms
 }
-type Store = Record<string, Box>;
+export type Store = Record<string, Box>;
 
-const KEY = 'tibyan.srs.v1';
 const DAY = 86_400_000;
 const INTERVALS = [0, 0.02, 1, 3, 7, 16]; // days, indexed by box (box 1..5)
+export const KNOWN_BOX = 4;
 
-function read(): Store {
-  try {
-    const raw = localStorage.getItem(KEY);
-    return raw ? (JSON.parse(raw) as Store) : {};
-  } catch {
-    return {};
-  }
+export interface Track {
+  read(): Store;
+  rate(key: string, good: boolean): void;
+  /** Put a card straight into a box (e.g. "I already know this"); 0 forgets it. */
+  set(key: string, box: number): void;
 }
-function write(s: Store): void {
-  try {
-    localStorage.setItem(KEY, JSON.stringify(s));
-  } catch {
-    /* ignore */
-  }
+
+export function createTrack(storageKey: string, onRate?: () => void): Track {
+  const read = (): Store => {
+    try {
+      const raw = localStorage.getItem(storageKey);
+      return raw ? (JSON.parse(raw) as Store) : {};
+    } catch {
+      return {};
+    }
+  };
+  const write = (s: Store) => {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(s));
+    } catch {
+      /* storage unavailable: progress is just not kept */
+    }
+  };
+  const set = (key: string, box: number) => {
+    const s = read();
+    if (box <= 0) delete s[key];
+    else s[key] = { box, due: Date.now() + INTERVALS[box] * DAY };
+    write(s);
+  };
+  return {
+    read,
+    set,
+    rate(key, good) {
+      const cur = read()[key]?.box ?? 0;
+      set(key, good ? Math.min(cur + 1, 5) : 1);
+      onRate?.();
+    },
+  };
 }
+
+/**
+ * A study session: due cards first (most overdue first), then unseen ones,
+ * capped at `size`. Unseen cards are shuffled, or kept in the given order
+ * (e.g. most frequent first).
+ */
+export function sessionFrom<T>(
+  items: T[],
+  keyOf: (t: T) => string,
+  track: Track,
+  { size = 15, order = 'shuffle', maxNew = size }: { size?: number; order?: 'shuffle' | 'given'; maxNew?: number } = {},
+): T[] {
+  const store = track.read();
+  const now = Date.now();
+  const due = items
+    .filter((i) => store[keyOf(i)] && store[keyOf(i)].due <= now)
+    .sort((a, b) => store[keyOf(a)].due - store[keyOf(b)].due);
+  const unseen = items.filter((i) => !store[keyOf(i)]);
+  const fresh = (order === 'shuffle' ? shuffle(unseen) : unseen).slice(0, maxNew);
+  return [...due, ...fresh].slice(0, size);
+}
+
+export function statsFrom<T>(items: T[], keyOf: (t: T) => string, track: Track) {
+  const store = track.read();
+  let learning = 0,
+    known = 0,
+    unseen = 0;
+  for (const i of items) {
+    const b = store[keyOf(i)]?.box;
+    if (!b) unseen++;
+    else if (b >= KNOWN_BOX) known++;
+    else learning++;
+  }
+  return { learning, known, unseen };
+}
+
+// Per-surah practice (word occurrences), unchanged storage key.
+const surahTrack = createTrack('tibyan.srs.v1');
 
 export function buildItems(surah: Surah): Item[] {
   const items: Item[] = [];
@@ -87,7 +155,7 @@ export function buildItems(surah: Surah): Item[] {
 function wordForm(arabic: string): string {
   return arabic.replace(/[\u06D6-\u06ED\u0640]/g, '');
 }
-function normGloss(g: string): string {
+export function normGloss(g: string): string {
   return g.toLowerCase().replace(/[()[\],.;:!?"'-]/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
@@ -106,42 +174,17 @@ export function deckItems(items: Item[], deck: Deck): Item[] {
   return out;
 }
 
-// A session: due items first, then unseen ones, capped at `size`.
+// A session: due items first, then unseen ones (shuffled), capped at `size`.
 export function buildSession(items: Item[], deck: Deck = 'grammar', size = 15): Item[] {
-  const store = read();
-  const now = Date.now();
-  const k = (i: Item) => deckKey(i, deck);
-  const unseen = items.filter((i) => !store[k(i)]);
-  const due = items
-    .filter((i) => store[k(i)] && store[k(i)].due <= now)
-    .sort((a, b) => store[k(a)].due - store[k(b)].due);
-  const pool = [...due, ...shuffle(unseen)];
-  return pool.slice(0, size);
+  return sessionFrom(items, (i) => deckKey(i, deck), surahTrack, { size });
 }
 
 export function rate(key: string, good: boolean): void {
-  const store = read();
-  const cur = store[key]?.box ?? 0;
-  const box = good ? Math.min(cur + 1, 5) : 1;
-  store[key] = { box, due: Date.now() + INTERVALS[box] * DAY };
-  write(store);
+  surahTrack.rate(key, good);
 }
 
-export function stats(
-  items: Item[],
-  deck: Deck = 'grammar',
-): { learning: number; known: number; unseen: number } {
-  const store = read();
-  let learning = 0,
-    known = 0,
-    unseen = 0;
-  for (const i of items) {
-    const b = store[deckKey(i, deck)]?.box;
-    if (!b) unseen++;
-    else if (b >= 4) known++;
-    else learning++;
-  }
-  return { learning, known, unseen };
+export function stats(items: Item[], deck: Deck = 'grammar'): { learning: number; known: number; unseen: number } {
+  return statsFrom(items, (i) => deckKey(i, deck), surahTrack);
 }
 
 // ---- quiz question generation -------------------------------------------
@@ -161,7 +204,7 @@ export interface Question {
 
 export type QuizFocus = 'mixed' | 'meaning' | 'grammar';
 
-const ROLE_LABEL: Record<Role, string> = {
+export const ROLE_LABEL: Record<Role, string> = {
   verb: 'Verb',
   noun: 'Noun',
   proper: 'Proper noun',
@@ -283,7 +326,7 @@ function meaningQuestion(item: Item, pool: Item[], kind: 'meaning' | 'word'): Qu
       };
 }
 
-function shuffle<T>(arr: T[]): T[] {
+export function shuffle<T>(arr: T[]): T[] {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

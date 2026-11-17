@@ -4,6 +4,8 @@ import { useTheme } from './lib/theme';
 import Home from './pages/Home';
 import Reader from './pages/Reader';
 import Practice from './pages/Practice';
+import Learn from './pages/Learn';
+import LearnPractice from './pages/LearnPractice';
 
 function ThemeButton() {
   const [theme, cycle] = useTheme();
@@ -24,7 +26,7 @@ function ThemeButton() {
 
 export default function App() {
   const loc = useLocation();
-  const onReader = loc.pathname.startsWith('/surah/');
+  const onReader = loc.pathname.startsWith('/surah/') || loc.pathname.startsWith('/learn');
 
   // Each page starts at the top (hash routing would otherwise keep the old offset).
   useEffect(() => {
@@ -56,6 +58,14 @@ export default function App() {
                 ← Surahs
               </Link>
             )}
+            {!loc.pathname.startsWith('/learn') && (
+              <Link
+                to="/learn"
+                className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
+              >
+                Learn
+              </Link>
+            )}
             <ThemeButton />
           </div>
         </div>
@@ -66,6 +76,8 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/surah/:id" element={<Reader />} />
           <Route path="/surah/:id/practice" element={<Practice />} />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/learn/practice" element={<LearnPractice />} />
         </Routes>
       </main>
     </div>

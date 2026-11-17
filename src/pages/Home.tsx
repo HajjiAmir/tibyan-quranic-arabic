@@ -4,6 +4,7 @@ import { loadIndex, loadLegend } from '../lib/data';
 import { surahStudiedCount, totalStudied } from '../lib/progress';
 import type { Legend, SurahMeta } from '../types';
 import GrammarLegend from '../components/GrammarLegend';
+import { loadVocab, mastery, type Mastery } from '../lib/vocab';
 
 type Filter = 'all' | 'meccan' | 'medinan';
 
@@ -13,10 +14,12 @@ export default function Home() {
   const [q, setQ] = useState('');
   const [filter, setFilter] = useState<Filter>('all');
   const [err, setErr] = useState<string | null>(null);
+  const [vocab, setVocab] = useState<Mastery | null>(null);
 
   useEffect(() => {
     loadIndex().then(setIndex).catch((e) => setErr(String(e)));
     loadLegend().then(setLegend).catch(() => {});
+    loadVocab().then((v) => setVocab(mastery(v))).catch(() => {});
   }, []);
 
   const filtered = useMemo(() => {
@@ -55,6 +58,26 @@ export default function Home() {
           </p>
         )}
       </section>
+
+      {vocab && (
+        <Link
+          to="/learn"
+          className="group flex items-center gap-4 rounded-2xl border border-line bg-surface px-5 py-4 transition-colors hover:border-gold/50"
+        >
+          <span className="tnum flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold/40 font-display text-[0.95rem] font-semibold text-gold">
+            {vocab.coverage === 0 ? '0' : (vocab.coverage * 100).toFixed(vocab.coverage < 0.1 ? 1 : 0)}%
+          </span>
+          <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+            <span className="font-display text-[1.05rem] font-semibold">Vocabulary mastery</span>
+            <span className="text-[0.85rem] leading-snug text-muted">
+              {vocab.known === 0
+                ? 'Learn the most frequent words first and watch how much of the Qur’an you understand grow.'
+                : `${vocab.known.toLocaleString()} words known — about ${(vocab.coverage * 100).toFixed(1)}% of the words in the Qur’an.${vocab.due ? ` ${vocab.due} due for review.` : ''}`}
+            </span>
+          </span>
+          <span className="shrink-0 text-muted transition-transform group-hover:translate-x-0.5">→</span>
+        </Link>
+      )}
 
       {legend && <GrammarLegend legend={legend} />}
 
