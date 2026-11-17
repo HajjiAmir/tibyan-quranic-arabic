@@ -1,0 +1,42 @@
+{
+ "surah": 93,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 11,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Its subject matter clearly indicates that it belongs to the earliest period at Makkah. Traditions also show that the revelations were suspended for a time, which caused the Holy Prophet (upon whom be Allah's peace) to be deeply distressed and grieved.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/93/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its theme is to console the Holy Prophet (upon whom be peace) and its object to remove his anxiety and distress, which he had been caused by the suspension of Revelation. First of all, swearing an oath by the bright morning and the stillness of night, he has been reassured, so as to say: \"Your Lord has not at all forsaken you, nor is he displeased with you.\"",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/93/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

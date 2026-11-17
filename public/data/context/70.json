@@ -1,0 +1,42 @@
+{
+ "surah": 70,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 79,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter bears evidence that this Surah too was sent down in conditions closely resembling those under which Surah Al Haaqqah was sent down.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/70/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "It admonishes and gives warning to the disbelievers who made fun of the news about Resurrection and the Hereafter, and Hell and Heaven, and challenged the Holy Prophet (upon whom be peace) to cause Resurrection with which he threatened them to take place if what he said was true and they had become worthy of the punishment in Hell by denying it.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/70/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

@@ -1,0 +1,35 @@
+{
+ "surah": 108,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 15,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Ibn Marduyah has cited Hadrat Abdullah bin Abbas, Hadrat Abdullah bin az-Zubair and Hadrat Aishah as saying that this Surah is Makki. Kalbi and Muqatil also regard it as Makki, and the same is the view held by the majority of commentators.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/108/info"
+   }
+  },
+  "theme": null,
+  "flags": [
+   "No theme section in this introduction."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}

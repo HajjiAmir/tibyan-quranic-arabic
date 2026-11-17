@@ -1,0 +1,42 @@
+{
+ "surah": 65,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 99,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Hadrat Abdullah bin Masud has Pointed out, and the internal evidence of the subject matter of the Surah confirms the same, that it must have been sent down after those verses of surah Al-Baqarah in which commandments concerning divorce were given for the first time.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/65/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "In order to understand the commandments of this Surah, it would be useful to refresh one's memory about the instructions which have been given in the Qur'an concerning divorce and the waiting period (Iddat) above.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/65/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

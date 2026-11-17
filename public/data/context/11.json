@@ -1,0 +1,42 @@
+{
+ "surah": 11,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 52,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "If we consider its theme deeply, we come to the conclusion that it was revealed during the same period as Surah Yunus and most probably followed it immediately.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/11/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject",
+   "text": "The invitation is this: Obey the Messenger of Allah; discard shirk, and worship Allah and Allah alone: establish the entire system of your life on the belief that you shall be called to account in the Hereafter.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/11/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

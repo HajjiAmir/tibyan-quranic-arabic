@@ -1,0 +1,42 @@
+{
+ "surah": 99,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 93,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Whether or not Surah Az-Zalzalah was revealed in Makkah or Madinah is disputed. Ibn Masud, Ata, Jabir, and Mjahid say that it is a Makki Surah and a statement of Ibn Abbas also supports this view. On the contrary, Qatadah and Muqatil say that it is Madani and another statement of Ibn Abbas also has been cited in support of this view.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/99/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "The surah's theme is the second life after death and presentation in it before man of the full record of the deeds done by him in the world. In the first three sentences it has been told briefly how the second life after death will take place and how confounding it will be for man.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/99/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

@@ -1,0 +1,175 @@
+{
+ "surah": 87,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 8,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter shows that this too is one of the earliest Surahs to be revealed, and the words: \"We shall enable you to recite, then you shall never forget\" of verse 6 also indicate that it was sent down in the period when the Holy Messenger (upon whom he Allah's peace) was not yet fully accustomed to receive Revelation and at the time Revelation came down he feared lest he should forget its words.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/87/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "This short surah contains three themes: Tauhid, instructions to the Holy Prophet (upon whom be peace) and the Hereafter.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/87/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "nasai:1700",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ الرَّسُولُ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْوِتْرِ",
+    "item": 62
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1700",
+   "inBook": "Book 20, Hadith 103",
+   "en": "It was narrated that Ubayy bin Ka'b said: \"In the first rak'ah of witr, the Messenger of Allah (ﷺ) used to recite: \"GLorify the Name of your Lord, the Most High;\" in the second; \"Say: O you disbelievers!\" and in the third; \"Say: He is Allah, (the) One.\"",
+   "ar": "أَخْبَرَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ، قَالَ أَنْبَأَنَا عِيسَى بْنُ يُونُسَ، عَنْ سَعِيدِ بْنِ أَبِي عَرُوبَةَ، عَنْ قَتَادَةَ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏",
+   "arMatn": "يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1700",
+     "url": "https://sunnah.com/nasai:1700"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 62",
+     "url": "https://sunnah.com/virtues:62"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "abudawud:1125",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited it in Jumu’ah prayer",
+    "ar": "قَرَأَ بِهَا رَسُولُ اللهِ ﷺ فِي صَلَاةِ الْجُمُعَةِ",
+    "item": 63
+   },
+   "collection": "Sunan Abi Dawud",
+   "reference": "Sunan Abi Dawud 1125",
+   "inBook": "Book 2, Hadith 736",
+   "en": "Narrated Samurah ibn Jundub: The Messenger of Allah (ﷺ) used to recite in the Friday prayer: \"Glorify the name of your most high Lord\" (Surah 87) and Has the story of the overwhelming event reached you? (Surah 88).",
+   "ar": "حَدَّثَنَا مُسَدَّدٌ، عَنْ يَحْيَى بْنِ سَعِيدٍ، عَنْ شُعْبَةَ، عَنْ مَعْبَدِ بْنِ خَالِدٍ، عَنْ زَيْدِ بْنِ عُقْبَةَ، عَنْ سَمُرَةَ بْنِ جُنْدُبٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَ ‏‏{‏ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ‏}‏ ‏.‏",
+   "arMatn": "يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَ ‏‏{‏ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ‏}‏ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Al-Albani",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan Abi Dawud 1125",
+     "url": "https://sunnah.com/abudawud:1125"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 63",
+     "url": "https://sunnah.com/virtues:63"
+    }
+   ],
+   "note": "The collection also cites Ibn Majah 1120, the same hadith (graded Sahih by Darussalam on sunnah.com).",
+   "verified": false
+  },
+  {
+   "id": "nasai:1424",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited it in Jumu’ah prayer and Eid prayer",
+    "ar": "قَرَأَ بِها رَسُولُ اللهِ ﷺ فِي صَلَاةِ الْجُمُعَةِ وَصَلَاةِ الْعِيدِ",
+    "item": 64
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1424",
+   "inBook": "Book 14, Hadith 61",
+   "en": "It was narrated that An-Nu'man bin Bashir said: \"The Messenger of Allah (ﷺ) used to recite 'Glorify the name of your Lord, the Most High'(Al-A'la 87) and 'Has there come to you the narration of the overwhelming (i.e. the Day of Resurrection)?' (Al-Ghashiyah 88) in the Jumu'ah prayer, and sometimes 'Eid and Jumu'ah would fall on the same day, and he would recite them in both 'Eid and Jumu'ah prayer.\"",
+   "ar": "أَخْبَرَنَا مُحَمَّدُ بْنُ عَبْدِ الأَعْلَى، قَالَ حَدَّثَنَا خَالِدٌ، عَنْ شُعْبَةَ، أَنَّ إِبْرَاهِيمَ بْنَ مُحَمَّدِ بْنِ الْمُنْتَشِرِ، أَخْبَرَهُ قَالَ سَمِعْتُ أَبِي يُحَدِّثُ، عَنْ حَبِيبِ بْنِ سَالِمٍ، عَنِ النُّعْمَانِ بْنِ بَشِيرٍ، قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَقْرَأُ فِي الْجُمُعَةِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَ‏‏{‏ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ‏}‏ وَرُبَّمَا اجْتَمَعَ الْعِيدُ وَالْجُمُعَةُ فَيَقْرَأُ بِهِمَا فِيهِمَا جَمِيعًا ‏.‏",
+   "arMatn": "يَقْرَأُ فِي الْجُمُعَةِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَ‏‏{‏ هَلْ أَتَاكَ حَدِيثُ الْغَاشِيَةِ ‏}‏ وَرُبَّمَا اجْتَمَعَ الْعِيدُ وَالْجُمُعَةُ فَيَقْرَأُ بِهِمَا فِيهِمَا جَمِيعًا ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1424",
+     "url": "https://sunnah.com/nasai:1424"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 64",
+     "url": "https://sunnah.com/virtues:64"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1699",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْوِتْرِ",
+    "item": 75
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1699",
+   "inBook": "Book 20, Hadith 102",
+   "en": "It was narrated from Ubayy bin Ka'b that: The Messenger of Allah (ﷺ) used to pray witr with three rak'ahs. In the first he would recite: \"Glorify the Name of Your Lord, the Most High\" in the second: \"Say: O you disbelievers!\", and in the third: \"Say: He is Allah, (the) One\". And he would say the Qunut before bowing, and when he finished he would say: Subhanal-Malikil-Quddus (Glory be to the Sovereign, the Most Holy) three times, elongating the words the last time.",
+   "ar": "أَخْبَرَنَا عَلِيُّ بْنُ مَيْمُونٍ، قَالَ حَدَّثَنَا مَخْلَدُ بْنُ يَزِيدَ، عَنْ سُفْيَانَ، عَنْ زُبَيْدٍ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.‏",
+   "arMatn": "يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1699",
+     "url": "https://sunnah.com/nasai:1699"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 75",
+     "url": "https://sunnah.com/virtues:75"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "surah": 95,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 28,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": null,
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its theme is the rewards and punishments of the Hereafter. For this purpose first swearing an oath by the habitats of some illustrious Prophets, it has been stated that Allah has created man in the most excellent of molds.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/95/info"
+   }
+  },
+  "flags": [
+   "The period-of-revelation section relays narrations, so no excerpt is quoted."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}

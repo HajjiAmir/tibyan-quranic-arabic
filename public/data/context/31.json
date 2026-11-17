@@ -1,0 +1,42 @@
+{
+ "surah": 31,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 57,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "A perusal of the subject matter shows that it was sent down in the period when persecution to suppress and thwart the invitation to Islam had begun and every sort of machination had started being employed for the purpose.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/31/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject matter",
+   "text": "In this Surah the people have been made to understand the meaninglessness and absurdity of shirk and the truth and reasonableness of Tauhid, and they have been invited to give up blind imitation of their forefathers, consider with a cool mind the teachings which the Prophet Muhammad (upon whom be Allah's peace and blessings) is presenting from the Lord of the worlds, and see with open eyes the manifest Signs found in the universe around them and in their own selves, which bear evidence to its truth.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/31/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

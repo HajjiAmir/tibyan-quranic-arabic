@@ -1,0 +1,42 @@
+{
+ "surah": 90,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 35,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Its subject matter and style resemble those of the earliest Surahs revealed at Makkah, but it contains a pointer which indicates that it was sent down in the period when the disbelievers of Makkah had resolved to oppose the Holy Prophet (upon whom be Allah's peace), and made it lawful for themselves to commit tyranny and excess against him.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/90/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "In this Surah a vast subject has been compressed into a few brief sentences, and it is a miracle of the Quran that a complete ideology of life which could hardly be explained in a thick volume has been abridged most effectively in brief sentences of this short Surah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/90/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

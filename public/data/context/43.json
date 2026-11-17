@@ -1,0 +1,42 @@
+{
+ "surah": 43,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 63,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "It could not be known from any authentic tradition, but a study of its subject matter shows that this Surah also was sent down in the same period in which the Surahs Al-Mumin, As-Sajdah and Ash-Shura, were sent down.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/43/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "In this Surah a forceful and severe criticism has been made of the Quraish and the common Arabs creeds and superstitions of ignorance in which they persisted, and their stubbornness has been exposed in a firm and effective way, so that every member of the society, who was reasonable in some degree, should be made to consider the evils in which the community was involved and its tyrannical treatment of the person who was trying to redeem it.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/43/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

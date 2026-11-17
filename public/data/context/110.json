@@ -1,0 +1,42 @@
+{
+ "surah": 110,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 114,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "\"At the Farewell Pilgrimage I heard the Holy Prophet say: O people, do you know what day it is? They said: Allah and His Messenger have the best knowledge. He said: This is the middle day of the Tashriq Days.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/110/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "As is shown by the above traditions, Allah in this Surah had informed His Messenger (upon whom be peace) that when Islam attained complete victory in Arabia and the people started entering Allah's religion in great numbers, it would mean that the mission for which he had been sent to the world, had been fulfilled.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/110/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

@@ -1,0 +1,42 @@
+{
+ "surah": 58,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 105,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "There is no tradition to tell as to when this incident of pleading and arguing took place, but there is a hint in the subject matter of the Surah on the basis of which it can be said with certainty that it happened some time after the battle of the Trench (Shawwal, 5 A.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/58/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject Matter and Topics",
+   "text": "In this Surah instructions have been given to the Muslims about the different problems that confronted them at that time.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/58/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

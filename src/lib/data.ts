@@ -1,4 +1,4 @@
-import type { Legend, Role, Surah, SurahMeta, TajweedGroup, TajweedLegend } from '../types';
+import type { Legend, Role, Surah, SurahContext, SurahMeta, TajweedGroup, TajweedLegend } from '../types';
 
 const BASE = import.meta.env.BASE_URL;
 
@@ -24,6 +24,15 @@ export async function loadSurah(id: number): Promise<Surah> {
   const surah = await getJson<Surah>(`surahs/${id}.json`);
   surahCache.set(id, surah);
   return surah;
+}
+
+const contextCache = new Map<number, SurahContext>();
+export async function loadContext(id: number): Promise<SurahContext> {
+  const cached = contextCache.get(id);
+  if (cached) return cached;
+  const ctx = await getJson<SurahContext>(`context/${id}.json`);
+  contextCache.set(id, ctx);
+  return ctx;
 }
 
 export async function loadLegend(): Promise<Legend> {

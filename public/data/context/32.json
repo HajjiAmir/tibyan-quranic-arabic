@@ -1,0 +1,142 @@
+{
+ "surah": 32,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 75,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "From the style of the Surah it appears that it was sent down during the middle Makkah period, more particularly in its initial stage, for one does not find in its background that severity of the persecution and tyranny which one finds in the Surahs sent down in the later stages.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/32/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "In this connection, the disbelievers have been told: \"Most certainly it is Allah's Word, which has been sent down in order to arouse a people who are sunk in heedlessness, being deprived of the bounties and blessings of Prophethood.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/32/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "muslim:880",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ would recite this sūrah in the fajr prayer of Jumu’ah",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ",
+    "item": 40
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 880a",
+   "inBook": "Book 7, Hadith 84",
+   "en": "Abu Huraira reported that the Messenger of Allah (ﷺ) used to recite in the dawn prayer on Friday\" Alif-Lam-Mim, Tanzil\" and\" Surely there came.\"",
+   "ar": "حَدَّثَنِي زُهَيْرُ بْنُ حَرْبٍ، حَدَّثَنَا وَكِيعٌ، عَنْ سُفْيَانَ، عَنْ سَعْدِ بْنِ إِبْرَاهِيمَ، عَنْ عَبْدِ، الرَّحْمَنِ الأَعْرَجِ عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم ‏.‏ أَنَّهُ كَانَ يَقْرَأُ فِي الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ وَ ‏‏{‏ هَلْ أَتَى‏}‏",
+   "arMatn": "يَقْرَأُ فِي الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ وَ ‏‏{‏ هَلْ أَتَى‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 880a",
+     "url": "https://sunnah.com/muslim:880"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 40",
+     "url": "https://sunnah.com/virtues:40"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:880b",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ would recite this sūrah in the fajr prayer of Jumu’ah",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ",
+    "item": 60
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 880b",
+   "inBook": "Book 7, Hadith 85",
+   "en": "Abu Huraira reported that the Messenger of Allah (ﷺ) used to recite in the dawn prayer on Friday: \" Alif-Lam-Mim, Tanzil\" in the first rak'ah, and in the second one:\" Surely there came over the man a time when he was nothing that could be mentioned.\"",
+   "ar": "حَدَّثَنِي أَبُو الطَّاهِرِ، حَدَّثَنَا ابْنُ وَهْبٍ، عَنْ إِبْرَاهِيمَ بْنِ سَعْدٍ، عَنْ أَبِيهِ، عَنِ الأَعْرَجِ، عَنْ أَبِي هُرَيْرَةَ، ‏.‏ أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي الصُّبْحِ يَوْمَ الْجُمُعَةِ بِـ ‏‏{‏ الم * تَنْزِيلُ‏}‏ فِي الرَّكْعَةِ الأُولَى وَفِي الثَّانِيَةِ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ لَمْ يَكُنْ شَيْئًا مَذْكُورًا‏}‏",
+   "arMatn": "يَقْرَأُ فِي الصُّبْحِ يَوْمَ الْجُمُعَةِ بِـ ‏‏{‏ الم * تَنْزِيلُ‏}‏ فِي الرَّكْعَةِ الأُولَى وَفِي الثَّانِيَةِ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ لَمْ يَكُنْ شَيْئًا مَذْكُورًا‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 880b",
+     "url": "https://sunnah.com/muslim:880b"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 60",
+     "url": "https://sunnah.com/virtues:60"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:879a",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in Jumu’ah (Friday) prayer",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي صَلَاةِ الْجُمُعَةِ",
+    "item": 54
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 879a",
+   "inBook": "Book 7, Hadith 81",
+   "en": "Ibn Abbas reported: The Apostle of Allah (ﷺ) used to recite in the morning prayer on Friday Surah\" Alif-Lam-Mim, Tanz'il ul-Sajda\" (Surah xxxii.): Surely there came over the man a time\" (Surah lxxvii) and he used to recite in Jumu'a prayer Surahs Jumu'a and al-Munafiqin.",
+   "ar": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَبْدَةُ بْنُ سُلَيْمَانَ، عَنْ سُفْيَانَ، عَنْ مُخَوَّلِ، بْنِ رَاشِدٍ عَنْ مُسْلِمٍ الْبَطِينِ، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ السَّجْدَةُ وَ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ‏}‏ وَأَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ سُورَةَ الْجُمُعَةِ وَالْمُنَافِقِينَ ‏ .‏",
+   "arMatn": "يَقْرَأُ فِي صَلاَةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ السَّجْدَةُ وَ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ‏}‏ وَأَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ سُورَةَ الْجُمُعَةِ وَالْمُنَافِقِينَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 879a",
+     "url": "https://sunnah.com/muslim:879a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 54",
+     "url": "https://sunnah.com/virtues:54"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

@@ -10,6 +10,9 @@ dist-ssr
 # generate public/data. See scripts/raw/SOURCES.md for where to get them.
 scripts/raw/*
 !scripts/raw/SOURCES.md
+# Context sources are kept: sunnah.com cannot be re-fetched by script, and these
+# files are the audit trail for the scholarly review.
+!scripts/raw/context/
 
 # tsc -b build outputs
 *.tsbuildinfo

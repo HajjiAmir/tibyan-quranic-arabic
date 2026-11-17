@@ -22,6 +22,11 @@ Nothing about the Qur'an is authored by hand in this app. See
 - **Per-segment English** — Quranic Arabic Corpus prefix glosses and lemma glosses
   (where the corpus has them; see SOURCES.md)
 - **Tajweed** — cpfair/quran-tajweed (automated rule annotation, ḥafṣ ʿan ʿāṣim)
+- **Context & Virtues** (draft, pending scholarly review) — virtue narrations
+  from sunnah.com's *Special Virtues of the Qur'an's Chapters and Verses*, with
+  wording and gradings from each narration's sunnah.com page, cross-checked with
+  HadeethEnc; context quoted from Mawdūdī's *Tafhīm al-Qurʾān* via Quran.com, with
+  revelation data from Tanzil. Review sheet: `docs/context-review.md`
 
 Typography: Amiri Quran for the Qur'an text, self-hosted (SIL OFL), no font CDN.
 
@@ -62,5 +67,4 @@ build works from any path.
 
 ## Roadmap
 
-- Per-surah context and authentic hadith on virtues (sourced and cited only)
 - Bookmarks, a cross-surah practice deck and a progress dashboard

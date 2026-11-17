@@ -1,0 +1,42 @@
+{
+ "surah": 26,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 47,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter and the style show, and the traditions confirms, that it was revealed during the middle Makkan period. According to Ibn Abbas, Surah Ta Ha was revealed first, then Surah Al Waqiah, and then Surah Ash-Shu'araa.(Ruh-ul-Ma'ani, Vol. xx, p. 64).",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/26/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject Matter and Topics",
+   "text": "The background of the Surah is that the disbelievers of Makkah were persistently refusing on various pretexts to reject the message of Islam given by the Holy Prophet. They would argue that he did not show them any signs to convince them of his Prophethood.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/26/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

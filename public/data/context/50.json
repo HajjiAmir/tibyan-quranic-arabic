@@ -1,0 +1,175 @@
+{
+ "surah": 50,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 34,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "There is no authentic tradition to show as to when exactly this Surah was sent down. A study of the subject matter, however, reveals that its period of revelation is the second stage of the Holy Prophet's life at Makkah, which lasted from the third year of the Prophethood till the fifth year.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/50/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "Authentic traditions show that the Holy Prophet used to recite this Surah generally in the Prayer on the Eid days. A woman named Umm Hisham bin Harithah, who was a neighbor of the Holy Prophet, says that she was able to commit Surah Qaf to memory only because she often heard it from the Holy Prophet in the Friday sermons.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/50/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "muslim:891a",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ used to recite it in Eid prayers.",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي صَلَاةِ الْعِيدَيْنِ",
+    "item": 48
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 891a",
+   "inBook": "Book 8, Hadith 14",
+   "en": "'Abdullah b. 'Umar reported that (his father) 'Umar b. Khattab asked Abu Waqid al-Laithi what the Messenger of Allah (ﷺ) used to recite on 'Id-ul-Adha and 'Id-ul-Fitr. He said: He used to recite in them:\" Qaf. By the Glorious Qur'an\" (Surah 1),\" The Hour drew near, and the moon was rent asunder\" (Surah liv.).",
+   "ar": "حَدَّثَنَا يَحْيَى بْنُ يَحْيَى، قَالَ قَرَأْتُ عَلَى مَالِكٍ عَنْ ضَمْرَةَ بْنِ سَعِيدٍ الْمَازِنِيِّ، عَنْ عُبَيْدِ اللَّهِ بْنِ عَبْدِ اللَّهِ، أَنَّ عُمَرَ بْنَ الْخَطَّابِ، سَأَلَ أَبَا وَاقِدٍ اللَّيْثِيَّ مَا كَانَ يَقْرَأُ بِهِ رَسُولُ اللَّهِ صلى الله عليه وسلم فِي الأَضْحَى وَالْفِطْرِ فَقَالَ كَانَ يَقْرَأُ فِيهِمَا بِـ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ‏}‏ وَ ‏‏{‏ اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ‏}‏",
+   "arMatn": "يَقْرَأُ فِيهِمَا بِـ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ‏}‏ وَ ‏‏{‏ اقْتَرَبَتِ السَّاعَةُ وَانْشَقَّ الْقَمَرُ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 891a",
+     "url": "https://sunnah.com/muslim:891a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 48",
+     "url": "https://sunnah.com/virtues:48"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:949",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ used to recite it in the morning prayer.",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي صَلَاةِ الْفَجْرِ",
+    "item": 49
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 949",
+   "inBook": "Book 11, Hadith 74",
+   "en": "It was narrated that Umm Hisham bint Harithah bin An-Nu'man said: \"I only learned :Qaf. By the Glorious Quran.' Behind the Messenger of Allah (ﷺ); he used to recite it in Subh.",
+   "ar": "أَخْبَرَنَا عِمْرَانُ بْنُ يَزِيدَ، قَالَ حَدَّثَنَا ابْنُ أَبِي الرِّجَالِ، عَنْ يَحْيَى بْنِ سَعِيدٍ، عَنْ عَمْرَةَ، عَنْ أُمِّ هِشَامٍ بِنْتِ حَارِثَةَ بْنِ النُّعْمَانِ، قَالَتْ مَا أَخَذْتُ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ ‏}‏ إِلاَّ مِنْ وَرَاءِ رَسُولِ اللَّهِ صلى الله عليه وسلم كَانَ يُصَلِّي بِهَا فِي الصُّبْحِ ‏.‏",
+   "arMatn": "يُصَلِّي بِهَا فِي الصُّبْحِ ‏.",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 949",
+     "url": "https://sunnah.com/nasai:949"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 49",
+     "url": "https://sunnah.com/virtues:49"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:872a",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ used to recite it on Jumu’ah.",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي الْجُمُعَةِ",
+    "item": 50
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 872a",
+   "inBook": "Book 7, Hadith 62",
+   "en": "'Amra daughter of Abd al-Rahman reported on the authority of the sister of Amra: I memorised (surah) \"Qaf, by the glorious Qur'an\" from the mouth of the Messenger of Allah (ﷺ) on Friday for he recited it on the pulpit on every Friday.",
+   "ar": "وَحَدَّثَنِي عَبْدُ اللَّهِ بْنُ عَبْدِ الرَّحْمَنِ الدَّارِمِيُّ، أَخْبَرَنَا يَحْيَى بْنُ حَسَّانَ، حَدَّثَنَا سُلَيْمَانُ، بْنُ بِلاَلٍ عَنْ يَحْيَى بْنِ سَعِيدٍ، عَنْ عَمْرَةَ بِنْتِ عَبْدِ الرَّحْمَنِ، عَنْ أُخْتٍ، لِعَمْرَةَ قَالَتْ أَخَذْتُ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ‏}‏ مِنْ فِي رَسُولِ اللَّهِ صلى الله عليه وسلم يَوْمَ الْجُمُعَةِ وَهُوَ يَقْرَأُ بِهَا عَلَى الْمِنْبَرِ فِي كُلِّ جُمُعَةٍ ‏ .‏",
+   "arMatn": "أَخَذْتُ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ‏}‏ مِنْ فِي رَسُولِ اللَّهِ صلى الله عليه وسلم يَوْمَ الْجُمُعَةِ وَهُوَ يَقْرَأُ بِهَا عَلَى الْمِنْبَرِ فِي كُلِّ جُمُعَةٍ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 872a",
+     "url": "https://sunnah.com/muslim:872a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 50",
+     "url": "https://sunnah.com/virtues:50"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1411",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ used to recite it on Jumu’ah.",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي الْجُمُعَةِ",
+    "item": 51
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1411",
+   "inBook": "Book 14, Hadith 48",
+   "en": "It was narrated from Muhammad bin 'Abdur-Rahman that: The daughter of Harithah bin An-Nu'man said: \"I memorized 'Qaf. By the Glorious Qur'an,'\" from the mouth of the Messenger of Allah (ﷺ) when he was on the minbar on Friday.\"",
+   "ar": "أَخْبَرَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، قَالَ حَدَّثَنَا هَارُونُ بْنُ إِسْمَاعِيلَ، قَالَ حَدَّثَنَا عَلِيٌّ، - وَهُوَ ابْنُ الْمُبَارَكِ - عَنْ يَحْيَى، عَنْ مُحَمَّدِ بْنِ عَبْدِ الرَّحْمَنِ، عَنِ ابْنَةِ حَارِثَةَ بْنِ النُّعْمَانِ، قَالَتْ حَفِظْتُ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ ‏}‏ مِنْ فِي رَسُولِ اللَّهِ صلى الله عليه وسلم وَهُوَ عَلَى الْمِنْبَرِ يَوْمَ الْجُمُعَةِ ‏.‏",
+   "arMatn": "حَفِظْتُ ‏‏{‏ ق وَالْقُرْآنِ الْمَجِيدِ ‏}‏ مِنْ فِي رَسُولِ اللَّهِ صلى الله عليه وسلم وَهُوَ عَلَى الْمِنْبَرِ يَوْمَ الْجُمُعَةِ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1411",
+     "url": "https://sunnah.com/nasai:1411"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 51",
+     "url": "https://sunnah.com/virtues:51"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

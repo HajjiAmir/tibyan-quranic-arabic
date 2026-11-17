@@ -1,0 +1,42 @@
+{
+ "surah": 107,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 17,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Ibn Marduyah has cited Ibn Abbas (may Allah bless them both) as saying that this Surah is Makki, and the same is also the view of Ata and Jabir but Abu Hayyan in Al-Bahr al-Muhit has cited Ibn Abbas, Qatadah and Dahhak as saying that this Surah was revealed in Madinah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/107/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its theme is to point out what kind of morals a man develops when he refuses to believe in the Hereafter. In verses 2-3, the condition of the disbelievers who openly belie the Hereafter has been described, and in the last four verses the state of those hypocrites who apparently are Muslims but have no idea of the Hereafter, its judgment, and the meting out of rewards and punishments accordingly has been described.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/107/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

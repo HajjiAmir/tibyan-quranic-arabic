@@ -1,0 +1,76 @@
+{
+ "surah": 84,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 83,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "This too is one of the earliest Surahs to be revealed at Makkah. The internal evidence of its subject matter indicates that persecution of the Muslims had not yet started; however, the message of the Qur'an was being openly repudiated at Makkah and the people were refusing to acknowledge that Resurrection would ever take place when they would have to appear before their God to render an account of their deeds.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/84/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "In the first five verses not only have the state of Resurrection been described vividly but an argument of its being true and certain also have been given. It has been stated that the heavens on that Day will split asunder, the earth will be spread out plain and smooth, and it will throw out whatever lies inside it of the dead bodies of men and evidences of their deeds so as to become completely empty from within.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/84/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "tirmidhi:3333",
+   "kind": "virtue",
+   "heading": {
+    "en": "These suwar have vivid descriptions of the Day of Resurrection",
+    "ar": "فِي هَذِهِ السُّوَرِ تَصَوُّرٌ وَاضِحٌ لِيَوْمِ الْقِيَامَةِ",
+    "item": 61
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 3333",
+   "inBook": "Book 47, Hadith 385",
+   "en": "Ibn Umar narrated that: The Messenger of Allah said: “Whoever wishes to look at the Day of Resurrection, as if he is seeing it with this eye, then let him recite: ‘When the sun Kuwwirat’ and ‘When the heaven is cleft sunder (Infatarat) and ‘When the heaven is split asunder.’”",
+   "ar": "حَدَّثَنَا عَبَّاسُ بْنُ عَبْدِ الْعَظِيمِ الْعَنْبَرِيُّ، حَدَّثَنَا عَبْدُ الرَّزَّاقِ، أَخْبَرَنَا عَبْدُ اللَّهِ بْنُ بَحِيرٍ، عَنْ عَبْدِ الرَّحْمَنِ، وَهُوَ ابْنُ يَزِيدَ الصَّنْعَانِيُّ قَالَ سَمِعْتُ ابْنَ عُمَرَ، يَقُولُ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ مَنْ سَرَّهُ أَنْ يَنْظُرَ إِلَى يَوْمِ الْقِيَامَةِ كَأَنَّهُ رَأْىُ عَيْنٍ فَلْيَقْرَأْ ‏‏(‏ إِذَا الشَّمْسُ كُوِّرَتْ ‏)‏ و ‏‏(‏إِذَا السَّمَاءُ انْفَطَرَتْ ‏)‏ وَ ‏‏(‏إذَا السَّمَاءُ انْشَقَّتْ ‏)‏ ‏\"‏ ‏ .‏ هَذَا حَدِيثٌ حَسَنٌ غَرِيبٌ ‏.‏ وَرَوَى هِشَامُ بْنُ يُوسُفَ وَغَيْرُهُ هَذَا الْحَدِيثَ بِهَذَا الإِسْنَادِ وَقَالَ مَنْ سَرَّهُ أَنْ يَنْظُرَ إِلَى يَوْمِ الْقِيَامَةِ كَأَنَّهُ رَأْىُ عَيْنٍ فَلْيَقْرَأْ ‏‏(‏إذَا الشَّمْسُ كُوِّرَتْ ‏)‏ وَلَمْ يَذْكُرْ و ‏‏(‏إِذَا السَّمَاءُ انْفَطَرَتْ ‏)‏ وَ ‏‏(‏إذَا السَّمَاءُ انْشَقَّتْ ‏)‏‏.‏",
+   "arMatn": "مَنْ سَرَّهُ أَنْ يَنْظُرَ إِلَى يَوْمِ الْقِيَامَةِ كَأَنَّهُ رَأْىُ عَيْنٍ فَلْيَقْرَأْ ‏‏(‏ إِذَا الشَّمْسُ كُوِّرَتْ ‏)‏ و ‏‏(‏إِذَا السَّمَاءُ انْفَطَرَتْ ‏)‏ وَ ‏‏(‏إذَا السَّمَاءُ انْشَقَّتْ ‏)",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 3333",
+     "url": "https://sunnah.com/tirmidhi:3333"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 61",
+     "url": "https://sunnah.com/virtues:61"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

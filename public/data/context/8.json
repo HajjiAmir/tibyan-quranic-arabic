@@ -1,0 +1,42 @@
+{
+ "surah": 8,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 88,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "The Period of Revelation",
+   "text": "It was revealed in 2 A. H. after the Battle of Badr, the first battle between Islam and kufr. As it contains a detailed and comprehensive review of the Battle, it appears that most probably it was revealed at one and the same time.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/8/info"
+   }
+  },
+  "theme": {
+   "heading": "Topics of Discussion",
+   "text": "It is this great Battle that has been reviewed in this Surah. But let it be noted that in some respects this review is quite different from the reviews that are usually made by the worldly commanders after a great victory.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/8/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

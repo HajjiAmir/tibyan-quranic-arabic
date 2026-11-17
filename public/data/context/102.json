@@ -1,0 +1,42 @@
+{
+ "surah": 102,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 16,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Ibn Abi Hatim has cited Abu Buraidah as saying that this Surah was sent down concerning the two tribes, Bani Harithah and Bani al-Harth, of the Ansar. The two tribes had first recounted the glories and illustrious deeds of their living men; then they had gone to the graveyard and bragged of the glorious deeds of their dead.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/102/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "In this Surah, the people have been warned of the evil consequences of worship of the world because of which they spend their lives acquiring more and more worldly wealth, material benefits and pleasures, and position and power, and in vying with one another and bragging and boasting about their acquisitions until death.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/102/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

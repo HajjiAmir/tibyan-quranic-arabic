@@ -110,6 +110,55 @@ Nothing is downloaded by the pipeline; the reader streams one MP3 per āyah.
   to the surahs you recorded and `url` pointing at your files (e.g.
   `public/audio/own/<surah>/<ayah>.mp3`). It then appears in the selector for those surahs only.
 
+## Surah context and virtue narrations (`scripts/raw/context/`)
+
+Built into `public/data/context/<id>.json` by `scripts/build-context.mjs`; the
+reviewer's checklist is `docs/context-review.md`. **Status: draft, pending
+scholarly review.** Every entry carries `verified: false` and the reader shows a
+draft banner until `REVIEW` in the build script is set to approved.
+
+| File | What | Source (fetched 2026-11-16) | Terms |
+|---|---|---|---|
+| `sunnah-virtues-collection.json` | All 93 narrations, headings and references of the backbone collection | [sunnah.com/virtues](https://sunnah.com/virtues), *Special Virtues of the Qur'an's Chapters and Verses* (al-Jāmiʿ al-Mukhtaṣar li-Faḍāʾil al-Āyāt wa-s-Suwar), compiled by Shaykh Suleiman Hani, reproduced on sunnah.com with his permission | sunnah.com content; translations belong to their publishers |
+| `sunnah-hadith-pages.json` | For each narration used: the collection's English and Arabic text, the grade field and the references | Each narration's own sunnah.com page, e.g. [sunnah.com/tirmidhi:2891](https://sunnah.com/tirmidhi:2891). English: the translations sunnah.com shows (e.g. Muhsin Khan for al-Bukhārī; Abdul Hamid Siddiqui for Muslim; Darussalam for the Sunan). Grades: sunnah.com's grade field (Darussalam, or al-Albānī for Abū Dāwūd) | As above |
+| `hadeethenc-records.json` | The HadeethEnc records that match narrations used here (16 records, 18 narrations), with their grade | [HadeethEnc](https://hadeethenc.com) public API, `api/v1/hadeeths/one/?language=en&id=…` | HadeethEnc terms |
+| `quran-com-info/<id>.json` | Introduction to each surah | Quran.com API `api/v4/chapters/<id>/info?language=en`: Sayyid Abul Aʿlā Mawdūdī, *Tafhīm al-Qurʾān* (English) | Copyrighted translation; only short verbatim excerpts are shown, with attribution and a link |
+| `tanzil-quran-data.js` | Meccan/Medinan classification and revelation order | [Tanzil Quran metadata](https://tanzil.net/docs/quran_metadata) (`tanzil.net/res/text/metadata/quran-data.js`) | Tanzil terms (verbatim, attributed) |
+
+How the data was made, and checked:
+
+- **Capture.** sunnah.com sits behind a browser check, so its pages were read in a
+  browser and saved without retyping. Each file's SHA-256 was compared with the
+  page's own hash: `virtues.json` 2c31a2e4…, hadith pages 3ec93904… and be8328ea…
+  (the al-Kahf variant, Muslim 809b).
+- **Inclusion rule.** A narration is shown only if it is in Ṣaḥīḥ al-Bukhārī or
+  Ṣaḥīḥ Muslim, or sunnah.com grades it Ṣaḥīḥ or Ḥasan and names the grader, with
+  no conflicting weak grade. The build stops if any included narration fails this.
+- **Cross-check.** Where HadeethEnc has the same hadith (matched by Arabic wording,
+  then confirmed by reading both), its grade is shown too. All 18 such cross-checks
+  agree with sunnah.com.
+- **Assignment.** `scripts/context-curation.json` maps each narration to its surahs
+  by its own text, not by the collection's headings. Two references in the
+  collection sit under the wrong heading (al-Bukhārī 5012 and 5034 are about
+  al-Fatḥ, not az-Zumar). One is wrong outright: Muslim 854b is about Friday, not
+  Sūrat al-Jumuʿah. The build fails if any of the 93 collection items is neither
+  used nor listed as held back with a reason.
+- **Owner's seed list.** Every seed reference was found, and each matches its
+  description, except one. For al-Falaq and an-Nās, Muslim 814's wording is
+  "verses the like of which have never been seen". The "best thing with which to
+  seek refuge" wording is an-Nasāʾī 5432 (Ḥasan, Darussalam). Both are shown. For
+  al-Fātiḥah the seed's al-Bukhārī 5006 is used; the collection cites the same
+  narration as al-Bukhārī 4474.
+- **Context** is quoted, never paraphrased:
+  - Whole sentences from the start of the first usable paragraph (about 200–420
+    characters), marked "…" when cut.
+  - A paragraph is skipped if it is a lead-in ending in a colon, or if the excerpt
+    relays a narration (quoted speech, "X reported that…", or a citation of a
+    collection). Narrations must not appear here ungraded.
+  - Surahs whose introduction gives no usable passage are listed in the review sheet.
+  - Meccan/Medinan and revelation order come from Tanzil, and must agree with
+    `index.json` or the build fails.
+
 ## Fonts
 
 Self-hosted from npm (Fontsource), all SIL Open Font License 1.1: **Amiri Quran**

@@ -1,0 +1,42 @@
+{
+ "surah": 85,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 27,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter itself indicates that this Surah was sent down at Makkah in the period when persecution of the Muslims was at its climax and the disbelievers of Makkah were trying their utmost by tyranny and coercion to turn away the new converts from Islam.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/85/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its theme is to warn the disbelievers of the evil consequences of the persecution and tyranny that they were perpetrating on the converts to Islam, and to console the believers, so as to say: \"If you remain firm and steadfast against tyranny and coercion, you will be rewarded richly for it, and Allah will certainly avenge Himself on your persecutors on your behalf.\"",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/85/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

@@ -7,6 +7,7 @@ import { studiedVerses, toggleVerse } from '../lib/progress';
 import type { Surah, TajweedLegend as TajweedLegendT } from '../types';
 import Verse from '../components/Verse';
 import TajweedLegend from '../components/TajweedLegend';
+import SurahContext from '../components/SurahContext';
 
 // Reader display preferences, remembered per browser.
 const PREFS_KEY = 'tibyan.reader.v1';
@@ -170,6 +171,8 @@ export default function Reader() {
           <Ornament />
         </div>
       </header>
+
+      <SurahContext surahId={surah.id} />
 
       <div
         id="reader-toolbar"

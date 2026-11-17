@@ -1,0 +1,42 @@
+{
+ "surah": 97,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 25,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Whether Surah Al-Qadr is a Makki or a Madani revelation is disputed. Abu Hayyan in Al-Bahr al-Muhti has made the claim that the majority of scholars regard it as a Madani Surah. Ali bin Ahmad al-Wahidi in his commentary says that this is the first Surah to be sent down in Madinah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/97/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its theme is to acquaint man with the value, worth and importance of the Quran. Its being placed just after Surah Al-Alaq in the arrangement of the Quran alone explains that the Holy Book, the revelation of which began with the first five verses of Surah Al-Alaq, was sent down in a destiny making night.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/97/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

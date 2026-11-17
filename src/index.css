@@ -39,6 +39,9 @@
   --tj-ikhfa: #a8399a;    --tj-idgham: #2468b4;  --tj-idghamNo: #5e7286;
   --tj-iqlab: #0b8790;    --tj-qalqalah: #4b4fd0;
 
+  /* draft / pending-review notices */
+  --draft: 138 86 0;  --draft-bg: 251 240 214;  --draft-line: 236 210 154;
+
   color-scheme: light;
 }
 
@@ -70,6 +73,8 @@
     --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
     --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
 
+    --draft: 240 196 106;  --draft-bg: 46 36 18;  --draft-line: 90 69 25;
+
     color-scheme: dark;
   }
 }
@@ -100,6 +105,8 @@
   --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
   --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
   --tj-iqlab: #3fc6cf;    --tj-qalqalah: #9a9cff;
+
+    --draft: 240 196 106;  --draft-bg: 46 36 18;  --draft-line: 90 69 25;
 
   color-scheme: dark;
 }

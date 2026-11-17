@@ -1,0 +1,94 @@
+{
+ "surah": 48,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 111,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Traditions concur that it was sent down in Dhil-Qadah, A. H. 6, at a time when the Holy Prophet was on his return journey to Madinah after concluding the Truce of Hudaibiyah with the disbelievers of Makkah.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/48/info"
+   }
+  },
+  "theme": null,
+  "flags": [
+   "No theme section in this introduction."
+  ],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "bukhari:5012",
+   "kind": "virtue",
+   "heading": {
+    "en": "Dearer to the Messenger ﷺ than this world",
+    "ar": "أَحَبُّ إِلَى الرَّسُول ﷺ مِنَ الدُّنْيَا وَمَا فِيهَا",
+    "item": 47
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5012",
+   "inBook": "Book 66, Hadith 34",
+   "en": "Narrated Aslam: Allah's Messenger (ﷺ) was traveling on one of his journeys, and `Umar bin Al-Khattab was traveling along with him at night. `Umar asked him about something, but Allah's Messenger (ﷺ) did not answer him. He asked again, but he did not answer. He asked for the third time, but he did not answer. On that, `Umar said to himself, \"May your mother lose you! You have asked Allah's Messenger (ﷺ) three times, but he did not answer at all!\" `Umar said, \"So I made my camel go fast till I was ahead of the people, and I was afraid that something might be revealed about me. After a little while I heard a call maker calling me, I said, 'I was afraid that some Qur'anic Verse might be revealed about me.' So I went to Allah's Apostle and greeted him. He said, 'Tonight there has been revealed to me a Surah which is dearer to me than that on which the sun shines (i.e. the world).' Then he recited: 'Verily! We have given you (O Muhammad), a manifest victory.' \" (Surat al-Fath) No. (48.1).",
+   "ar": "حَدَّثَنَا إِسْمَاعِيلُ، قَالَ حَدَّثَنِي مَالِكٌ، عَنْ زَيْدِ بْنِ أَسْلَمَ، عَنْ أَبِيهِ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يَسِيرُ فِي بَعْضِ أَسْفَارِهِ وَعُمَرُ بْنُ الْخَطَّابِ يَسِيرُ مَعَهُ لَيْلاً فَسَأَلَهُ عُمَرُ عَنْ شَىْءٍ فَلَمْ يُجِبْهُ رَسُولُ اللَّهِ صلى الله عليه وسلم ثُمَّ سَأَلَهُ فَلَمْ يُجِبْهُ ثُمَّ سَأَلَهُ فَلَمْ يُجِبْهُ، فَقَالَ عُمَرُ ثَكِلَتْكَ أُمُّكَ نَزَرْتَ رَسُولَ اللَّهِ صلى الله عليه وسلم ثَلاَثَ مَرَّاتٍ كُلَّ ذَلِكَ لاَ يُجِيبُكَ، قَالَ عُمَرُ فَحَرَّكْتُ بَعِيرِي حَتَّى كُنْتُ أَمَامَ النَّاسِ وَخَشِيتُ أَنْ يَنْزِلَ فِيَّ قُرْآنٌ فَمَا نَشِبْتُ أَنْ سَمِعْتُ صَارِخًا يَصْرُخُ ـ قَالَ ـ فَقُلْتُ لَقَدْ خَشِيتُ أَنْ يَكُونَ نَزَلَ فِيَّ قُرْآنٌ ـ قَالَ ـ فَجِئْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم فَسَلَّمْتُ عَلَيْهِ فَقَالَ ‏\"‏ لَقَدْ أُنْزِلَتْ عَلَىَّ اللَّيْلَةَ سُورَةٌ لَهِيَ أَحَبُّ إِلَىَّ مِمَّا طَلَعَتْ عَلَيْهِ الشَّمْسُ ‏\"‏‏.‏ ثُمَّ قَرَأَ ‏‏{‏إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا‏}‏",
+   "arMatn": "أُنْزِلَتْ عَلَىَّ اللَّيْلَةَ سُورَةٌ لَهِيَ أَحَبُّ إِلَىَّ مِمَّا طَلَعَتْ عَلَيْهِ الشَّمْسُ ‏\"‏‏.‏ ثُمَّ قَرَأَ ‏‏{‏إِنَّا فَتَحْنَا لَكَ فَتْحًا مُبِينًا‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5012",
+     "url": "https://sunnah.com/bukhari:5012"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 47",
+     "url": "https://sunnah.com/virtues:47"
+    }
+   ],
+   "note": "Reassigned by its text. The collection files this reference under az-Zumar, but the narration is about Surat al-Fath ('a surah dearer to me than that on which the sun rises', then 48:1). The collection's al-Fath heading cites Tirmidhi 3405, which is about az-Zumar and al-Isra'.",
+   "verified": false
+  },
+  {
+   "id": "bukhari:5034",
+   "kind": "practice",
+   "heading": null,
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5034",
+   "inBook": "Book 66, Hadith 57",
+   "en": "Narrated `Abdullah bin Mughaffal: I saw Allah's Messenger (ﷺ) reciting Surat-al-Fath on his she-camel on the day of the Conquest of Mecca.",
+   "ar": "حَدَّثَنَا حَجَّاجُ بْنُ مِنْهَالٍ، حَدَّثَنَا شُعْبَةُ، قَالَ أَخْبَرَنِي أَبُو إِيَاسٍ، قَالَ سَمِعْتُ عَبْدَ اللَّهِ بْنَ مُغَفَّلٍ، قَالَ رَأَيْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَوْمَ فَتْحِ مَكَّةَ وَهْوَ يَقْرَأُ عَلَى رَاحِلَتِهِ سُورَةَ الْفَتْحِ‏.‏",
+   "arMatn": "يَقْرَأُ عَلَى رَاحِلَتِهِ سُورَةَ الْفَتْحِ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5034",
+     "url": "https://sunnah.com/bukhari:5034"
+    }
+   ],
+   "note": "Reassigned by its text. The collection files it under az-Zumar; the narration is about reciting Surat al-Fath on the day Makkah was conquered.",
+   "verified": false
+  }
+ ]
+}

@@ -9,6 +9,7 @@
     "build": "tsc -b && vite build",
     "fetch:data": "node scripts/fetch-raw.mjs",
     "build:data": "node scripts/build-data.mjs",
+    "build:context": "node scripts/build-context.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

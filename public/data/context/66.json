@@ -1,0 +1,42 @@
+{
+ "surah": 66,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 107,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "In connection with the incident of tahrim referred to in this Surah, the traditions of the Hadith mention two ladies who were among the wives of the Holy Prophet (upon whom be peace) at that time Hadrat Safiyyah and Hadrat Mariyah Qibtiyyah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/66/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "This is a very important Surah in which light has been thrown on some questions of grave significance with reference to some incidents concerning the wives of the Holy Prophet (upon whom be Allah's peace).",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/66/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

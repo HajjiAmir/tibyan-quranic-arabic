@@ -1,0 +1,507 @@
+{
+ "surah": 2,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 87,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": null,
+  "theme": {
+   "heading": "Theme: Guidance",
+   "text": "This Surah is an invitation to the Divine Guidance and all the stories, incidents, etc., revolve around this central theme. As this Surah has particularly been addressed to the Jews, many historical events have been cited from their own traditions to admonish and advise them that their own good lies in accepting the Guidance revealed to the Holy Prophet.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/2/info"
+   }
+  },
+  "flags": [
+   "No quotable period-of-revelation paragraph in this introduction."
+  ],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "muslim:806",
+   "kind": "virtue",
+   "heading": {
+    "en": "Nothing similar to Sūrah al-Fātiḥah was ever revealed in any of the previous scriptures or to the previous prophets and messengers.",
+    "ar": "مَا أُنْزِلَ فِي الكُتُبِ السَّابِقَةِ ولَا إلى الرُّسُلِ والنَّبِيِّينَ مِنْ قَبْلُ مِثْلَ سُورَةِ الفَاتِحَةِ",
+    "item": 4
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 806",
+   "inBook": "Book 6, Hadith 305",
+   "en": "Ibn 'Abbas reported that while Gabriel was sitting with the Apostle (ﷺ) he heard a creaking sound above him. He lifted his head and said: This is a gate opened in heaven today which had never been opened before. Then when an angel descended through it, he said: This is an angel who came down to the earth who had never come down before. He greeted and said: Rejoice in two lights given to you which have not been given to any prophet before you: Fatihat al-Kitab and the concluding verses of Surah al-Baqara. You will never recite a letter from them for which you will not be given (a reward).",
+   "ar": "حَدَّثَنَا حَسَنُ بْنُ الرَّبِيعِ، وَأَحْمَدُ بْنُ جَوَّاسٍ الْحَنَفِيُّ، قَالاَ حَدَّثَنَا أَبُو الأَحْوَصِ، عَنْ عَمَّارِ بْنِ رُزَيْقٍ، عَنْ عَبْدِ اللَّهِ بْنِ عِيسَى، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، قَالَ بَيْنَمَا جِبْرِيلُ قَاعِدٌ عِنْدَ النَّبِيِّ صلى الله عليه وسلم سَمِعَ نَقِيضًا مِنْ فَوْقِهِ فَرَفَعَ رَأْسَهُ فَقَالَ هَذَا بَابٌ مِنَ السَّمَاءِ فُتِحَ الْيَوْمَ لَمْ يُفْتَحْ قَطُّ إِلاَّ الْيَوْمَ فَنَزَلَ مِنْهُ مَلَكٌ فَقَالَ هَذَا مَلَكٌ نَزَلَ إِلَى الأَرْضِ لَمْ يَنْزِلْ قَطُّ إِلاَّ الْيَوْمَ فَسَلَّمَ وَقَالَ أَبْشِرْ بِنُورَيْنِ أُوتِيتَهُمَا لَمْ يُؤْتَهُمَا نَبِيٌّ قَبْلَكَ فَاتِحَةُ الْكِتَابِ وَخَوَاتِيمُ سُورَةِ الْبَقَرَةِ لَنْ تَقْرَأَ بِحَرْفٍ مِنْهُمَا إِلاَّ أُعْطِيتَهُ ‏.‏",
+   "arMatn": "أَبْشِرْ بِنُورَيْنِ أُوتِيتَهُمَا لَمْ يُؤْتَهُمَا نَبِيٌّ قَبْلَكَ فَاتِحَةُ الْكِتَابِ وَخَوَاتِيمُ سُورَةِ الْبَقَرَةِ لَنْ تَقْرَأَ بِحَرْفٍ مِنْهُمَا إِلاَّ أُعْطِيتَهُ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/5775"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 806",
+     "url": "https://sunnah.com/muslim:806"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 4",
+     "url": "https://sunnah.com/virtues:4"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:804a",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection and blessings in this life and the next",
+    "ar": "الْحِفْظُ والْبَرَكَةُ فِي الدُّنْيَا والْآخِرَةِ",
+    "item": 8
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 804a",
+   "inBook": "Book 6, Hadith 302",
+   "en": "Abu Umama said he heard Allah's Messenger (ﷺ) say: Recite the Qur'an, for on the Day of Resurrection it will come as an intercessor for those who recite It. Recite the two bright ones, al-Baqara and Surah Al 'Imran, for on the Day of Resurrection they will come as two clouds or two shades, or two flocks of birds in ranks, pleading for those who recite them. Recite Surah al-Baqara, for to take recourse to it is a blessing and to give it up is a cause of grief, and the magicians cannot confront it. (Mu'awiya said: It has been conveyed to me that here Batala means magicians.)",
+   "ar": "حَدَّثَنِي الْحَسَنُ بْنُ عَلِيٍّ الْحُلْوَانِيُّ، حَدَّثَنَا أَبُو تَوْبَةَ، - وَهُوَ الرَّبِيعُ بْنُ نَافِعٍ - حَدَّثَنَا مُعَاوِيَةُ، - يَعْنِي ابْنَ سَلاَّمٍ - عَنْ زَيْدٍ، أَنَّهُ سَمِعَ أَبَا سَلاَّمٍ، يَقُولُ حَدَّثَنِي أَبُو أُمَامَةَ، الْبَاهِلِيُّ قَالَ سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ ‏\"‏ اقْرَءُوا الْقُرْآنَ فَإِنَّهُ يَأْتِي يَوْمَ الْقِيَامَةِ شَفِيعًا لأَصْحَابِهِ اقْرَءُوا الزَّهْرَاوَيْنِ الْبَقَرَةَ وَسُورَةَ آلِ عِمْرَانَ فَإِنَّهُمَا تَأْتِيَانِ يَوْمَ الْقِيَامَةِ كَأَنَّهُمَا غَمَامَتَانِ أَوْ كَأَنَّهُمَا غَيَايَتَانِ أَوْ كَأَنَّهُمَا فِرْقَانِ مِنْ طَيْرٍ صَوَافَّ تُحَاجَّانِ عَنْ أَصْحَابِهِمَا اقْرَءُوا سُورَةَ الْبَقَرَةِ فَإِنَّ أَخْذَهَا بَرَكَةٌ وَتَرْكَهَا حَسْرَةٌ وَلاَ تَسْتَطِيعُهَا الْبَطَلَةُ ‏\" ‏ ‏.‏ قَالَ مُعَاوِيَةُ بَلَغَنِي أَنَّ الْبَطَلَةَ السَّحَرَةُ ‏.‏",
+   "arMatn": "اقْرَءُوا الْقُرْآنَ فَإِنَّهُ يَأْتِي يَوْمَ الْقِيَامَةِ شَفِيعًا لأَصْحَابِهِ اقْرَءُوا الزَّهْرَاوَيْنِ الْبَقَرَةَ وَسُورَةَ آلِ عِمْرَانَ فَإِنَّهُمَا تَأْتِيَانِ يَوْمَ الْقِيَامَةِ كَأَنَّهُمَا غَمَامَتَانِ أَوْ كَأَنَّهُمَا غَيَايَتَانِ أَوْ كَأَنَّهُمَا فِرْقَانِ مِنْ طَيْرٍ صَوَافَّ تُحَاجَّانِ عَنْ أَصْحَابِهِمَا اقْرَءُوا سُورَةَ الْبَقَرَةِ فَإِنَّ أَخْذَهَا بَرَكَةٌ وَتَرْكَهَا حَسْرَةٌ وَلاَ تَسْتَطِيعُهَا الْبَطَلَةُ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/10851"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 804a",
+     "url": "https://sunnah.com/muslim:804a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 8",
+     "url": "https://sunnah.com/virtues:8"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:805",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection and blessings in this life and the next",
+    "ar": "الْحِفْظُ والْبَرَكَةُ فِي الدُّنْيَا والْآخِرَةِ",
+    "item": 9
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 805",
+   "inBook": "Book 6, Hadith 304",
+   "en": "An-Nawwas b. Sam'an said he heard the Apostle (ﷺ) say: On the Day of Resurrection the Qur'an and those who acted according to it will be brought with Surah al-Baqara and AI 'Imran preceding them. The Messenger of Allah (ﷺ) likened them to three things, which I did not forget afterwards. He (the Holy Prophet) likened them to two clouds, or two black canopies with light between them, or like two flocks of birds in ranks pleading for one who recited them.",
+   "ar": "حَدَّثَنِي إِسْحَاقُ بْنُ مَنْصُورٍ، أَخْبَرَنَا يَزِيدُ بْنُ عَبْدِ رَبِّهِ، حَدَّثَنَا الْوَلِيدُ بْنُ مُسْلِمٍ، عَنْ مُحَمَّدِ بْنِ مُهَاجِرٍ، عَنِ الْوَلِيدِ بْنِ عَبْدِ الرَّحْمَنِ الْجُرَشِيِّ، عَنْ جُبَيْرِ بْنِ نُفَيْرٍ، قَالَ سَمِعْتُ النَّوَّاسَ، بْنَ سَمْعَانَ الْكِلاَبِيَّ يَقُولُ سَمِعْتُ النَّبِيَّ صلى الله عليه وسلم يَقُولُ ‏\"‏ يُؤْتَى بِالْقُرْآنِ يَوْمَ الْقِيَامَةِ وَأَهْلِهِ الَّذِينَ كَانُوا يَعْمَلُونَ بِهِ تَقْدُمُهُ سُورَةُ الْبَقَرَةِ وَآلُ عِمْرَانَ ‏\"‏ ‏.‏ وَضَرَبَ لَهُمَا رَسُولُ اللَّهِ صلى الله عليه وسلم ثَلاَثَةَ أَمْثَالٍ مَا نَسِيتُهُنَّ بَعْدُ قَالَ ‏\"‏ كَأَنَّهُمَا غَمَامَتَانِ أَوْ ظُلَّتَانِ سَوْدَاوَانِ بَيْنَهُمَا شَرْقٌ أَوْ كَأَنَّهُمَا حِزْقَانِ مِنْ طَيْرٍ صَوَافَّ تُحَاجَّانِ عَنْ صَاحِبِهِمَا",
+   "arMatn": "يُؤْتَى بِالْقُرْآنِ يَوْمَ الْقِيَامَةِ وَأَهْلِهِ الَّذِينَ كَانُوا يَعْمَلُونَ بِهِ تَقْدُمُهُ سُورَةُ الْبَقَرَةِ وَآلُ عِمْرَانَ ‏\"‏ ‏.‏ وَضَرَبَ لَهُمَا رَسُولُ اللَّهِ صلى الله عليه وسلم ثَلاَثَةَ أَمْثَالٍ مَا نَسِيتُهُنَّ بَعْدُ قَالَ ‏\"‏ كَأَنَّهُمَا غَمَامَتَانِ أَوْ ظُلَّتَانِ سَوْدَاوَانِ بَيْنَهُمَا شَرْقٌ أَوْ كَأَنَّهُمَا حِزْقَانِ مِنْ طَيْرٍ صَوَافَّ تُحَاجَّانِ عَنْ صَاحِبِهِمَا",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic hadith",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/6828"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 805",
+     "url": "https://sunnah.com/muslim:805"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 9",
+     "url": "https://sunnah.com/virtues:9"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:780",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection and blessings in this life and the next",
+    "ar": "الْحِفْظُ والْبَرَكَةُ فِي الدُّنْيَا والْآخِرَةِ",
+    "item": 10
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 780",
+   "inBook": "Book 6, Hadith 252",
+   "en": "Abu Huraira reported Allah's Messenger (ﷺ) as saying: Do not make your houses as graveyards. Satan runs away from the house in which Surah Baqara is recited.",
+   "ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا يَعْقُوبُ، - وَهُوَ ابْنُ عَبْدِ الرَّحْمَنِ الْقَارِيُّ - عَنْ سُهَيْلٍ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ ‏\"‏ لاَ تَجْعَلُوا بُيُوتَكُمْ مَقَابِرَ إِنَّ الشَّيْطَانَ يَنْفِرُ مِنَ الْبَيْتِ الَّذِي تُقْرَأُ فِيهِ سُورَةُ الْبَقَرَةِ ‏\"‏ ‏.‏",
+   "arMatn": "لاَ تَجْعَلُوا بُيُوتَكُمْ مَقَابِرَ إِنَّ الشَّيْطَانَ يَنْفِرُ مِنَ الْبَيْتِ الَّذِي تُقْرَأُ فِيهِ سُورَةُ الْبَقَرَةِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/6208"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 780",
+     "url": "https://sunnah.com/muslim:780"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 10",
+     "url": "https://sunnah.com/virtues:10"
+    }
+   ],
+   "note": "Owner's seed.",
+   "verified": false
+  },
+  {
+   "id": "muslim:810",
+   "kind": "virtue",
+   "heading": {
+    "en": "Āyat al-Kursī (The Verse of the Footstool)",
+    "ar": "آيَةُ الْكُرْسِيّ",
+    "item": 11
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 810",
+   "inBook": "Book 6, Hadith 313",
+   "en": "Ubayy b. Ka'b said: Allah's Messenger (ﷺ) said: O Abu' al-Mundhir, do you know the verse from the Book of Allah which, according to you, is the greatest? I said: Allah and His Apostle (ﷺ) know best. He again said: Abu'l-Mundhir, do you know the verse from the Book of Allah which, according to you, is the greatest? I said: Allah, there is no god but He, the Living, the Eternal. Thereupon he struck me on my breast and said: May knowledge be pleasant for you, O Abu'l-Mundhir!",
+   "ar": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَبْدُ الأَعْلَى بْنُ عَبْدِ الأَعْلَى، عَنِ الْجُرَيْرِيِّ، عَنْ أَبِي السَّلِيلِ، عَنْ عَبْدِ اللَّهِ بْنِ رَبَاحٍ الأَنْصَارِيِّ، عَنْ أُبَىِّ بْنِ كَعْبٍ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\" ‏ يَا أَبَا الْمُنْذِرِ أَتَدْرِي أَىُّ آيَةٍ مِنْ كِتَابِ اللَّهِ مَعَكَ أَعْظَمُ ‏\"‏ ‏.‏ قَالَ قُلْتُ اللَّهُ وَرَسُولُهُ أَعْلَمُ ‏.‏ قَالَ ‏\"‏ يَا أَبَا الْمُنْذِرِ أَتَدْرِي أَىُّ آيَةٍ مِنْ كِتَابِ اللَّهِ مَعَكَ أَعْظَمُ ‏\"‏ ‏.‏ قَالَ قُلْتُ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَىُّ الْقَيُّومُ ‏.‏ قَالَ فَضَرَبَ فِي صَدْرِي وَقَالَ ‏\"‏ وَاللَّهِ لِيَهْنِكَ الْعِلْمُ أَبَا الْمُنْذِرِ ‏\"‏ ‏.‏",
+   "arMatn": "يَا أَبَا الْمُنْذِرِ أَتَدْرِي أَىُّ آيَةٍ مِنْ كِتَابِ اللَّهِ مَعَكَ أَعْظَمُ ‏\"‏ ‏.‏ قَالَ قُلْتُ اللَّهُ وَرَسُولُهُ أَعْلَمُ ‏.‏ قَالَ ‏\"‏ يَا أَبَا الْمُنْذِرِ أَتَدْرِي أَىُّ آيَةٍ مِنْ كِتَابِ اللَّهِ مَعَكَ أَعْظَمُ ‏\"‏ ‏.‏ قَالَ قُلْتُ اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَىُّ الْقَيُّومُ ‏.‏ قَالَ فَضَرَبَ فِي صَدْرِي وَقَالَ ‏\"‏ وَاللَّهِ لِيَهْنِكَ الْعِلْمُ أَبَا الْمُنْذِرِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/65059"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 810",
+     "url": "https://sunnah.com/muslim:810"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 11",
+     "url": "https://sunnah.com/virtues:11"
+    }
+   ],
+   "note": "Owner's seed (Ayat al-Kursi, 2:255).",
+   "verified": false
+  },
+  {
+   "id": "bukhari:5010",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection from the devils",
+    "ar": "حِفْظٌ مِنَ الشَّيَاطِين",
+    "item": 12
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5010",
+   "inBook": "Book 66, Hadith 32",
+   "en": "Narrated Abu Huraira: Allah's Messenger (ﷺ) ordered me to guard the Zakat revenue of Ramadan. Then somebody came to me and started stealing from the foodstuff. I caught him and said, \"I will take you to Allah's Messenger (ﷺ)!\" Then Abu Huraira described the whole narration and said: That person said (to me), \"(Please don't take me to Allah's Messenger (ﷺ) and I will tell you a few words by which Allah will benefit you.) When you go to your bed, recite Ayat-al-Kursi, (2.255) for then there will be a guard from Allah who will protect you all night long, and no Satan will come near you until the morning..\" (When the Prophet (ﷺ) heard the story) he said (to me), \"He (who came to you at night) told you the truth although he is a liar; and it was a satan.\"",
+   "ar": "وَقَالَ عُثْمَانُ بْنُ الْهَيْثَمِ حَدَّثَنَا عَوْفٌ، عَنْ مُحَمَّدِ بْنِ سِيرِينَ، عَنْ أَبِي هُرَيْرَةَ ـ رضى الله عنه ـ قَالَ وَكَّلَنِي رَسُولُ اللَّهِ صلى الله عليه وسلم بِحِفْظِ زَكَاةِ رَمَضَانَ فَأَتَانِي آتٍ فَجَعَلَ يَحْثُو مِنَ الطَّعَامِ فَأَخَذْتُهُ فَقُلْتُ لأَرْفَعَنَّكَ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَقَصَّ الْحَدِيثَ فَقَالَ إِذَا أَوَيْتَ إِلَى فِرَاشِكَ فَاقْرَأْ آيَةَ الْكُرْسِيِّ لَنْ يَزَالَ مَعَكَ مِنَ اللَّهِ حَافِظٌ وَلاَ يَقْرَبُكَ شَيْطَانٌ حَتَّى تُصْبِحَ‏.‏ وَقَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ صَدَقَكَ وَهْوَ كَذُوبٌ ذَاكَ شَيْطَانٌ ‏\"‏‏.‏",
+   "arMatn": null,
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5010",
+     "url": "https://sunnah.com/bukhari:5010"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 12",
+     "url": "https://sunnah.com/virtues:12"
+    }
+   ],
+   "note": "Mu'allaq: al-Bukhari cites this without a connected chain of his own (it opens 'And 'Uthman ibn al-Haytham said'). Reviewer to confirm it may be shown as sahih.",
+   "verified": false
+  },
+  {
+   "id": "bukhari:5009",
+   "kind": "virtue",
+   "heading": {
+    "en": "The last two verses of Sūrat al-Baqarah guarantee sufficiency",
+    "ar": "آخِرُ آيَتَيْنِ مِنْ سُورَةِ الْبَقَرَةِ",
+    "item": 14
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5009",
+   "inBook": "Book 66, Hadith 31",
+   "en": "Narrated Abu Mas'ud: The Prophet (ﷺ) said, \"If somebody recited the last two Verses of Surat Al-Baqara at night, that will be sufficient for him.\"",
+   "ar": "حَدَّثَنَا أَبُو نُعَيْمٍ، حَدَّثَنَا سُفْيَانُ، عَنْ مَنْصُورٍ، عَنْ إِبْرَاهِيمَ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ يَزِيدَ، عَنْ أَبِي مَسْعُودٍ ـ رضى الله عنه ـ قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏\"‏ مَنْ قَرَأَ بِالآيَتَيْنِ مِنْ آخِرِ سُورَةِ الْبَقَرَةِ فِي لَيْلَةٍ كَفَتَاهُ‏\" ‏‏.‏",
+   "arMatn": "مَنْ قَرَأَ بِالآيَتَيْنِ مِنْ آخِرِ سُورَةِ الْبَقَرَةِ فِي لَيْلَةٍ كَفَتَاهُ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Agreed upon",
+    "url": "https://hadeethenc.com/en/browse/hadith/6274"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5009",
+     "url": "https://sunnah.com/bukhari:5009"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 14",
+     "url": "https://sunnah.com/virtues:14"
+    }
+   ],
+   "note": "Owner's seed.",
+   "verified": false
+  },
+  {
+   "id": "muslim:807",
+   "kind": "virtue",
+   "heading": {
+    "en": "The last two verses of Sūrat al-Baqarah guarantee sufficiency",
+    "ar": "آخِرُ آيَتَيْنِ مِنْ سُورَةِ الْبَقَرَةِ",
+    "item": 14
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 807a",
+   "inBook": "Book 6, Hadith 306",
+   "en": "'Abd al-Rahman b. Yazid reported: I met Abu Mas'ud near the House (Ka'ba) and said to him: A hadith has been conveyed to me on your authority about the two (concluding verses of Surah al-Baqara. He said: Yes. The Messenger of Allah (ﷺ) (in fact) said: Anyone who recites the two verses at the end of Surah al-Baqara at night, they would suffice for him.",
+   "ar": "وَحَدَّثَنَا أَحْمَدُ بْنُ يُونُسَ، حَدَّثَنَا زُهَيْرٌ، حَدَّثَنَا مَنْصُورٌ، عَنْ إِبْرَاهِيمَ، عَنْ عَبْدِ الرَّحْمَنِ، بْنِ يَزِيدَ قَالَ لَقِيتُ أَبَا مَسْعُودٍ عِنْدَ الْبَيْتِ فَقُلْتُ حَدِيثٌ بَلَغَنِي عَنْكَ فِي الآيَتَيْنِ فِي سُورَةِ الْبَقَرَةِ ‏.‏ فَقَالَ نَعَمْ ‏.‏ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ الآيَتَانِ مِنْ آخِرِ سُورَةِ الْبَقَرَةِ مَنْ قَرَأَهُمَا فِي لَيْلَةٍ كَفَتَاهُ ‏\" ‏ ‏.‏",
+   "arMatn": "الآيَتَانِ مِنْ آخِرِ سُورَةِ الْبَقَرَةِ مَنْ قَرَأَهُمَا فِي لَيْلَةٍ كَفَتَاهُ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Agreed upon",
+    "url": "https://hadeethenc.com/en/browse/hadith/6274"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 807a",
+     "url": "https://sunnah.com/muslim:807"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 14",
+     "url": "https://sunnah.com/virtues:14"
+    }
+   ],
+   "note": "Owner's seed. Muslim's narration of the same hadith as Bukhari 5009.",
+   "verified": false
+  },
+  {
+   "id": "muslim:173",
+   "kind": "virtue",
+   "heading": {
+    "en": "A Gift During the Night Journey",
+    "ar": "",
+    "item": 15
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 173",
+   "inBook": "Book 1, Hadith 336",
+   "en": "It is narrated on the authority of Abdullah (b. Umar) that when the Messenger of Allah (ﷺ) was taken for the Night journey, he was taken to Sidrat-ul-Muntaha, which is situated on the sixth heaven, where terminates everything that ascends from the earth and is held there, and where terminates every- thing that descends from above it and is held there. (It is with reference to this that) Allah said: \" When that which covers covered the lote-tree\" (al-Qur'an, Iiii. 16). He (the narrator) said: (It was) gold moths. He (the narrator further) said: The Messenger of Allah (ﷺ) was given three (things): he was given five prayers, be was given the concluding verses of Sura al-Baqara, and remission of serious Sins for those among his Ummah who associate not anything with Allah",
+   "ar": "وَحَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا أَبُو أُسَامَةَ، حَدَّثَنَا مَالِكُ بْنُ مِغْوَلٍ، ح وَحَدَّثَنَا ابْنُ نُمَيْرٍ، وَزُهَيْرُ بْنُ حَرْبٍ، جَمِيعًا عَنْ عَبْدِ اللَّهِ بْنِ نُمَيْرٍ، - وَأَلْفَاظُهُمْ مُتَقَارِبَةٌ - قَالَ ابْنُ نُمَيْرٍ حَدَّثَنَا أَبِي، حَدَّثَنَا مَالِكُ بْنُ مِغْوَلٍ، عَنِ الزُّبَيْرِ بْنِ عَدِيٍّ، عَنْ طَلْحَةَ، عَنْ مُرَّةَ، عَنْ عَبْدِ اللَّهِ، قَالَ لَمَّا أُسْرِيَ بِرَسُولِ اللَّهِ صلى الله عليه وسلم انْتُهِيَ بِهِ إِلَى سِدْرَةِ الْمُنْتَهَى وَهِيَ فِي السَّمَاءِ السَّادِسَةِ إِلَيْهَا يَنْتَهِي مَا يُعْرَجُ بِهِ مِنَ الأَرْضِ فَيُقْبَضُ مِنْهَا وَإِلَيْهَا يَنْتَهِي مَا يُهْبَطُ بِهِ مِنْ فَوْقِهَا فَيُقْبَضُ مِنْهَا قَالَ ‏‏{‏ إِذْ يَغْشَى السِّدْرَةَ مَا يَغْشَى‏}‏ قَالَ فَرَاشٌ مِنْ ذَهَبٍ ‏.‏ قَالَ فَأُعْطِيَ رَسُولُ اللَّهِ صلى الله عليه وسلم ثَلاَثًا أُعْطِيَ الصَّلَوَاتِ الْخَمْسَ وَأُعْطِيَ خَوَاتِيمَ سُورَةِ الْبَقَرَةِ وَغُفِرَ لِمَنْ لَمْ يُشْرِكْ بِاللَّهِ مِنْ أُمَّتِهِ شَيْئًا الْمُقْحِمَاتُ ‏.‏",
+   "arMatn": "أُسْرِيَ بِرَسُولِ اللَّهِ صلى الله عليه وسلم انْتُهِيَ بِهِ إِلَى سِدْرَةِ الْمُنْتَهَى وَهِيَ فِي السَّمَاءِ السَّادِسَةِ إِلَيْهَا يَنْتَهِي مَا يُعْرَجُ بِهِ مِنَ الأَرْضِ فَيُقْبَضُ مِنْهَا وَإِلَيْهَا يَنْتَهِي مَا يُهْبَطُ بِهِ مِنْ فَوْقِهَا فَيُقْبَضُ مِنْهَا قَالَ ‏‏{‏ إِذْ يَغْشَى السِّدْرَةَ مَا يَغْشَى‏}‏ قَالَ فَرَاشٌ مِنْ ذَهَبٍ ‏.‏ قَالَ فَأُعْطِيَ رَسُولُ اللَّهِ صلى الله عليه وسلم ثَلاَثًا أُعْطِيَ الصَّلَوَاتِ الْخَمْسَ وَأُعْطِيَ خَوَاتِيمَ سُورَةِ الْبَقَرَةِ وَغُفِرَ لِمَنْ لَمْ يُشْرِكْ بِاللَّهِ مِنْ أُمَّتِهِ شَيْئًا الْمُقْحِمَاتُ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 173",
+     "url": "https://sunnah.com/muslim:173"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 15",
+     "url": "https://sunnah.com/virtues:15"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:2882",
+   "kind": "virtue",
+   "heading": {
+    "en": "2000 years before the creation of the heavens and the earth",
+    "ar": "أَلْفَا عَامٍ قَبْلَ خَلْقِ السَّمَاوَاتِ والْأَرْضِ",
+    "item": 16
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 2882",
+   "inBook": "Book 45, Hadith 8",
+   "en": "Narrated An-Nu'man bin Bashir: that the Prophet (ﷺ) said: \"Indeed Allah wrote in a book two thousand years before He created the heavens and the earth, and He sent down two Ayat from it to end Surat Al-Baqarah with. If they are recited for three nights in a home, no Shaitan shall come near it.\"",
+   "ar": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، قَالَ حَدَّثَنَا عَبْدُ الرَّحْمَنِ بْنُ مَهْدِيٍّ، قَالَ حَدَّثَنَا حَمَّادُ بْنُ سَلَمَةَ، عَنْ أَشْعَثَ بْنِ عَبْدِ الرَّحْمَنِ الْجَرْمِيِّ، عَنْ أَبِي قِلاَبَةَ، عَنْ أَبِي الأَشْعَثِ الْجَرْمِيِّ، عَنِ النُّعْمَانِ بْنِ بَشِيرٍ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ إِنَّ اللَّهَ كَتَبَ كِتَابًا قَبْلَ أَنْ يَخْلُقَ السَّمَاوَاتِ وَالأَرْضَ بِأَلْفَىْ عَامٍ أَنْزَلَ مِنْهُ آيَتَيْنِ خَتَمَ بِهِمَا سُورَةَ الْبَقَرَةِ وَلاَ يُقْرَآنِ فِي دَارٍ ثَلاَثَ لَيَالٍ فَيَقْرَبُهَا شَيْطَانٌ ‏\" ‏ ‏.‏ قَالَ أَبُو عِيسَى هَذَا حَدِيثٌ حَسَنٌ غَرِيبٌ ‏.‏",
+   "arMatn": "إِنَّ اللَّهَ كَتَبَ كِتَابًا قَبْلَ أَنْ يَخْلُقَ السَّمَاوَاتِ وَالأَرْضَ بِأَلْفَىْ عَامٍ أَنْزَلَ مِنْهُ آيَتَيْنِ خَتَمَ بِهِمَا سُورَةَ الْبَقَرَةِ وَلاَ يُقْرَآنِ فِي دَارٍ ثَلاَثَ لَيَالٍ فَيَقْرَبُهَا شَيْطَانٌ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 2882",
+     "url": "https://sunnah.com/tirmidhi:2882"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 16",
+     "url": "https://sunnah.com/virtues:16"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "bukhari:5018",
+   "kind": "virtue",
+   "heading": {
+    "en": "Tranquility descends upon its recitation",
+    "ar": "تَنْزِلُ السَّكِينَةُ عِنْدَ قِرَاءَتِهَا",
+    "item": 22
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5018",
+   "inBook": "Book 66, Hadith 40",
+   "en": "Narrated Usaid bin Hudair: That while he was reciting Surat Al-Baqara (The Cow) at night, and his horse was tied beside him, the horse was suddenly startled and troubled. When he stopped reciting, the horse became quiet, and when he started again, the horse was startled again. Then he stopped reciting and the horse became quiet too. He started reciting again and the horse was startled and troubled once again. Then he stopped reciting and his son, Yahya was beside the horse. He was afraid that the horse might trample on him. When he took the boy away and looked towards the sky, he could not see it. The next morning he informed the Prophet who said, \"Recite, O Ibn Hudair! Recite, O Ibn Hudair!\" Ibn Hudair replied, \"O Allah's Messenger (ﷺ)! My son, Yahya was near the horse and I was afraid that it might trample on him, so I looked towards the sky, and went to him. When I looked at the sky, I saw something like a cloud containing what looked like lamps, so I went out in order not to see it.\" The Prophet (ﷺ) said, \"Do you know what that was?\" Ibn Hudair replied, \"No.\" The Prophet (ﷺ) said, \"Those were Angels who came near to you for your voice and if you had kept on reciting till dawn, it would have remained there till morning when people would have seen it as it would not have disappeared.",
+   "ar": "وَقَالَ اللَّيْثُ حَدَّثَنِي يَزِيدُ بْنُ الْهَادِ، عَنْ مُحَمَّدِ بْنِ إِبْرَاهِيمَ، عَنْ أُسَيْدِ بْنِ حُضَيْرٍ، قَالَ بَيْنَمَا هُوَ يَقْرَأُ مِنَ اللَّيْلِ سُورَةَ الْبَقَرَةِ وَفَرَسُهُ مَرْبُوطٌ عِنْدَهُ إِذْ جَالَتِ الْفَرَسُ فَسَكَتَ فَسَكَتَتْ فَقَرَأَ فَجَالَتِ الْفَرَسُ، فَسَكَتَ وَسَكَتَتِ الْفَرَسُ ثُمَّ قَرَأَ فَجَالَتِ الْفَرَسُ، فَانْصَرَفَ وَكَانَ ابْنُهُ يَحْيَى قَرِيبًا مِنْهَا فَأَشْفَقَ أَنْ تُصِيبَهُ فَلَمَّا اجْتَرَّهُ رَفَعَ رَأْسَهُ إِلَى السَّمَاءِ حَتَّى مَا يَرَاهَا فَلَمَّا أَصْبَحَ حَدَّثَ النَّبِيَّ صلى الله عليه وسلم فَقَالَ ‏\"‏ اقْرَأْ يَا ابْنَ حُضَيْرٍ اقْرَأْ يَا ابْنَ حُضَيْرٍ ‏\"‏‏.‏ قَالَ فَأَشْفَقْتُ يَا رَسُولَ اللَّهِ أَنْ تَطَأَ يَحْيَى وَكَانَ مِنْهَا قَرِيبًا فَرَفَعْتُ رَأْسِي فَانْصَرَفْتُ إِلَيْهِ فَرَفَعْتُ رَأْسِي إِلَى السَّمَاءِ فَإِذَا مِثْلُ الظُّلَّةِ فِيهَا أَمْثَالُ الْمَصَابِيحِ فَخَرَجَتْ حَتَّى لاَ أَرَاهَا‏.‏ قَالَ ‏\"‏ وَتَدْرِي مَا ذَاكَ ‏\"‏‏.‏ قَالَ لاَ‏.‏ قَالَ ‏\"‏ تِلْكَ الْمَلاَئِكَةُ دَنَتْ لِصَوْتِكَ وَلَوْ قَرَأْتَ لأَصْبَحَتْ يَنْظُرُ النَّاسُ إِلَيْهَا لاَ تَتَوَارَى مِنْهُمْ ‏\"‏‏.‏ قَالَ ابْنُ الْهَادِ وَحَدَّثَنِي هَذَا الْحَدِيثَ عَبْدُ اللَّهِ بْنُ خَبَّابٍ عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ عَنْ أُسَيْدِ بْنِ حُضَيْرٍ‏.‏",
+   "arMatn": "وَقَالَ اللَّيْثُ حَدَّثَنِي يَزِيدُ بْنُ الْهَادِ، عَنْ مُحَمَّدِ بْنِ إِبْرَاهِيمَ، عَنْ أُسَيْدِ بْنِ حُضَيْرٍ، قَالَ بَيْنَمَا هُوَ يَقْرَأُ مِنَ اللَّيْلِ سُورَةَ الْبَقَرَةِ وَفَرَسُهُ مَرْبُوطٌ عِنْدَهُ إِذْ جَالَتِ الْفَرَسُ فَسَكَتَ فَسَكَتَتْ فَقَرَأَ فَجَالَتِ الْفَرَسُ، فَسَكَتَ وَسَكَتَتِ الْفَرَسُ ثُمَّ قَرَأَ فَجَالَتِ الْفَرَسُ، فَانْصَرَفَ وَكَانَ ابْنُهُ يَحْيَى قَرِيبًا مِنْهَا فَأَشْفَقَ أَنْ تُصِيبَهُ فَلَمَّا اجْتَرَّهُ رَفَعَ رَأْسَهُ إِلَى السَّمَاءِ حَتَّى مَا يَرَاهَا فَلَمَّا أَصْبَحَ حَدَّثَ النَّبِيَّ صلى الله عليه وسلم فَقَالَ ‏\"‏ اقْرَأْ يَا ابْنَ حُضَيْرٍ اقْرَأْ يَا ابْنَ حُضَيْرٍ ‏\"‏‏.‏ قَالَ فَأَشْفَقْتُ يَا رَسُولَ اللَّهِ أَنْ تَطَأَ يَحْيَى وَكَانَ مِنْهَا قَرِيبًا فَرَفَعْتُ رَأْسِي فَانْصَرَفْتُ إِلَيْهِ فَرَفَعْتُ رَأْسِي إِلَى السَّمَاءِ فَإِذَا مِثْلُ الظُّلَّةِ فِيهَا أَمْثَالُ الْمَصَابِيحِ فَخَرَجَتْ حَتَّى لاَ أَرَاهَا‏.‏ قَالَ ‏\"‏ وَتَدْرِي مَا ذَاكَ ‏\"‏‏.‏ قَالَ لاَ‏.‏ قَالَ ‏\"‏ تِلْكَ الْمَلاَئِكَةُ دَنَتْ لِصَوْتِكَ وَلَوْ قَرَأْتَ لأَصْبَحَتْ يَنْظُرُ النَّاسُ إِلَيْهَا لاَ تَتَوَارَى مِنْهُمْ ‏\"‏‏.‏ قَالَ ابْنُ الْهَادِ وَحَدَّثَنِي هَذَا الْحَدِيثَ عَبْدُ اللَّهِ بْنُ خَبَّابٍ عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ عَنْ أُسَيْدِ بْنِ حُضَيْرٍ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5018",
+     "url": "https://sunnah.com/bukhari:5018"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 22",
+     "url": "https://sunnah.com/virtues:22"
+    }
+   ],
+   "note": "Mu'allaq: al-Bukhari cites this without a connected chain of his own (it opens 'And al-Layth said'). Reviewer to confirm it may be shown as sahih.",
+   "verified": false
+  },
+  {
+   "id": "nasai:2962",
+   "kind": "practice",
+   "heading": {
+    "en": "The verse to be recited after ṭawāf (circuits around the kaʿbah)",
+    "ar": "الْآيَةُ الَّتِي تُتْلَى بَعْدَ الطَّوَافِ",
+    "item": 20
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 2962",
+   "inBook": "Book 24, Hadith 345",
+   "en": "It was narrated from Jabir that the Messenger of Allah performed Tawaf, walking rapidly (Raml) for three circuits, and walking at a normal pace for four. Then he recited: \"And take you the Maqam (place) of Ibrahim as a place of prayer.\" And prayed two Rak`ahs with the Maqam between him and the Ka`bah. Then he touched the Corner, then he went out and said: 'As-Safa and Al-Marwah are two of the symbols of Allah. We will start with that with which Allah started.'\"",
+   "ar": "أَخْبَرَنَا عَلِيُّ بْنُ حُجْرٍ، قَالَ حَدَّثَنَا إِسْمَاعِيلُ، قَالَ حَدَّثَنَا جَعْفَرُ بْنُ مُحَمَّدٍ، عَنْ أَبِيهِ، عَنْ جَابِرٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم طَافَ سَبْعًا رَمَلَ ثَلاَثًا وَمَشَى أَرْبَعًا ثُمَّ قَرَأَ ‏‏{‏ وَاتَّخِذُوا مِنْ مَقَامِ إِبْرَاهِيمَ مُصَلًّى ‏}‏ فَصَلَّى سَجْدَتَيْنِ وَجَعَلَ الْمَقَامَ بَيْنَهُ وَبَيْنَ الْكَعْبَةِ ثُمَّ اسْتَلَمَ الرُّكْنَ ثُمَّ خَرَجَ فَقَالَ ‏\"‏ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ فَابْدَءُوا بِمَا بَدَأَ اللَّهُ بِهِ ‏\"‏ ‏.‏",
+   "arMatn": "الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ فَابْدَءُوا بِمَا بَدَأَ اللَّهُ بِهِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 2962",
+     "url": "https://sunnah.com/nasai:2962"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 20",
+     "url": "https://sunnah.com/virtues:20"
+    }
+   ],
+   "note": "Recitation of 2:125 after tawaf.",
+   "verified": false
+  },
+  {
+   "id": "nasai:2970",
+   "kind": "practice",
+   "heading": {
+    "en": "The verse to be recited after ṭawāf (circuits around the kaʿbah)",
+    "ar": "الْآيَةُ الَّتِي تُتْلَى بَعْدَ الطَّوَافِ",
+    "item": 21
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 2970",
+   "inBook": "Book 24, Hadith 353",
+   "en": "Jabir said: \"Messenger of Allah went out to As-Safa and said.We will start with that with which Allah started. Then he recited: 'Verifly, as-Safa and Al-Marwah (two Mountains in Makkah) are of the symbols of Allah.'\"",
+   "ar": "أَخْبَرَنَا يَعْقُوبُ بْنُ إِبْرَاهِيمَ، قَالَ أَنْبَأَنَا يَحْيَى بْنُ سَعِيدٍ، عَنْ جَعْفَرِ بْنِ مُحَمَّدٍ، قَالَ حَدَّثَنِي أَبِي قَالَ، حَدَّثَنَا جَابِرٌ، قَالَ خَرَجَ رَسُولُ اللَّهِ صلى الله عليه وسلم إِلَى الصَّفَا وَقَالَ ‏ \"‏ نَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ ‏\"‏ ‏.‏ ثُمَّ قَرَأَ ‏\"‏ ‏‏{‏ إِنَّ الصَّفَا وَالْمَرْوَةَ مِنْ شَعَائِرِ اللَّهِ ‏}‏ ‏\"‏ ‏.‏",
+   "arMatn": "نَبْدَأُ بِمَا بَدَأَ اللَّهُ بِهِ ‏\"‏ ‏.‏ ثُمَّ قَرَأَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 2970",
+     "url": "https://sunnah.com/nasai:2970"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 21",
+     "url": "https://sunnah.com/virtues:21"
+    }
+   ],
+   "note": "Recitation of 2:158 at as-Safa.",
+   "verified": false
+  }
+ ]
+}

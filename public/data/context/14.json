@@ -1,0 +1,42 @@
+{
+ "surah": 14,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 72,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "It appears from the tone of the Surah that it belongs to that group of the Surahs which were revealed during the last stage of the Makkan period.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/14/info"
+   }
+  },
+  "theme": {
+   "heading": "Central Theme and Purpose",
+   "text": "This Surah is an admonition and a warning to the disbelievers who were rejecting the Message of the Holy Prophet and devising cunning schemes to defeat his Mission. But warning, reproof, censure and reproach dominate admonition.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/14/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

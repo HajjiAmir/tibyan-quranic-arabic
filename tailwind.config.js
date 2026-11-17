@@ -20,6 +20,9 @@ export default {
         gold: 'rgb(var(--gold) / <alpha-value>)',
         'gold-soft': 'rgb(var(--gold-soft) / <alpha-value>)',
         emerald: 'rgb(var(--emerald) / <alpha-value>)',
+        draft: 'rgb(var(--draft) / <alpha-value>)',
+        'draft-bg': 'rgb(var(--draft-bg) / <alpha-value>)',
+        'draft-line': 'rgb(var(--draft-line) / <alpha-value>)',
       },
       maxWidth: {
         reading: '46rem',

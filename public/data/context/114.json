@@ -1,0 +1,325 @@
+{
+ "surah": 114,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 21,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Hadrat Hasan Basri, 'Ikrimah, 'Ata' and Jabir bin Zaid say that these Surahs are Makki. A tradition from Hadrat 'Abdullah bin 'Abbas also supports the same view. However, according to another tradition from him, it is Madani and the same view is held also by Hadrat 'Abdullah bin Zubair and Qatadah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/114/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject-Matter",
+   "text": "The conditions under which these two Surahs were sent down in Makkah were as follows. As soon as the Holy Prophet (upon whom be peace) began to preach the message of Islam, it seemed as though he had provoked all classes of the people around him.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/114/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "tirmidhi:3575",
+   "kind": "virtue",
+   "heading": {
+    "en": "The Messenger ﷺ commanded their recitation in the morning and evening",
+    "ar": "أَمَرَ الرَّسُولُ ﷺ بِقِرَاءَتِهَا فِي الصَّبَاحِ والْمَسَاءِ",
+    "item": 87
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 3575",
+   "inBook": "Book 48, Hadith 206",
+   "en": "Mu`adh bin `Abdullah bin Khubaib, narrated from his father, who said: “We went out on a rainy and extremely dark night, looking for the Messenger of Allah (ﷺ), so that he could lead us in Salat.” He said: “So I met him and he (ﷺ) said: ‘Speak’ but I did not say anything. Then he (ﷺ) said: ‘Speak.’ But I did not say anything. He (ﷺ) said: ‘Speak.’ So I said: ‘What should I say?’ He (ﷺ) said: ‘Say: “Say: He is Allah, the One” and Al-Mu`awwidhatain, when you reach evening, and when you reach morning, three times, they will suffice you against everything.’”",
+   "ar": "حَدَّثَنَا عَبْدُ بْنُ حُمَيْدٍ، حَدَّثَنَا مُحَمَّدُ بْنُ إِسْمَاعِيلَ بْنِ أَبِي فُدَيْكٍ، حَدَّثَنَا ابْنُ أَبِي ذِئْبٍ، عَنْ أَبِي سَعِيدٍ الْبَرَّادِ، عَنْ مُعَاذِ بْنِ عَبْدِ اللَّهِ بْنِ خُبَيْبٍ، عَنْ أَبِيهِ، قَالَ خَرَجْنَا فِي لَيْلَةٍ مَطِيرَةٍ وَظُلْمَةٍ شَدِيدَةٍ نَطْلُبُ رَسُولَ اللَّهِ صلى الله عليه وسلم يُصَلِّي لَنَا - قَالَ - فَأَدْرَكْتُهُ فَقَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ فَلَمْ أَقُلْ شَيْئًا ثُمَّ قَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ فَلَمْ أَقُلْ شَيْئًا ‏.‏ قَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ قُلْتُ مَا أَقُولُ قَالَ ‏\"‏ قُلْ ‏: ‏ ‏‏(‏ هوَ اللَّهُ أَحَدٌ ‏)‏ وَالْمُعَوِّذَتَيْنِ حِينَ تُمْسِي وَتُصْبِحُ ثَلاَثَ مَرَّاتٍ تَكْفِيكَ مِنْ كُلِّ شَيْءٍ ‏\" ‏ ‏.‏ قَالَ أَبُو عِيسَى وَهَذَا حَدِيثٌ حَسَنٌ صَحِيحٌ غَرِيبٌ مِنْ هَذَا الْوَجْهِ وَأَبُو سَعِيدٍ الْبَرَّادُ هُوَ أَسِيدُ بْنُ أَبِي أَسِيدٍ مَدَنِيٌّ ‏.‏",
+   "arMatn": "(‏ هوَ اللَّهُ أَحَدٌ ‏)‏ وَالْمُعَوِّذَتَيْنِ حِينَ تُمْسِي وَتُصْبِحُ ثَلاَثَ مَرَّاتٍ تَكْفِيكَ مِنْ كُلِّ شَيْءٍ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 3575",
+     "url": "https://sunnah.com/tirmidhi:3575"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 87",
+     "url": "https://sunnah.com/virtues:87"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:814a",
+   "kind": "virtue",
+   "heading": {
+    "en": "The likes of which had never been seen",
+    "ar": "لَمْ يُرَ مِثْلُهُنَّ قَطُّ",
+    "item": 90
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 814a",
+   "inBook": "Book 6, Hadith 319",
+   "en": "'Uqba b. 'Amir reported Allah's Messenger (ﷺ) as saying: What wonderful verses have been sent down today. the like of which has never been seen! They are:\" Say: I seek refuge with the Lord of the dawn,\" and\" Say: I seek refuge with the Lord of men.\"",
+   "ar": "وَحَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا جَرِيرٌ، عَنْ بَيَانٍ، عَنْ قَيْسِ بْنِ أَبِي حَازِمٍ، عَنْ عُقْبَةَ بْنِ عَامِرٍ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ أَلَمْ تَرَ آيَاتٍ أُنْزِلَتِ اللَّيْلَةَ لَمْ يُرَ مِثْلُهُنَّ قَطُّ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ‏\"‏ ‏.‏",
+   "arMatn": "أَلَمْ تَرَ آيَاتٍ أُنْزِلَتِ اللَّيْلَةَ لَمْ يُرَ مِثْلُهُنَّ قَطُّ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ‏\"‏ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic hadith",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/10114"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 814a",
+     "url": "https://sunnah.com/muslim:814a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 90",
+     "url": "https://sunnah.com/virtues:90"
+    }
+   ],
+   "note": "Owner's seed lists al-Falaq and an-Nas as 'the best with which to seek refuge — Muslim'. Muslim 814's wording is 'verses the like of which have never been seen'; the 'best thing with which to seek refuge' wording is an-Nasa'i 5432 (below).",
+   "verified": false
+  },
+  {
+   "id": "muslim:814b",
+   "kind": "virtue",
+   "heading": {
+    "en": "The likes of which had never been seen",
+    "ar": "لَمْ يُرَ مِثْلُهُنَّ قَطُّ",
+    "item": 90
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 814b",
+   "inBook": "Book 6, Hadith 320",
+   "en": "'Uqba b. 'Amir reported: The Messenger of Allah (ﷺ) said to me: There have been sent down to me verses the like of which had never been seen before. They are the Mu'awwadhatain.",
+   "ar": "وَحَدَّثَنِي مُحَمَّدُ بْنُ عَبْدِ اللَّهِ بْنِ نُمَيْرٍ، حَدَّثَنَا أَبِي، حَدَّثَنَا إِسْمَاعِيلُ، عَنْ قَيْسٍ، عَنْ عُقْبَةَ بْنِ عَامِرٍ، قَالَ قَالَ لِي رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ أُنْزِلَ - أَوْ أُنْزِلَتْ - عَلَىَّ آيَاتٌ لَمْ يُرَ مِثْلُهُنَّ قَطُّ الْمُعَوِّذَتَيْنِ ‏\" ‏ ‏.‏",
+   "arMatn": "أُنْزِلَتْ - عَلَىَّ آيَاتٌ لَمْ يُرَ مِثْلُهُنَّ قَطُّ الْمُعَوِّذَتَيْنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/65448"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 814b",
+     "url": "https://sunnah.com/muslim:814b"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 90",
+     "url": "https://sunnah.com/virtues:90"
+    }
+   ],
+   "note": "Owner's seed.",
+   "verified": false
+  },
+  {
+   "id": "nasai:953",
+   "kind": "virtue",
+   "heading": {
+    "en": "The likes of which had never been seen",
+    "ar": "لَمْ يُرَ مِثْلُهُنَّ قَطُّ",
+    "item": 91
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 953",
+   "inBook": "Book 11, Hadith 78",
+   "en": "It was narrated that Uqbah bin Amr said: \"I followed the Messenger of Allah (ﷺ) when he was riding, and I placed my hand on his foot and said : O Messenger of Allah, teach me Surah Hud and Surah Yusuf. He said: 'You will never recite anything greater before Allah than: \"Say: I seek refuge with (Allah), the Lord of the daybreak.\" And \"Say: I seek refuge with (Allah) the Lord of mankind.'\"",
+   "ar": "أَخْبَرَنَا قُتَيْبَةُ، قَالَ حَدَّثَنَا اللَّيْثُ، عَنْ يَزِيدَ بْنِ أَبِي حَبِيبٍ، عَنْ أَبِي عِمْرَانَ، أَسْلَمَ عَنْ عُقْبَةَ بْنِ عَامِرٍ، قَالَ اتَّبَعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم وَهُوَ رَاكِبٌ فَوَضَعْتُ يَدِي عَلَى قَدَمِهِ فَقُلْتُ أَقْرِئْنِي يَا رَسُولَ اللَّهِ سُورَةَ هُودٍ وَسُورَةَ يُوسُفَ ‏.‏ فَقَالَ ‏ \"‏ لَنْ تَقْرَأَ شَيْئًا أَبْلَغَ عِنْدَ اللَّهِ مِنْ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ‏}‏ ‏\"‏ ‏.‏",
+   "arMatn": "لَنْ تَقْرَأَ شَيْئًا أَبْلَغَ عِنْدَ اللَّهِ مِنْ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ‏}‏ ‏\"‏ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 953",
+     "url": "https://sunnah.com/nasai:953"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 91",
+     "url": "https://sunnah.com/virtues:91"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:5432",
+   "kind": "virtue",
+   "heading": {
+    "en": "The Messenger ﷺ utilized them for protection",
+    "ar": "قَرَأَ بِهِمَا الرَّسُولُ ﷺ لِلْحِفْظِ",
+    "item": 93
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 5432",
+   "inBook": "Book 50, Hadith 5",
+   "en": "Abu 'Abdullah narrated that Ibn 'Abis Al-Juhani told him that: The Messenger of Allah [SAW] said to him: \"O Ibn 'Abis, shall I not tell you of the best thing with which those who seek refuge with Allah may do so?\" He said: \"Yes, O Messenger of Allah.\" He said: \"Say: I seek refuge with (Allah) the Lord of the daybreak.\", \"Say: I seek refuge with (Allah) the Lord of mankind.\" - these two Surahs.\"",
+   "ar": "أَخْبَرَنَا مَحْمُودُ بْنُ خَالِدٍ، قَالَ حَدَّثَنَا الْوَلِيدُ، قَالَ حَدَّثَنَا أَبُو عَمْرٍو، عَنْ يَحْيَى، عَنْ مُحَمَّدِ بْنِ إِبْرَاهِيمَ بْنِ الْحَارِثِ، أَخْبَرَنِي أَبُو عَبْدِ اللَّهِ، أَنَّ ابْنَ عَابِسٍ الْجُهَنِيَّ، أَخْبَرَهُ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَالَ لَهُ ‏\"‏ يَا ابْنَ عَابِسٍ أَلاَ أَدُلُّكَ - أَوْ قَالَ أَلاَ أُخْبِرُكَ - بِأَفْضَلِ مَا يَتَعَوَّذُ بِهِ الْمُتَعَوِّذُونَ ‏\"‏ ‏.‏ قَالَ بَلَى يَا رَسُولَ اللَّهِ ‏.‏ قَالَ ‏\"‏ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ‏}‏ هَاتَيْنِ السُّورَتَيْنِ ‏\"‏ ‏.‏",
+   "arMatn": "- بِأَفْضَلِ مَا يَتَعَوَّذُ بِهِ الْمُتَعَوِّذُونَ ‏\"‏ ‏.‏ قَالَ بَلَى يَا رَسُولَ اللَّهِ ‏.‏ قَالَ ‏\"‏ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ ‏}‏ وَ ‏‏{‏ قُلْ أَعُوذُ بِرَبِّ النَّاسِ ‏}‏ هَاتَيْنِ السُّورَتَيْنِ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 5432",
+     "url": "https://sunnah.com/nasai:5432"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 93",
+     "url": "https://sunnah.com/virtues:93"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "bukhari:5017",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited the three chapters before sleeping",
+    "ar": "السُّوَرُ الثَلَاثَةُ الَّتِي قَرَأَهَا الرَّسُولُ ﷺ قَبْلَ النَّوْمِ",
+    "item": 86
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5017",
+   "inBook": "Book 66, Hadith 39",
+   "en": "Narrated 'Aisha: Whenever the Prophet (ﷺ) went to bed every night, he used to cup his hands together and blow over it after reciting Surat Al-Ikhlas, Surat Al-Falaq and Surat An-Nas, and then rub his hands over whatever parts of his body he was able to rub, starting with his head, face and front of his body. He used to do that three times.",
+   "ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا الْمُفَضَّلُ، عَنْ عُقَيْلٍ، عَنِ ابْنِ شِهَابٍ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا أَوَى إِلَى فِرَاشِهِ كُلَّ لَيْلَةٍ جَمَعَ كَفَّيْهِ ثُمَّ نَفَثَ فِيهِمَا فَقَرَأَ فِيهِمَا ‏‏{‏قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ثُمَّ يَمْسَحُ بِهِمَا مَا اسْتَطَاعَ مِنْ جَسَدِهِ يَبْدَأُ بِهِمَا عَلَى رَأْسِهِ وَوَجْهِهِ وَمَا أَقْبَلَ مِنْ جَسَدِهِ يَفْعَلُ ذَلِكَ ثَلاَثَ مَرَّاتٍ‏.‏",
+   "arMatn": "أَوَى إِلَى فِرَاشِهِ كُلَّ لَيْلَةٍ جَمَعَ كَفَّيْهِ ثُمَّ نَفَثَ فِيهِمَا فَقَرَأَ فِيهِمَا ‏‏{‏قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ثُمَّ يَمْسَحُ بِهِمَا مَا اسْتَطَاعَ مِنْ جَسَدِهِ يَبْدَأُ بِهِمَا عَلَى رَأْسِهِ وَوَجْهِهِ وَمَا أَقْبَلَ مِنْ جَسَدِهِ يَفْعَلُ ذَلِكَ ثَلاَثَ مَرَّاتٍ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Al-Bukhāri",
+    "url": "https://hadeethenc.com/en/browse/hadith/65060"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5017",
+     "url": "https://sunnah.com/bukhari:5017"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 86",
+     "url": "https://sunnah.com/virtues:86"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "bukhari:5016",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ would recite these suwar for healing from sickness",
+    "ar": "كَانَ الرَّسُولُ ﷺ يَقْرَأُ هَاتَيْنِ السُّورَتَيْنِ للشِّفَاءِ مِنَ الْمَرَضِ",
+    "item": 88
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5016",
+   "inBook": "Book 66, Hadith 38",
+   "en": "Narrated `Aisha: Whenever Allah's Messenger (ﷺ) became sick, he would recite Mu'awwidhat (Surat Al-Falaq and Surat An- Nas) and then blow his breath over his body. When he became seriously ill, I used to recite (these two Suras) and rub his hands over his body hoping for its blessings.",
+   "ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنِ ابْنِ شِهَابٍ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، رضى الله عنها أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ إِذَا اشْتَكَى يَقْرَأُ عَلَى نَفْسِهِ بِالْمُعَوِّذَاتِ وَيَنْفُثُ، فَلَمَّا اشْتَدَّ وَجَعُهُ كُنْتُ أَقْرَأُ عَلَيْهِ وَأَمْسَحُ بِيَدِهِ رَجَاءَ بَرَكَتِهَا‏.‏",
+   "arMatn": "اشْتَكَى يَقْرَأُ عَلَى نَفْسِهِ بِالْمُعَوِّذَاتِ وَيَنْفُثُ، فَلَمَّا اشْتَدَّ وَجَعُهُ كُنْتُ أَقْرَأُ عَلَيْهِ وَأَمْسَحُ بِيَدِهِ رَجَاءَ بَرَكَتِهَا‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5016",
+     "url": "https://sunnah.com/bukhari:5016"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 88",
+     "url": "https://sunnah.com/virtues:88"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "abudawud:1523",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ commanded their recitation after prayer",
+    "ar": "أَمَرَ الرَّسُولُ ﷺ بِقِرَاءَتِهِمَا بَعْدَ الصَّلَاةِ",
+    "item": 89
+   },
+   "collection": "Sunan Abi Dawud",
+   "reference": "Sunan Abi Dawud 1523",
+   "inBook": "Book 8, Hadith 108",
+   "en": "Narrated Uqbah ibn Amir: The Messenger of Allah (ﷺ) commanded me to recite Mu'awwidhatan (the last three surahs of the Qur'an) after every prayer.",
+   "ar": "حَدَّثَنَا مُحَمَّدُ بْنُ سَلَمَةَ الْمُرَادِيُّ، حَدَّثَنَا ابْنُ وَهْبٍ، عَنِ اللَّيْثِ بْنِ سَعْدٍ، أَنَّ حُنَيْنَ بْنَ أَبِي حَكِيمٍ، حَدَّثَهُ عَنْ عُلَىِّ بْنِ رَبَاحٍ اللَّخْمِيِّ، عَنْ عُقْبَةَ بْنِ عَامِرٍ، قَالَ أَمَرَنِي رَسُولُ اللَّهِ صلى الله عليه وسلم أَنْ أَقْرَأَ بِالْمُعَوِّذَاتِ دُبُرَ كُلِّ صَلاَةٍ ‏.‏",
+   "arMatn": "أَنْ أَقْرَأَ بِالْمُعَوِّذَاتِ دُبُرَ كُلِّ صَلاَةٍ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Al-Albani",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan Abi Dawud 1523",
+     "url": "https://sunnah.com/abudawud:1523"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 89",
+     "url": "https://sunnah.com/virtues:89"
+    }
+   ],
+   "note": "The collection also cites an-Nasa'i 1336, the same hadith (graded Hasan by Darussalam on sunnah.com).",
+   "verified": false
+  }
+ ]
+}

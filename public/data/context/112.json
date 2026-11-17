@@ -1,0 +1,556 @@
+{
+ "surah": 112,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 22,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "These traditions show that different people on different occasions had questioned the Holy Prophet (upon whom be peace) about the essence and nature of the God to Whose service and worship he invited the people, and on every occasion he recited by Allah's command this very Surah in response.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/112/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "A little consideration of the traditions regarding the occasion of the revelation of this Surah, shows what were the religious concepts of the world at the time the Holy Prophet began to preach the message of Tauhid.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/112/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "bukhari:5013",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah is equivalent to one-third of the Qur'ān",
+    "ar": "تَعْدِلُ هَذِهِ السُّورَةُ ثُلُثَ الْقُرْآنِ",
+    "item": 77
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5013",
+   "inBook": "Book 66, Hadith 35",
+   "en": "Narrated Abu Said Al-Khudri: A man heard another man reciting (Surat-Al-Ikhlas) 'Say He is Allah, (the) One.' (112. 1) repeatedly. The next morning he came to Allah's Messenger (ﷺ) and informed him about it as if he thought that it was not enough to recite. On that Allah's Messenger (ﷺ) said, \"By Him in Whose Hand my life is, this Surah is equal to one-third of the Qur'an!\"",
+   "ar": "حَدَّثَنَا عَبْدُ اللَّهِ بْنُ يُوسُفَ، أَخْبَرَنَا مَالِكٌ، عَنْ عَبْدِ الرَّحْمَنِ بْنِ عَبْدِ اللَّهِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبِي صَعْصَعَةَ، عَنْ أَبِيهِ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، أَنَّ رَجُلاً، سَمِعَ رَجُلاً، يَقْرَأُ ‏‏{‏قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ يُرَدِّدُهَا فَلَمَّا أَصْبَحَ جَاءَ إِلَى رَسُولِ اللَّهِ صلى الله عليه وسلم فَذَكَرَ ذَلِكَ لَهُ وَكَأَنَّ الرَّجُلَ يَتَقَالُّهَا فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ وَالَّذِي نَفْسِي بِيَدِهِ إِنَّهَا لَتَعْدِلُ ثُلُثَ الْقُرْآنِ ‏\" ‏‏.‏",
+   "arMatn": "لَتَعْدِلُ ثُلُثَ الْقُرْآنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Al-Bukhāri",
+    "url": "https://hadeethenc.com/en/browse/hadith/65261"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5013",
+     "url": "https://sunnah.com/bukhari:5013"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 77",
+     "url": "https://sunnah.com/virtues:77"
+    }
+   ],
+   "note": "Owner's seed.",
+   "verified": false
+  },
+  {
+   "id": "bukhari:5015",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah is equivalent to one-third of the Qur'ān",
+    "ar": "تَعْدِلُ هَذِهِ السُّورَةُ ثُلُثَ الْقُرْآنِ",
+    "item": 77
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5015",
+   "inBook": "Book 66, Hadith 37",
+   "en": "Narrated Abu Sa`id Al-Khudri: The Prophet (ﷺ) said to his companions, \"Is it difficult for any of you to recite one third of the Qur'an in one night?\" This suggestion was difficult for them so they said, \"Who among us has the power to do so, O Allah's Messenger (ﷺ)?\" Allah Apostle replied: \" Allah (the) One, the Self-Sufficient Master Whom all creatures need.' (Surat Al-Ikhlas 112.1--to the End) is equal to one third of the Qur'an.\"",
+   "ar": "حَدَّثَنَا عُمَرُ بْنُ حَفْصٍ، حَدَّثَنَا أَبِي، حَدَّثَنَا الأَعْمَشُ، حَدَّثَنَا إِبْرَاهِيمُ، وَالضَّحَّاكُ الْمَشْرِقِيُّ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، رضى الله عنه قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم لأَصْحَابِهِ ‏\"‏ أَيَعْجِزُ أَحَدُكُمْ أَنْ يَقْرَأَ ثُلُثَ الْقُرْآنِ فِي لَيْلَةٍ ‏\"‏‏.‏ فَشَقَّ ذَلِكَ عَلَيْهِمْ وَقَالُوا أَيُّنَا يُطِيقُ ذَلِكَ يَا رَسُولَ اللَّهِ فَقَالَ ‏\"‏ اللَّهُ الْوَاحِدُ الصَّمَدُ ثُلُثُ الْقُرْآنِ ‏\"‏‏. قَالَ الفربري: سمعت أبا جعفر محمد بن أبي حاتم وراق أبي عبد الله:‏ قَالَ أَبُو عَبْدِ اللَّهِ عَنْ إِبْرَاهِيمَ مُرْسَلٌ وَعَنِ الضَّحَّاكِ الْمَشْرِقِيِّ مُسْنَدٌ‏.‏",
+   "arMatn": "اللَّهُ الْوَاحِدُ الصَّمَدُ ثُلُثُ الْقُرْآنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5015",
+     "url": "https://sunnah.com/bukhari:5015"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 77",
+     "url": "https://sunnah.com/virtues:77"
+    }
+   ],
+   "note": "Owner's seed.",
+   "verified": false
+  },
+  {
+   "id": "muslim:811a",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah is equivalent to one-third of the Qur'ān",
+    "ar": "تَعْدِلُ هَذِهِ السُّورَةُ ثُلُثَ الْقُرْآنِ",
+    "item": 76
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 811a",
+   "inBook": "Book 6, Hadith 314",
+   "en": "Abu Darda' reported Allah's Apostle (ﷺ) as saying: Is any one of you incapable of reciting a third of the Qur'an in a night? They (the Companions) asked: How could one recite a third of the Qur'an (in a night)? Upon this he (the Holy Prophet) said: \"'Say: He is Allah, One' (Qur'an. cxii) is equivalent to a third of the Qur'an.\"",
+   "ar": "وَحَدَّثَنِي زُهَيْرُ بْنُ حَرْبٍ، وَمُحَمَّدُ بْنُ بَشَّارٍ، قَالَ زُهَيْرٌ حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ، عَنْ شُعْبَةَ، عَنْ قَتَادَةَ، عَنْ سَالِمِ بْنِ أَبِي الْجَعْدِ، عَنْ مَعْدَانَ بْنِ أَبِي طَلْحَةَ، عَنْ أَبِي الدَّرْدَاءِ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ أَيَعْجِزُ أَحَدُكُمْ أَنْ يَقْرَأَ فِي لَيْلَةٍ ثُلُثَ الْقُرْآنِ ‏\" قَالُوا : وَكَيْفَ يَقْرَأْ ثُلُثَ الْقُرْآنِ ؟ قَالَ : \" قُلْ هُوَ اللَّهُ أَحَدٌ تَعْدِلُ ثُلُثَ الْقُرْآنِ \" ‏.‏",
+   "arMatn": "أَيَعْجِزُ أَحَدُكُمْ أَنْ يَقْرَأَ فِي لَيْلَةٍ ثُلُثَ الْقُرْآنِ ‏\" قَالُوا : وَكَيْفَ يَقْرَأْ ثُلُثَ الْقُرْآنِ ؟ قَالَ : \" قُلْ هُوَ اللَّهُ أَحَدٌ تَعْدِلُ ثُلُثَ الْقُرْآنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 811a",
+     "url": "https://sunnah.com/muslim:811a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 76",
+     "url": "https://sunnah.com/virtues:76"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:811b",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah is equivalent to one-third of the Qur'ān",
+    "ar": "تَعْدِلُ هَذِهِ السُّورَةُ ثُلُثَ الْقُرْآنِ",
+    "item": 78
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 811b",
+   "inBook": "Book 6, Hadith 315",
+   "en": "This hadith has been narrated by Qatada with the same chain of transmitters in these words: He (the Messenger of Allah) said: Allah divided the Qur'an into three parts, and he made:\" Say: He, Allah is One.\" one part out of the (three) parts of the Qur'an.",
+   "ar": "وَحَدَّثَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ، أَخْبَرَنَا مُحَمَّدُ بْنُ بَكْرٍ، حَدَّثَنَا سَعِيدُ بْنُ أَبِي عَرُوبَةَ، ح وَحَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَفَّانُ، حَدَّثَنَا أَبَانٌ الْعَطَّارُ، جَمِيعًا عَنْ قَتَادَةَ، بِهَذَا الإِسْنَادِ ‏.‏ وَفِي حَدِيثِهِمَا مِنْ قَوْلِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ إِنَّ اللَّهَ جَزَّأَ الْقُرْآنَ ثَلاَثَةَ أَجْزَاءٍ فَجَعَلَ قُلْ هُوَ اللَّهُ أَحَدٌ جُزْءًا مِنْ أَجْزَاءِ الْقُرْآنِ ‏\"‏ ‏.‏",
+   "arMatn": null,
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 811b",
+     "url": "https://sunnah.com/muslim:811b"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 78",
+     "url": "https://sunnah.com/virtues:78"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:812a",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah is equivalent to one-third of the Qur'ān",
+    "ar": "تَعْدِلُ هَذِهِ السُّورَةُ ثُلُثَ الْقُرْآنِ",
+    "item": 79
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 812a",
+   "inBook": "Book 6, Hadith 316",
+   "en": "It is reported on the authority of Abu Huraira that the Messenger of Allah (ﷺ) said: Get together. for I am going to recite one-third of the Qur'an before you. And those who could get together gathered there. Then the Messenger of Allah (ﷺ) came out and recited:\" Say: He, Allah, is One.\" He then entered (his house). Some of us said to the others: Perhaps there has been some news from the heaven on account of which he has gone Inside (the house). The Apostle of Allah (ﷺ) again came out and said: I told you that I was going to recite one-third of the Qur'in; keep in mind, this (Surah Ikhlas) is equivalent to one-third of the Qur'an.",
+   "ar": "وَحَدَّثَنِي مُحَمَّدُ بْنُ حَاتِمٍ، وَيَعْقُوبُ بْنُ إِبْرَاهِيمَ، جَمِيعًا عَنْ يَحْيَى، - قَالَ ابْنُ حَاتِمٍ حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ، - حَدَّثَنَا يَزِيدُ بْنُ كَيْسَانَ، حَدَّثَنَا أَبُو حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، قَالَ قَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ احْشِدُوا فَإِنِّي سَأَقْرَأُ عَلَيْكُمْ ثُلُثَ الْقُرْآنِ ‏\"‏ ‏.‏ فَحَشَدَ مَنْ حَشَدَ ثُمَّ خَرَجَ نَبِيُّ اللَّهِ صلى الله عليه وسلم فَقَرَأَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ ثُمَّ دَخَلَ فَقَالَ بَعْضُنَا لِبَعْضٍ إِنِّي أُرَى هَذَا خَبَرٌ جَاءَهُ مِنَ السَّمَاءِ فَذَاكَ الَّذِي أَدْخَلَهُ ‏.‏ ثُمَّ خَرَجَ نَبِيُّ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ إِنِّي قُلْتُ لَكُمْ سَأَقْرَأُ عَلَيْكُمْ ثُلُثَ الْقُرْآنِ أَلاَ إِنَّهَا تَعْدِلُ ثُلُثَ الْقُرْآنِ ‏\"‏ ‏.‏",
+   "arMatn": "احْشِدُوا فَإِنِّي سَأَقْرَأُ عَلَيْكُمْ ثُلُثَ الْقُرْآنِ ‏\"‏ ‏.‏ فَحَشَدَ مَنْ حَشَدَ ثُمَّ خَرَجَ نَبِيُّ اللَّهِ صلى الله عليه وسلم فَقَرَأَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ ثُمَّ دَخَلَ فَقَالَ بَعْضُنَا لِبَعْضٍ إِنِّي أُرَى هَذَا خَبَرٌ جَاءَهُ مِنَ السَّمَاءِ فَذَاكَ الَّذِي أَدْخَلَهُ ‏.‏ ثُمَّ خَرَجَ نَبِيُّ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ إِنِّي قُلْتُ لَكُمْ سَأَقْرَأُ عَلَيْكُمْ ثُلُثَ الْقُرْآنِ أَلاَ إِنَّهَا تَعْدِلُ ثُلُثَ الْقُرْآنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 812a",
+     "url": "https://sunnah.com/muslim:812a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 79",
+     "url": "https://sunnah.com/virtues:79"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:2901",
+   "kind": "virtue",
+   "heading": {
+    "en": "The love of this sūrah leads to paradise",
+    "ar": "حُبَّكَ إِيَّاهَا يُدْخِلُكَ الْجَنَّةَ",
+    "item": 80
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 2901",
+   "inBook": "Book 45, Hadith 27",
+   "en": "Narrated Anas bin Malik: \"There was a man from the Ansar who led them (in Salat) at Masjid Quba. Every time he was to recite a Surah for them during Salat, he would begin by reciting Qul Huwa Allahu Ahad until he finished, then he would recite another Surah with it. He did that in each Rak'ah. His companions talked to him and said: 'You recite this Surah. You should either recite it or leave it and recite another Surah.'\" He said: \"I shall not leave it, if you would like me to lead you with it then I shall do so, and if you do not like it then I shall leave you.\" And they considered him the best among them, and they did not like the idea of someone else leading them. So when the Prophet (ﷺ) came to them they informed him about what had happened and he (ﷺ) said: \"O so-and-so! What prevents you from doing what your companions told you to do, why do recite this Surah in every Rak'ah\" He said: \"O Messenger of Allah! Indeed I love it.\" So the Messenger of Allah (ﷺ) said: \"Your love for it shall have you admitted into Paradise.\"",
+   "ar": "حَدَّثَنَا مُحَمَّدُ بْنُ إِسْمَاعِيلَ، قَالَ حَدَّثَنَا إِسْمَاعِيلُ بْنُ أَبِي أُوَيْسٍ، قَالَ حَدَّثَنَا عَبْدُ الْعَزِيزِ بْنُ مُحَمَّدٍ، عَنْ عُبَيْدِ اللَّهِ بْنِ عُمَرَ، عَنْ ثَابِتٍ الْبُنَانِيِّ، عَنْ أَنَسِ بْنِ مَالِكٍ، قَالَ كَانَ رَجُلٌ مِنَ الأَنْصَارِ يَؤُمُّهُمْ فِي مَسْجِدِ قُبَاءَ فَكَانَ كُلَّمَا افْتَتَحَ سُورَةً يَقْرَأُ لَهُمْ فِي الصَّلاَةِ يَقْرَأَ بِهَا افْتَتَحَ بِـ ‏‏(‏قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏ حَتَّى يَفْرُغَ مِنْهَا ثُمَّ يَقْرَأُ بِسُورَةٍ مَعَهَا وَكَانَ يَصْنَعُ ذَلِكَ فِي كُلِّ رَكْعَةٍ فَكَلَّمَهُ أَصْحَابُهُ فَقَالُوا إِنَّكَ تَقْرَأُ بِهَذِهِ السُّورَةِ ثُمَّ لاَ تَرَى أَنَّهَا تُجْزِيكَ حَتَّى تَقْرَأَ بِسُورَةٍ أُخْرَى فَإِمَّا أَنْ تَقْرَأَ بِهَا وَإِمَّا أَنْ تَدَعَهَا وَتَقْرَأَ بِسُورَةٍ أُخْرَى ‏.‏ قَالَ مَا أَنَا بِتَارِكِهَا إِنْ أَحْبَبْتُمْ أَنْ أَؤُمَّكُمْ بِهَا فَعَلْتُ وَإِنْ كَرِهْتُمْ تَرَكْتُكُمْ ‏.‏ وَكَانُوا يَرَوْنَهُ أَفْضَلَهُمْ وَكَرِهُوا أَنْ يَؤُمَّهُمْ غَيْرُهُ فَلَمَّا أَتَاهُمُ النَّبِيُّ صلى الله عليه وسلم أَخْبَرُوهُ الْخَبَرَ فَقَالَ ‏ \"‏ يَا فُلاَنُ مَا يَمْنَعُكَ مِمَّا يَأْمُرُ بِهِ أَصْحَابُكَ وَمَا يَحْمِلُكَ أَنْ تَقْرَأَ هَذِهِ السُّورَةَ فِي كُلِّ رَكْعَةٍ ‏\"‏ ‏.‏ فَقَالَ يَا رَسُولَ اللَّهِ إِنِّي أُحِبُّهَا ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ إِنَّ حُبَّهَا أَدْخَلَكَ الْجَنَّةَ ‏\" ‏ ‏.‏ قَالَ أَبُو عِيسَى هَذَا حَدِيثٌ حَسَنٌ غَرِيبٌ صَحِيحٌ مِنْ هَذَا الْوَجْهِ مِنْ حَدِيثِ عُبَيْدِ اللَّهِ بْنِ عُمَرَ عَنْ ثَابِتٍ ‏البُنَانِيُّ وَ قد رَوَى مُبَارَكُ بْنُ فَضَالَةَ عَنْ ثَابِتٍ عَنْ أَنَسٍ، أَنَّ رَجُلاً، قَالَ يَا رَسُولَ اللَّهِ إِنِّي أُحِبُّ هَذِهِ السُّورَةَْ ‏‏(‏قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏ فَقَالَ ‏\"‏ إِنَّ حُبَّكَ إِيَّاهَا يُدْخِلُكَ الْجَنَّةَ ‏\"‏ ‏.‏ حَدَّثَنَا بِذَلِكَ أَبُو دَاوُدَ سُلَيْمَانُ بْنُ الأَشْعَثِ قَالَ حَدَّثَنَا أَبُو الْوَلِيدِ قَالَ حَدَّثَنَا مُبَارَكُ بْنُ فَضَالَةَ بِهَذَا ‏.‏",
+   "arMatn": "يَا فُلاَنُ مَا يَمْنَعُكَ مِمَّا يَأْمُرُ بِهِ أَصْحَابُكَ وَمَا يَحْمِلُكَ أَنْ تَقْرَأَ هَذِهِ السُّورَةَ فِي كُلِّ رَكْعَةٍ ‏\"‏ ‏.‏ فَقَالَ يَا رَسُولَ اللَّهِ إِنِّي أُحِبُّهَا ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ إِنَّ حُبَّهَا أَدْخَلَكَ الْجَنَّةَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 2901",
+     "url": "https://sunnah.com/tirmidhi:2901"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 80",
+     "url": "https://sunnah.com/virtues:80"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:2897",
+   "kind": "virtue",
+   "heading": {
+    "en": "The love of this sūrah leads to paradise",
+    "ar": "حُبَّكَ إِيَّاهَا يُدْخِلُكَ الْجَنَّةَ",
+    "item": 81
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 2897",
+   "inBook": "Book 45, Hadith 23",
+   "en": "Narrated Abu Hurairah: \"I went out with the Messenger of Allah and heard a man reciting Qul Huwa Allahu Ahad [Allahus-Samad] so the Messenger of Allah (ﷺ) said: 'It is obligatory.' I said: 'What is obligatory?' He said: 'Paradise.'\"",
+   "ar": "حَدَّثَنَا أَبُو كُرَيْبٍ، قَالَ حَدَّثَنَا إِسْحَاقُ بْنُ سُلَيْمَانَ، عَنْ مَالِكِ بْنِ أَنَسٍ، عَنْ عُبَيْدِ اللَّهِ بْنِ عَبْدِ الرَّحْمَنِ، عَنِ ابْنِ حُنَيْنٍ، مَوْلًى لآلِ زَيْدِ بْنِ الْخَطَّابِ أَوْ مَوْلَى زَيْدِ بْنِ الْخَطَّابِ عَنْ أَبِي هُرَيْرَةَ، قَالَ أَقْبَلْتُ مَعَ رَسُولِ اللَّهِ صلى الله عليه وسلم فَسَمِعَ رَجُلاً يَقْرَأُْ ‏‏(‏قُلْ هُوَ اللَّهُ أَحَدٌ * اللَّهُ الصَّمَدُ ‏)‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏ \"‏ وَجَبَتْ ‏\"‏ ‏.‏ قُلْتُ وَمَا وَجَبَتْ قَالَ ‏\"‏ الْجَنَّةُ ‏\" ‏ ‏.‏ قَالَ أَبُو عِيسَى هَذَا حَدِيثٌ حَسَنٌ صَحِيحٌ غَرِيبٌ لاَ نَعْرِفُهُ إِلاَّ مِنْ حَدِيثِ مَالِكِ بْنِ أَنَسٍ وَابْنُ حُنَيْنٍ هُوَ عُبَيْدُ بْنُ حُنَيْنٍ ‏.‏",
+   "arMatn": "وَجَبَتْ ‏\"‏ ‏.‏ قُلْتُ وَمَا وَجَبَتْ قَالَ ‏\"‏ الْجَنَّةُ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 2897",
+     "url": "https://sunnah.com/tirmidhi:2897"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 81",
+     "url": "https://sunnah.com/virtues:81"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:813",
+   "kind": "virtue",
+   "heading": {
+    "en": "The love of this sūrah leads to paradise",
+    "ar": "حُبَّكَ إِيَّاهَا يُدْخِلُكَ الْجَنَّةَ",
+    "item": 82
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 813",
+   "inBook": "Book 6, Hadith 318",
+   "en": "'A'isha reported: The Messenger of Allah (ﷺ) sent a man in charge of an expedition and he would recite for his Companions during their prayer, ending (recitation) with:\" Say, He is God, One.\" When they returned mention was made of it to the Messenger of Allah (ﷺ). He (the Holy Prophet) told them to ask him why he had done like that. So they asked him and he said: Verily, it is an attribute of the Compassionate One, and (for this reason) I love to recite it. The Messenger of Allah (ﷺ) thereupon said: Inform him that Allah loves him.",
+   "ar": "حَدَّثَنَا أَحْمَدُ بْنُ عَبْدِ الرَّحْمَنِ بْنِ وَهْبٍ، حَدَّثَنَا عَمِّي عَبْدُ اللَّهِ بْنُ وَهْبٍ، حَدَّثَنَا عَمْرُو بْنُ الْحَارِثِ، عَنْ سَعِيدِ بْنِ أَبِي هِلاَلٍ، أَنَّ أَبَا الرِّجَالِ، مُحَمَّدَ بْنَ عَبْدِ الرَّحْمَنِ حَدَّثَهُ عَنْ أُمِّهِ، عَمْرَةَ بِنْتِ عَبْدِ الرَّحْمَنِ وَكَانَتْ فِي حَجْرِ عَائِشَةَ زَوْجِ النَّبِيِّ صلى الله عليه وسلم عَنْ عَائِشَةَ أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم بَعَثَ رَجُلاً عَلَى سَرِيَّةٍ وَكَانَ يَقْرَأُ لأَصْحَابِهِ فِي صَلاَتِهِمْ فَيَخْتِمُ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ فَلَمَّا رَجَعُوا ذُكِرَ ذَلِكَ لِرَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ سَلُوهُ لأَىِّ شَىْءٍ يَصْنَعُ ذَلِكَ ‏\"‏ ‏.‏ فَسَأَلُوهُ فَقَالَ لأَنَّهَا صِفَةُ الرَّحْمَنِ فَأَنَا أُحِبُّ أَنْ أَقْرَأَ بِهَا ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ أَخْبِرُوهُ أَنَّ اللَّهَ يُحِبُّهُ \".",
+   "arMatn": "بَعَثَ رَجُلاً عَلَى سَرِيَّةٍ وَكَانَ يَقْرَأُ لأَصْحَابِهِ فِي صَلاَتِهِمْ فَيَخْتِمُ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ فَلَمَّا رَجَعُوا ذُكِرَ ذَلِكَ لِرَسُولِ اللَّهِ صلى الله عليه وسلم فَقَالَ ‏\"‏ سَلُوهُ لأَىِّ شَىْءٍ يَصْنَعُ ذَلِكَ ‏\"‏ ‏.‏ فَسَأَلُوهُ فَقَالَ لأَنَّهَا صِفَةُ الرَّحْمَنِ فَأَنَا أُحِبُّ أَنْ أَقْرَأَ بِهَا ‏.‏ فَقَالَ رَسُولُ اللَّهِ صلى الله عليه وسلم ‏\"‏ أَخْبِرُوهُ أَنَّ اللَّهَ يُحِبُّهُ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic hadith",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Bukhari & Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/5213"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 813",
+     "url": "https://sunnah.com/muslim:813"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 82",
+     "url": "https://sunnah.com/virtues:82"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:3575",
+   "kind": "virtue",
+   "heading": {
+    "en": "The Messenger ﷺ commanded their recitation in the morning and evening",
+    "ar": "أَمَرَ الرَّسُولُ ﷺ بِقِرَاءَتِهَا فِي الصَّبَاحِ والْمَسَاءِ",
+    "item": 87
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 3575",
+   "inBook": "Book 48, Hadith 206",
+   "en": "Mu`adh bin `Abdullah bin Khubaib, narrated from his father, who said: “We went out on a rainy and extremely dark night, looking for the Messenger of Allah (ﷺ), so that he could lead us in Salat.” He said: “So I met him and he (ﷺ) said: ‘Speak’ but I did not say anything. Then he (ﷺ) said: ‘Speak.’ But I did not say anything. He (ﷺ) said: ‘Speak.’ So I said: ‘What should I say?’ He (ﷺ) said: ‘Say: “Say: He is Allah, the One” and Al-Mu`awwidhatain, when you reach evening, and when you reach morning, three times, they will suffice you against everything.’”",
+   "ar": "حَدَّثَنَا عَبْدُ بْنُ حُمَيْدٍ، حَدَّثَنَا مُحَمَّدُ بْنُ إِسْمَاعِيلَ بْنِ أَبِي فُدَيْكٍ، حَدَّثَنَا ابْنُ أَبِي ذِئْبٍ، عَنْ أَبِي سَعِيدٍ الْبَرَّادِ، عَنْ مُعَاذِ بْنِ عَبْدِ اللَّهِ بْنِ خُبَيْبٍ، عَنْ أَبِيهِ، قَالَ خَرَجْنَا فِي لَيْلَةٍ مَطِيرَةٍ وَظُلْمَةٍ شَدِيدَةٍ نَطْلُبُ رَسُولَ اللَّهِ صلى الله عليه وسلم يُصَلِّي لَنَا - قَالَ - فَأَدْرَكْتُهُ فَقَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ فَلَمْ أَقُلْ شَيْئًا ثُمَّ قَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ فَلَمْ أَقُلْ شَيْئًا ‏.‏ قَالَ ‏\"‏ قُلْ ‏\"‏ ‏.‏ قُلْتُ مَا أَقُولُ قَالَ ‏\"‏ قُلْ ‏: ‏ ‏‏(‏ هوَ اللَّهُ أَحَدٌ ‏)‏ وَالْمُعَوِّذَتَيْنِ حِينَ تُمْسِي وَتُصْبِحُ ثَلاَثَ مَرَّاتٍ تَكْفِيكَ مِنْ كُلِّ شَيْءٍ ‏\" ‏ ‏.‏ قَالَ أَبُو عِيسَى وَهَذَا حَدِيثٌ حَسَنٌ صَحِيحٌ غَرِيبٌ مِنْ هَذَا الْوَجْهِ وَأَبُو سَعِيدٍ الْبَرَّادُ هُوَ أَسِيدُ بْنُ أَبِي أَسِيدٍ مَدَنِيٌّ ‏.‏",
+   "arMatn": "(‏ هوَ اللَّهُ أَحَدٌ ‏)‏ وَالْمُعَوِّذَتَيْنِ حِينَ تُمْسِي وَتُصْبِحُ ثَلاَثَ مَرَّاتٍ تَكْفِيكَ مِنْ كُلِّ شَيْءٍ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 3575",
+     "url": "https://sunnah.com/tirmidhi:3575"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 87",
+     "url": "https://sunnah.com/virtues:87"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1700",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ الرَّسُولُ ﷺ بِهَذِهِ السُّورَةِ فِي الْوِتْرِ",
+    "item": 84
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1700",
+   "inBook": "Book 20, Hadith 103",
+   "en": "It was narrated that Ubayy bin Ka'b said: \"In the first rak'ah of witr, the Messenger of Allah (ﷺ) used to recite: \"GLorify the Name of your Lord, the Most High;\" in the second; \"Say: O you disbelievers!\" and in the third; \"Say: He is Allah, (the) One.\"",
+   "ar": "أَخْبَرَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ، قَالَ أَنْبَأَنَا عِيسَى بْنُ يُونُسَ، عَنْ سَعِيدِ بْنِ أَبِي عَرُوبَةَ، عَنْ قَتَادَةَ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏",
+   "arMatn": "يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1700",
+     "url": "https://sunnah.com/nasai:1700"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 84",
+     "url": "https://sunnah.com/virtues:84"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1699",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْوِتْرِ",
+    "item": 75
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1699",
+   "inBook": "Book 20, Hadith 102",
+   "en": "It was narrated from Ubayy bin Ka'b that: The Messenger of Allah (ﷺ) used to pray witr with three rak'ahs. In the first he would recite: \"Glorify the Name of Your Lord, the Most High\" in the second: \"Say: O you disbelievers!\", and in the third: \"Say: He is Allah, (the) One\". And he would say the Qunut before bowing, and when he finished he would say: Subhanal-Malikil-Quddus (Glory be to the Sovereign, the Most Holy) three times, elongating the words the last time.",
+   "ar": "أَخْبَرَنَا عَلِيُّ بْنُ مَيْمُونٍ، قَالَ حَدَّثَنَا مَخْلَدُ بْنُ يَزِيدَ، عَنْ سُفْيَانَ، عَنْ زُبَيْدٍ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.‏",
+   "arMatn": "يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1699",
+     "url": "https://sunnah.com/nasai:1699"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 75",
+     "url": "https://sunnah.com/virtues:75"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:726",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in the two rakʿahs before fajr prayer and the two rakʿahs after maghrib prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي الرَّكعَتَيْنِ قَبْلَ الْفَجْرِ وَفِي الرَّكعَتَيْنِ بَعْدَ الْمَغْرِبِ",
+    "item": 85
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 726",
+   "inBook": "Book 6, Hadith 120",
+   "en": "Abu Huraira reported that the Messenger of Allah (ﷺ) recited in the two (supererogatory) rak'ahs of the dawn (prayer): \" Say: O unbelievers,\" (Qur'an, cix.) and\" Say: Allah is one\" (cxii.).",
+   "ar": "حَدَّثَنِي مُحَمَّدُ بْنُ عَبَّادٍ، وَابْنُ أَبِي عُمَرَ، قَالاَ حَدَّثَنَا مَرْوَانُ بْنُ مُعَاوِيَةَ، عَنْ يَزِيدَ، - هُوَ ابْنُ كَيْسَانَ - عَنْ أَبِي حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 726",
+     "url": "https://sunnah.com/muslim:726"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 85",
+     "url": "https://sunnah.com/virtues:85"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:945",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in the two rakʿahs before fajr prayer and the two rakʿahs after maghrib prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي الرَّكعَتَيْنِ قَبْلَ الْفَجْرِ وَفِي الرَّكعَتَيْنِ بَعْدَ الْمَغْرِبِ",
+    "item": 73
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 945",
+   "inBook": "Book 11, Hadith 70",
+   "en": "It was narrated from Abu Hurairah that: The Messenger of Allah (ﷺ) recited: \"Say: O you disbelievers\" and \"Say: He is Allah, (the) One\" in the two rak'ahs of Fajr.",
+   "ar": "أَخْبَرَنَا عَبْدُ الرَّحْمَنِ بْنُ إِبْرَاهِيمَ، دُحَيْمٌ قَالَ حَدَّثَنَا مَرْوَانُ، قَالَ حَدَّثَنَا يَزِيدُ بْنُ كَيْسَانَ، عَنْ أَبِي حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 945",
+     "url": "https://sunnah.com/nasai:945"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 73",
+     "url": "https://sunnah.com/virtues:73"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:869",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited it in the prayer after completing ṭawāf (circumambulation of the Kaʿbah)",
+    "ar": "قَرَأَ بِهَا الرَّسُولُ ﷺ فِي الرَّكْعَتَيْنِ بَعْدَ الطَّوَافِ",
+    "item": 83
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 869",
+   "inBook": "Book 9, Hadith 62",
+   "en": "Jabir bin Abdullah narrated: During the two Rak'ah of Tawaf, the Messenger of Allah recited the two Surat of Ikhlas, \"Say: O you disbelievers!\" and: \"Say: He is Allah, (the) One.\"",
+   "ar": "أَخْبَرَنَا أَبُو مُصْعَبٍ الْمَدَنِيُّ، قِرَاءَةً عَنْ عَبْدِ الْعَزِيزِ بْنِ عِمْرَانَ، عَنْ جَعْفَرِ بْنِ مُحَمَّدٍ، عَنْ أَبِيهِ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الطَّوَافِ بِسُورَتَىِ الإِخْلاَصِْ ‏:‏ ‏‏(‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ وَ ‏‏(‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏‏.‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الطَّوَافِ بِسُورَتَىِ الإِخْلاَصِْ ‏:‏ ‏‏(‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ وَ ‏‏(‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 869",
+     "url": "https://sunnah.com/tirmidhi:869"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 83",
+     "url": "https://sunnah.com/virtues:83"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "bukhari:5017",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited the three chapters before sleeping",
+    "ar": "السُّوَرُ الثَلَاثَةُ الَّتِي قَرَأَهَا الرَّسُولُ ﷺ قَبْلَ النَّوْمِ",
+    "item": 86
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5017",
+   "inBook": "Book 66, Hadith 39",
+   "en": "Narrated 'Aisha: Whenever the Prophet (ﷺ) went to bed every night, he used to cup his hands together and blow over it after reciting Surat Al-Ikhlas, Surat Al-Falaq and Surat An-Nas, and then rub his hands over whatever parts of his body he was able to rub, starting with his head, face and front of his body. He used to do that three times.",
+   "ar": "حَدَّثَنَا قُتَيْبَةُ بْنُ سَعِيدٍ، حَدَّثَنَا الْمُفَضَّلُ، عَنْ عُقَيْلٍ، عَنِ ابْنِ شِهَابٍ، عَنْ عُرْوَةَ، عَنْ عَائِشَةَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ إِذَا أَوَى إِلَى فِرَاشِهِ كُلَّ لَيْلَةٍ جَمَعَ كَفَّيْهِ ثُمَّ نَفَثَ فِيهِمَا فَقَرَأَ فِيهِمَا ‏‏{‏قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ثُمَّ يَمْسَحُ بِهِمَا مَا اسْتَطَاعَ مِنْ جَسَدِهِ يَبْدَأُ بِهِمَا عَلَى رَأْسِهِ وَوَجْهِهِ وَمَا أَقْبَلَ مِنْ جَسَدِهِ يَفْعَلُ ذَلِكَ ثَلاَثَ مَرَّاتٍ‏.‏",
+   "arMatn": "أَوَى إِلَى فِرَاشِهِ كُلَّ لَيْلَةٍ جَمَعَ كَفَّيْهِ ثُمَّ نَفَثَ فِيهِمَا فَقَرَأَ فِيهِمَا ‏‏{‏قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ‏}‏ وَ‏‏{‏قُلْ أَعُوذُ بِرَبِّ النَّاسِ‏}‏ ثُمَّ يَمْسَحُ بِهِمَا مَا اسْتَطَاعَ مِنْ جَسَدِهِ يَبْدَأُ بِهِمَا عَلَى رَأْسِهِ وَوَجْهِهِ وَمَا أَقْبَلَ مِنْ جَسَدِهِ يَفْعَلُ ذَلِكَ ثَلاَثَ مَرَّاتٍ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Al-Bukhāri",
+    "url": "https://hadeethenc.com/en/browse/hadith/65060"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5017",
+     "url": "https://sunnah.com/bukhari:5017"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 86",
+     "url": "https://sunnah.com/virtues:86"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

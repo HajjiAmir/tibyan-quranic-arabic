@@ -1,0 +1,42 @@
+{
+ "surah": 27,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 48,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter and the style bear full resemblance with the Surahs of the middle Makkan period and this is supported by traditions as well. According to Ibn Abbas and Jabir bin Zaid, \"First the Surah Ash-Shu\\`araa' was sent down, then the Surah An Naml and then Al-Qasas.\"",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/27/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "The Surah consists of two discourses, the first from the beginning of the Surah to the end of verse 58, and the second from verse 59 to the end of the Surah.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/27/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

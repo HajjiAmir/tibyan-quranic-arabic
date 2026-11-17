@@ -1,0 +1,42 @@
+{
+ "surah": 72,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 40,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "As far as Surah Al-Ahqaf is concerned, it is agreed that the event mentioned in it occurred on the return journey from Taif in the 10th year of Prophethood. As for the question, when this second event took place, its answer is not given by the tradition of Ibn Abbas, nor any other historical tradition shows as to when the Holy Prophet had gone to the Fair of Ukaz along with some of his Companions.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/72/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Topics",
+   "text": "In this Surah in vv. 1-15, it has been told what was the impact of the Qur'an on the company of the jinn when they heard it and what they said to their fellow jinn when they returned to them. Allah, in this connection, has not cited their whole conversation but only those particular things which were worthy of mention.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/72/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

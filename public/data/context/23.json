@@ -1,0 +1,42 @@
+{
+ "surah": 23,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 74,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation.",
+   "text": "Both its style and theme indicate that it was revealed during the middle stage of Prophethood at Makkah. Reading between the lines, one feels that a bitter conflict had begun between the, Holy Prophet and the disbelievers of Makkah, though the persecution by them had not yet become tyrannical.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/23/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme Topics",
+   "text": "The central theme of the surah is to invite disbelievers to accept Islam and follow the Message of the Holy Prophet.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/23/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

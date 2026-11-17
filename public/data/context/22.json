@@ -1,0 +1,44 @@
+{
+ "surah": 22,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 103,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "As this Surah contains the characteristics of both the Makki and the Madani Surahs, the commentators have differed as to its period of revelation, but in the light of its style and themes we are of the opinion that a part of it (vv. 1-24) was sent down in the last stage of the Makki life of the Holy Prophet a little before migration and the rest (vv. 25-78) during the first stage of his Madani life.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/22/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject Matter and Theme",
+   "text": "This Surah is addressed to: (1) The mushriks of Makkah, (2) the wavering Muslims, and (3) the True Believers. The mushriks have been warned in a forceful manner to this effect: \"You have obdurately and impudently persisted in your ideas of ignorance and trusted in your deities instead of Allah, though they possess no power at all and you have repudiated the Divine Messenger.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/22/info"
+   }
+  },
+  "flags": [
+   "For the reviewer: the period section mentions Makkah but not Madinah; Tanzil lists this surah as Medinan."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}

@@ -1,0 +1,160 @@
+{
+ "surah": 18,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 69,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "This is the first of those Surahs which were sent down in the third stage of Prophethood at Makkah. We have already divided the life of the Holy Prophet at Makkah into four stages in the Introduction to Chapter VI.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/18/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject and Topics",
+   "text": "While the Quran turned the tables on the questioners who had tried to \"expose\" the Holy Prophet, in the end of the Surah the same messages have been reiterated that were stated at its beginning: \"Tauhid and the Hereafter are absolutely true and real and for your own good you should accept these doctrines, mend your ways in accordance with them and live in this world with this conviction that you are accountable to Allah: otherwise you shall ruin your life and all your doings shall be set at naught.\"",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/18/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "bukhari:5011",
+   "kind": "virtue",
+   "heading": {
+    "en": "Tranquility descends",
+    "ar": "السَّكِينَةُ",
+    "item": 31
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5011",
+   "inBook": "Book 66, Hadith 33",
+   "en": "Narrated Al-Bara': A man was reciting Surat Al-Kahf and his horse was tied with two ropes beside him. A cloud came down and spread over that man, and it kept on coming closer and closer to him till his horse started jumping (as if afraid of something). When it was morning, the man came to the Prophet, and told him of that experience. The Prophet (ﷺ) said, \"That was As-Sakina (tranquility) which descended because of (the recitation of) the Qur'an.\"",
+   "ar": "حَدَّثَنَا عَمْرُو بْنُ خَالِدٍ، حَدَّثَنَا زُهَيْرٌ، حَدَّثَنَا أَبُو إِسْحَاقَ، عَنِ الْبَرَاءِ، قَالَ كَانَ رَجُلٌ يَقْرَأُ سُورَةَ الْكَهْفِ وَإِلَى جَانِبِهِ حِصَانٌ مَرْبُوطٌ بِشَطَنَيْنِ فَتَغَشَّتْهُ سَحَابَةٌ فَجَعَلَتْ تَدْنُو وَتَدْنُو وَجَعَلَ فَرَسُهُ يَنْفِرُ فَلَمَّا أَصْبَحَ أَتَى النَّبِيَّ صلى الله عليه وسلم فَذَكَرَ ذَلِكَ لَهُ فَقَالَ ‏\"‏ تِلْكَ السَّكِينَةُ تَنَزَّلَتْ بِالْقُرْآنِ ‏\"‏‏.‏",
+   "arMatn": "السَّكِينَةُ تَنَزَّلَتْ بِالْقُرْآنِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic hadith",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Bukhari & Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/6178"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5011",
+     "url": "https://sunnah.com/bukhari:5011"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 31",
+     "url": "https://sunnah.com/virtues:31"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:809",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection from ad-Dajjāl",
+    "ar": "حِفْظٌ مِنَ الدَّجَّالِ",
+    "item": 32
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 809a",
+   "inBook": "Book 6, Hadith 311",
+   "en": "Abu Darda' reported Allah's Apostle (ﷺ) as saying: If anyone learns by heart the first ten verses of the Surah al-Kahf, he will be protected from the Dajjal.",
+   "ar": "وَحَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا مُعَاذُ بْنُ هِشَامٍ، حَدَّثَنِي أَبِي، عَنْ قَتَادَةَ، عَنْ سَالِمِ، بْنِ أَبِي الْجَعْدِ الْغَطَفَانِيِّ عَنْ مَعْدَانَ بْنِ أَبِي طَلْحَةَ الْيَعْمَرِيِّ، عَنْ أَبِي الدَّرْدَاءِ، أَنَّ النَّبِيَّ صلى الله عليه وسلم قَالَ ‏\"‏ مَنْ حَفِظَ عَشْرَ آيَاتٍ مِنْ أَوَّلِ سُورَةِ الْكَهْفِ عُصِمَ مِنَ الدَّجَّالِ ‏\" ‏",
+   "arMatn": "مَنْ حَفِظَ عَشْرَ آيَاتٍ مِنْ أَوَّلِ سُورَةِ الْكَهْفِ عُصِمَ مِنَ الدَّجَّالِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/6265"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 809a",
+     "url": "https://sunnah.com/muslim:809"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 32",
+     "url": "https://sunnah.com/virtues:32"
+    }
+   ],
+   "note": "Owner's seed (first ten verses).",
+   "verified": false
+  },
+  {
+   "id": "muslim:809b",
+   "kind": "virtue",
+   "heading": {
+    "en": "Protection from ad-Dajjāl",
+    "ar": "حِفْظٌ مِنَ الدَّجَّالِ",
+    "item": 32
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 809b",
+   "inBook": "Book 6, Hadith 312",
+   "en": "This hadith has been transmitted by Qatada with the same chain of transmitters. But Shu'ba (one of the narrators) said: At the end of Surah al-Kahf, but Hammam said: At the beginning of Surah al-Kahf.",
+   "ar": "وَحَدَّثَنَا مُحَمَّدُ بْنُ الْمُثَنَّى، وَابْنُ، بَشَّارٍ قَالاَ حَدَّثَنَا مُحَمَّدُ بْنُ جَعْفَرٍ، حَدَّثَنَا شُعْبَةُ، ح وَحَدَّثَنِي زُهَيْرُ بْنُ حَرْبٍ، حَدَّثَنَا عَبْدُ الرَّحْمَنِ بْنُ مَهْدِيٍّ، حَدَّثَنَا هَمَّامٌ، جَمِيعًا عَنْ قَتَادَةَ، بِهَذَا الإِسْنَادِ قَالَ شُعْبَةُ مِنْ آخِرِ الْكَهْفِ ‏.‏ وَقَالَ هَمَّامٌ مِنْ أَوَّلِ الْكَهْفِ كَمَا قَالَ هِشَامٌ.",
+   "arMatn": null,
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/6265"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 809b",
+     "url": "https://sunnah.com/muslim:809b"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 32",
+     "url": "https://sunnah.com/virtues:32"
+    }
+   ],
+   "note": "Owner's seed (the 'end of al-Kahf' wording). A variant wording of Muslim 809a: it gives only the difference between the narrators.",
+   "verified": false
+  }
+ ]
+}

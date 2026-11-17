@@ -1,0 +1,259 @@
+{
+ "surah": 1,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 5,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Surah Al-Fatihah is one of the very earliest Revelations to the Holy Prophet. As a matter of fact, we learn from authentic traditions that it was the first complete Surah that was revealed to Muhammad (Allah's peace be upon him).",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/1/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme",
+   "text": "This Surah is in fact a prayer that Allah has taught to all those who want to make a study of His book. It has been placed at the very beginning of the Quran to teach this lesson to the reader: if you sincerely want to benefit from the Quran, you should offer this prayer to the Lord of the Universe.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/1/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "bukhari:5006",
+   "kind": "virtue",
+   "heading": {
+    "en": "The Greatest Sūrah",
+    "ar": "أَعْظَمُ سُورَةٍ",
+    "item": 1
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5006",
+   "inBook": "Book 66, Hadith 28",
+   "en": "Narrated Abu Sa`id Al-Mu'alla: While I was praying, the Prophet (ﷺ) called me but I did not respond to his call. Later I said, \"O Allah's Apostle! I was praying.\" He said, \"Didn't Allah say: 'O you who believe! Give your response to Allah (by obeying Him) and to His Apostle when he calls you'?\" (8.24) He then said, \"Shall I not teach you the most superior Surah in the Qur'an?\" He said, '(It is), 'Praise be to Allah, the Lord of the worlds. ' (i.e., Surat Al-Fatiha) which consists of seven repeatedly recited Verses and the Magnificent Qur'an which was given to me.\"",
+   "ar": "حَدَّثَنَا عَلِيُّ بْنُ عَبْدِ اللَّهِ، حَدَّثَنَا يَحْيَى بْنُ سَعِيدٍ، حَدَّثَنَا شُعْبَةُ، قَالَ حَدَّثَنِي خُبَيْبُ بْنُ عَبْدِ الرَّحْمَنِ، عَنْ حَفْصِ بْنِ عَاصِمٍ، عَنْ أَبِي سَعِيدِ بْنِ الْمُعَلَّى، قَالَ كُنْتُ أُصَلِّي فَدَعَانِي النَّبِيُّ صلى الله عليه وسلم فَلَمْ أُجِبْهُ قُلْتُ يَا رَسُولَ اللَّهِ إِنِّي كُنْتُ أُصَلِّي‏.‏ قَالَ ‏\"‏ أَلَمْ يَقُلِ اللَّهُ ‏‏{‏اسْتَجِيبُوا لِلَّهِ وَلِلرَّسُولِ إِذَا دَعَاكُمْ‏}‏ ثُمَّ قَالَ أَلاَ أُعَلِّمُكَ أَعْظَمَ سُورَةٍ فِي الْقُرْآنِ قَبْلَ أَنْ تَخْرُجَ مِنَ الْمَسْجِدِ ‏\"‏‏.‏ فَأَخَذَ بِيَدِي فَلَمَّا أَرَدْنَا أَنْ نَخْرُجَ قُلْتُ يَا رَسُولَ اللَّهِ إِنَّكَ قُلْتَ لأُعَلِّمَنَّكَ أَعْظَمَ سُورَةٍ مِنَ الْقُرْآنِ‏.‏ قَالَ ‏\"‏‏‏{‏الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ‏}‏ هِيَ السَّبْعُ الْمَثَانِي وَالْقُرْآنُ الْعَظِيمُ الَّذِي أُوتِيتُهُ ‏\"‏‏.‏",
+   "arMatn": "أُعَلِّمُكَ أَعْظَمَ سُورَةٍ فِي الْقُرْآنِ قَبْلَ أَنْ تَخْرُجَ مِنَ الْمَسْجِدِ ‏\"‏‏.‏ فَأَخَذَ بِيَدِي فَلَمَّا أَرَدْنَا أَنْ نَخْرُجَ قُلْتُ يَا رَسُولَ اللَّهِ إِنَّكَ قُلْتَ لأُعَلِّمَنَّكَ أَعْظَمَ سُورَةٍ مِنَ الْقُرْآنِ‏.‏ قَالَ ‏\"‏‏‏{‏الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ‏}‏ هِيَ السَّبْعُ الْمَثَانِي وَالْقُرْآنُ الْعَظِيمُ الَّذِي أُوتِيتُهُ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic hadith",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Bukhari",
+    "url": "https://hadeethenc.com/en/browse/hadith/10112"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5006",
+     "url": "https://sunnah.com/bukhari:5006"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 1",
+     "url": "https://sunnah.com/virtues:1"
+    }
+   ],
+   "note": "Owner's seed. Same narration (Abu Sa'id ibn al-Mu'alla) that the collection cites as Bukhari 4474; 5006 is its place in Bukhari's Book of the Virtues of the Qur'an.",
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:3125",
+   "kind": "virtue",
+   "heading": {
+    "en": "Nothing similar to Sūrah al-Fātiḥah was ever revealed in any of the previous scriptures or to the previous prophets and messengers.",
+    "ar": "مَا أُنْزِلَ فِي الكُتُبِ السَّابِقَةِ ولَا إلى الرُّسُلِ والنَّبِيِّينَ مِنْ قَبْلُ مِثْلَ سُورَةِ الفَاتِحَةِ",
+    "item": 3
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 3125",
+   "inBook": "Book 47, Hadith 177",
+   "en": "Narrated Ubayy bin Ka'b: that the Messenger of Allah (ﷺ) said: \"Allah has not revealed the likes of Umm Al-Kitab in the Tawrah, nor the Injil. It is the seven oft-repeated, and (Allah said) 'It is divided between Myself and My slave, and My slave shall have what he asks for.'\"",
+   "ar": "حَدَّثَنَا الْحُسَيْنُ بْنُ حُرَيْثٍ، حَدَّثَنَا الْفَضْلُ بْنُ مُوسَى، عَنْ عَبْدِ الْحَمِيدِ بْنِ جَعْفَرٍ، عَنِ الْعَلاَءِ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ، عَنْ أُبَىِّ بْنِ كَعْبٍ، قَالَ قَالَ النَّبِيُّ صلى الله عليه وسلم ‏ \"‏ مَا أَنْزَلَ اللَّهُ فِي التَّوْرَاةِ وَلاَ فِي الإِنْجِيلِ مِثْلَ أُمِّ الْقُرْآنِ وَهِيَ السَّبْعُ الْمَثَانِي وَهِيَ مَقْسُومَةٌ بَيْنِي وَبَيْنَ عَبْدِي وَلِعَبْدِي مَا سَأَلَ ‏\" ‏ ‏.‏ حَدَّثَنَا قُتَيْبَةُ، حَدَّثَنَا عَبْدُ الْعَزِيزِ بْنُ مُحَمَّدٍ، عَنِ الْعَلاَءِ بْنِ عَبْدِ الرَّحْمَنِ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ النَّبِيَّ صلى الله عليه وسلم خَرَجَ عَلَى أُبَىٍّ وَهُوَ يُصَلِّي فَذَكَرَ نَحْوَهُ بِمَعْنَاهُ ‏.‏ قَالَ أَبُو عِيسَى حَدِيثُ عَبْدِ الْعَزِيزِ بْنِ مُحَمَّدٍ أَطْوَلُ وَأَتَمُّ وَهَذَا أَصَحُّ مِنْ حَدِيثِ عَبْدِ الْحَمِيدِ بْنِ جَعْفَرٍ هَكَذَا رَوَى غَيْرُ وَاحِدٍ عَنِ الْعَلاَءِ بْنِ عَبْدِ الرَّحْمَنِ ‏.‏",
+   "arMatn": "مَا أَنْزَلَ اللَّهُ فِي التَّوْرَاةِ وَلاَ فِي الإِنْجِيلِ مِثْلَ أُمِّ الْقُرْآنِ وَهِيَ السَّبْعُ الْمَثَانِي وَهِيَ مَقْسُومَةٌ بَيْنِي وَبَيْنَ عَبْدِي وَلِعَبْدِي مَا سَأَلَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 3125",
+     "url": "https://sunnah.com/tirmidhi:3125"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 3",
+     "url": "https://sunnah.com/virtues:3"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:806",
+   "kind": "virtue",
+   "heading": {
+    "en": "Nothing similar to Sūrah al-Fātiḥah was ever revealed in any of the previous scriptures or to the previous prophets and messengers.",
+    "ar": "مَا أُنْزِلَ فِي الكُتُبِ السَّابِقَةِ ولَا إلى الرُّسُلِ والنَّبِيِّينَ مِنْ قَبْلُ مِثْلَ سُورَةِ الفَاتِحَةِ",
+    "item": 4
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 806",
+   "inBook": "Book 6, Hadith 305",
+   "en": "Ibn 'Abbas reported that while Gabriel was sitting with the Apostle (ﷺ) he heard a creaking sound above him. He lifted his head and said: This is a gate opened in heaven today which had never been opened before. Then when an angel descended through it, he said: This is an angel who came down to the earth who had never come down before. He greeted and said: Rejoice in two lights given to you which have not been given to any prophet before you: Fatihat al-Kitab and the concluding verses of Surah al-Baqara. You will never recite a letter from them for which you will not be given (a reward).",
+   "ar": "حَدَّثَنَا حَسَنُ بْنُ الرَّبِيعِ، وَأَحْمَدُ بْنُ جَوَّاسٍ الْحَنَفِيُّ، قَالاَ حَدَّثَنَا أَبُو الأَحْوَصِ، عَنْ عَمَّارِ بْنِ رُزَيْقٍ، عَنْ عَبْدِ اللَّهِ بْنِ عِيسَى، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، قَالَ بَيْنَمَا جِبْرِيلُ قَاعِدٌ عِنْدَ النَّبِيِّ صلى الله عليه وسلم سَمِعَ نَقِيضًا مِنْ فَوْقِهِ فَرَفَعَ رَأْسَهُ فَقَالَ هَذَا بَابٌ مِنَ السَّمَاءِ فُتِحَ الْيَوْمَ لَمْ يُفْتَحْ قَطُّ إِلاَّ الْيَوْمَ فَنَزَلَ مِنْهُ مَلَكٌ فَقَالَ هَذَا مَلَكٌ نَزَلَ إِلَى الأَرْضِ لَمْ يَنْزِلْ قَطُّ إِلاَّ الْيَوْمَ فَسَلَّمَ وَقَالَ أَبْشِرْ بِنُورَيْنِ أُوتِيتَهُمَا لَمْ يُؤْتَهُمَا نَبِيٌّ قَبْلَكَ فَاتِحَةُ الْكِتَابِ وَخَوَاتِيمُ سُورَةِ الْبَقَرَةِ لَنْ تَقْرَأَ بِحَرْفٍ مِنْهُمَا إِلاَّ أُعْطِيتَهُ ‏.‏",
+   "arMatn": "أَبْشِرْ بِنُورَيْنِ أُوتِيتَهُمَا لَمْ يُؤْتَهُمَا نَبِيٌّ قَبْلَكَ فَاتِحَةُ الْكِتَابِ وَخَوَاتِيمُ سُورَةِ الْبَقَرَةِ لَنْ تَقْرَأَ بِحَرْفٍ مِنْهُمَا إِلاَّ أُعْطِيتَهُ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/5775"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 806",
+     "url": "https://sunnah.com/muslim:806"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 4",
+     "url": "https://sunnah.com/virtues:4"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:394",
+   "kind": "virtue",
+   "heading": {
+    "en": "No Ṣalāh (prayer) is valid without reciting Sūrah al-Fātiḥah",
+    "ar": "لَا صَلَاةَ لِمَن لَمْ يَقْرَأْ بِسُورَةِ الْفَاتِحَةِ",
+    "item": 5
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 394a",
+   "inBook": "Book 4, Hadith 37",
+   "en": "'Ubada b. as-Samit reported from the Messenger of Allah (may peace be upon him ): He who does not recite Fatihat al-Kitab is not credited with having observed the prayer.",
+   "ar": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، وَعَمْرٌو النَّاقِدُ، وَإِسْحَاقُ بْنُ إِبْرَاهِيمَ، جَمِيعًا عَنْ سُفْيَانَ، - قَالَ أَبُو بَكْرٍ حَدَّثَنَا سُفْيَانُ بْنُ عُيَيْنَةَ، - عَنِ الزُّهْرِيِّ، عَنْ مَحْمُودِ بْنِ الرَّبِيعِ، عَنْ عُبَادَةَ بْنِ الصَّامِتِ، يَبْلُغُ بِهِ النَّبِيَّ صلى الله عليه وسلم ‏\"‏ لاَ صَلاَةَ لِمَنْ لَمْ يَقْرَأْ بِفَاتِحَةِ الْكِتَابِ ‏\"‏ ‏.‏",
+   "arMatn": "لاَ صَلاَةَ لِمَنْ لَمْ يَقْرَأْ بِفَاتِحَةِ الْكِتَابِ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 394a",
+     "url": "https://sunnah.com/muslim:394"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 5",
+     "url": "https://sunnah.com/virtues:5"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:395",
+   "kind": "virtue",
+   "heading": {
+    "en": "No Ṣalāh (prayer) is valid without reciting Sūrah al-Fātiḥah",
+    "ar": "لَا صَلَاةَ لِمَن لَمْ يَقْرَأْ بِسُورَةِ الْفَاتِحَةِ",
+    "item": 6
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 395a",
+   "inBook": "Book 4, Hadith 41",
+   "en": "Abu Huraira reported: The Apostle of Allah (ﷺ) said: If anyone observes prayer in which he does not recite Umm al-Qur'an, It is deficient [he said this three times] and not complete. It was said to Abu Huraira: At times we are behind the Imam. He said: Recite it inwardly, for he had heard the Messenger of Allah (ﷺ) declare that Allah the Exalted had said: I have divided the prayer into two halves between Me and My servant, and My servant will receive what he asks. When the servant says: Praise be to Allah, the Lord of the universe, Allah the Most High says: My servant has praised Me. And when he (the servant) says: The Most Compassionate, the Merciful, Allah the Most High says: My servant has lauded Me. And when he (the servant) says: Master of the Day of judg- ment, He remarks: My servant has glorified Me. and sometimes He would say: My servant entrusted (his affairs) to Me. And when he (the worshipper) says: Thee do we worship and of Thee do we ask help, He (Allah) says: This is between Me and My servant, and My servant will receive what he asks for. Then, when he (the worshipper) says: Guide us to the straight path, the path of those to whom Thou hast been Gracious not of those who have incurred Thy displeasure, nor of those who have gone astray, He (Allah) says: This is for My servant, and My servant will receive what he asks for. Sufyan said: 'Ala b. 'Abd al-Rahman b. Ya'qub narrated it to me when I went to him and he was confined to his home on account of illness, and I asked him about it.",
+   "ar": "وَحَدَّثَنَاهُ إِسْحَاقُ بْنُ إِبْرَاهِيمَ الْحَنْظَلِيُّ، أَخْبَرَنَا سُفْيَانُ بْنُ عُيَيْنَةَ، عَنِ الْعَلاَءِ، عَنْ أَبِيهِ، عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏\"‏ مَنْ صَلَّى صَلاَةً لَمْ يَقْرَأْ فِيهَا بِأُمِّ الْقُرْآنِ فَهْىَ خِدَاجٌ - ثَلاَثًا - غَيْرُ تَمَامٍ ‏\"‏ ‏.‏ فَقِيلَ لأَبِي هُرَيْرَةَ إِنَّا نَكُونُ وَرَاءَ الإِمَامِ ‏.‏ فَقَالَ اقْرَأْ بِهَا فِي نَفْسِكَ فَإِنِّي سَمِعْتُ رَسُولَ اللَّهِ صلى الله عليه وسلم يَقُولُ ‏\"‏ قَالَ اللَّهُ تَعَالَى قَسَمْتُ الصَّلاَةَ بَيْنِي وَبَيْنَ عَبْدِي نِصْفَيْنِ وَلِعَبْدِي مَا سَأَلَ فَإِذَا قَالَ الْعَبْدُ ‏‏{‏ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ‏}‏ ‏.‏ قَالَ اللَّهُ تَعَالَى حَمِدَنِي عَبْدِي وَإِذَا قَالَ ‏‏{‏ الرَّحْمَنِ الرَّحِيمِ‏}‏ ‏.‏ قَالَ اللَّهُ تَعَالَى أَثْنَى عَلَىَّ عَبْدِي ‏.‏ وَإِذَا قَالَ ‏‏{‏ مَالِكِ يَوْمِ الدِّينِ‏}‏ ‏.‏ قَالَ مَجَّدَنِي عَبْدِي - وَقَالَ مَرَّةً فَوَّضَ إِلَىَّ عَبْدِي - فَإِذَا قَالَ ‏‏{‏ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ‏}‏ ‏.‏ قَالَ هَذَا بَيْنِي وَبَيْنَ عَبْدِي وَلِعَبْدِي مَا سَأَلَ ‏.‏ فَإِذَا قَالَ ‏‏{‏ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ * صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلاَ الضَّالِّينَ‏}‏ ‏.‏ قَالَ هَذَا لِعَبْدِي وَلِعَبْدِي مَا سَأَلَ ‏\" ‏ ‏.‏ قَالَ سُفْيَانُ حَدَّثَنِي بِهِ الْعَلاَءُ بْنُ عَبْدِ الرَّحْمَنِ بْنِ يَعْقُوبَ دَخَلْتُ عَلَيْهِ وَهُوَ مَرِيضٌ فِي بَيْتِهِ فَسَأَلْتُهُ أَنَا عَنْهُ ‏.‏",
+   "arMatn": "قَسَمْتُ الصَّلاَةَ بَيْنِي وَبَيْنَ عَبْدِي نِصْفَيْنِ وَلِعَبْدِي مَا سَأَلَ فَإِذَا قَالَ الْعَبْدُ ‏‏{‏ الْحَمْدُ لِلَّهِ رَبِّ الْعَالَمِينَ‏}‏ ‏.‏ قَالَ اللَّهُ تَعَالَى حَمِدَنِي عَبْدِي وَإِذَا قَالَ ‏‏{‏ الرَّحْمَنِ الرَّحِيمِ‏}‏ ‏.‏ قَالَ اللَّهُ تَعَالَى أَثْنَى عَلَىَّ عَبْدِي ‏.‏ وَإِذَا قَالَ ‏‏{‏ مَالِكِ يَوْمِ الدِّينِ‏}‏ ‏.‏ قَالَ مَجَّدَنِي عَبْدِي - وَقَالَ مَرَّةً فَوَّضَ إِلَىَّ عَبْدِي - فَإِذَا قَالَ ‏‏{‏ إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ‏}‏ ‏.‏ قَالَ هَذَا بَيْنِي وَبَيْنَ عَبْدِي وَلِعَبْدِي مَا سَأَلَ ‏.‏ فَإِذَا قَالَ ‏‏{‏ اهْدِنَا الصِّرَاطَ الْمُسْتَقِيمَ * صِرَاطَ الَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ الْمَغْضُوبِ عَلَيْهِمْ وَلاَ الضَّالِّينَ‏}‏ ‏.‏ قَالَ هَذَا لِعَبْدِي وَلِعَبْدِي مَا سَأَلَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Authentic",
+    "gradeAr": "صحيح",
+    "attribution": "Narrated by Muslim",
+    "url": "https://hadeethenc.com/en/browse/hadith/65099"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 395a",
+     "url": "https://sunnah.com/muslim:395"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 6",
+     "url": "https://sunnah.com/virtues:6"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "bukhari:5007",
+   "kind": "virtue",
+   "heading": {
+    "en": "Sūrah al-Fātiḥah is a cure and treatment for illnesses",
+    "ar": "سُورَةُ الْفَاتِحَةِ شِفَاءٌ ودَوَاءٌ لِلْأَمْرَاضِ",
+    "item": 7
+   },
+   "collection": "Sahih al-Bukhari",
+   "reference": "Sahih al-Bukhari 5007",
+   "inBook": "Book 66, Hadith 29",
+   "en": "Narrated Abu Sa`id Al-Khudri: While we were on one of our journeys, we dismounted at a place where a slave girl came and said, \"The chief of this tribe has been stung by a scorpion and our men are not present; is there anybody among you who can treat him (by reciting something)?\" Then one of our men went along with her though we did not think that he knew any such treatment. But he treated the chief by reciting something, and the sick man recovered whereupon he gave him thirty sheep and gave us milk to drink (as a reward). When he returned, we asked our friend, \"Did you know how to treat with the recitation of something?\" He said, \"No, but I treated him only with the recitation of the Mother of the Book (i.e., Al-Fatiha).\" We said, \"Do not say anything (about it) till we reach or ask the Prophet (ﷺ) so when we reached Medina, we mentioned that to the Prophet (in order to know whether the sheep which we had taken were lawful to take or not). The Prophet (ﷺ) said, \"How did he come to know that it (Al-Fatiha) could be used for treatment? Distribute your reward and assign for me one share thereof as well.\"",
+   "ar": "حَدَّثَنِي مُحَمَّدُ بْنُ الْمُثَنَّى، حَدَّثَنَا وَهْبٌ، حَدَّثَنَا هِشَامٌ، عَنْ مُحَمَّدٍ، عَنْ مَعْبَدٍ، عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ، قَالَ كُنَّا فِي مَسِيرٍ لَنَا فَنَزَلْنَا فَجَاءَتْ جَارِيَةٌ فَقَالَتْ إِنَّ سَيِّدَ الْحَىِّ سَلِيمٌ، وَإِنَّ نَفَرَنَا غُيَّبٌ فَهَلْ مِنْكُمْ رَاقٍ فَقَامَ مَعَهَا رَجُلٌ مَا كُنَّا نَأْبُنُهُ بِرُقْيَةٍ فَرَقَاهُ فَبَرَأَ فَأَمَرَ لَهُ بِثَلاَثِينَ شَاةً وَسَقَانَا لَبَنًا فَلَمَّا رَجَعَ قُلْنَا لَهُ أَكُنْتَ تُحْسِنُ رُقْيَةً أَوْ كُنْتَ تَرْقِي قَالَ لاَ مَا رَقَيْتُ إِلاَّ بِأُمِّ الْكِتَابِ‏.‏ قُلْنَا لاَ تُحْدِثُوا شَيْئًا حَتَّى نَأْتِيَ ـ أَوْ نَسْأَلَ ـ النَّبِيَّ صلى الله عليه وسلم فَلَمَّا قَدِمْنَا الْمَدِينَةَ ذَكَرْنَاهُ لِلنَّبِيِّ صلى الله عليه وسلم فَقَالَ ‏\"‏ وَمَا كَانَ يُدْرِيهِ أَنَّهَا رُقْيَةٌ اقْسِمُوا وَاضْرِبُوا لِي بِسَهْمٍ ‏\" ‏‏.‏ وَقَالَ أَبُو مَعْمَرٍ حَدَّثَنَا عَبْدُ الْوَارِثِ حَدَّثَنَا هِشَامٌ حَدَّثَنَا مُحَمَّدُ بْنُ سِيرِينَ حَدَّثَنِي مَعْبَدُ بْنُ سِيرِينَ عَنْ أَبِي سَعِيدٍ الْخُدْرِيِّ بِهَذَا",
+   "arMatn": "وَمَا كَانَ يُدْرِيهِ أَنَّهَا رُقْيَةٌ اقْسِمُوا وَاضْرِبُوا لِي بِسَهْمٍ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih al-Bukhari",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih al-Bukhari 5007",
+     "url": "https://sunnah.com/bukhari:5007"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 7",
+     "url": "https://sunnah.com/virtues:7"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

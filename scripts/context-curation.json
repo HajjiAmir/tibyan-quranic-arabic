@@ -1,0 +1,108 @@
+{
+  "_about": "Reviewable curation for public/data/context/<id>.json, built by scripts/build-context.mjs. Backbone: sunnah.com 'Special Virtues of the Qur'an's Chapters and Verses' (sunnah.com/virtues), plus the owner's seed list. Hadith wording and grades are never typed here: the build script copies them from the saved sunnah.com pages (scripts/raw/context/sunnah-hadith-pages.json). This file only says WHICH narration goes under WHICH surah, and why anything was left out. Rule: include only narrations in Sahih al-Bukhari or Sahih Muslim, or graded Sahih/Hasan in sunnah.com's grade field by a named grader, with no conflicting weak grade. Everything stays 'unverified' until the owner's reviewer signs off.",
+  "_hadeethenc": "Cross-check: sunnah.com narration -> HadeethEnc (Hadith Encyclopedia) record of the same hadith, matched by Arabic wording and confirmed by reading both. HadeethEnc covers only some hadith; narrations without a match are graded by sunnah.com's named grader alone.",
+  "hadeethenc": {
+    "bukhari:5006": "10112", "muslim:806": "5775", "muslim:395": "65099", "muslim:804a": "10851",
+    "muslim:805": "6828", "muslim:780": "6208", "muslim:810": "65059", "bukhari:5009": "6274",
+    "muslim:807": "6274", "bukhari:5011": "6178", "muslim:809": "6265", "muslim:809b": "6265",
+    "tirmidhi:2891": "6260", "bukhari:5013": "65261", "muslim:813": "5213", "bukhari:5017": "65060",
+    "muslim:814a": "10114", "muslim:814b": "65448"
+  },
+  "include": [
+    { "ref": "bukhari:5006", "surahs": [1], "kind": "virtue", "item": 1, "note": "Owner's seed. Same narration (Abu Sa'id ibn al-Mu'alla) that the collection cites as Bukhari 4474; 5006 is its place in Bukhari's Book of the Virtues of the Qur'an." },
+    { "ref": "tirmidhi:3125", "surahs": [1], "kind": "virtue", "item": 3 },
+    { "ref": "muslim:806", "surahs": [1, 2], "kind": "virtue", "item": 4 },
+    { "ref": "muslim:394", "surahs": [1], "kind": "virtue", "item": 5 },
+    { "ref": "muslim:395", "surahs": [1], "kind": "virtue", "item": 6 },
+    { "ref": "bukhari:5007", "surahs": [1], "kind": "virtue", "item": 7 },
+
+    { "ref": "muslim:804a", "surahs": [2, 3], "kind": "virtue", "item": 8 },
+    { "ref": "muslim:805", "surahs": [2, 3], "kind": "virtue", "item": 9 },
+    { "ref": "muslim:780", "surahs": [2], "kind": "virtue", "item": 10, "note": "Owner's seed." },
+    { "ref": "muslim:810", "surahs": [2], "kind": "virtue", "item": 11, "note": "Owner's seed (Ayat al-Kursi, 2:255)." },
+    { "ref": "bukhari:5010", "surahs": [2], "kind": "virtue", "item": 12, "note": "Mu'allaq: al-Bukhari cites this without a connected chain of his own (it opens 'And 'Uthman ibn al-Haytham said'). Reviewer to confirm it may be shown as sahih." },
+    { "ref": "bukhari:5009", "surahs": [2], "kind": "virtue", "item": 14, "note": "Owner's seed." },
+    { "ref": "muslim:807", "surahs": [2], "kind": "virtue", "item": 14, "note": "Owner's seed. Muslim's narration of the same hadith as Bukhari 5009." },
+    { "ref": "muslim:173", "surahs": [2], "kind": "virtue", "item": 15 },
+    { "ref": "tirmidhi:2882", "surahs": [2], "kind": "virtue", "item": 16 },
+    { "ref": "nasai:2962", "surahs": [2], "kind": "practice", "item": 20, "note": "Recitation of 2:125 after tawaf." },
+    { "ref": "nasai:2970", "surahs": [2], "kind": "practice", "item": 21, "note": "Recitation of 2:158 at as-Safa." },
+    { "ref": "bukhari:5018", "surahs": [2], "kind": "virtue", "item": 22, "note": "Mu'allaq: al-Bukhari cites this without a connected chain of his own (it opens 'And al-Layth said'). Reviewer to confirm it may be shown as sahih." },
+
+    { "ref": "muslim:1017", "surahs": [4, 59], "kind": "practice", "item": 27, "note": "The Prophet recited 4:1 and a verse of al-Hashr (59:18). The collection lists it under an-Nisa' only; it is also placed under al-Hashr because the text names that verse." },
+
+    { "ref": "bukhari:5011", "surahs": [18], "kind": "virtue", "item": 31 },
+    { "ref": "muslim:809", "surahs": [18], "kind": "virtue", "item": 32, "note": "Owner's seed (first ten verses)." },
+    { "ref": "muslim:809b", "surahs": [18], "kind": "virtue", "item": 32, "note": "Owner's seed (the 'end of al-Kahf' wording). A variant wording of Muslim 809a: it gives only the difference between the narrators." },
+
+    { "ref": "muslim:880", "surahs": [32, 76], "kind": "practice", "item": 40 },
+    { "ref": "muslim:880b", "surahs": [32, 76], "kind": "practice", "item": 60 },
+    { "ref": "muslim:879a", "surahs": [32, 76, 62, 63], "kind": "practice", "item": 54 },
+
+    { "ref": "bukhari:5012", "surahs": [48], "kind": "virtue", "item": 47, "note": "Reassigned by its text. The collection files this reference under az-Zumar, but the narration is about Surat al-Fath ('a surah dearer to me than that on which the sun rises', then 48:1). The collection's al-Fath heading cites Tirmidhi 3405, which is about az-Zumar and al-Isra'." },
+    { "ref": "bukhari:5034", "surahs": [48], "kind": "practice", "item": 46, "noHeading": true, "note": "Reassigned by its text. The collection files it under az-Zumar; the narration is about reciting Surat al-Fath on the day Makkah was conquered." },
+
+    { "ref": "muslim:891a", "surahs": [50, 54], "kind": "practice", "item": 48 },
+    { "ref": "nasai:949", "surahs": [50], "kind": "practice", "item": 49 },
+    { "ref": "muslim:872a", "surahs": [50], "kind": "practice", "item": 50 },
+    { "ref": "nasai:1411", "surahs": [50], "kind": "practice", "item": 51 },
+
+    { "ref": "tirmidhi:3291", "surahs": [55], "kind": "virtue", "item": 53 },
+
+    { "ref": "tirmidhi:2891", "surahs": [67], "kind": "virtue", "item": 57, "note": "Owner's seed. The weaker 'protection in the grave' wording (collection item 56) is deliberately not used." },
+
+    { "ref": "tirmidhi:3333", "surahs": [81, 82, 84], "kind": "virtue", "item": 61 },
+
+    { "ref": "nasai:1700", "surahs": [87, 109, 112], "kind": "practice", "item": 62 },
+    { "ref": "abudawud:1125", "surahs": [87, 88], "kind": "practice", "item": 63, "note": "The collection also cites Ibn Majah 1120, the same hadith (graded Sahih by Darussalam on sunnah.com)." },
+    { "ref": "nasai:1424", "surahs": [87, 88], "kind": "practice", "item": 64 },
+    { "ref": "nasai:1699", "surahs": [87, 109, 112], "kind": "practice", "item": 75 },
+
+    { "ref": "tirmidhi:3403", "surahs": [109], "kind": "virtue", "item": 69 },
+    { "ref": "muslim:726", "surahs": [109, 112], "kind": "practice", "item": 71 },
+    { "ref": "nasai:945", "surahs": [109, 112], "kind": "practice", "item": 73 },
+    { "ref": "tirmidhi:869", "surahs": [109, 112], "kind": "practice", "item": 74 },
+
+    { "ref": "bukhari:5013", "surahs": [112], "kind": "virtue", "item": 77, "note": "Owner's seed." },
+    { "ref": "bukhari:5015", "surahs": [112], "kind": "virtue", "item": 77, "note": "Owner's seed." },
+    { "ref": "muslim:811a", "surahs": [112], "kind": "virtue", "item": 76 },
+    { "ref": "muslim:811b", "surahs": [112], "kind": "virtue", "item": 78 },
+    { "ref": "muslim:812a", "surahs": [112], "kind": "virtue", "item": 79 },
+    { "ref": "tirmidhi:2901", "surahs": [112], "kind": "virtue", "item": 80 },
+    { "ref": "tirmidhi:2897", "surahs": [112], "kind": "virtue", "item": 81 },
+    { "ref": "muslim:813", "surahs": [112], "kind": "virtue", "item": 82 },
+    { "ref": "bukhari:5017", "surahs": [112, 113, 114], "kind": "practice", "item": 86 },
+    { "ref": "tirmidhi:3575", "surahs": [112, 113, 114], "kind": "virtue", "item": 87 },
+
+    { "ref": "muslim:814a", "surahs": [113, 114], "kind": "virtue", "item": 90, "note": "Owner's seed lists al-Falaq and an-Nas as 'the best with which to seek refuge — Muslim'. Muslim 814's wording is 'verses the like of which have never been seen'; the 'best thing with which to seek refuge' wording is an-Nasa'i 5432 (below)." },
+    { "ref": "muslim:814b", "surahs": [113, 114], "kind": "virtue", "item": 90, "note": "Owner's seed." },
+    { "ref": "nasai:953", "surahs": [113, 114], "kind": "virtue", "item": 91 },
+    { "ref": "nasai:5432", "surahs": [113, 114], "kind": "virtue", "item": 93 },
+    { "ref": "bukhari:5016", "surahs": [113, 114], "kind": "practice", "item": 88 },
+    { "ref": "abudawud:1523", "surahs": [113, 114], "kind": "practice", "item": 89, "note": "The collection also cites an-Nasa'i 1336, the same hadith (graded Hasan by Darussalam on sunnah.com)." }
+  ],
+  "heldBack": [
+    { "items": [1], "ref": "Sahih al-Bukhari 4474", "reason": "Duplicate: the same narration is shown as Bukhari 5006 (the owner's seed reference)." },
+    { "items": [2], "ref": "Sunan an-Nasa'i al-Kubra 8011 and others", "reason": "Not available as a graded page on sunnah.com, so the canonical text and a named grader could not be pulled. The collection shows 'Sahih' without naming the grader." },
+    { "items": [13], "ref": "Sunan an-Nasa'i al-Kubra 9848; al-Tabarani 7532", "reason": "Not on sunnah.com, and the collection gives no grade or grader." },
+    { "items": [17], "ref": "Sunan al-Darimi 3289", "reason": "sunnah.com's al-Darimi pages carry no English text or grade." },
+    { "items": [18, 25, 39], "ref": "Sunan Ibn Majah 3856", "reason": "sunnah.com gives no grade in its grade field. '(Hasan)' appears only inside the translation, and the first chain stops at al-Qasim (not the Prophet)." },
+    { "items": [19], "ref": "Sunan al-Darimi 2179; al-Silsilah al-Sahihah", "reason": "No English text or grade on sunnah.com; the grading source (al-Albani's Silsilah) could not be checked here." },
+    { "items": [26], "ref": "Sahih Ibn Hibban 620", "reason": "Not on sunnah.com; no grade given in the collection." },
+    { "items": [28, 29], "ref": "al-Tabarani; al-Hakim", "reason": "The collection itself notes that most chains are weak and that some scholars classify it as weak. Disputed, so excluded." },
+    { "items": [30, 47], "ref": "Jami' at-Tirmidhi 3405", "reason": "sunnah.com shows no grade for this narration (az-Zumar and al-Isra' before sleep). Held back until a grader is confirmed." },
+    { "items": [33, 34], "ref": "Sunan al-Darimi 4323, 3310", "reason": "These sunnah.com pages return 'not found' (404)." },
+    { "items": [35], "ref": "Sunan al-Darimi 4321; Sahih Muslim 2937", "reason": "The al-Darimi page returns 404. Muslim 2937 is the long hadith about the Dajjal; the al-Kahf point is already covered by Muslim 809." },
+    { "items": [36, 37, 38], "ref": "Mustadrak al-Hakim; Sunan al-Darimi 3312; al-Bayhaqi; al-Silsilah al-Sahihah 2651", "reason": "Reciting al-Kahf on Friday: the graded sources (al-Albani) are not on sunnah.com, and al-Darimi 3312 has no grade there. Reviewer may add it with a citable grading." },
+    { "items": [41, 59], "ref": "Jami' at-Tirmidhi 2892", "reason": "Graded Da'if (weak) by Darussalam on sunnah.com." },
+    { "items": [42, 43, 44], "ref": "Ahmad; Ibn Sa'd; al-Durr al-Manthur", "reason": "Not on sunnah.com; no grade given in the collection." },
+    { "items": [55], "ref": "Sahih Muslim 854b", "reason": "Wrong reference: the text is about the virtues of Friday, not about reciting al-Jumu'ah and al-Munafiqun." },
+    { "items": [56], "ref": "Sahih al-Jami' 1140; Ibn Mardawayh", "reason": "The owner asked not to use the 'protection from the grave' wording." },
+    { "items": [58], "ref": "al-Tabarani; Ibn Mardawayh (hasan li-ghayrihi per Sahih al-Jami' 3644)", "reason": "Not on sunnah.com; the same virtue is already shown from Tirmidhi 2891." },
+    { "items": [67], "ref": "Zad al-Ma'ad 1/322", "reason": "A later scholarly work, not a hadith collection with a pullable text and grade." },
+    { "items": [68], "ref": "Abu Dawud, al-Zuhd 417; al-Tabarani; al-Bayhaqi", "reason": "Not on sunnah.com; no grade given in the collection." },
+    { "items": [70], "ref": "al-Silsilah al-Sahihah 586", "reason": "al-Kafirun as a quarter of the Qur'an: the graded source is not on sunnah.com. Reviewer may add it with a citable grading." },
+    { "items": [72], "ref": "Jami' at-Tirmidhi 431", "reason": "sunnah.com shows no grade, and at-Tirmidhi himself calls the chain gharib." },
+    { "items": [92], "ref": "Jami' at-Tirmidhi 2058", "reason": "Grades conflict: Darussalam on sunnah.com grades it Da'if (weak); HadeethEnc grades a version of it as authentic. Excluded until the reviewer rules." }
+  ]
+}

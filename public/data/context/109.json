@@ -1,0 +1,234 @@
+{
+ "surah": 109,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 18,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": null,
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "If the Surah is read with this background in mind, one finds that it was not revealed to preach religious tolerance as some people of today seem to think, but it was revealed in order to exonerate the Muslims from the disbelievers religion, their rites of worship, and their gods, and to express their total disgust and unconcern with them and to tell them that Islam and kufr (unbelief) had nothing in common and there was no possibility of their being combined and mixed into one entity.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/109/info"
+   }
+  },
+  "flags": [
+   "The period-of-revelation section relays narrations, so no excerpt is quoted."
+  ],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "tirmidhi:3403",
+   "kind": "virtue",
+   "heading": {
+    "en": "Disavowal from Shirk (polytheism)",
+    "ar": "البَرَاءَةُ مِنَ الشِّرْكِ",
+    "item": 69
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 3403",
+   "inBook": "Book 48, Hadith 34",
+   "en": "Farwah bin Nawfal (ra) narrated that: He came to the Prophet (ﷺ) and said: “O Messenger of Allah, teach me something that I may say when I go to my bed.” So he said: “Recite: Say: ‘O you disbelievers’ for verily it is a disavowal of Shirk.” Shu`bah said: “Sometimes he would say: ‘One time’ and sometime he would not say it.” (Another chain) from Farwah bin Nawfal, from his father: \"That he came to the Prophet (ﷺ)\" then he mentioned similar in meaning. And this is more correct. [Abu `Eisa said:] And Zubair reported this hadith from Ishaq, from Farwah bin Nawfal, from his father from the Prophet (ﷺ), with similar wording. This is more appropriate and more correct than the narration of Shu`bah. The companions of Abu Ishaq were confused in the narration of this hadith. This hadith has been reported through routes other than this. `Abdur-Rahman is the brother of Farwah bin Nawfal.",
+   "ar": "حَدَّثَنَا مَحْمُودُ بْنُ غَيْلاَنَ، حَدَّثَنَا أَبُو دَاوُدَ، قَالَ أَخْبَرَنَا شُعْبَةُ، عَنْ أَبِي إِسْحَاقَ، عَنْ رَجُلٍ، عَنْ فَرْوَةَ بْنِ نَوْفَلٍ، رضى الله عنه أَنَّهُ أَتَى النَّبِيَّ صلى الله عليه وسلم فَقَالَ يَا رَسُولَ اللَّهِ عَلِّمْنِي شَيْئًا أَقُولُهُ إِذَا أَوَيْتُ إِلَى فِرَاشِي قَالَ ‏ \"‏ اقْرَأْْ ‏:‏ ‏‏(‏ قلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ فَإِنَّهَا بَرَاءَةٌ مِنَ الشِّرْكِ ‏\" ‏ ‏.‏ قَالَ شُعْبَةُ أَحْيَانًا يَقُولُ مَرَّةً وَأَحْيَانًا لاَ يَقُولُهَا ‏.‏ حَدَّثَنَا مُوسَى بْنُ حِزَامٍ، أَخْبَرَنَا يَحْيَى بْنُ آدَمَ، عَنْ إِسْرَائِيلَ، عَنْ أَبِي إِسْحَاقَ، عَنْ فَرْوَةَ بْنِ نَوْفَلٍ، عَنْ أَبِيهِ، أَنَّهُ أَتَى النَّبِيَّ صلى الله عليه وسلم فَذَكَرَ نَحْوَهُ بِمَعْنَاهُ وَهَذَا أَصَحُّ ‏.‏ قَالَ أَبُو عِيسَى وَرَوَى زُهَيْرٌ هَذَا الْحَدِيثَ عَنْ أَبِي إِسْحَاقَ عَنْ فَرْوَةَ بْنِ نَوْفَلٍ عَنْ أَبِيهِ عَنِ النَّبِيِّ صلى الله عليه وسلم نَحْوَهُ وَهَذَا أَشْبَهُ وَأَصَحُّ مِنْ حَدِيثِ شُعْبَةَ ‏.‏ وَقَدِ اضْطَرَبَ أَصْحَابُ أَبِي إِسْحَاقَ فِي هَذَا الْحَدِيثِ ‏.‏ وَقَدْ رُوِيَ هَذَا الْحَدِيثُ مِنْ غَيْرِ هَذَا الْوَجْهِ قَدْ رَوَاهُ عَبْدُ الرَّحْمَنِ بْنُ نَوْفَلٍ عَنْ أَبِيهِ عَنِ النَّبِيِّ صلى الله عليه وسلم وَعَبْدُ الرَّحْمَنِ هُوَ أَخُو فَرْوَةَ بْنِ نَوْفَلٍ ‏.‏",
+   "arMatn": "اقْرَأْْ ‏:‏ ‏‏(‏ قلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ فَإِنَّهَا بَرَاءَةٌ مِنَ الشِّرْكِ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 3403",
+     "url": "https://sunnah.com/tirmidhi:3403"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 69",
+     "url": "https://sunnah.com/virtues:69"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1700",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ الرَّسُولُ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْوِتْرِ",
+    "item": 62
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1700",
+   "inBook": "Book 20, Hadith 103",
+   "en": "It was narrated that Ubayy bin Ka'b said: \"In the first rak'ah of witr, the Messenger of Allah (ﷺ) used to recite: \"GLorify the Name of your Lord, the Most High;\" in the second; \"Say: O you disbelievers!\" and in the third; \"Say: He is Allah, (the) One.\"",
+   "ar": "أَخْبَرَنَا إِسْحَاقُ بْنُ إِبْرَاهِيمَ، قَالَ أَنْبَأَنَا عِيسَى بْنُ يُونُسَ، عَنْ سَعِيدِ بْنِ أَبِي عَرُوبَةَ، عَنْ قَتَادَةَ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، قَالَ كَانَ رَسُولُ اللَّهِ صلى الله عليه وسلم يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏",
+   "arMatn": "يَقْرَأُ فِي الرَّكْعَةِ الأُولَى مِنَ الْوَتْرِ بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1700",
+     "url": "https://sunnah.com/nasai:1700"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 62",
+     "url": "https://sunnah.com/virtues:62"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:1699",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited this sūrah in the witr prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي صَلَاةِ الْوِتْرِ",
+    "item": 75
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 1699",
+   "inBook": "Book 20, Hadith 102",
+   "en": "It was narrated from Ubayy bin Ka'b that: The Messenger of Allah (ﷺ) used to pray witr with three rak'ahs. In the first he would recite: \"Glorify the Name of Your Lord, the Most High\" in the second: \"Say: O you disbelievers!\", and in the third: \"Say: He is Allah, (the) One\". And he would say the Qunut before bowing, and when he finished he would say: Subhanal-Malikil-Quddus (Glory be to the Sovereign, the Most Holy) three times, elongating the words the last time.",
+   "ar": "أَخْبَرَنَا عَلِيُّ بْنُ مَيْمُونٍ، قَالَ حَدَّثَنَا مَخْلَدُ بْنُ يَزِيدَ، عَنْ سُفْيَانَ، عَنْ زُبَيْدٍ، عَنْ سَعِيدِ بْنِ عَبْدِ الرَّحْمَنِ بْنِ أَبْزَى، عَنْ أَبِيهِ، عَنْ أُبَىِّ بْنِ كَعْبٍ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم كَانَ يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.‏",
+   "arMatn": "يُوتِرُ بِثَلاَثِ رَكَعَاتٍ كَانَ يَقْرَأُ فِي الأُولَى بِـ ‏‏{‏ سَبِّحِ اسْمَ رَبِّكَ الأَعْلَى ‏}‏ وَفِي الثَّانِيَةِ بِـ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَفِي الثَّالِثَةِ بِـ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏ وَيَقْنُتُ قَبْلَ الرُّكُوعِ فَإِذَا فَرَغَ قَالَ عِنْدَ فَرَاغِهِ ‏\"‏ سُبْحَانَ الْمَلِكِ الْقُدُّوسِ ‏\"‏ ‏.‏ ثَلاَثَ مَرَّاتٍ يُطِيلُ فِي آخِرِهِنَّ ‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 1699",
+     "url": "https://sunnah.com/nasai:1699"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 75",
+     "url": "https://sunnah.com/virtues:75"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "muslim:726",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in the two rakʿahs before fajr prayer and the two rakʿahs after maghrib prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي الرَّكعَتَيْنِ قَبْلَ الْفَجْرِ وَفِي الرَّكعَتَيْنِ بَعْدَ الْمَغْرِبِ",
+    "item": 71
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 726",
+   "inBook": "Book 6, Hadith 120",
+   "en": "Abu Huraira reported that the Messenger of Allah (ﷺ) recited in the two (supererogatory) rak'ahs of the dawn (prayer): \" Say: O unbelievers,\" (Qur'an, cix.) and\" Say: Allah is one\" (cxii.).",
+   "ar": "حَدَّثَنِي مُحَمَّدُ بْنُ عَبَّادٍ، وَابْنُ أَبِي عُمَرَ، قَالاَ حَدَّثَنَا مَرْوَانُ بْنُ مُعَاوِيَةَ، عَنْ يَزِيدَ، - هُوَ ابْنُ كَيْسَانَ - عَنْ أَبِي حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 726",
+     "url": "https://sunnah.com/muslim:726"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 71",
+     "url": "https://sunnah.com/virtues:71"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "nasai:945",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in the two rakʿahs before fajr prayer and the two rakʿahs after maghrib prayer",
+    "ar": "قَرَأَ رَسُولُ اللهِ ﷺ بِهَذِهِ السُّورَةِ فِي الرَّكعَتَيْنِ قَبْلَ الْفَجْرِ وَفِي الرَّكعَتَيْنِ بَعْدَ الْمَغْرِبِ",
+    "item": 73
+   },
+   "collection": "Sunan an-Nasa'i",
+   "reference": "Sunan an-Nasa'i 945",
+   "inBook": "Book 11, Hadith 70",
+   "en": "It was narrated from Abu Hurairah that: The Messenger of Allah (ﷺ) recited: \"Say: O you disbelievers\" and \"Say: He is Allah, (the) One\" in the two rak'ahs of Fajr.",
+   "ar": "أَخْبَرَنَا عَبْدُ الرَّحْمَنِ بْنُ إِبْرَاهِيمَ، دُحَيْمٌ قَالَ حَدَّثَنَا مَرْوَانُ، قَالَ حَدَّثَنَا يَزِيدُ بْنُ كَيْسَانَ، عَنْ أَبِي حَازِمٍ، عَنْ أَبِي هُرَيْرَةَ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الْفَجْرِ ‏‏{‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏}‏ وَ ‏‏{‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏}",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sunan an-Nasa'i 945",
+     "url": "https://sunnah.com/nasai:945"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 73",
+     "url": "https://sunnah.com/virtues:73"
+    }
+   ],
+   "note": null,
+   "verified": false
+  },
+  {
+   "id": "tirmidhi:869",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger ﷺ recited it in the prayer after completing ṭawāf (circumambulation of the Kaʿbah)",
+    "ar": "قَرَأَ بِهَا الرَّسُولُ ﷺ فِي الرَّكْعَتَيْنِ بَعْدَ الطَّوَافِ",
+    "item": 74
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 869",
+   "inBook": "Book 9, Hadith 62",
+   "en": "Jabir bin Abdullah narrated: During the two Rak'ah of Tawaf, the Messenger of Allah recited the two Surat of Ikhlas, \"Say: O you disbelievers!\" and: \"Say: He is Allah, (the) One.\"",
+   "ar": "أَخْبَرَنَا أَبُو مُصْعَبٍ الْمَدَنِيُّ، قِرَاءَةً عَنْ عَبْدِ الْعَزِيزِ بْنِ عِمْرَانَ، عَنْ جَعْفَرِ بْنِ مُحَمَّدٍ، عَنْ أَبِيهِ، عَنْ جَابِرِ بْنِ عَبْدِ اللَّهِ، أَنَّ رَسُولَ اللَّهِ صلى الله عليه وسلم قَرَأَ فِي رَكْعَتَىِ الطَّوَافِ بِسُورَتَىِ الإِخْلاَصِْ ‏:‏ ‏‏(‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ وَ ‏‏(‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏‏.‏",
+   "arMatn": "قَرَأَ فِي رَكْعَتَىِ الطَّوَافِ بِسُورَتَىِ الإِخْلاَصِْ ‏:‏ ‏‏(‏ قُلْ يَا أَيُّهَا الْكَافِرُونَ ‏)‏ وَ ‏‏(‏ قُلْ هُوَ اللَّهُ أَحَدٌ ‏)‏‏.",
+   "grade": {
+    "label": "Sahih",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 869",
+     "url": "https://sunnah.com/tirmidhi:869"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 74",
+     "url": "https://sunnah.com/virtues:74"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

@@ -101,3 +101,55 @@ export interface RoleInfo {
 }
 
 export type Legend = Record<Role, RoleInfo>;
+
+// ---- Surah context & virtues (public/data/context/<id>.json) -------------
+// Built by scripts/build-context.mjs; nothing in it is hand-written.
+
+export interface ContextSource {
+  name: string;
+  url: string;
+  via?: string;
+}
+
+export interface ContextQuote {
+  heading: string;
+  text: string;
+  /** True when the excerpt stops before the end of the paragraph. */
+  truncated: boolean;
+  source: ContextSource;
+}
+
+export interface VirtueNarration {
+  /** sunnah.com reference, e.g. "bukhari:5006". */
+  id: string;
+  /** 'virtue' = a stated merit; 'practice' = how the Prophet ﷺ recited it. */
+  kind: 'virtue' | 'practice';
+  /** The heading the sunnah.com virtues collection gives it, if any. */
+  heading: { en: string; ar: string; item: number } | null;
+  collection: string;
+  reference: string;
+  inBook: string | null;
+  en: string;
+  /** Full Arabic as printed in the collection, chain included. */
+  ar: string;
+  /** The Arabic wording without the chain, where sunnah.com marks it. */
+  arMatn: string | null;
+  grade: { label: string; by: string; source: 'collection' | 'sunnah.com' };
+  crossCheck: { name: string; grade: string; gradeAr: string; attribution: string; url: string } | null;
+  sources: ContextSource[];
+  note: string | null;
+  verified: boolean;
+}
+
+export interface SurahContext {
+  surah: number;
+  review: { status: 'pending' | 'approved'; reviewer: string | null; date: string | null; note: string };
+  context: {
+    revelation: { type: 'meccan' | 'medinan'; order: number; source: ContextSource };
+    period: ContextQuote | null;
+    theme: ContextQuote | null;
+    flags: string[];
+    verified: boolean;
+  };
+  virtues: VirtueNarration[];
+}

@@ -1,0 +1,76 @@
+{
+ "surah": 62,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 110,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The second section (vv. 9-11) was sent down shortly after the emigration, for the Holy Prophet (upon whom be Allah's peace) had established the Friday congregational Prayer on the 5th day after his arrival at Madinah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/62/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "As we have explained above, the two sections of this Surah were sent down in two different periods. That is why their themes as well as their audiences are different. Although there is a kind of harmony between them on account of which they have been put together in one Surah, yet we should understand their themes separately before we consider the question of their harmony.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/62/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "muslim:879a",
+   "kind": "practice",
+   "heading": {
+    "en": "The Messenger of Allah ﷺ recited this sūrah in Jumu’ah (Friday) prayer",
+    "ar": "كَانَ رَسُولُ اللهِ ﷺ يَقْرَأُ بِهَا فِي صَلَاةِ الْجُمُعَةِ",
+    "item": 54
+   },
+   "collection": "Sahih Muslim",
+   "reference": "Sahih Muslim 879a",
+   "inBook": "Book 7, Hadith 81",
+   "en": "Ibn Abbas reported: The Apostle of Allah (ﷺ) used to recite in the morning prayer on Friday Surah\" Alif-Lam-Mim, Tanz'il ul-Sajda\" (Surah xxxii.): Surely there came over the man a time\" (Surah lxxvii) and he used to recite in Jumu'a prayer Surahs Jumu'a and al-Munafiqin.",
+   "ar": "حَدَّثَنَا أَبُو بَكْرِ بْنُ أَبِي شَيْبَةَ، حَدَّثَنَا عَبْدَةُ بْنُ سُلَيْمَانَ، عَنْ سُفْيَانَ، عَنْ مُخَوَّلِ، بْنِ رَاشِدٍ عَنْ مُسْلِمٍ الْبَطِينِ، عَنْ سَعِيدِ بْنِ جُبَيْرٍ، عَنِ ابْنِ عَبَّاسٍ، أَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ السَّجْدَةُ وَ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ‏}‏ وَأَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ سُورَةَ الْجُمُعَةِ وَالْمُنَافِقِينَ ‏ .‏",
+   "arMatn": "يَقْرَأُ فِي صَلاَةِ الْفَجْرِ يَوْمَ الْجُمُعَةِ ‏‏{‏ الم * تَنْزِيلُ‏}‏ السَّجْدَةُ وَ ‏‏{‏ هَلْ أَتَى عَلَى الإِنْسَانِ حِينٌ مِنَ الدَّهْرِ‏}‏ وَأَنَّ النَّبِيَّ صلى الله عليه وسلم كَانَ يَقْرَأُ فِي صَلاَةِ الْجُمُعَةِ سُورَةَ الْجُمُعَةِ وَالْمُنَافِقِينَ",
+   "grade": {
+    "label": "Sahih",
+    "by": "Included in Sahih Muslim",
+    "source": "collection"
+   },
+   "crossCheck": null,
+   "sources": [
+    {
+     "name": "sunnah.com — Sahih Muslim 879a",
+     "url": "https://sunnah.com/muslim:879a"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 54",
+     "url": "https://sunnah.com/virtues:54"
+    }
+   ],
+   "note": null,
+   "verified": false
+  }
+ ]
+}

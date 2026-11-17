@@ -1,0 +1,82 @@
+{
+ "surah": 67,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 77,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "It could not be known from any authentic tradition when this Surah was revealed, but the subject matter and the style indicate that it is one of the earliest Surahs to be revealed at Makkah.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/67/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "In this surah, on the one hand, the teachings of Islam have been introduced briefly, and, on the other, the people living in heedlessness have been aroused from their slumber in a most effective way.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/67/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": [
+  {
+   "id": "tirmidhi:2891",
+   "kind": "virtue",
+   "heading": {
+    "en": "This sūrah intercedes for its companion until he’s forgiven and enters paradise",
+    "ar": "تَشْفَعُ هَذِهِ السُّورةُ لِصَاحِبِهَا حَتَّى يُغْفَرَ لَهُ ويَدْخُلَ الْجَنَّةَ",
+    "item": 57
+   },
+   "collection": "Jami' at-Tirmidhi",
+   "reference": "Jami` at-Tirmidhi 2891",
+   "inBook": "Book 45, Hadith 17",
+   "en": "Narrated Abu Hurairah: that the Prophet (ﷺ) said: \"Indeed there is a Surah in the Qur'an of thirty Ayat, which intercedes for a man until he is forgiven. It is [Surah] Tabarak Alladhi Biyadihil-Mulk.\"",
+   "ar": "حَدَّثَنَا مُحَمَّدُ بْنُ بَشَّارٍ، قَالَ حَدَّثَنَا مُحَمَّدُ بْنُ جَعْفَرٍ، قَالَ حَدَّثَنَا شُعْبَةُ، عَنْ قَتَادَةَ، عَنْ عَبَّاسٍ الْجُشَمِيِّ، عَنْ أَبِي هُرَيْرَةَ، عَنِ النَّبِيِّ صلى الله عليه وسلم قَالَ ‏ \"‏ إِنَّ سُورَةً مِنَ الْقُرْآنِ ثَلاَثُونَ آيَةً شَفَعَتْ لِرَجُلٍ حَتَّى غُفِرَ لَهُ وَهِيَ سُورَةُ تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ ‏\" ‏ ‏.‏ هَذَا حَدِيثٌ حَسَنٌ ‏.‏",
+   "arMatn": "إِنَّ سُورَةً مِنَ الْقُرْآنِ ثَلاَثُونَ آيَةً شَفَعَتْ لِرَجُلٍ حَتَّى غُفِرَ لَهُ وَهِيَ سُورَةُ تَبَارَكَ الَّذِي بِيَدِهِ الْمُلْكُ",
+   "grade": {
+    "label": "Hasan",
+    "by": "Darussalam",
+    "source": "sunnah.com"
+   },
+   "crossCheck": {
+    "name": "HadeethEnc (Hadith Encyclopedia)",
+    "grade": "Good hadith",
+    "gradeAr": "حسن",
+    "attribution": "Narrated by Ibn Majah - Narrated by At-Termedhy - Narrated by Abu Daoud - Narrated by Ahmad",
+    "url": "https://hadeethenc.com/en/browse/hadith/6260"
+   },
+   "sources": [
+    {
+     "name": "sunnah.com — Jami` at-Tirmidhi 2891",
+     "url": "https://sunnah.com/tirmidhi:2891"
+    },
+    {
+     "name": "sunnah.com — Special Virtues of the Qur'an's Chapters and Verses 57",
+     "url": "https://sunnah.com/virtues:57"
+    }
+   ],
+   "note": "Owner's seed. The weaker 'protection in the grave' wording (collection item 56) is deliberately not used.",
+   "verified": false
+  }
+ ]
+}

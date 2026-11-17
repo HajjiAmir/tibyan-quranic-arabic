@@ -1,0 +1,42 @@
+{
+ "surah": 37,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 56,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The subject matter and the style show that this Surah probably was sent down in the middle of the Makkan period, or perhaps in the last stage of the middle Makkan period. The style clearly indicates that antagonism is raging strong in the background and the Holy Prophet and his Companions are passing through very difficult and discouraging circumstances.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/37/info"
+   }
+  },
+  "theme": {
+   "heading": "Subject Matter and Theme",
+   "text": "The disbelievers of Makkah have been severely warned for their attitude of mockery and derision with which they were responding to the Holy Prophet's message of Tauhid and the Hereafter and for their utter refusal to accept and acknowledge his claim to Prophethood.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/37/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

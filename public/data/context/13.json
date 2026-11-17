@@ -1,0 +1,44 @@
+{
+ "surah": 13,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 96,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The internal evidence (vv. 27-31 and vv. 34-48) shows that this Surah was revealed in the last stage of the Mission of the Holy Prophet at Makkah and during the same period in which Surahs Yunus, Hud and Al- A'araf were sent down.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/13/info"
+   }
+  },
+  "theme": {
+   "heading": "Central Theme",
+   "text": "The first verse enunciates the main theme of this Surah, that is, \"The Message of Muhammad (Allah's peace be upon him) is the very Truth, but it is the fault of the people that they are rejecting it.\"",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/13/info"
+   }
+  },
+  "flags": [
+   "For the reviewer: the period section mentions Makkah but not Madinah; Tanzil lists this surah as Medinan."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}

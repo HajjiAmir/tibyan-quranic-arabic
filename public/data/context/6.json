@@ -1,0 +1,35 @@
+{
+ "surah": 6,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 55,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Its subject-matter clearly shows that it must have been revealed during the last year of the Holy Prophet's life at Makkah. The tradition of Asma, daughter of Yazid, also confirms this. As she belonged to the Ansar and embraced Islam after the migration of the Holy Prophet to Yathrib, her visit to the Holy Prophet at Makkah must have taken place during the last year of his life there.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/6/info"
+   }
+  },
+  "theme": null,
+  "flags": [
+   "No quotable theme paragraph in this introduction."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}

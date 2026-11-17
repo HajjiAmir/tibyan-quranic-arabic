@@ -1,0 +1,42 @@
+{
+ "surah": 98,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 100,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Where Surah Al-Bayyinah was revealed, at Makkah or Madinah, is disputed. Some commentators say it is a Makki revelation according to most scholars; others say it is a Madani revelation according to most scholars.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/98/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Its having been placed after Surahs Al-Alaq and Al-Qadr in the arrangement of the Quran is very meaningful. Surah Al-Alaq contains the very first revelation, while Surah Al-Qadr indicates to when it was revealed, and in this Surah it has been explained why it was necessary to send a Messenger along with this Holy Book.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/98/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

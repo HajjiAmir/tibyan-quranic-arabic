@@ -1,0 +1,42 @@
+{
+ "surah": 42,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 62,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Although it could not be known from any authentic traditions, yet one feels after a study of its subject matter that this Surah might have been sent down consecutively after Ha-Miim As Sajdah, for it seems to be, in a way, a supplement to it.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/42/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "The discourse begins in a way as if to say:\"Why are you expressing surprise and amazement at what Our Prophet is presenting before you?What he says is not new or strange, nor anything novel, which might have been presented for the first time in history: that Revelation should come down to a man from God and he should be given instructions for the guidance of mankind.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/42/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

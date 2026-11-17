@@ -1,0 +1,42 @@
+{
+ "surah": 75,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "meccan",
+   "order": 31,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "Although there is no tradition to indicate its period of revelation, yet there is in the subject matter of this Surah an internal evidence, which shows that it is one of the earliest Surahs to be sent down at Makkah.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/75/info"
+   }
+  },
+  "theme": {
+   "heading": "Theme and Subject Matter",
+   "text": "Most of the Surahs, from here till the end of the Qur'an, in view of their content and style, seem to have been sent down in the period when after the first seven verses of Surah Al-Muddaththir, revelation of the Qur'an began like a shower of rain:Thus, in the successively revealed Surahs Islam and its fundamental concepts and moral teachings were presented so forcefully and effectively in pithy, brief sentences and the people of Makkah warned so vehemently on their errors and deviations that the Quraish chiefs were utterly confounded.",
+   "truncated": true,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/75/info"
+   }
+  },
+  "flags": [],
+  "verified": false
+ },
+ "virtues": []
+}

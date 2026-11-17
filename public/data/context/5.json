@@ -1,0 +1,35 @@
+{
+ "surah": 5,
+ "review": {
+  "status": "pending",
+  "reviewer": null,
+  "date": null,
+  "note": "Draft pending scholarly review. Every entry is unverified until the reviewer signs off."
+ },
+ "context": {
+  "revelation": {
+   "type": "medinan",
+   "order": 112,
+   "source": {
+    "name": "Tanzil Quran metadata (classification and revelation order)",
+    "url": "https://tanzil.net/docs/quran_metadata"
+   }
+  },
+  "period": {
+   "heading": "Period of Revelation",
+   "text": "The theme of this Surah indicates, and traditions support it, that it was revealed after the treaty of Hudaibiyah at the end of 6 A. H. or at the beginning of 7 A. H. That is why it deals with those problems that arose from this treaty.",
+   "truncated": false,
+   "source": {
+    "name": "Sayyid Abul A'la Mawdudi, Tafhim al-Qur'an (introduction to the surah)",
+    "via": "Quran.com",
+    "url": "https://quran.com/5/info"
+   }
+  },
+  "theme": null,
+  "flags": [
+   "No quotable theme paragraph in this introduction."
+  ],
+  "verified": false
+ },
+ "virtues": []
+}
