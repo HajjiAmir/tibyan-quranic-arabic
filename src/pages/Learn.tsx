@@ -54,13 +54,13 @@ export default function Learn() {
   const list = useMemo(() => (index ? index.lemmas.filter((l) => inPool(l, pool)) : []), [index, pool]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index || !m) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
+  if (!index || !m) return <div className="mx-auto h-80 max-w-reading skeleton card" />;
 
   const firstNew = list.find((l) => statusOf(l, store) === 'new');
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-7">
-      <header className="flex flex-col items-center gap-2 pt-4 text-center sm:pt-8">
+    <div className="mx-auto flex max-w-reading flex-col gap-8 sm:gap-10">
+      <header className="title-bloom flex flex-col items-center gap-3 pt-6 text-center sm:pt-10">
         <span className="text-[11px] font-medium uppercase tracking-[0.18em] text-muted">Vocabulary mastery</span>
         <h1 className="font-display text-[1.9rem] font-semibold leading-tight tracking-tight sm:text-[2.3rem]">
           Learn the Qur’an’s words, most frequent first
@@ -179,7 +179,7 @@ function Row({
         <div className="flex flex-col gap-3 border-t border-line/50 bg-paper/30 px-4 pb-4 pt-3">
           <LemmaFacts l={l} />
           {examples === null ? (
-            <div className="h-20 animate-pulse rounded-xl bg-surface-2/60" />
+            <div className="h-20 skeleton rounded-xl bg-surface-2/60" />
           ) : (
             examples.map((ex) => <ExampleVerse key={ex.ref} ex={ex} />)
           )}

@@ -30,17 +30,17 @@ export default function Practice() {
 
   useEffect(() => {
     setSurah(null);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
     loadSurah(surahId).then(setSurah).catch(() => {});
   }, [surahId]);
 
   const items = useMemo(() => (surah ? buildItems(surah) : []), [surah]);
 
-  if (!surah) return <div className="h-64 animate-pulse card" />;
+  if (!surah) return <div className="h-64 skeleton card" />;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-4 sm:gap-5">
-      <div className="flex flex-col items-center gap-0.5 text-center sm:gap-1">
+    <div className="mx-auto flex max-w-reading flex-col gap-5 sm:gap-7">
+      <div className="title-bloom flex flex-col items-center gap-1 pt-4 text-center sm:gap-1.5 sm:pt-6">
         <span className="text-xs uppercase tracking-widest text-muted">Practice</span>
         <h1 className="ar-title text-[2.2rem] leading-[1.5] text-accent sm:text-[2.6rem]">{surah.name}</h1>
         <h2 className="font-display text-lg font-semibold sm:text-xl">{surah.transliteration}</h2>

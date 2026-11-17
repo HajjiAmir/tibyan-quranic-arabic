@@ -99,12 +99,12 @@ export default function Verse({
       id={`v${verse.id}`}
       aria-current={reciting ? 'true' : undefined}
     >
-      {/* the āyah being recited: a quiet gold rule and wash, nothing heavier */}
+      {/* the āyah being recited: a quiet accent rule and wash that breathes softly while the audio plays */}
       <span
         aria-hidden
         className={`pointer-events-none absolute -inset-x-3 inset-y-2 rounded-2xl bg-accent/[0.06] transition-opacity duration-500 sm:-inset-x-5 ${
           reciting ? 'opacity-100' : 'opacity-0'
-        }`}
+        } ${reciting && rec.state.status === 'playing' ? 'reciting-glow' : ''}`}
       />
       <span
         aria-hidden
@@ -159,8 +159,8 @@ export default function Verse({
             <button
               key={w.position}
               onClick={() => setSelected(isSel ? null : w.position)}
-              className={`flex min-w-[2.75rem] flex-col items-center gap-0.5 rounded-xl px-2.5 pb-1.5 pt-0.5 transition-colors ${
-                isSel ? 'bg-surface ring-1 ring-accent/60 shadow-sm' : 'hover:bg-surface/80'
+              className={`flex min-w-[2.75rem] flex-col items-center gap-0.5 rounded-xl px-2.5 pb-1.5 pt-0.5 transition-colors duration-300 ${
+                isSel ? 'word-bloom bg-surface ring-1 ring-accent/45 shadow-sm' : 'hover:bg-surface/80'
               }`}
               title={[w.gloss, ...w.segments.map((s) => s.description)].filter(Boolean).join(' · ')}
             >

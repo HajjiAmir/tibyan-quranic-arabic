@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import { useTheme } from './lib/theme';
 import Home from './pages/Home';
@@ -37,19 +37,37 @@ export default function App() {
   // reader mounted, as it was before the fade existed.
   const fadeKey = loc.pathname.replace(/^\/surah\/\d+$/, '/surah');
 
+  // The header is transparent at the top of the page and gains a faint veil once
+  // the page scrolls. On the landing it stays clear until the hero has scrolled past.
+  // Over the hero it is only frosted (no fill, no border), so the night sky stays one surface.
+  const [scrolled, setScrolled] = useState<'' | 'hero' | 'past'>('');
+  useEffect(() => {
+    const update = () => {
+      const y = window.scrollY;
+      const hero = document.querySelector<HTMLElement>('[data-hero]');
+      const limit = hero ? hero.offsetTop + hero.offsetHeight - 72 : 8;
+      setScrolled(y > limit ? 'past' : y > 24 ? 'hero' : '');
+    };
+    update();
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => {
+      window.removeEventListener('scroll', update);
+      window.removeEventListener('resize', update);
+    };
+  }, [loc.pathname]);
+
   // Each page starts at the top (hash routing would otherwise keep the old offset).
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [loc.pathname]);
 
   return (
     <div className="min-h-screen">
       <header
-        className="sticky top-0 z-20 border-b border-line/80 backdrop-blur-md"
-        style={{
-          background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)',
-          paddingTop: 'env(safe-area-inset-top, 0px)',
-        }}
+        className="site-header sticky top-0 z-20"
+        data-scrolled={scrolled || undefined}
+        style={{ paddingTop: 'env(safe-area-inset-top, 0px)' }}
       >
         <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">
           <Link to="/" className="tap group flex items-center gap-2.5">
@@ -75,7 +93,7 @@ export default function App() {
         </div>
       </header>
 
-      <main className="gutter mx-auto max-w-5xl pt-6" style={{ paddingBottom: 'calc(6rem + env(safe-area-inset-bottom, 0px))' }}>
+      <main className="gutter mx-auto max-w-5xl pt-6 sm:pt-8" style={{ paddingBottom: 'calc(6rem + env(safe-area-inset-bottom, 0px))' }}>
         <div key={fadeKey} className="route-fade">
           <Routes>
             <Route path="/" element={<Home />} />

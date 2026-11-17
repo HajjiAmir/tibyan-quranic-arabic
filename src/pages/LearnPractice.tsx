@@ -27,11 +27,11 @@ export default function LearnPractice() {
     loadVocab().then(setIndex).catch(() => {});
   }, []);
 
-  if (!index) return <div className="mx-auto h-64 max-w-reading animate-pulse card" />;
+  if (!index) return <div className="mx-auto h-64 max-w-reading skeleton card" />;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-4 sm:gap-5">
-      <div className="flex flex-col items-center gap-0.5 text-center sm:gap-1">
+    <div className="mx-auto flex max-w-reading flex-col gap-5 sm:gap-7">
+      <div className="title-bloom flex flex-col items-center gap-1 pt-4 text-center sm:gap-1.5 sm:pt-6">
         <span className="text-xs uppercase tracking-widest text-muted">Vocabulary practice</span>
         <h1 className="font-display text-2xl font-semibold">The whole Qur’an, most frequent first</h1>
         <Link to="/learn" className="tap mt-1 inline-flex items-center text-xs text-muted hover:text-ink">
@@ -136,7 +136,7 @@ function Flashcards({ index, pool }: { index: VocabIndex; pool: Pool }) {
               <div className="mt-2 flex flex-col gap-3">
                 <LemmaFacts l={card} />
                 {examples === null ? (
-                  <div className="h-20 animate-pulse rounded-xl bg-surface-2/60" />
+                  <div className="h-20 skeleton rounded-xl bg-surface-2/60" />
                 ) : (
                   examples.slice(0, 1).map((ex) => <ExampleVerse key={ex.ref} ex={ex} />)
                 )}

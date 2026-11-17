@@ -52,7 +52,7 @@ function Crescent() {
   return (
     <svg
       viewBox="0 0 100 100"
-      className="crescent absolute right-[6%] top-5 h-12 w-12 sm:right-[11%] sm:top-12 sm:h-20 sm:w-20 lg:right-[15%]"
+      className="crescent crescent-pos absolute right-[6%] h-10 w-10 sm:right-[10%] sm:h-[4.5rem] sm:w-[4.5rem] lg:right-[12%]"
     >
       <defs>
         <linearGradient id="moonlight" x1="0.15" y1="0.1" x2="0.85" y2="0.95">

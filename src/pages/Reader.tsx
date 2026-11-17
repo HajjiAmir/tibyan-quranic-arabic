@@ -103,13 +103,13 @@ export default function Reader() {
     const visible = r.top >= top - 8 && (fits ? r.bottom <= window.innerHeight : r.top < window.innerHeight / 2);
     if (visible) return;
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    window.scrollTo({ top: window.scrollY + r.top - top, behavior: reduce ? 'auto' : 'smooth' });
+    window.scrollTo({ top: window.scrollY + r.top - top, behavior: reduce ? 'instant' : 'smooth' });
   }, [recitingVerse, following]);
 
   useEffect(() => {
     setSurah(null);
     setErr(null);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
     loadSurah(surahId)
       .then((s) => {
         setSurah(s);
@@ -137,7 +137,7 @@ export default function Reader() {
       if (userMoved) return;
       const bar = document.getElementById('reader-toolbar');
       const top = (bar ? bar.getBoundingClientRect().bottom : 160) + 12;
-      window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - top, behavior: 'auto' });
+      window.scrollTo({ top: window.scrollY + el.getBoundingClientRect().top - top, behavior: 'instant' });
     };
     const raf = requestAnimationFrame(jump);
     const timers = [250, 700, 1500].map((t) => window.setTimeout(jump, t));
@@ -177,7 +177,7 @@ export default function Reader() {
 
   return (
     <div className="mx-auto flex max-w-[52rem] flex-col">
-      <header className="flex flex-col items-center gap-3 pb-8 pt-6 text-center sm:pt-10">
+      <header className="title-bloom flex flex-col items-center gap-3 pb-10 pt-8 text-center sm:pt-12">
         <span className="tnum text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
           Surah {surah.id} · {surah.type === 'meccan' ? 'Meccan' : 'Medinan'} · {surah.totalVerses} verses
         </span>
@@ -205,10 +205,9 @@ export default function Reader() {
 
       <div
         id="reader-toolbar"
-        className="sticky z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 border-b border-line/60 px-4 py-2 backdrop-blur-md"
+        className="reader-toolbar sticky z-10 -mx-4 mb-2 flex flex-wrap items-center justify-between gap-3 px-4 py-2"
         style={{
           top: 'calc(4rem + env(safe-area-inset-top, 0px))',
-          background: 'color-mix(in srgb, rgb(var(--paper)) 88%, transparent)',
         }}
       >
         <div className="no-scrollbar -mx-1 flex min-w-0 flex-1 basis-0 gap-0.5 overflow-x-auto px-1 py-0.5">
@@ -345,11 +344,27 @@ function PhoneDock({ children }: { children: ReactNode }) {
 }
 
 function ReaderSkeleton() {
+  // Shaped like the page that is coming: a title block, then āyāt (a long Arabic
+  // line, a row of word chips, a line of translation), under a slow sheen.
   return (
-    <div className="flex flex-col gap-4">
-      <div className="mx-auto mt-8 h-40 w-full max-w-[52rem] animate-pulse rounded-3xl bg-surface/70" />
+    <div aria-hidden className="mx-auto flex w-full max-w-[52rem] flex-col">
+      <div className="mt-6 flex flex-col items-center gap-3">
+        <div className="skeleton h-12 w-40 rounded-2xl" />
+        <div className="skeleton h-4 w-56 rounded-full" />
+      </div>
+      <div className="skeleton mt-8 h-14 w-full rounded-2xl" />
       {Array.from({ length: 4 }).map((_, i) => (
-        <div key={i} className="mx-auto h-28 w-full max-w-[52rem] animate-pulse rounded-2xl bg-surface/70" />
+        <div key={i} className="flex flex-col items-end gap-3 border-b border-line/60 py-9">
+          <div className="skeleton h-3 w-16 self-start rounded-full" />
+          <div className="skeleton h-10 w-[92%] rounded-xl" />
+          <div className="skeleton h-10 w-[64%] rounded-xl" />
+          <div className="mt-2 flex w-full flex-row-reverse flex-wrap gap-2">
+            {Array.from({ length: 6 }).map((_, j) => (
+              <div key={j} className="skeleton h-14 w-14 rounded-xl" />
+            ))}
+          </div>
+          <div className="skeleton mt-1 h-4 w-[80%] self-start rounded-full" />
+        </div>
       ))}
     </div>
   );

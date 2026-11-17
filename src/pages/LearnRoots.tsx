@@ -40,17 +40,17 @@ export function RootFamily() {
   const store = useMemo(() => vocabTrack.read(), [root]);
   const family = useMemo(() => (index ? rootFamily(index, root) : []), [index, root]);
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [root]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading skeleton card" />;
   const stats = index.roots[root];
   if (!stats || family.length === 0)
     return (
       <div className="mx-auto flex max-w-reading flex-col items-center gap-3 pt-10 text-center">
         <p className="font-display text-lg font-semibold">That root is not in the index.</p>
-        <Link to="/learn/roots" className="text-sm text-accent underline underline-offset-4">
+        <Link to="/learn/roots" className="tap inline-flex items-center text-sm text-accent underline underline-offset-4">
           All roots
         </Link>
       </div>
@@ -61,8 +61,8 @@ export function RootFamily() {
   const rank = Object.keys(index.roots).indexOf(root) + 1;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-6">
-      <header className="flex flex-col items-center gap-1 pt-4 text-center sm:pt-8">
+    <div className="mx-auto flex max-w-reading flex-col gap-7 sm:gap-8">
+      <header className="title-bloom flex flex-col items-center gap-1.5 pt-6 text-center sm:pt-10">
         <Link to="/learn/roots" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← All roots
         </Link>
@@ -137,11 +137,11 @@ export function RootsIndex() {
   }, [q]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading skeleton card" />;
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-6">
-      <header className="flex flex-col items-center gap-2 pt-4 text-center sm:pt-8">
+    <div className="mx-auto flex max-w-reading flex-col gap-7 sm:gap-8">
+      <header className="title-bloom flex flex-col items-center gap-2 pt-6 text-center sm:pt-10">
         <Link to="/learn" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← Learning path
         </Link>

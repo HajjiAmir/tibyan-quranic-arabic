@@ -14,7 +14,7 @@ export default function LearnWord() {
     loadVocab().then(setIndex).catch((e) => setErr(String(e)));
   }, []);
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   }, [key]);
 
   const l = useMemo(() => (index ? findByKey(index, key) : null), [index, key]);
@@ -23,7 +23,7 @@ export default function LearnWord() {
   const family = useMemo(() => (index && l?.root ? rootFamily(index, l.root) : []), [index, l]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading skeleton card" />;
   if (!l)
     return (
       <div className="mx-auto flex max-w-reading flex-col items-center gap-3 pt-10 text-center">
@@ -35,8 +35,8 @@ export default function LearnWord() {
     );
 
   return (
-    <div className="mx-auto flex max-w-reading flex-col gap-6">
-      <header className="flex flex-col items-center gap-1 pt-4 text-center sm:pt-8">
+    <div className="mx-auto flex max-w-reading flex-col gap-7 sm:gap-8">
+      <header className="title-bloom flex flex-col items-center gap-1.5 pt-6 text-center sm:pt-10">
         <Link to="/learn" className="tap inline-flex items-center text-xs text-muted hover:text-ink">
           ← Learning path
         </Link>
@@ -56,7 +56,7 @@ export default function LearnWord() {
       <section className="flex flex-col gap-3">
         <h2 className="font-display text-xl font-semibold tracking-tight">In the Qur’an</h2>
         {examples === null ? (
-          <div className="h-24 animate-pulse rounded-xl bg-surface-2/60" />
+          <div className="h-24 skeleton rounded-xl bg-surface-2/60" />
         ) : examples.length === 0 ? (
           <p className="text-sm text-muted">No example verses.</p>
         ) : (

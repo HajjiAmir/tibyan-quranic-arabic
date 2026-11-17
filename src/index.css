@@ -13,30 +13,30 @@
 ---------------------------------------------------------------------------- */
 :root {
   /* Day — the calm, cool counterpart to Midnight */
-  --paper: 243 245 250;          /* #f3f5fa page */
+  --paper: 244 246 251;          /* #f4f6fb page: cool, calm */
   --surface: 255 255 255;        /* resting card */
-  --surface-2: 231 235 245;      /* recessed fills, tracks */
+  --surface-2: 233 237 246;      /* #e9edf6 recessed fills, tracks */
   --surface-raised: 255 255 255; /* raised card */
-  --ink: 16 22 42;               /* #10162a */
-  --muted: 82 92 122;
-  --line: 218 224 238;
-  --line-strong: 184 194 220;
-  --border: rgb(40 60 120 / 0.13);
-  --border-strong: rgb(40 60 120 / 0.26);
-  --hero-bg: radial-gradient(130% 100% at 50% -16%, #dde5ff 0%, #ebeffa 40%, #f3f5fa 76%);
-  --accent: 61 84 196;           /* deep periwinkle: AA as text on white */
-  --accent-bright: 92 116 230;
-  --accent-soft: 162 184 255;
+  --ink: 22 28 48;               /* #161c30 */
+  --muted: 86 97 128;            /* #566180: 5.7:1 on the page */
+  --line: 224 229 240;
+  --line-strong: 199 207 226;
+  --border: rgb(60 78 140 / 0.1);
+  --border-strong: rgb(60 78 140 / 0.18);
+  --hero-bg: radial-gradient(70% 55% at 50% 38%, #e6ebfb 0%, rgb(244 246 251 / 0) 70%), linear-gradient(180deg, #eef1fa 0%, #f4f6fb 100%);
+  --accent: 74 93 192;           /* #4a5dc0 muted periwinkle: 5.4:1 on the page */
+  --accent-bright: 101 118 208;
+  --accent-soft: 147 166 230;
   --on-accent: 255 255 255;
   --emerald: 22 112 86;
 
   --hl: inset 0 1px 0 rgb(255 255 255 / 0.9);
-  --elev-1: 0 1px 2px rgb(30 44 92 / 0.06), 0 2px 8px -2px rgb(30 44 92 / 0.08);
-  --elev-2: 0 1px 0 rgb(255 255 255 / 0.6), 0 14px 34px -20px rgb(61 84 196 / 0.32);
-  --elev-3: 0 1px 0 rgb(255 255 255 / 0.6), 0 20px 46px -22px rgb(61 84 196 / 0.42);
-  --glow-accent: 0 10px 26px -10px rgb(61 84 196 / 0.55);
-  --vignette: rgb(40 60 140 / 0.05);
-  --motif-opacity: 0.08;
+  --elev-1: 0 1px 2px rgb(30 44 92 / 0.04), 0 4px 14px -6px rgb(30 44 92 / 0.08);
+  --elev-2: 0 1px 2px rgb(30 44 92 / 0.04), 0 16px 38px -22px rgb(60 78 160 / 0.26);
+  --elev-3: 0 1px 2px rgb(30 44 92 / 0.05), 0 22px 46px -24px rgb(60 78 160 / 0.32);
+  --glow-accent: 0 8px 22px -10px rgb(74 93 192 / 0.45);
+  --vignette: rgb(40 60 140 / 0.035);
+  --motif-opacity: 0.06;
 
   /* Grammatical roles [text, tint] and tajweed groups: signed off, hues kept.
      Day only (brief 14): proper, adjective, preposition, negation and particle
@@ -67,31 +67,31 @@
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    /* Midnight & starlight — the flagship */
+    /* Midnight, calm: muted periwinkle (owner-approved retune) */
     --paper: 5 7 14;               /* #05070e page */
-    --surface: 12 18 32;           /* #0c1220 resting card */
-    --surface-2: 34 46 78;         /* recessed fills, tracks */
-    --surface-raised: 20 29 51;    /* #141d33 raised card */
-    --ink: 233 237 251;            /* #e9edfb */
-    --muted: 149 160 195;          /* #95a0c3 */
-    --line: 32 40 60;              /* rgba(160,182,236,.14) over the surfaces */
-    --line-strong: 56 67 95;       /* rgba(160,182,236,.3) over the surfaces */
-    --border: rgb(160 182 236 / 0.14);
-    --border-strong: rgb(160 182 236 / 0.3);
-    --hero-bg: radial-gradient(130% 100% at 50% -16%, #1b2f66 0%, #0a1026 38%, #05070e 76%);
-    --accent: 162 184 255;         /* #a2b8ff starlight periwinkle */
-    --accent-bright: 205 216 255;  /* #cdd8ff */
-    --accent-soft: 120 142 230;
-    --on-accent: 10 15 32;         /* #0a0f20 text on accent fills */
+    --surface: 11 17 31;           /* #0b111f resting card */
+    --surface-2: 24 32 54;         /* recessed fills, tracks */
+    --surface-raised: 18 26 46;    /* #121a2e raised card */
+    --ink: 232 236 248;            /* #e8ecf8 */
+    --muted: 150 160 192;          /* #96a0c0 */
+    --line: 24 31 47;              /* rgba(150,168,214,.09) over the surfaces */
+    --line-strong: 33 41 60;       /* rgba(150,168,214,.16) over the surfaces */
+    --border: rgb(150 168 214 / 0.09);
+    --border-strong: rgb(150 168 214 / 0.16);
+    --hero-bg: radial-gradient(60% 46% at 50% 38%, rgb(70 88 160 / 0.22) 0%, rgb(5 7 14 / 0) 72%), linear-gradient(180deg, #070a15 0%, #05070e 100%);
+    --accent: 147 166 230;         /* #93a6e6 muted periwinkle */
+    --accent-bright: 182 196 240;  /* #b6c4f0 */
+    --accent-soft: 127 145 212;    /* #7f91d4 the dimmer accent */
+    --on-accent: 10 15 30;         /* #0a0f1e text on accent fills */
     --emerald: 91 191 156;
 
-    --hl: inset 0 1px 0 rgb(255 255 255 / 0.05);
-    --elev-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 10px 28px -18px rgb(0 0 0 / 0.8);
-    --elev-2: 0 1px 0 rgb(255 255 255 / 0.05), 0 20px 52px -26px rgb(96 126 255 / 0.5);
-    --elev-3: 0 1px 0 rgb(255 255 255 / 0.06), 0 26px 60px -24px rgb(96 126 255 / 0.62);
-    --glow-accent: 0 12px 32px -10px rgb(96 126 255 / 0.65);
-    --vignette: rgb(0 0 0 / 0.45);
-    --motif-opacity: 0.09;
+    --hl: inset 0 1px 0 rgb(255 255 255 / 0.035);
+    --elev-1: 0 1px 0 rgb(255 255 255 / 0.02), 0 10px 28px -20px rgb(0 0 0 / 0.8);
+    --elev-2: 0 1px 0 rgb(255 255 255 / 0.03), 0 22px 50px -30px rgb(110 130 210 / 0.32);
+    --elev-3: 0 1px 0 rgb(255 255 255 / 0.04), 0 26px 56px -28px rgb(110 130 210 / 0.42);
+    --glow-accent: 0 10px 28px -12px rgb(130 148 216 / 0.5);
+    --vignette: rgb(0 0 0 / 0.4);
+    --motif-opacity: 0.06;
 
     --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
     --role-noun: #7db0e6;        --role-noun-bg: #152436;
@@ -115,31 +115,31 @@
 }
 
 :root[data-theme='dark'] {
-  /* Midnight & starlight — the flagship */
+  /* Midnight, calm: muted periwinkle (owner-approved retune) */
   --paper: 5 7 14;               /* #05070e page */
-  --surface: 12 18 32;           /* #0c1220 resting card */
-  --surface-2: 34 46 78;         /* recessed fills, tracks */
-  --surface-raised: 20 29 51;    /* #141d33 raised card */
-  --ink: 233 237 251;            /* #e9edfb */
-  --muted: 149 160 195;          /* #95a0c3 */
-  --line: 32 40 60;              /* rgba(160,182,236,.14) over the surfaces */
-  --line-strong: 56 67 95;       /* rgba(160,182,236,.3) over the surfaces */
-  --border: rgb(160 182 236 / 0.14);
-  --border-strong: rgb(160 182 236 / 0.3);
-  --hero-bg: radial-gradient(130% 100% at 50% -16%, #1b2f66 0%, #0a1026 38%, #05070e 76%);
-  --accent: 162 184 255;         /* #a2b8ff starlight periwinkle */
-  --accent-bright: 205 216 255;  /* #cdd8ff */
-  --accent-soft: 120 142 230;
-  --on-accent: 10 15 32;         /* #0a0f20 text on accent fills */
+  --surface: 11 17 31;           /* #0b111f resting card */
+  --surface-2: 24 32 54;         /* recessed fills, tracks */
+  --surface-raised: 18 26 46;    /* #121a2e raised card */
+  --ink: 232 236 248;            /* #e8ecf8 */
+  --muted: 150 160 192;          /* #96a0c0 */
+  --line: 24 31 47;              /* rgba(150,168,214,.09) over the surfaces */
+  --line-strong: 33 41 60;       /* rgba(150,168,214,.16) over the surfaces */
+  --border: rgb(150 168 214 / 0.09);
+  --border-strong: rgb(150 168 214 / 0.16);
+  --hero-bg: radial-gradient(60% 46% at 50% 38%, rgb(70 88 160 / 0.22) 0%, rgb(5 7 14 / 0) 72%), linear-gradient(180deg, #070a15 0%, #05070e 100%);
+  --accent: 147 166 230;         /* #93a6e6 muted periwinkle */
+  --accent-bright: 182 196 240;  /* #b6c4f0 */
+  --accent-soft: 127 145 212;    /* #7f91d4 the dimmer accent */
+  --on-accent: 10 15 30;         /* #0a0f1e text on accent fills */
   --emerald: 91 191 156;
 
-  --hl: inset 0 1px 0 rgb(255 255 255 / 0.05);
-  --elev-1: 0 1px 0 rgb(255 255 255 / 0.04), 0 10px 28px -18px rgb(0 0 0 / 0.8);
-  --elev-2: 0 1px 0 rgb(255 255 255 / 0.05), 0 20px 52px -26px rgb(96 126 255 / 0.5);
-  --elev-3: 0 1px 0 rgb(255 255 255 / 0.06), 0 26px 60px -24px rgb(96 126 255 / 0.62);
-  --glow-accent: 0 12px 32px -10px rgb(96 126 255 / 0.65);
-  --vignette: rgb(0 0 0 / 0.45);
-  --motif-opacity: 0.09;
+  --hl: inset 0 1px 0 rgb(255 255 255 / 0.035);
+  --elev-1: 0 1px 0 rgb(255 255 255 / 0.02), 0 10px 28px -20px rgb(0 0 0 / 0.8);
+  --elev-2: 0 1px 0 rgb(255 255 255 / 0.03), 0 22px 50px -30px rgb(110 130 210 / 0.32);
+  --elev-3: 0 1px 0 rgb(255 255 255 / 0.04), 0 26px 56px -28px rgb(110 130 210 / 0.42);
+  --glow-accent: 0 10px 28px -12px rgb(130 148 216 / 0.5);
+  --vignette: rgb(0 0 0 / 0.4);
+  --motif-opacity: 0.06;
 
   --role-verb: #6bcfa8;        --role-verb-bg: #16302a;
   --role-noun: #7db0e6;        --role-noun-bg: #152436;
@@ -180,7 +180,7 @@ body::before {
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(120% 70% at 50% -12%, rgb(var(--accent) / 0.08), transparent 60%),
+    radial-gradient(90% 60% at 50% 40%, rgb(var(--accent) / 0.025), transparent 70%),
     radial-gradient(140% 110% at 50% 35%, transparent 60%, var(--vignette) 100%);
 }
 
@@ -231,7 +231,10 @@ html, #root { overflow-x: clip; }
   white-space: nowrap;
 }
 
-:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 2px; border-radius: 4px; }
+:focus-visible { outline: 2px solid rgb(var(--accent) / 0.8); outline-offset: 3px; border-radius: 10px; }
+/* Smooth in-page scrolling; instant for anyone who prefers less motion. */
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 ::selection { background: color-mix(in srgb, rgb(var(--accent)) 30%, transparent); }
 * { scrollbar-width: thin; scrollbar-color: rgb(var(--line)) transparent; }
 
@@ -290,7 +293,7 @@ html, #root { overflow-x: clip; }
   }
   .card-link:hover {
     transform: translateY(-2px);
-    border-color: rgb(var(--accent) / 0.45);
+    border-color: rgb(var(--accent) / 0.32);
     box-shadow: var(--hl), var(--elev-3);
   }
   .card-link:active { transform: translateY(0); box-shadow: var(--hl), var(--elev-1); }
@@ -312,12 +315,12 @@ html, #root { overflow-x: clip; }
     cursor: pointer;
     user-select: none;
     -webkit-tap-highlight-color: transparent;
-    transition: transform 160ms ease, box-shadow 200ms ease, background-color 200ms ease, border-color 200ms ease,
+    transition: transform 220ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 220ms ease, background-color 200ms ease, border-color 200ms ease,
       color 200ms ease, filter 200ms ease;
   }
   .btn:focus-visible {
     outline: none;
-    box-shadow: 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent));
+    box-shadow: 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent) / 0.75), 0 0 18px -2px rgb(var(--accent) / 0.45);
   }
   .btn:disabled { opacity: 0.45; cursor: default; transform: none; }
   .btn-sm { height: 2rem; padding: 0 0.875rem; font-size: 0.75rem; border-radius: 10px; gap: 0.375rem; }
@@ -329,20 +332,20 @@ html, #root { overflow-x: clip; }
     color: rgb(var(--on-accent));
     background-image: var(--btn-primary-bg);
     border-color: var(--btn-primary-edge);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55), inset 0 -1px 0 rgb(0 0 0 / 0.08), var(--glow-accent);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.42), inset 0 -1px 0 rgb(0 0 0 / 0.06), var(--glow-accent);
   }
   .btn-primary:hover:not(:disabled) {
-    transform: translateY(-2px);
-    filter: brightness(1.06);
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.6), inset 0 -1px 0 rgb(0 0 0 / 0.08), var(--glow-accent-hover);
+    transform: translateY(-1.5px);
+    filter: brightness(1.04);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.5), inset 0 -1px 0 rgb(0 0 0 / 0.08), var(--glow-accent-hover);
   }
   .btn-primary:active:not(:disabled) {
-    transform: translateY(1px);
-    filter: brightness(0.96);
-    box-shadow: inset 0 2px 5px rgb(0 0 0 / 0.28), 0 4px 12px -8px rgb(var(--accent) / 0.6);
+    transform: translateY(0.5px) scale(0.985);
+    filter: brightness(0.97);
+    box-shadow: inset 0 1px 3px rgb(0 0 0 / 0.18), 0 4px 12px -8px rgb(var(--accent) / 0.5);
   }
   .btn-primary:focus-visible {
-    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55), 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent-bright));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.42), 0 0 0 2px rgb(var(--paper)), 0 0 0 4px rgb(var(--accent-bright) / 0.8), 0 0 18px -2px rgb(var(--accent) / 0.5);
   }
 
   /* Secondary (the ghost button): a refined border, a soft accent wash on hover. */
@@ -399,20 +402,20 @@ html, #root { overflow-x: clip; }
 
 /* Primary button colours per theme (dark text on starlight; white on deep periwinkle by day). */
 :root {
-  --btn-primary-bg: linear-gradient(180deg, #4e64d4 0%, #4259cc 55%, #3a4fbd 100%);
-  --btn-primary-edge: rgb(40 56 150 / 0.6);
-  --glow-accent-hover: 0 16px 34px -12px rgb(61 84 196 / 0.6);
+  --btn-primary-bg: linear-gradient(180deg, #5b6fcf, #4d61c4);
+  --btn-primary-edge: rgb(60 78 170 / 0.45);
+  --glow-accent-hover: 0 14px 30px -12px rgb(74 93 192 / 0.5);
 }
 :root[data-theme='dark'] {
-  --btn-primary-bg: linear-gradient(180deg, #d6e0ff 0%, #b2c4ff 48%, #98aefb 100%);
-  --btn-primary-edge: rgb(205 216 255 / 0.65);
-  --glow-accent-hover: 0 18px 42px -10px rgb(110 140 255 / 0.75);
+  --btn-primary-bg: linear-gradient(180deg, #9cafee, #8294d8);
+  --btn-primary-edge: rgb(182 196 240 / 0.35);
+  --glow-accent-hover: 0 16px 36px -12px rgb(130 148 216 / 0.6);
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
-    --btn-primary-bg: linear-gradient(180deg, #d6e0ff 0%, #b2c4ff 48%, #98aefb 100%);
-    --btn-primary-edge: rgb(205 216 255 / 0.65);
-    --glow-accent-hover: 0 18px 42px -10px rgb(110 140 255 / 0.75);
+    --btn-primary-bg: linear-gradient(180deg, #9cafee, #8294d8);
+    --btn-primary-edge: rgb(182 196 240 / 0.35);
+    --glow-accent-hover: 0 16px 36px -12px rgb(130 148 216 / 0.6);
   }
 }
 
@@ -437,14 +440,20 @@ body, header, .card, .card-raised, .seg, .field {
 }
 
 /* Route change: a quiet fade and settle. */
-.route-fade { animation: route-fade 220ms ease-out both; }
+.route-fade { animation: route-fade 320ms cubic-bezier(0.2, 0.75, 0.2, 1) backwards; }
 @keyframes route-fade {
-  from { opacity: 0; transform: translateY(4px); }
+  from { opacity: 0; transform: translateY(6px); }
   to { opacity: 1; transform: none; }
 }
 
 /* Fraunces: light and airy for large headings, a touch firmer for small ones. */
-.font-display { font-weight: 500; font-optical-sizing: auto; }
+.font-display {
+  font-weight: 500;
+  font-optical-sizing: auto;
+  font-kerning: normal;
+  font-variant-ligatures: common-ligatures contextual;
+  font-feature-settings: 'liga' 1, 'calt' 1, 'kern' 1;
+}
 h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spacing: -0.015em; }
 
 /* ----------------------------------------------------------------------------
@@ -455,6 +464,67 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   margin-right: calc(50% - 50vw);
   background: var(--hero-bg);
 }
+/* The hero runs up under the transparent header: one continuous night surface. */
+.hero-under-header {
+  margin-top: calc(-1.5rem - 4rem - env(safe-area-inset-top, 0px));
+  padding-top: calc(4rem + env(safe-area-inset-top, 0px));
+}
+@media (min-width: 640px) {
+  .hero-under-header { margin-top: calc(-2rem - 4rem - env(safe-area-inset-top, 0px)); }
+}
+/* A low, soft bloom behind the wordmark and headline, never a band at the top. */
+.hero-bloom::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 38%;
+  width: min(62rem, 120vw);
+  height: min(34rem, 80vh);
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(var(--hero-bloom)) 0%, rgb(var(--hero-bloom) / 0.4) 45%, transparent 100%);
+  filter: blur(48px);
+  opacity: var(--hero-bloom-opacity);
+  pointer-events: none;
+}
+@media (min-width: 1024px) {
+  .hero-bloom::before { left: 32%; }
+}
+:root { --hero-bloom: 140 160 230; --hero-bloom-opacity: 0.32; }
+:root[data-theme='dark'] { --hero-bloom: 110 128 210; --hero-bloom-opacity: 0.26; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) { --hero-bloom: 110 128 210; --hero-bloom-opacity: 0.26; }
+}
+
+/* The site header: transparent and borderless at the top of the page, a faint
+   veil once the page scrolls (App sets data-scrolled). */
+.site-header {
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background-color 300ms ease, border-color 300ms ease, backdrop-filter 300ms ease;
+}
+.site-header[data-scrolled='hero'] {
+  background-color: rgb(var(--paper) / 0.3);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+.site-header[data-scrolled='past'] {
+  background-color: rgb(var(--paper) / 0.86);
+  border-bottom-color: var(--border);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* Landing entrance: each hero element rises in, one after another (--i sets the order). */
+.rise {
+  animation: rise 760ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+  animation-delay: calc(80ms + var(--i, 0) * 90ms);
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); filter: blur(3px); }
+  to { opacity: 1; transform: none; filter: none; }
+}
 .hero-motif {
   color: rgb(var(--accent));
   opacity: var(--motif-opacity);
@@ -463,13 +533,13 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 }
 .wordmark-glow {
   color: rgb(var(--accent-bright));
-  text-shadow: 0 0 28px rgb(var(--accent) / 0.55), 0 0 4px rgb(var(--accent) / 0.35);
+  text-shadow: 0 0 34px rgb(var(--accent) / 0.38), 0 0 3px rgb(var(--accent) / 0.25);
 }
-:root:not([data-theme='dark']) .wordmark-glow { color: rgb(var(--accent)); text-shadow: 0 0 22px rgb(var(--accent) / 0.2); }
+:root:not([data-theme='dark']) .wordmark-glow { color: rgb(var(--accent)); text-shadow: 0 0 26px rgb(var(--accent) / 0.16); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .wordmark-glow {
     color: rgb(var(--accent-bright));
-    text-shadow: 0 0 28px rgb(var(--accent) / 0.55), 0 0 4px rgb(var(--accent) / 0.35);
+    text-shadow: 0 0 34px rgb(var(--accent) / 0.38), 0 0 3px rgb(var(--accent) / 0.25);
   }
 }
 
@@ -480,6 +550,7 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   pointer-events: none;
   -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 92%);
   mask-image: linear-gradient(to bottom, #000 35%, transparent 92%);
+  opacity: 0.7; /* gentle and dim: the sky sits behind the words */
 }
 .sky-dust {
   background-image:
@@ -523,8 +594,8 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 /* Off screen: everything in the sky holds still (opacity and transform only, all on the compositor). */
 .sky[data-paused] *, .sky[data-paused] { animation-play-state: paused !important; }
 @keyframes twinkle {
-  0% { opacity: 0.35; }
-  100% { opacity: 1; }
+  0% { opacity: 0.3; }
+  100% { opacity: 0.85; }
 }
 /* A few brighter stars, each with a soft halo and its own slow breath. */
 .star-bright {
@@ -533,13 +604,13 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   height: 3px;
   border-radius: 9999px;
   background: rgb(240 244 255);
-  box-shadow: 0 0 6px 1px rgb(205 216 255 / 0.7), 0 0 14px 3px rgb(162 184 255 / 0.25);
+  box-shadow: 0 0 6px 1px rgb(200 210 245 / 0.55), 0 0 14px 3px rgb(147 166 230 / 0.18);
   animation: star-breathe 8s ease-in-out infinite;
 }
 .star-bright.sm { width: 2px; height: 2px; box-shadow: 0 0 5px 1px rgb(205 216 255 / 0.55); }
 @keyframes star-breathe {
-  0%, 100% { opacity: 0.55; transform: scale(0.85); }
-  50% { opacity: 1; transform: scale(1.1); }
+  0%, 100% { opacity: 0.45; transform: scale(0.85); }
+  50% { opacity: 0.9; transform: scale(1.05); }
 }
 /* One shooting star, rarely. */
 .shooting-star {
@@ -561,22 +632,23 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   7% { opacity: 0; transform: rotate(16deg) translateX(280px); }
   100% { opacity: 0; transform: rotate(16deg) translateX(280px); }
 }
-.crescent { filter: drop-shadow(0 0 14px rgb(162 184 255 / 0.45)) drop-shadow(0 0 40px rgb(96 126 255 / 0.25)); }
+.crescent { filter: drop-shadow(0 0 12px rgb(182 196 240 / 0.35)) drop-shadow(0 0 36px rgb(110 128 210 / 0.22)); }
 
 /* Day: no stars; the moon stays, faint, as a daytime moon. */
 :root:not([data-theme='dark']) .night-only { display: none; }
-:root:not([data-theme='dark']) .crescent { opacity: 0.55; filter: drop-shadow(0 0 10px rgb(61 84 196 / 0.2)); }
+:root:not([data-theme='dark']) .crescent { opacity: 0.5; filter: drop-shadow(0 4px 14px rgb(74 93 192 / 0.18)); }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .night-only { display: block; }
   :root:not([data-theme='light']) .crescent {
     opacity: 1;
-    filter: drop-shadow(0 0 14px rgb(162 184 255 / 0.45)) drop-shadow(0 0 40px rgb(96 126 255 / 0.25));
+    filter: drop-shadow(0 0 12px rgb(182 196 240 / 0.35)) drop-shadow(0 0 36px rgb(110 128 210 / 0.22));
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .card-link:hover, .btn:hover, .btn:active { transform: none !important; }
-  .route-fade { animation: none; }
+  .route-fade, .rise, .skeleton, .reciting-glow, .word-bloom::after { animation: none !important; }
+  .rise { opacity: 1; transform: none; filter: none; }
   .sky-twinkle, .sky-twinkle-b, .star-bright { animation: none !important; opacity: 0.8; }
   .shooting-star { display: none; }
 }
@@ -592,3 +664,75 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 @media (prefers-reduced-motion: reduce) {
   .sheet-panel, .sheet-backdrop { animation: none; }
 }
+
+/* ----------------------------------------------------------------------------
+   Premium touches, used with restraint
+---------------------------------------------------------------------------- */
+/* Loading: a slow periwinkle sheen across the placeholder instead of a blink. */
+.skeleton {
+  background-color: rgb(var(--surface) / 0.75);
+  background-image: linear-gradient(100deg, transparent 20%, rgb(var(--accent) / 0.07) 45%, rgb(var(--accent) / 0.11) 50%, rgb(var(--accent) / 0.07) 55%, transparent 80%);
+  background-size: 220% 100%;
+  background-repeat: no-repeat;
+  animation: shimmer 1.8s ease-in-out infinite;
+}
+@keyframes shimmer {
+  from { background-position: 130% 0; }
+  to { background-position: -130% 0; }
+}
+
+/* The āyah being recited: its wash breathes very slowly while the audio plays. */
+.reciting-glow { animation: reciting-glow 3.6s ease-in-out infinite; }
+@keyframes reciting-glow {
+  0%, 100% { box-shadow: 0 0 0 1px rgb(var(--accent) / 0.1), 0 0 28px -10px rgb(var(--accent) / 0.22); }
+  50% { box-shadow: 0 0 0 1px rgb(var(--accent) / 0.18), 0 0 40px -8px rgb(var(--accent) / 0.34); }
+}
+
+/* A tapped word: one soft bloom of light outward from the word, then rest. */
+.word-bloom { position: relative; }
+.word-bloom::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: word-bloom 620ms cubic-bezier(0.2, 0.75, 0.2, 1) both;
+}
+@keyframes word-bloom {
+  from { box-shadow: 0 0 0 0 rgb(var(--accent) / 0.38); }
+  to { box-shadow: 0 0 0 12px rgb(var(--accent) / 0); }
+}
+
+/* Specimen segments: comfortable Arabic leading so harakat and the dagger alef never clip. */
+.seg-chip-ar { line-height: 1.5; padding-top: 0.35em; padding-bottom: 0.15em; }
+
+/* Page titles: a small, low version of the hero bloom, so every page opens on the
+   same soft night surface the landing does. */
+.title-bloom { position: relative; isolation: isolate; }
+.title-bloom::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  left: 50%;
+  top: 55%;
+  width: min(36rem, 110%);
+  height: 70%;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  background: radial-gradient(closest-side, rgb(var(--hero-bloom) / 0.55), transparent);
+  filter: blur(36px);
+  opacity: calc(var(--hero-bloom-opacity) * 0.8);
+  pointer-events: none;
+}
+
+/* The reader toolbar wears the same faint veil as the scrolled header. */
+.reader-toolbar {
+  background-color: rgb(var(--paper) / 0.88);
+  border-bottom: 1px solid var(--border);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* The crescent sits just under the header, clear of the eyebrow on phones. */
+.crescent-pos { top: calc(4.1rem + env(safe-area-inset-top, 0px)); }
+@media (min-width: 640px) { .crescent-pos { top: calc(5.5rem + env(safe-area-inset-top, 0px)); } }
