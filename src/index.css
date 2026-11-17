@@ -59,7 +59,7 @@
   :root:not([data-theme='light']) {
     --paper: 20 17 12;
     --surface: 33 29 22;
-    --surface-2: 43 37 28;
+    --surface-2: 52 45 34;
     --ink: 236 227 207;
     --muted: 184 173 149;
     --line: 50 43 32;
@@ -101,7 +101,7 @@
 :root[data-theme='dark'] {
   --paper: 20 17 12;
   --surface: 33 29 22;
-  --surface-2: 43 37 28;
+  --surface-2: 52 45 34;
   --ink: 236 227 207;
   --muted: 184 173 149;
   --line: 50 43 32;
