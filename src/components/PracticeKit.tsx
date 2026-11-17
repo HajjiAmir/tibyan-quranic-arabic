@@ -10,15 +10,12 @@ export function Segmented<T extends string>({
   onChange: (v: T) => void;
 }) {
   return (
-    <div className="mx-auto flex gap-1 rounded-lg border border-line/70 p-0.5 text-xs">
+    <div className="seg mx-auto text-xs">
       {options.map(([v, label]) => (
         <button
           key={v}
           onClick={() => onChange(v)}
           aria-pressed={value === v}
-          className={`rounded-md px-3 py-1 font-medium transition-colors ${
-            value === v ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink'
-          }`}
         >
           {label}
         </button>

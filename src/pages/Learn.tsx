@@ -54,7 +54,7 @@ export default function Learn() {
   const list = useMemo(() => (index ? index.lemmas.filter((l) => inPool(l, pool)) : []), [index, pool]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index || !m) return <div className="mx-auto h-80 max-w-reading animate-pulse rounded-3xl border border-line bg-surface" />;
+  if (!index || !m) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
 
   const firstNew = list.find((l) => statusOf(l, store) === 'new');
 
@@ -72,7 +72,7 @@ export default function Learn() {
       <div className="flex flex-col items-center gap-2">
         <Link
           to="/learn/practice"
-          className="rounded-xl border border-gold/50 bg-gold/10 px-6 py-2.5 text-sm font-semibold text-gold transition-colors hover:bg-gold/15"
+          className="btn btn-primary btn-lg"
         >
           {m.due > 0 ? `Review ${m.due} due ${m.due === 1 ? 'word' : 'words'}` : 'Practise new words'} →
         </Link>
@@ -101,7 +101,7 @@ export default function Learn() {
           />
         </div>
 
-        <ol className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface">
+        <ol className="flex flex-col overflow-hidden card">
           {list.slice(0, shown).map((l) => (
             <Row
               key={l.id}
@@ -117,7 +117,7 @@ export default function Learn() {
         {shown < list.length && (
           <button
             onClick={() => setShown((n) => n + PAGE)}
-            className="self-center rounded-xl border border-line bg-surface px-5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
+            className="btn btn-secondary self-center font-medium"
           >
             Show {Math.min(PAGE, list.length - shown)} more
           </button>

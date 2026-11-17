@@ -5,7 +5,7 @@ import type { Legend } from '../types';
 export default function GrammarLegend({ legend }: { legend: Legend }) {
   const [open, setOpen] = useState(false);
   return (
-    <section className="rounded-2xl border border-line bg-surface">
+    <section className="card">
       <button
         onClick={() => setOpen((o) => !o)}
         className="flex w-full items-center justify-between gap-2 px-4 py-3 text-left"

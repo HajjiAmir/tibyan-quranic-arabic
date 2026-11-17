@@ -23,7 +23,7 @@ export default function LearnWord() {
   const family = useMemo(() => (index && l?.root ? rootFamily(index, l.root) : []), [index, l]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse rounded-3xl border border-line bg-surface" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
   if (!l)
     return (
       <div className="mx-auto flex max-w-reading flex-col items-center gap-3 pt-10 text-center">
@@ -48,7 +48,7 @@ export default function LearnWord() {
         </h1>
       </header>
 
-      <section className="flex flex-col gap-4 rounded-3xl border border-line bg-surface p-5 sm:p-6">
+      <section className="card-raised flex flex-col gap-4 p-5 sm:p-6">
         <LemmaFacts l={l} />
         <StatusActions l={l} status={statusOf(l, store)} onChange={() => setRev((r) => r + 1)} />
       </section>
@@ -77,7 +77,7 @@ export default function LearnWord() {
               Open the family →
             </Link>
           </div>
-          <ol className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface [&>li]:border-b [&>li]:border-line/60 [&>li:last-child]:border-b-0">
+          <ol className="flex flex-col overflow-hidden card [&>li]:border-b [&>li]:border-line/60 [&>li:last-child]:border-b-0">
             {family.slice(0, 6).map((f) => (
               <li key={f.id}>
                 <LemmaLink l={f} status={statusOf(f, store)} current={f.id === l.id} />

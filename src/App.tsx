@@ -16,11 +16,13 @@ function ThemeButton() {
   return (
     <button
       onClick={cycle}
-      className="flex items-center gap-1.5 rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:text-ink"
+      className="btn btn-sm btn-pill btn-secondary font-medium text-muted hover:text-ink"
       aria-label={`Theme: ${label}`}
       title={`Theme: ${label}`}
     >
-      <span aria-hidden className="text-sm leading-none">{icon}</span>
+      <span aria-hidden className="text-sm leading-none">
+        {icon}
+      </span>
       <span>{label}</span>
     </button>
   );
@@ -39,32 +41,26 @@ export default function App() {
     <div className="min-h-screen">
       <header
         className="sticky top-0 z-20 border-b border-line/80 backdrop-blur-md"
-        style={{ background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)' }}
+        style={{
+          background: 'color-mix(in srgb, rgb(var(--paper)) 86%, transparent)',
+        }}
       >
         <div className="gutter mx-auto flex h-16 max-w-5xl items-center justify-between">
           <Link to="/" className="group flex items-baseline gap-2.5">
-            <span className="ar-title text-[1.6rem] leading-none text-gold">
+            <span className="ar-title text-[1.6rem] leading-none text-gold transition-opacity group-hover:opacity-85">
               تِبيان
             </span>
-            <span className="hidden font-display text-lg font-semibold tracking-tight sm:inline">
-              Tibyān
-            </span>
+            <span className="hidden font-display text-lg font-semibold tracking-tight sm:inline">Tibyān</span>
             <span className="hidden text-xs text-muted md:inline">· Quranic Arabic</span>
           </Link>
           <div className="flex items-center gap-2">
             {onReader && (
-              <Link
-                to="/"
-                className="rounded-full border border-line bg-surface px-3 py-1.5 text-xs font-medium text-muted transition-colors hover:text-ink"
-              >
+              <Link to="/" className="btn btn-sm btn-pill btn-secondary font-medium text-muted hover:text-ink">
                 ← Surahs
               </Link>
             )}
             {!loc.pathname.startsWith('/learn') && (
-              <Link
-                to="/learn"
-                className="rounded-full border border-gold/40 bg-gold/10 px-3 py-1.5 text-xs font-semibold text-gold transition-colors hover:bg-gold/15"
-              >
+              <Link to="/learn" className="btn btn-sm btn-pill btn-secondary">
                 Learn
               </Link>
             )}
@@ -74,16 +70,18 @@ export default function App() {
       </header>
 
       <main className="gutter mx-auto max-w-5xl pb-24 pt-6">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/surah/:id" element={<Reader />} />
-          <Route path="/surah/:id/practice" element={<Practice />} />
-          <Route path="/learn" element={<Learn />} />
-          <Route path="/learn/practice" element={<LearnPractice />} />
-          <Route path="/learn/word/:key" element={<LearnWord />} />
-          <Route path="/learn/roots" element={<RootsIndex />} />
-          <Route path="/learn/root/:root" element={<RootFamily />} />
-        </Routes>
+        <div key={loc.pathname} className="route-fade">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/surah/:id" element={<Reader />} />
+            <Route path="/surah/:id/practice" element={<Practice />} />
+            <Route path="/learn" element={<Learn />} />
+            <Route path="/learn/practice" element={<LearnPractice />} />
+            <Route path="/learn/word/:key" element={<LearnWord />} />
+            <Route path="/learn/roots" element={<RootsIndex />} />
+            <Route path="/learn/root/:root" element={<RootFamily />} />
+          </Routes>
+        </div>
       </main>
     </div>
   );

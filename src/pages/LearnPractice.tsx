@@ -27,7 +27,7 @@ export default function LearnPractice() {
     loadVocab().then(setIndex).catch(() => {});
   }, []);
 
-  if (!index) return <div className="mx-auto h-64 max-w-reading animate-pulse rounded-3xl border border-line bg-surface" />;
+  if (!index) return <div className="mx-auto h-64 max-w-reading animate-pulse card" />;
 
   return (
     <div className="mx-auto flex max-w-reading flex-col gap-5">
@@ -39,15 +39,13 @@ export default function LearnPractice() {
         </Link>
       </div>
 
-      <div className="mx-auto flex gap-1.5 rounded-xl border border-line bg-surface p-1 text-sm">
+      <div className="seg mx-auto text-sm">
         {(['flashcards', 'quiz'] as Mode[]).map((m) => (
           <button
             key={m}
             onClick={() => setMode(m)}
             aria-pressed={mode === m}
-            className={`rounded-lg px-4 py-1.5 font-medium capitalize transition-colors ${
-              mode === m ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink'
-            }`}
+            className="capitalize"
           >
             {m}
           </button>
@@ -102,14 +100,14 @@ function Flashcards({ index, pool }: { index: VocabIndex; pool: Pool }) {
     <div className="flex flex-col gap-4">
       <StatBar known={s.known} learning={s.learning} unseen={s.unseen} />
       {!card ? (
-        <div className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-surface p-10 text-center">
+        <div className="flex flex-col items-center gap-3 card p-10 text-center">
           <p className="font-display text-lg font-semibold">
             {done > 0 ? `Reviewed ${done} ${done === 1 ? 'word' : 'words'}. Well done.` : 'Nothing due right now.'}
           </p>
           <p className="max-w-sm text-sm text-muted">
             Missed words return sooner; words you knew come back later. A new session adds the next most frequent words.
           </p>
-          <button onClick={restart} className="rounded-xl border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold">
+          <button onClick={restart} className="btn btn-primary">
             New session
           </button>
         </div>
@@ -123,14 +121,14 @@ function Flashcards({ index, pool }: { index: VocabIndex; pool: Pool }) {
               #{card.id} · {box ? 'review' : 'new'} · {card.count.toLocaleString()}× in the Qur’an
             </span>
           </div>
-          <div className="rounded-2xl border border-line bg-surface p-5 sm:p-6">
+          <div className="card-raised p-5 sm:p-6">
             <p lang="ar" className="ar mb-2 text-center text-[3.2rem] leading-[1.9]">
               {card.lemma}
             </p>
             {!revealed ? (
               <div className="mt-4 flex flex-col items-center gap-3">
                 <p className="text-sm text-muted">What does it mean? Recall its root and form too.</p>
-                <button onClick={() => setRevealed(true)} className="rounded-xl border border-line bg-surface-2 px-5 py-2.5 text-sm font-medium">
+                <button onClick={() => setRevealed(true)} className="btn btn-secondary">
                   Show answer
                 </button>
               </div>
@@ -192,14 +190,14 @@ function Quiz({ index, pool }: { index: VocabIndex; pool: Pool }) {
   if (!q) {
     const pct = questions.length ? Math.round((score / questions.length) * 100) : 0;
     return (
-      <div className="flex flex-col items-center gap-3 rounded-2xl border border-line bg-surface p-10 text-center">
+      <div className="flex flex-col items-center gap-3 card p-10 text-center">
         <p className="font-display text-3xl font-semibold text-gold">
           {score} / {questions.length}
         </p>
         <p className="text-sm text-muted">
           {pct >= 80 ? 'Excellent work, mashallah.' : pct >= 50 ? 'Good — keep practising.' : 'Keep going, it builds fast.'}
         </p>
-        <button onClick={restart} className="rounded-xl border border-gold/50 bg-gold/10 px-4 py-2 text-sm font-medium text-gold">
+        <button onClick={restart} className="btn btn-primary">
           New quiz
         </button>
       </div>
@@ -214,7 +212,7 @@ function Quiz({ index, pool }: { index: VocabIndex; pool: Pool }) {
         </span>
         <span className="tnum">Score {score}</span>
       </div>
-      <div className="rounded-2xl border border-line bg-surface p-6 text-center">
+      <div className="card-raised p-6 text-center">
         {q.cueArabic ? (
           <p lang="ar" className="ar mb-3 text-[3.2rem] leading-[1.9]">
             {q.cue}
@@ -268,7 +266,7 @@ function Quiz({ index, pool }: { index: VocabIndex; pool: Pool }) {
               setPicked(null);
               setIdx((i) => i + 1);
             }}
-            className="self-center rounded-xl border border-line bg-surface-2 px-6 py-2.5 text-sm font-medium"
+            className="btn btn-secondary self-center"
           >
             {idx + 1 >= questions.length ? 'See results' : 'Next →'}
           </button>

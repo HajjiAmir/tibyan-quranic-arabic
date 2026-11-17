@@ -44,7 +44,7 @@ export function RootFamily() {
   }, [root]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse rounded-3xl border border-line bg-surface" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
   const stats = index.roots[root];
   if (!stats || family.length === 0)
     return (
@@ -78,7 +78,7 @@ export function RootFamily() {
         </p>
       </header>
 
-      <section className="flex flex-col gap-2 rounded-3xl border border-line bg-surface p-5 sm:p-6">
+      <section className="card-raised flex flex-col gap-2 p-5 sm:p-6">
         <h2 className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted">Core sense, through its words</h2>
         {sense.length > 0 ? (
           <ul className="flex flex-wrap gap-1.5">
@@ -99,7 +99,7 @@ export function RootFamily() {
 
       <section className="flex flex-col gap-3">
         <h2 className="font-display text-xl font-semibold tracking-tight">Every word from this root</h2>
-        <ol className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface [&>li]:border-b [&>li]:border-line/60 [&>li:last-child]:border-b-0">
+        <ol className="flex flex-col overflow-hidden card [&>li]:border-b [&>li]:border-line/60 [&>li:last-child]:border-b-0">
           {family.map((l) => (
             <li key={l.id}>
               <LemmaLink l={l} status={statusOf(l, store)} />
@@ -137,7 +137,7 @@ export function RootsIndex() {
   }, [q]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
-  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse rounded-3xl border border-line bg-surface" />;
+  if (!index) return <div className="mx-auto h-80 max-w-reading animate-pulse card" />;
 
   return (
     <div className="mx-auto flex max-w-reading flex-col gap-6">
@@ -162,11 +162,11 @@ export function RootsIndex() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="ع ل م"
-          className="ar-naskh rounded-xl border border-line bg-surface px-4 py-2 text-xl outline-none focus:border-gold/60"
+          className="field ar-naskh px-4 py-2 text-xl"
         />
       </label>
 
-      <ol className="flex flex-col overflow-hidden rounded-2xl border border-line bg-surface">
+      <ol className="flex flex-col overflow-hidden card">
         {rows.slice(0, shown).map((r) => (
           <li key={r.root} className="border-b border-line/60 last:border-b-0">
             <Link
@@ -194,7 +194,7 @@ export function RootsIndex() {
       {shown < rows.length && (
         <button
           onClick={() => setShown((n) => n + PAGE)}
-          className="self-center rounded-xl border border-line bg-surface px-5 py-2 text-sm font-medium text-muted transition-colors hover:text-ink"
+          className="btn btn-secondary self-center font-medium"
         >
           Show {Math.min(PAGE, rows.length - shown)} more
         </button>
@@ -224,7 +224,7 @@ export function RootsPreview({ index }: { index: VocabIndex }) {
             <li key={r}>
               <Link
                 to={rootPath(r)}
-                className="flex h-full flex-col gap-0.5 rounded-2xl border border-line bg-surface px-3.5 py-3 transition-colors hover:border-gold/50"
+                className="card card-link flex h-full flex-col gap-0.5 px-3.5 py-3"
               >
                 <span lang="ar" className="ar-naskh text-[1.5rem] leading-[1.5] text-gold">
                   {spaced(r)}

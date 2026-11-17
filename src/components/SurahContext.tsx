@@ -156,7 +156,7 @@ export default function SurahContext({ surahId }: { surahId: number }) {
 
   return (
     <section aria-label="Context and virtues" className="mb-6">
-      <div className="overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_1px_2px_rgb(0_0_0/0.04)]">
+      <div className="overflow-hidden card">
         <button
           onClick={() => setOpen((o) => !o)}
           aria-expanded={open}

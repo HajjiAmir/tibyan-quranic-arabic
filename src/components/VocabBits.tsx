@@ -192,7 +192,7 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
     at: words.slice(0, n).reduce((t, l) => t + l.count, 0) / index.totals.words,
   }));
   return (
-    <section className="flex flex-col gap-5 rounded-3xl border border-line bg-surface p-5 shadow-[0_1px_2px_rgb(0_0_0/0.04)] sm:p-7">
+    <section className="flex flex-col gap-5 card-raised p-5 sm:p-7">
       <div className="flex flex-col items-center gap-5 sm:flex-row sm:gap-7">
         <div className="relative">
           <Ring value={m.coverage} />
@@ -265,7 +265,7 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
 
 function Tile({ label, value, sub }: { label: string; value: number; sub: string }) {
   return (
-    <div className="flex flex-col gap-0.5 rounded-2xl border border-line/70 bg-paper/50 px-3.5 py-3">
+    <div className="flex flex-col gap-0.5 rounded-xl border border-line/70 bg-paper/50 px-3.5 py-3">
       <dt className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">{label}</dt>
       <dd className="tnum font-display text-2xl font-semibold leading-tight">{value.toLocaleString()}</dd>
       <dd className="text-[11px] text-muted">{sub}</dd>
@@ -283,12 +283,12 @@ export function StatusActions({ l, status, onChange }: { l: Lemma; status: Statu
             markKnown(l);
             onChange();
           }}
-          className="rounded-lg border border-emerald/60 bg-emerald/10 px-3 py-1.5 text-xs font-semibold text-emerald"
+          className="btn btn-sm border-emerald/60 bg-emerald/10 text-emerald hover:bg-emerald/15"
         >
           I know this {isAttached(l) ? 'form' : 'word'}
         </button>
       ) : (
-        <span className="rounded-lg bg-emerald/10 px-3 py-1.5 text-xs font-semibold text-emerald">Known ✓</span>
+        <span className="inline-flex h-8 items-center rounded-[10px] bg-emerald/10 px-3.5 text-xs font-semibold text-emerald">Known ✓</span>
       )}
       {status !== 'new' && (
         <button
@@ -296,7 +296,7 @@ export function StatusActions({ l, status, onChange }: { l: Lemma; status: Statu
             forget(l);
             onChange();
           }}
-          className="rounded-lg border border-line px-3 py-1.5 text-xs font-medium text-muted hover:text-ink"
+          className="btn btn-sm btn-ghost border-line font-medium"
         >
           Reset
         </button>

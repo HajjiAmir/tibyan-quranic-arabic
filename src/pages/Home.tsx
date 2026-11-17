@@ -4,6 +4,7 @@ import { loadIndex, loadLegend } from '../lib/data';
 import { surahStudiedCount, totalStudied } from '../lib/progress';
 import type { Legend, SurahMeta } from '../types';
 import GrammarLegend from '../components/GrammarLegend';
+import HeroMotif from '../components/HeroMotif';
 import { loadVocab, mastery, type Mastery } from '../lib/vocab';
 
 type Filter = 'all' | 'meccan' | 'medinan';
@@ -15,11 +16,18 @@ export default function Home() {
   const [filter, setFilter] = useState<Filter>('all');
   const [err, setErr] = useState<string | null>(null);
   const [vocab, setVocab] = useState<Mastery | null>(null);
+  const [words, setWords] = useState<number | null>(null);
+  const studied = useMemo(() => totalStudied(), []);
 
   useEffect(() => {
     loadIndex().then(setIndex).catch((e) => setErr(String(e)));
     loadLegend().then(setLegend).catch(() => {});
-    loadVocab().then((v) => setVocab(mastery(v))).catch(() => {});
+    loadVocab()
+      .then((v) => {
+        setVocab(mastery(v));
+        setWords(v.totals.words);
+      })
+      .catch(() => {});
   }, []);
 
   const filtered = useMemo(() => {
@@ -41,20 +49,45 @@ export default function Home() {
 
   return (
     <div className="flex flex-col gap-8">
-      <section className="flex flex-col items-center gap-4 pb-2 pt-10 text-center sm:pt-14">
-        <span className="ar-title text-[2.6rem] leading-none text-gold sm:text-5xl">تِبْيَان</span>
-        <h1 className="max-w-reading font-display text-[2rem] font-semibold leading-tight tracking-tight text-balance sm:text-[2.6rem]">
+      <section className="relative isolate -mx-4 -mt-6 flex flex-col items-center overflow-hidden px-4 pb-10 pt-14 text-center sm:pb-12 sm:pt-20">
+        <div aria-hidden className="hero-glow pointer-events-none absolute inset-0 -z-10" />
+        <HeroMotif className="-z-10" />
+
+        <span lang="ar" className="ar-title text-[3.1rem] leading-[1.25] text-gold sm:text-[3.9rem]">
+          تِبْيَان
+        </span>
+        <span aria-hidden className="mb-4 mt-1 flex items-center gap-2.5">
+          <span className="h-px w-10 bg-gradient-to-l from-gold/60 to-transparent" />
+          <span className="h-1.5 w-1.5 rotate-45 border border-gold/70" />
+          <span className="h-px w-10 bg-gradient-to-r from-gold/60 to-transparent" />
+        </span>
+        <h1 className="max-w-reading font-display text-[2.05rem] font-semibold leading-[1.12] text-balance sm:text-[2.9rem]">
           Understand every word of the Qur&rsquo;an
         </h1>
-        <p className="max-w-[38rem] text-[0.95rem] leading-7 text-muted text-pretty">
+        <p className="mt-4 max-w-[38rem] text-[0.95rem] leading-7 text-muted text-pretty">
           Tap any word to see its meaning, grammar, root and form — colour-coded by its role in
           the sentence — with optional tajweed highlighting. Built on the Quranic Arabic Corpus,
           the Tanzil Uthmani text and the Saheeh International translation.
         </p>
-        {index && (
-          <p className="tnum text-[11px] uppercase tracking-[0.14em] text-muted">
-            114 surahs · {index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString()} verses ·{' '}
-            {totalStudied()} verses studied
+
+        <div className="mt-7 flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
+          <Link to="/surah/1" className="btn btn-primary btn-lg w-full sm:w-auto">
+            Begin with Al-Fātiḥa
+            <span aria-hidden>→</span>
+          </Link>
+          <Link to="/learn" className="btn btn-secondary btn-lg w-full sm:w-auto">
+            Learn the vocabulary
+          </Link>
+        </div>
+
+        <dl className="tnum mt-9 flex items-stretch justify-center divide-x divide-line">
+          <Stat value="114" label="Surahs" />
+          <Stat value={index ? index.reduce((n, s) => n + s.totalVerses, 0).toLocaleString() : '—'} label="Verses" />
+          <Stat value={words ? words.toLocaleString() : '—'} label="Words" />
+        </dl>
+        {studied > 0 && (
+          <p className="tnum mt-3 text-xs text-muted">
+            <span className="font-semibold text-gold">{studied.toLocaleString()}</span> verses studied so far
           </p>
         )}
       </section>
@@ -62,9 +95,9 @@ export default function Home() {
       {vocab && (
         <Link
           to="/learn"
-          className="group flex items-center gap-4 rounded-2xl border border-line bg-surface px-5 py-4 transition-colors hover:border-gold/50"
+          className="card card-link group flex items-center gap-4 px-5 py-4"
         >
-          <span className="tnum flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold/40 font-display text-[0.95rem] font-semibold text-gold">
+          <span className="tnum flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-gold/40 bg-gold/[0.06] font-display text-[0.95rem] font-semibold text-gold">
             {vocab.coverage === 0 ? '0' : (vocab.coverage * 100).toFixed(vocab.coverage < 0.1 ? 1 : 0)}%
           </span>
           <span className="flex min-w-0 flex-1 flex-col gap-0.5">
@@ -88,16 +121,15 @@ export default function Home() {
             value={q}
             onChange={(e) => setQ(e.target.value)}
             placeholder="Search a surah by name or number…"
-            className="w-full rounded-xl border border-line bg-surface px-4 py-2.5 text-sm outline-none transition-colors placeholder:text-muted/70 focus:border-gold sm:max-w-sm"
+            className="field w-full px-4 py-2.5 text-sm placeholder:text-muted/80 sm:max-w-sm"
           />
-          <div className="flex gap-1.5 rounded-xl border border-line bg-surface p-1 text-xs">
+          <div className="seg self-start text-xs sm:self-auto">
             {(['all', 'meccan', 'medinan'] as Filter[]).map((f) => (
               <button
                 key={f}
                 onClick={() => setFilter(f)}
-                className={`rounded-lg px-3 py-1.5 font-medium capitalize transition-colors ${
-                  filter === f ? 'bg-surface-2 text-ink' : 'text-muted hover:text-ink'
-                }`}
+                aria-pressed={filter === f}
+                className="capitalize"
               >
                 {f}
               </button>
@@ -129,12 +161,12 @@ function SurahCard({ s }: { s: SurahMeta }) {
     <li>
       <Link
         to={`/surah/${s.id}`}
-        className="group relative flex items-center gap-4 overflow-hidden rounded-2xl border border-line/80 bg-surface px-4 py-3.5 transition-[border-color,box-shadow,transform] duration-200 hover:-translate-y-px hover:border-gold/40 hover:shadow-[0_6px_20px_-12px_rgb(var(--ink)/0.25)]"
+        className="card card-link group relative flex items-center gap-4 overflow-hidden px-4 py-3.5"
       >
         <div className="relative flex h-10 w-10 shrink-0 items-center justify-center">
           <span
             aria-hidden
-            className="absolute inset-[5px] rotate-45 rounded-[5px] border border-gold/35 transition-colors group-hover:border-gold/70"
+            className="absolute inset-[6px] rotate-45 rounded-[4px] border border-gold/45 transition-colors duration-200 group-hover:border-gold/80 group-hover:bg-gold/10"
           />
           <span className="tnum relative font-display text-[0.8rem] font-semibold text-gold">{s.id}</span>
         </div>
@@ -164,8 +196,17 @@ function SkeletonGrid() {
   return (
     <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
       {Array.from({ length: 9 }).map((_, i) => (
-        <li key={i} className="h-[74px] animate-pulse rounded-2xl bg-surface/70" />
+        <li key={i} className="h-[74px] animate-pulse rounded-[18px] bg-surface/70" />
       ))}
     </ul>
+  );
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div className="flex flex-col-reverse items-center gap-1.5 px-4 sm:px-7">
+      <dt className="text-[10.5px] font-medium uppercase tracking-[0.16em] text-muted">{label}</dt>
+      <dd className="font-display text-[1.45rem] font-semibold leading-none text-gold sm:text-[1.65rem]">{value}</dd>
+    </div>
   );
 }
