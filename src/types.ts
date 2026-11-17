@@ -79,6 +79,23 @@ export interface TajweedInfo {
 
 export type TajweedLegend = Record<TajweedRule, TajweedInfo>;
 
+/** The teaching legend (public/data/tajweed-guide.json, scripts/build-tajweed-guide.mjs). */
+export interface TajweedGuideEntry {
+  label: string;
+  arabic: string;
+  group: TajweedGroup;
+  what: string;
+  how: string;
+  sources: string[];
+  count: number;
+  example: { surah: number; verse: number; text: string; marks: [number, number][]; words: number } | null;
+}
+export interface TajweedGuide {
+  note: string;
+  sources: Record<string, { title: string; url: string }>;
+  rules: Partial<Record<TajweedRule, TajweedGuideEntry>>;
+}
+
 export interface SurahMeta {
   id: number;
   name: string;

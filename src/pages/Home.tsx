@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { Link } from 'react-router-dom';
-import { loadIndex, loadLegend } from '../lib/data';
+import { loadContextSummary, loadIndex, loadLegend, type ContextSummary } from '../lib/data';
 import { surahStudiedCount, totalStudied } from '../lib/progress';
 import type { Legend, SurahMeta } from '../types';
 import GrammarLegend from '../components/GrammarLegend';
@@ -22,11 +22,13 @@ export default function Home() {
   const [err, setErr] = useState<string | null>(null);
   const [vocab, setVocab] = useState<Mastery | null>(null);
   const [words, setWords] = useState<number | null>(null);
+  const [depth, setDepth] = useState<ContextSummary | null>(null);
   const studied = useMemo(() => totalStudied(), []);
 
   useEffect(() => {
     loadIndex().then(setIndex).catch((e) => setErr(String(e)));
     loadLegend().then(setLegend).catch(() => {});
+    loadContextSummary().then(setDepth).catch(() => {});
     loadVocab()
       .then((v) => {
         setVocab(mastery(v));
@@ -143,6 +145,19 @@ export default function Home() {
       {legend && <GrammarLegend legend={legend} />}
 
       <section className="flex flex-col gap-4">
+        <p className="flex items-start gap-2.5 rounded-xl border border-line bg-surface/50 px-4 py-3 text-[0.85rem] leading-relaxed text-muted">
+          <span aria-hidden className="mt-0.5 text-accent">
+            <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 6.5C10.3 5.2 7.9 4.5 4.5 4.5v13c3.4 0 5.8.7 7.5 2 1.7-1.3 4.1-2 7.5-2v-13c-3.4 0-5.8.7-7.5 2Z" />
+              <path d="M12 6.5v13" />
+            </svg>
+          </span>
+          <span>
+            Every surah opens with its <span className="font-medium text-ink">Context &amp; Tafsir</span>, and with{' '}
+            <span className="font-medium text-ink">Virtues &amp; Hadith</span> where graded narrations exist (marked on the
+            card).
+          </span>
+        </p>
         <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <input
             id="surah-search"
@@ -170,7 +185,7 @@ export default function Home() {
         ) : (
           <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
             {filtered.map((s) => (
-              <SurahCard key={s.id} s={s} />
+              <SurahCard key={s.id} s={s} depth={depth?.[s.id]} />
             ))}
           </ul>
         )}
@@ -182,7 +197,8 @@ export default function Home() {
   );
 }
 
-function SurahCard({ s }: { s: SurahMeta }) {
+function SurahCard({ s, depth }: { s: SurahMeta; depth?: ContextSummary[string] }) {
+  const narrations = depth ? depth.virtues + depth.practice : 0;
   const studied = surahStudiedCount(s.id);
   const pct = Math.round((studied / s.totalVerses) * 100);
   return (
@@ -209,6 +225,18 @@ function SurahCard({ s }: { s: SurahMeta }) {
               {s.type} · {s.totalVerses}
             </span>
           </div>
+          {depth && (
+            <div className="mt-2 flex flex-wrap gap-1.5 text-[10.5px] font-medium">
+              {depth.tafsir && (
+                <span className="rounded-full border border-line px-2 py-0.5 text-muted">Context &amp; Tafsir</span>
+              )}
+              {narrations > 0 && (
+                <span className="tnum rounded-full border border-accent/30 bg-accent/[0.07] px-2 py-0.5 text-accent">
+                  {narrations} hadith
+                </span>
+              )}
+            </div>
+          )}
           {studied > 0 && (
             <div className="mt-2 h-1 overflow-hidden rounded-full bg-surface-2">
               <div className="h-full rounded-full bg-emerald" style={{ width: `${pct}%` }} />

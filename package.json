@@ -9,8 +9,9 @@
     "build": "tsc -b && vite build",
     "fetch:data": "node scripts/fetch-raw.mjs",
     "build:data": "node scripts/build-data.mjs",
-    "build:context": "node scripts/build-context.mjs",
+    "build:context": "node scripts/build-context.mjs && node scripts/build-context-summary.mjs",
     "build:vocab": "node scripts/build-vocab.mjs",
+    "build:tajweed-guide": "node scripts/build-tajweed-guide.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

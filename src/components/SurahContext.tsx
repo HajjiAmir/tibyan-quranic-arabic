@@ -2,8 +2,9 @@ import { useEffect, useId, useState, type ReactNode } from 'react';
 import { loadContext } from '../lib/data';
 import type { ContextQuote, SurahContext as Ctx, VirtueNarration } from '../types';
 
-// Per-surah "Context & Virtues": a short sourced background, then any virtue
-// narrations that met the grading rule. Everything shown is built from cited
+// Per-surah "Context & Tafsir" and "Virtues & Hadith": two labelled entries under
+// the surah title, each opening its own section. A short sourced background, and
+// any narrations that met the grading rule. Everything shown is built from cited
 // sources by scripts/build-context.mjs; until the owner's reviewer signs off
 // the data says review.status = 'pending' and this section stays behind a
 // visible draft banner.
@@ -129,10 +130,112 @@ function Narration({ v, draft }: { v: VirtueNarration; draft: boolean }) {
   );
 }
 
+type Part = 'tafsir' | 'hadith';
+const PARTS_KEY = 'tibyan.context.v2';
+const readParts = (): Record<Part, boolean> => {
+  try {
+    const v = JSON.parse(localStorage.getItem(PARTS_KEY) ?? 'null');
+    if (v && typeof v === 'object') return { tafsir: !!v.tafsir, hadith: !!v.hadith };
+    // carry over the old single panel's state
+    const old = readOpen();
+    return { tafsir: old, hadith: old };
+  } catch {
+    return { tafsir: false, hadith: false };
+  }
+};
+
+function BookIcon() {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 6.5C10.3 5.2 7.9 4.5 4.5 4.5v13c3.4 0 5.8.7 7.5 2 1.7-1.3 4.1-2 7.5-2v-13c-3.4 0-5.8.7-7.5 2Z" />
+      <path d="M12 6.5v13" />
+    </svg>
+  );
+}
+function ScrollIcon() {
+  return (
+    <svg aria-hidden viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M7 4.5h10.5a2 2 0 0 1 2 2v0a2 2 0 0 1-2 2H17" />
+      <path d="M7 4.5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8.5a2 2 0 0 0 2-2V8.5" />
+      <path d="M8.5 10.5h6M8.5 13.5h6M8.5 16.5h4" />
+    </svg>
+  );
+}
+
+function Chevron({ open }: { open: boolean }) {
+  return (
+    <svg
+      aria-hidden
+      viewBox="0 0 20 20"
+      className={`h-4 w-4 shrink-0 transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="m5 7.5 5 5 5-5" />
+    </svg>
+  );
+}
+
+/** One of the two labelled ways in, shown under every surah's title. */
+function Entry({
+  icon,
+  title,
+  detail,
+  open,
+  onClick,
+  controls,
+}: {
+  icon: ReactNode;
+  title: string;
+  detail: string;
+  open: boolean;
+  onClick: () => void;
+  controls: string;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      aria-expanded={open}
+      aria-controls={controls}
+      className={`card card-link flex w-full items-center gap-3.5 px-4 py-3.5 text-left ${
+        open ? 'border-accent/40 bg-accent/[0.06]' : ''
+      }`}
+    >
+      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent/10 text-accent">{icon}</span>
+      <span className="flex min-w-0 flex-1 flex-col gap-0.5">
+        <span className="font-display text-[1.02rem] font-semibold tracking-tight">{title}</span>
+        <span className="text-xs leading-snug text-muted">{detail}</span>
+      </span>
+      <span className="flex shrink-0 items-center gap-1 text-xs font-medium text-accent">
+        {open ? 'Close' : 'Open'}
+        <Chevron open={open} />
+      </span>
+    </button>
+  );
+}
+
+function Panel({ id, title, onClose, children }: { id: string; title: string; onClose: () => void; children: ReactNode }) {
+  return (
+    <div id={id} className="card flex flex-col gap-5 px-4 pb-5 pt-4 sm:px-5" role="region" aria-label={title}>
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="font-display text-xl font-semibold tracking-tight">{title}</h3>
+        <button onClick={onClose} className="btn btn-sm btn-ghost">
+          Close
+        </button>
+      </div>
+      {children}
+    </div>
+  );
+}
+
 export default function SurahContext({ surahId }: { surahId: number }) {
   const [ctx, setCtx] = useState<Ctx | null>(null);
-  const [open, setOpen] = useState(readOpen);
-  const panelId = useId();
+  const [parts, setParts] = useState(readParts);
+  const tafsirId = useId();
+  const hadithId = useId();
 
   useEffect(() => {
     setCtx(null);
@@ -141,115 +244,118 @@ export default function SurahContext({ surahId }: { surahId: number }) {
 
   useEffect(() => {
     try {
-      localStorage.setItem(OPEN_KEY, JSON.stringify(open));
+      localStorage.setItem(PARTS_KEY, JSON.stringify(parts));
     } catch {
       /* not remembered */
     }
-  }, [open]);
+  }, [parts]);
 
-  if (!ctx) return null;
+  if (!ctx) return <div aria-hidden className="mb-6 grid gap-3 sm:grid-cols-2"><div className="skeleton h-[72px] rounded-[18px]" /><div className="skeleton h-[72px] rounded-[18px]" /></div>;
   const draft = ctx.review.status !== 'approved';
   const { revelation, period, theme } = ctx.context;
   const virtues = ctx.virtues.filter((v) => v.kind === 'virtue');
   const practice = ctx.virtues.filter((v) => v.kind === 'practice');
-  const count = ctx.virtues.length;
+  const toggle = (p: Part) => setParts((o) => ({ ...o, [p]: !o[p] }));
+
+  const hadithDetail =
+    virtues.length + practice.length === 0
+      ? 'No authentic narration on this surah’s virtues'
+      : [
+          virtues.length && `${virtues.length} on its virtues`,
+          practice.length && `${practice.length} on its recitation`,
+        ]
+          .filter(Boolean)
+          .join(' · ') + ' · graded';
 
   return (
-    <section aria-label="Context and virtues" className="mb-6">
-      <div className="overflow-hidden card">
-        <button
-          onClick={() => setOpen((o) => !o)}
-          aria-expanded={open}
-          aria-controls={panelId}
-          className="flex w-full items-center gap-3 px-4 py-3 text-left transition-colors hover:bg-surface-2/40 sm:px-5"
-        >
-          <div className="flex min-w-0 flex-1 flex-col gap-0.5">
-            <span className="flex flex-wrap items-center gap-2">
-              <span className="font-display text-[1.02rem] font-semibold tracking-tight">Context &amp; Virtues</span>
-              {draft && <DraftPill />}
-            </span>
-            <span className="tnum truncate text-xs text-muted">
-              {revelation.type === 'meccan' ? 'Meccan' : 'Medinan'} · {ordinal(revelation.order)} revealed ·{' '}
-              {count === 0 ? 'no graded narration' : `${count} narration${count === 1 ? '' : 's'}`}
-            </span>
-          </div>
-          <svg
-            aria-hidden
-            viewBox="0 0 20 20"
-            className={`h-4 w-4 shrink-0 text-muted transition-transform duration-200 ${open ? 'rotate-180' : ''}`}
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="1.8"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="m5 7.5 5 5 5-5" />
-          </svg>
-        </button>
+    <section aria-label="Context and tafsir, virtues and hadith" className="mb-6 flex flex-col gap-3">
+      <div className="grid gap-3 sm:grid-cols-2">
+        <Entry
+          icon={<BookIcon />}
+          title="Context & Tafsir"
+          detail={`${revelation.type === 'meccan' ? 'Meccan' : 'Medinan'} · ${ordinal(revelation.order)} revealed · background from Tafhīm al-Qurʾān`}
+          open={parts.tafsir}
+          onClick={() => toggle('tafsir')}
+          controls={tafsirId}
+        />
+        <Entry
+          icon={<ScrollIcon />}
+          title="Virtues & Hadith"
+          detail={hadithDetail}
+          open={parts.hadith}
+          onClick={() => toggle('hadith')}
+          controls={hadithId}
+        />
+      </div>
 
-        {open && (
-          <div id={panelId} className="flex flex-col gap-6 border-t border-line/70 px-4 pb-5 pt-4 sm:px-5">
-            {draft && <DraftBanner />}
+      {draft && (parts.tafsir || parts.hadith) && (
+        <div className="flex flex-col gap-2">
+          <DraftPill />
+          <DraftBanner />
+        </div>
+      )}
 
-            <div className="flex flex-col gap-4">
-              <h3 className="font-display text-lg font-semibold tracking-tight">Context</h3>
-              <dl className="flex flex-wrap gap-2 text-xs">
-                <div className="rounded-full border border-line bg-paper/60 px-3 py-1">
-                  <dt className="sr-only">Revealed in</dt>
-                  <dd className="font-medium">{revelation.type === 'meccan' ? 'Meccan' : 'Medinan'}</dd>
-                </div>
-                <div className="rounded-full border border-line bg-paper/60 px-3 py-1">
-                  <dt className="sr-only">Order of revelation</dt>
-                  <dd className="tnum font-medium">{ordinal(revelation.order)} of 114 in order of revelation</dd>
-                </div>
-              </dl>
-              {period && <Quote label="Period of revelation" q={period} />}
-              {theme && <Quote label="Theme" q={theme} />}
-              <p className="text-xs leading-relaxed text-muted">
-                Classification and order: <External href={revelation.source.url}>Tanzil Quran metadata</External>
-                {(period ?? theme) && (
-                  <>
-                    . Quoted from the introduction in Sayyid Abul Aʿlā Mawdūdī’s <i>Tafhīm al-Qurʾān</i>, via{' '}
-                    <External href={(period ?? theme)!.source.url}>Quran.com</External>
-                  </>
-                )}
-                . Scholars differ on the classification of some surahs.
-              </p>
+      {parts.tafsir && (
+        <Panel id={tafsirId} title="Context & Tafsir" onClose={() => toggle('tafsir')}>
+          <dl className="flex flex-wrap gap-2 text-xs">
+            <div className="rounded-full border border-line bg-paper/60 px-3 py-1">
+              <dt className="sr-only">Revealed in</dt>
+              <dd className="font-medium">{revelation.type === 'meccan' ? 'Meccan' : 'Medinan'}</dd>
             </div>
+            <div className="rounded-full border border-line bg-paper/60 px-3 py-1">
+              <dt className="sr-only">Order of revelation</dt>
+              <dd className="tnum font-medium">{ordinal(revelation.order)} of 114 in order of revelation</dd>
+            </div>
+          </dl>
+          {period && <Quote label="Period of revelation" q={period} />}
+          {theme && <Quote label="Theme" q={theme} />}
+          <p className="border-t border-line/60 pt-3 text-xs leading-relaxed text-muted">
+            Classification and order: <External href={revelation.source.url}>Tanzil Quran metadata</External>
+            {(period ?? theme) && (
+              <>
+                . Quoted from the introduction in Sayyid Abul Aʿlā Mawdūdī’s <i>Tafhīm al-Qurʾān</i>, via{' '}
+                <External href={(period ?? theme)!.source.url}>Quran.com</External>
+              </>
+            )}
+            . Scholars differ on the classification of some surahs.
+          </p>
+        </Panel>
+      )}
 
+      {parts.hadith && (
+        <Panel id={hadithId} title="Virtues & Hadith" onClose={() => toggle('hadith')}>
+          <div className="flex flex-col gap-3">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">On its virtues</h4>
+            {virtues.length === 0 && (
+              <p className="text-[0.9rem] leading-relaxed text-muted">
+                No narration about a particular virtue of this surah met the standard used here (ṣaḥīḥ or ḥasan, graded
+                by a named authority). That is expected: for most surahs no authentic narration of this kind exists, and
+                many that circulate are weak or fabricated.
+              </p>
+            )}
+            {virtues.map((v) => (
+              <Narration key={v.id} v={v} draft={draft} />
+            ))}
+          </div>
+
+          {practice.length > 0 && (
             <div className="flex flex-col gap-3">
-              <h3 className="font-display text-lg font-semibold tracking-tight">Virtues</h3>
-              {virtues.length === 0 && (
-                <p className="text-[0.9rem] leading-relaxed text-muted">
-                  No narration about a particular virtue of this surah met the standard used here (ṣaḥīḥ or ḥasan, graded
-                  by a named authority). That is expected: for most surahs no authentic narration of this kind exists, and
-                  many that circulate are weak or fabricated.
-                </p>
-              )}
-              {virtues.map((v) => (
+              <h4 className="text-[11px] font-semibold uppercase tracking-[0.14em] text-muted">How the Prophet ﷺ recited it</h4>
+              {practice.map((v) => (
                 <Narration key={v.id} v={v} draft={draft} />
               ))}
             </div>
+          )}
 
-            {practice.length > 0 && (
-              <div className="flex flex-col gap-3">
-                <h3 className="font-display text-lg font-semibold tracking-tight">How the Prophet ﷺ recited it</h3>
-                {practice.map((v) => (
-                  <Narration key={v.id} v={v} draft={draft} />
-                ))}
-              </div>
-            )}
-
-            <p className="border-t border-line/60 pt-3 text-xs leading-relaxed text-muted">
-              Narrations are chosen from{' '}
-              <External href="https://sunnah.com/virtues">Special Virtues of the Qur’an’s Chapters and Verses</External>{' '}
-              (compiled by Shaykh Suleiman Hani, on sunnah.com). Wording and gradings are copied from each narration’s
-              sunnah.com page, and cross-checked with <External href="https://hadeethenc.com">HadeethEnc</External> where
-              it has the same hadith.
-            </p>
-          </div>
-        )}
-      </div>
+          <p className="border-t border-line/60 pt-3 text-xs leading-relaxed text-muted">
+            Narrations are chosen from{' '}
+            <External href="https://sunnah.com/virtues">Special Virtues of the Qur’an’s Chapters and Verses</External>{' '}
+            (compiled by Shaykh Suleiman Hani, on sunnah.com). Wording and gradings are copied from each narration’s
+            sunnah.com page, and cross-checked with <External href="https://hadeethenc.com">HadeethEnc</External> where
+            it has the same hadith.
+          </p>
+        </Panel>
+      )}
     </section>
   );
 }

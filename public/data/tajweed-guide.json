@@ -1,0 +1,464 @@
+{
+ "note": "Explanations summarise the cited references for beginners; examples and counts come from the cpfair/quran-tajweed spans on the Tanzil text.",
+ "sources": {
+  "tajwidEn": {
+   "title": "Wikipedia, “Tajwid” (citing K. Nelson, The Art of Reciting the Qur’an, 2001)",
+   "url": "https://en.wikipedia.org/wiki/Tajwid"
+  },
+  "sunMoon": {
+   "title": "Wikipedia, “Sun and moon letters”",
+   "url": "https://en.wikipedia.org/wiki/Sun_and_moon_letters"
+  },
+  "hamzaWasl": {
+   "title": "Wikipedia (Arabic), “همزة الوصل”",
+   "url": "https://ar.wikipedia.org/wiki/همزة_الوصل"
+  },
+  "madd": {
+   "title": "Wikipedia (Arabic), “أحكام المد” (citing Ghāyat al-Murīd; Nihāyat al-Qawl al-Mufīd; Qawāʿid al-Tajwīd)",
+   "url": "https://ar.wikipedia.org/wiki/أحكام_المد"
+  },
+  "idgham": {
+   "title": "Wikipedia (Arabic), “إدغام” (citing Ghāyat al-Murīd; Nihāyat al-Qawl al-Mufīd)",
+   "url": "https://ar.wikipedia.org/wiki/إدغام"
+  },
+  "ghunnah": {
+   "title": "Wikipedia (Arabic), “غنة” (citing Ghāyat al-Murīd)",
+   "url": "https://ar.wikipedia.org/wiki/غنة"
+  },
+  "hidayah": {
+   "title": "al-Marṣafī, Hidāyat al-Qāri, on letters kept in the Uthmani script but not read (Islamweb library)",
+   "url": "https://www.islamweb.net/ar/library/content/231/84/"
+  },
+  "cpfair": {
+   "title": "cpfair/quran-tajweed rule list (counts per madd type)",
+   "url": "https://github.com/cpfair/quran-tajweed"
+  }
+ },
+ "rules": {
+  "hamzat_wasl": {
+   "what": "A connecting hamza at the start of some words.",
+   "how": "If you begin reading at this word, pronounce it. If you join the word to the one before, it drops out and the sound runs straight on.",
+   "sources": [
+    "hamzaWasl",
+    "tajwidEn"
+   ],
+   "label": "Hamzat al-waṣl",
+   "arabic": "همزة الوصل",
+   "group": "silent",
+   "count": 13252,
+   "example": {
+    "surah": 1,
+    "verse": 1,
+    "text": "بِسْمِ ٱللَّهِ",
+    "marks": [
+     [
+      7,
+      8
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "lam_shamsiyyah": {
+   "what": "The lām of “al-” before a “sun letter”.",
+   "how": "The lām is written but not said: it blends into the next letter, which you pronounce doubled.",
+   "sources": [
+    "sunMoon",
+    "tajwidEn"
+   ],
+   "label": "Lām shamsiyyah",
+   "arabic": "اللام الشمسية",
+   "group": "silent",
+   "count": 2733,
+   "example": {
+    "surah": 1,
+    "verse": 1,
+    "text": "ٱلرَّحْمَٰنِ",
+    "marks": [
+     [
+      1,
+      2
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "silent": {
+   "what": "A letter kept in the written muṣḥaf that is not part of the recitation.",
+   "how": "Read past it. It is not pronounced, whether you carry on or stop.",
+   "sources": [
+    "hidayah"
+   ],
+   "label": "Silent letter",
+   "arabic": "حرف لا يُنطق",
+   "group": "silent",
+   "count": 4174,
+   "example": {
+    "surah": 106,
+    "verse": 3,
+    "text": "فَلْيَعْبُدُوا۟",
+    "marks": [
+     [
+      13,
+      15
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "madd_2": {
+   "what": "The natural lengthening of a long vowel (alif, wāw or yāʾ of madd) with no hamza or sukūn after it.",
+   "how": "Hold the long vowel for 2 counts.",
+   "sources": [
+    "madd",
+    "tajwidEn"
+   ],
+   "label": "Natural madd (2)",
+   "arabic": "مد طبيعي",
+   "group": "madd2",
+   "count": 9028,
+   "example": {
+    "surah": 1,
+    "verse": 1,
+    "text": "ٱلرَّحْمَٰنِ",
+    "marks": [
+     [
+      9,
+      10
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "madd_246": {
+   "what": "A long vowel, or a wāw or yāʾ sākinah after a fatḥah (līn), followed by a letter that becomes silent only because you stop on the word, as at the end of an āyah.",
+   "how": "When stopping, you may hold it for 2, 4 or 6 counts.",
+   "sources": [
+    "madd",
+    "cpfair"
+   ],
+   "label": "Madd ʿāriḍ / līn (2, 4, 6)",
+   "arabic": "مد عارض / لين",
+   "group": "madd246",
+   "count": 4543,
+   "example": {
+    "surah": 1,
+    "verse": 1,
+    "text": "ٱلرَّحِيمِ",
+    "marks": [
+     [
+      7,
+      8
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "madd_munfasil": {
+   "what": "A long vowel ends one word and the next word begins with a hamza.",
+   "how": "In Ḥafṣ it may be held 4 or 5 counts (shortening to 2 is also transmitted). The colouring here follows the 4–5 reading.",
+   "sources": [
+    "madd",
+    "cpfair"
+   ],
+   "label": "Madd munfaṣil (4–5)",
+   "arabic": "مد منفصل",
+   "group": "madd45",
+   "count": 3172,
+   "example": {
+    "surah": 111,
+    "verse": 1,
+    "text": "يَدَآ أَبِى",
+    "marks": [
+     [
+      4,
+      6
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "madd_muttasil": {
+   "what": "A long vowel followed by a hamza in the same word.",
+   "how": "In Ḥafṣ, hold it for 4 or 5 counts.",
+   "sources": [
+    "madd",
+    "cpfair"
+   ],
+   "label": "Madd muttaṣil (4–5)",
+   "arabic": "مد متصل",
+   "group": "madd45",
+   "count": 1997,
+   "example": {
+    "surah": 110,
+    "verse": 1,
+    "text": "جَآءَ",
+    "marks": [
+     [
+      2,
+      4
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "madd_6": {
+   "what": "The necessary madd: a long vowel followed by a letter with a shaddah or a lasting sukūn.",
+   "how": "Always hold it for 6 counts, whether you carry on or stop.",
+   "sources": [
+    "madd",
+    "tajwidEn"
+   ],
+   "label": "Madd lāzim (6)",
+   "arabic": "مد لازم",
+   "group": "madd6",
+   "count": 148,
+   "example": {
+    "surah": 1,
+    "verse": 7,
+    "text": "ٱلضَّآلِّينَ",
+    "marks": [
+     [
+      5,
+      7
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "ghunnah": {
+   "what": "A nasal hum that resonates in the nose. This colour marks a doubled nūn or mīm (with shaddah).",
+   "how": "Hold the doubled nūn or mīm with that nasal sound for 2 counts.",
+   "sources": [
+    "ghunnah",
+    "tajwidEn"
+   ],
+   "label": "Ghunnah",
+   "arabic": "غنة",
+   "group": "ghunnah",
+   "count": 4946,
+   "example": {
+    "surah": 114,
+    "verse": 1,
+    "text": "ٱلنَّاسِ",
+    "marks": [
+     [
+      2,
+      5
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "ikhfa": {
+   "what": "A nūn sākinah or tanwīn before one of the fifteen letters not covered by the other nūn rules.",
+   "how": "Do not fully pronounce the n. Hide it in a nasal hum (ghunnah, about 2 counts), then move to the next letter.",
+   "sources": [
+    "tajwidEn",
+    "ghunnah"
+   ],
+   "label": "Ikhfāʾ",
+   "arabic": "إخفاء",
+   "group": "ikhfa",
+   "count": 5301,
+   "example": {
+    "surah": 114,
+    "verse": 4,
+    "text": "مِن شَرِّ",
+    "marks": [
+     [
+      2,
+      6
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "ikhfa_shafawi": {
+   "what": "A mīm sākinah followed by bāʾ.",
+   "how": "Do not close the lips fully on the mīm; carry it with ghunnah into the bāʾ.",
+   "sources": [
+    "tajwidEn"
+   ],
+   "label": "Ikhfāʾ shafawī",
+   "arabic": "إخفاء شفوي",
+   "group": "ikhfa",
+   "count": 496,
+   "example": {
+    "surah": 105,
+    "verse": 4,
+    "text": "تَرْمِيهِم بِحِجَارَةٍ",
+    "marks": [
+     [
+      9,
+      13
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "idghaam_ghunnah": {
+   "what": "A nūn sākinah or tanwīn followed by ي ن م or و.",
+   "how": "Merge the n completely into that next letter, keeping the nasal hum (ghunnah) as you do.",
+   "sources": [
+    "tajwidEn",
+    "ghunnah"
+   ],
+   "label": "Idghām with ghunnah",
+   "arabic": "إدغام بغنة",
+   "group": "idgham",
+   "count": 3933,
+   "example": {
+    "surah": 111,
+    "verse": 1,
+    "text": "لَهَبٍ وَتَبَّ",
+    "marks": [
+     [
+      5,
+      9
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "idghaam_no_ghunnah": {
+   "what": "A nūn sākinah or tanwīn followed by ل or ر.",
+   "how": "Merge the n completely into the ل or ر, with no nasal hum.",
+   "sources": [
+    "tajwidEn"
+   ],
+   "label": "Idghām without ghunnah",
+   "arabic": "إدغام بلا غنة",
+   "group": "idghamNo",
+   "count": 1035,
+   "example": {
+    "surah": 112,
+    "verse": 4,
+    "text": "يَكُن لَّهُۥ",
+    "marks": [
+     [
+      4,
+      9
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "idghaam_shafawi": {
+   "what": "A mīm sākinah followed by another mīm.",
+   "how": "The two become one doubled mīm, held with ghunnah.",
+   "sources": [
+    "tajwidEn"
+   ],
+   "label": "Idghām shafawī",
+   "arabic": "إدغام شفوي",
+   "group": "idgham",
+   "count": 832,
+   "example": {
+    "surah": 106,
+    "verse": 4,
+    "text": "أَطْعَمَهُم مِّن جُوعٍ",
+    "marks": [
+     [
+      10,
+      15
+     ]
+    ],
+    "words": 3
+   }
+  },
+  "idghaam_mutajanisayn": {
+   "what": "Two letters made at the same point in the mouth but with different qualities (such as ت, ط and د).",
+   "how": "When the first is sākin, merge it into the second.",
+   "sources": [
+    "idgham"
+   ],
+   "label": "Idghām mutajānisayn",
+   "arabic": "إدغام متجانسين",
+   "group": "idghamNo",
+   "count": 58,
+   "example": {
+    "surah": 109,
+    "verse": 4,
+    "text": "عَبَدتُّمْ",
+    "marks": [
+     [
+      4,
+      5
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "idghaam_mutaqaribayn": {
+   "what": "Two letters made at nearby points in the mouth.",
+   "how": "Merge the first into the second.",
+   "sources": [
+    "idgham"
+   ],
+   "label": "Idghām mutaqāribayn",
+   "arabic": "إدغام متقاربين",
+   "group": "idghamNo",
+   "count": 13,
+   "example": {
+    "surah": 4,
+    "verse": 158,
+    "text": "بَل رَّفَعَهُ",
+    "marks": [
+     [
+      2,
+      3
+     ]
+    ],
+    "words": 2
+   }
+  },
+  "iqlab": {
+   "what": "A nūn sākinah or tanwīn followed by bāʾ.",
+   "how": "Turn the n into a mīm sound, lips not fully closed, held with ghunnah, then say the bāʾ.",
+   "sources": [
+    "tajwidEn",
+    "ghunnah"
+   ],
+   "label": "Iqlāb",
+   "arabic": "إقلاب",
+   "group": "iqlab",
+   "count": 562,
+   "example": {
+    "surah": 104,
+    "verse": 4,
+    "text": "لَيُنۢبَذَنَّ",
+    "marks": [
+     [
+      5,
+      7
+     ]
+    ],
+    "words": 1
+   }
+  },
+  "qalqalah": {
+   "what": "One of the five letters ق ط ب ج د when it is sākin.",
+   "how": "Release it with a slight bounce or echo so it is heard clearly, not swallowed.",
+   "sources": [
+    "tajwidEn"
+   ],
+   "label": "Qalqalah",
+   "arabic": "قلقلة",
+   "group": "qalqalah",
+   "count": 3834,
+   "example": {
+    "surah": 113,
+    "verse": 1,
+    "text": "ٱلْفَلَقِ",
+    "marks": [
+     [
+      7,
+      8
+     ]
+    ],
+    "words": 1
+   }
+  }
+ }
+}
