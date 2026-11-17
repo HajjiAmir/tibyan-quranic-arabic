@@ -1,5 +1,6 @@
 import { roleBgVar, roleVar } from '../lib/data';
-import type { Segment, Word } from '../types';
+import type { ReactNode } from 'react';
+import type { Role, Segment, Word } from '../types';
 
 function Tag({ label, value, arabic }: { label: string; value: string; arabic?: boolean }) {
   return (
@@ -67,12 +68,7 @@ export default function GrammarPanel({ word }: { word: Word }) {
           <li key={i} className="grid grid-cols-[1fr_auto] items-start gap-x-4 px-5 py-3.5">
             <div className="flex min-w-0 flex-col gap-1.5">
               <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                <span
-                  className="rounded-md px-2 py-0.5 text-[11px] font-semibold"
-                  style={{ background: roleBgVar(seg.role), color: roleVar(seg.role) }}
-                >
-                  {seg.description}
-                </span>
+                <RoleChip role={seg.role}>{seg.description}</RoleChip>
                 {seg.prefix && (
                   <span className="text-[10px] uppercase tracking-[0.08em] text-muted">prefix</span>
                 )}
@@ -106,5 +102,21 @@ export default function GrammarPanel({ word }: { word: Word }) {
         Parts with no sourced English are left blank.
       </p>
     </div>
+  );
+}
+
+/**
+ * A segment's grammar label. The role colour marks it with a tint and a dot; the small
+ * text is ink in Day (so every role passes AA) and the role colour in Midnight.
+ */
+export function RoleChip({ role, children }: { role: Role; children: ReactNode }) {
+  return (
+    <span
+      className="role-label inline-flex items-center gap-1.5 rounded-md px-2 py-0.5 text-[11px] font-semibold"
+      style={{ background: roleBgVar(role), ['--role-c' as string]: roleVar(role) }}
+    >
+      <span aria-hidden className="h-1.5 w-1.5 shrink-0 rounded-full" style={{ background: roleVar(role) }} />
+      {children}
+    </span>
   );
 }

@@ -52,6 +52,10 @@
   --role-determiner: #8a8373;  --role-determiner-bg: #ece7db;
   --role-negation: #b43c32;    --role-negation-bg: #f6e0dd;
   --role-particle: #8d5b31;    --role-particle-bg: #f1e4d6;
+  /* Small role labels (grammar chips, legend) set their text in ink in Day; the role
+     colour stays as the chip's tint and dot. Determiner on its tint is 3.05:1 and five
+     others sit just above 4.5, so all ten use ink here. Midnight keeps role-coloured text. */
+  --role-label-ink: rgb(var(--ink));
   --tj-silent: #958d7d;   --tj-madd2: #b6840b;   --tj-madd246: #d0661a;
   --tj-madd45: #c8372d;   --tj-madd6: #8b1a2b;   --tj-ghunnah: #1e8a45;
   --tj-ikhfa: #a8399a;    --tj-idgham: #2468b4;  --tj-idghamNo: #5e7286;
@@ -99,6 +103,7 @@
     --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
     --role-negation: #ee8a80;    --role-negation-bg: #351916;
     --role-particle: #e0a56f;    --role-particle-bg: #31220f;
+    --role-label-ink: initial;
     --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
     --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
     --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
@@ -146,6 +151,7 @@
   --role-determiner: #b4ab97;  --role-determiner-bg: #272117;
   --role-negation: #ee8a80;    --role-negation-bg: #351916;
   --role-particle: #e0a56f;    --role-particle-bg: #31220f;
+  --role-label-ink: initial;
   --tj-silent: #8c8576;   --tj-madd2: #e2b448;   --tj-madd246: #f0904a;
   --tj-madd45: #f2695c;   --tj-madd6: #e0526a;   --tj-ghunnah: #4fcf7f;
   --tj-ikhfa: #e07ad2;    --tj-idgham: #6fa8ef;  --tj-idghamNo: #9db0c2;
@@ -565,3 +571,6 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
   .sky-twinkle, .sky-twinkle-b, .star-bright { animation: none !important; opacity: 0.8; }
   .shooting-star { display: none; }
 }
+
+/* A role label: role-coloured text in Midnight, ink in Day (see --role-label-ink). */
+.role-label { color: var(--role-label-ink, var(--role-c)); }

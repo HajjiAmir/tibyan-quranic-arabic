@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { loadSurah, roleBgVar, roleVar } from '../lib/data';
+import { loadSurah, roleVar } from '../lib/data';
 import type { Verse } from '../types';
-import { SegmentGloss } from './GrammarPanel';
+import { RoleChip, SegmentGloss } from './GrammarPanel';
 
 /**
  * The app's core feature, live in the hero: Al-Fātiḥa 1:2 from the real data.
@@ -72,12 +72,7 @@ export default function HeroSpecimen() {
                 {seg.arabic}
               </span>
               <span className="flex min-w-0 flex-col items-start gap-1">
-                <span
-                  className="rounded-md px-2 py-0.5 text-[11px] font-semibold"
-                  style={{ background: roleBgVar(seg.role), color: roleVar(seg.role) }}
-                >
-                  {seg.description}
-                </span>
+                <RoleChip role={seg.role}>{seg.description}</RoleChip>
                 <SegmentGloss seg={seg} />
               </span>
             </li>

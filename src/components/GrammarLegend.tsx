@@ -42,7 +42,7 @@ export default function GrammarLegend({ legend }: { legend: Legend }) {
                 />
                 <div className="min-w-0">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-sm font-semibold" style={{ color: roleVar(role) }}>
+                    <span className="role-label text-sm font-semibold" style={{ ['--role-c' as string]: roleVar(role) }}>
                       {info.label}
                     </span>
                     <span className="ar-naskh text-sm text-ink/70">{info.arabic}</span>
