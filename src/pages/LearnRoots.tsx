@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { LemmaLink } from '../components/VocabBits';
-import { loadVocab, rootFamily, rootPath, statusOf, vocabTrack, type Lemma, type VocabIndex } from '../lib/vocab';
+import { familySense as senseOf, loadVocab, rootFamily, rootPath, rootStatus, rootTrack, statusOf, vocabTrack, type Lemma, type VocabIndex } from '../lib/vocab';
+import { BATCH } from '../lib/learn';
 
 const spaced = (root: string) => root.split('').join(' ');
 // Arabic letters only, so a search for "ع ل م" or "علم" both match the root علم.
@@ -16,21 +17,7 @@ function useIndex() {
   return { index, err };
 }
 
-/**
- * The words of a root's family carry the meaning; the corpus gives no gloss
- * for a root itself. Shown: the distinct dictionary meanings of its most
- * frequent words.
- */
-function familySense(family: Lemma[]): string[] {
-  const out: string[] = [];
-  for (const l of family) {
-    if (!l.meaning) continue;
-    const m = l.meaning.trim();
-    if (!out.some((o) => o.toLowerCase() === m.toLowerCase())) out.push(m);
-    if (out.length >= 4) break;
-  }
-  return out;
-}
+const familySense = (family: Lemma[]) => senseOf(family);
 
 /* ------------------------------- one root -------------------------------- */
 
@@ -56,7 +43,7 @@ export function RootFamily() {
       </div>
     );
 
-  const known = family.filter((l) => statusOf(l, store) === 'known').length;
+  const known = family.filter((l) => statusOf(l, store) !== 'new').length;
   const sense = familySense(family);
   const rank = Object.keys(index.roots).indexOf(root) + 1;
 
@@ -74,7 +61,16 @@ export function RootFamily() {
         </h1>
         <p className="tnum text-sm text-muted">
           {family.length} {family.length === 1 ? 'word' : 'words'} · {stats.count.toLocaleString()} occurrences ·{' '}
-          {known} known
+          {known} of its words learned
+        </p>
+        <p className="text-xs">
+          {rootStatus(root, rootTrack.read()) === 'new' ? (
+            <Link to="/learn/study/roots" className="tap inline-flex items-center text-muted underline underline-offset-4 hover:text-ink">
+              Root not learned yet · in root batch {Math.floor((rank - 1) / BATCH) + 1}
+            </Link>
+          ) : (
+            <span className="font-semibold text-emerald">Root learned ✓</span>
+          )}
         </p>
       </header>
 
@@ -120,6 +116,7 @@ export function RootsIndex() {
   const [q, setQ] = useState('');
   const [shown, setShown] = useState(PAGE);
   const store = useMemo(() => vocabTrack.read(), []);
+  const roots = useMemo(() => rootTrack.read(), []);
 
   const rows = useMemo(() => {
     if (!index) return [];
@@ -128,9 +125,9 @@ export function RootsIndex() {
       .filter(([r]) => !needle || r.includes(needle))
       .map(([r, s]) => {
         const fam = s.lemmas.map((id) => index.lemmas[id - 1]).filter(Boolean);
-        return { root: r, count: s.count, fam, known: fam.filter((l) => statusOf(l, store) === 'known').length };
+        return { root: r, count: s.count, fam, known: fam.filter((l) => statusOf(l, store) !== 'new').length, learned: rootStatus(r, roots) !== 'new' };
       });
-  }, [index, q, store]);
+  }, [index, q, store, roots]);
 
   useEffect(() => {
     setShown(PAGE);
@@ -182,7 +179,8 @@ export function RootsIndex() {
                 </span>
                 <span className="tnum truncate text-[11px] text-muted">
                   {r.fam.length} {r.fam.length === 1 ? 'word' : 'words'}
-                  {r.known ? ` · ${r.known} known` : ''}
+                  {r.learned ? ' · root learned ✓' : ''}
+                  {r.known ? ` · ${r.known} words learned` : ''}
                 </span>
               </span>
               <span className="tnum shrink-0 text-xs text-muted">{r.count.toLocaleString()}×</span>

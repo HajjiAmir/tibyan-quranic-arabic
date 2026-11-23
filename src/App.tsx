@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link, Route, Routes, useLocation } from 'react-router-dom';
+import { Link, Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import { useTheme } from './lib/theme';
 import Home from './pages/Home';
 import Reader from './pages/Reader';
 import Practice from './pages/Practice';
 import Learn from './pages/Learn';
-import LearnPractice from './pages/LearnPractice';
+import LearnStudy from './pages/LearnStudy';
 import LearnWord from './pages/LearnWord';
 import { RootFamily, RootsIndex } from './pages/LearnRoots';
 
@@ -159,7 +159,8 @@ export default function App() {
             <Route path="/surah/:id" element={<Reader />} />
             <Route path="/surah/:id/practice" element={<Practice />} />
             <Route path="/learn" element={<Learn />} />
-            <Route path="/learn/practice" element={<LearnPractice />} />
+            <Route path="/learn/study/:track" element={<LearnStudy />} />
+            <Route path="/learn/practice" element={<Navigate to="/learn/study/words" replace />} />
             <Route path="/learn/word/:key" element={<LearnWord />} />
             <Route path="/learn/roots" element={<RootsIndex />} />
             <Route path="/learn/root/:root" element={<RootFamily />} />

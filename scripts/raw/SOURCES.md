@@ -225,6 +225,33 @@ How the data was made, and checked:
   - Meccan/Medinan and revelation order come from Tanzil, and must agree with
     `index.json` or the build fails.
 
+## Learning loop: flashcards and tests (brief 16)
+
+Built by `scripts/build-vocab.mjs` from data already in this file. No new source,
+and nothing typed by hand:
+
+- **Uses of a word** (e.g. ما as relative noun / negative particle / interrogative):
+  the Quranic Arabic Corpus part of speech of the word's head segment at each
+  occurrence. The English for each use is the commonest Quran.com word-by-word gloss
+  among the occurrences with that use. Its example is one of those occurrences, so
+  the meaning, the label and the verse always belong together.
+- **Attached pronouns**: grouped by the reviewed-table form (possessive / object)
+  and by the QAC class of the word they are attached to. English comes from the
+  reviewed pronoun table; spellings and counts come from the Uthmani text.
+- **Attached prefixes**: QAC part of speech and QAC prefix gloss for each use.
+- **Verb forms**: QAC tense, person, gender, number and voice, worded as the QAC
+  describes them (mood left out). Each form's spelling is its commonest in the
+  Qur'an. Its example is an occurrence of that spelling with its commonest
+  Quran.com gloss. The tense names "past", "present" and "command" follow the
+  brief's own wording for perfect, imperfect and imperative.
+- **Noun number** (singular / dual / plural): QAC number feature.
+- **Headline examples**: drawn from occurrences whose Quran.com gloss is the
+  headline gloss.
+- **Root cards**: the root's most frequent words (QAC lemmas), with their QAC
+  dictionary meanings. The corpus has no gloss for a root itself, so the "core
+  sense" is those meanings.
+- **Verse translations** in examples: Saheeh International.
+
 ## Fonts
 
 Self-hosted from npm (Fontsource), all SIL Open Font License 1.1: **Amiri Quran**

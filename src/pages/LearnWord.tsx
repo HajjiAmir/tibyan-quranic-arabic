@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { ExampleVerse, LemmaFacts, LemmaLink, StatusActions, useExamples } from '../components/VocabBits';
+import { LemmaLink, StatusActions } from '../components/VocabBits';
+import { WordCard, useDetail } from '../components/TeachCard';
 import { findByKey, loadVocab, rootFamily, rootPath, statusOf, vocabTrack, type VocabIndex } from '../lib/vocab';
 
 /** One word (or pronoun, or attached form): facts, examples, progress and its root family. */
@@ -19,7 +20,7 @@ export default function LearnWord() {
 
   const l = useMemo(() => (index ? findByKey(index, key) : null), [index, key]);
   const store = useMemo(() => vocabTrack.read(), [rev, key]);
-  const examples = useExamples(l, index?.chunk ?? 250);
+  const detail = useDetail(l, index?.chunk ?? 250);
   const family = useMemo(() => (index && l?.root ? rootFamily(index, l.root) : []), [index, l]);
 
   if (err) return <p style={{ color: 'var(--role-negation)' }}>Could not load the vocabulary. {err}</p>;
@@ -43,25 +44,12 @@ export default function LearnWord() {
         <span className="tnum mt-2 text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
           #{l.id} by frequency · {l.count.toLocaleString()}× {l.kind === 'prefix' || l.kind === 'suffix' ? 'attached' : 'in the Qur’an'}
         </span>
-        <h1 lang="ar" className="ar text-[3.4rem] leading-[1.8]">
-          {l.lemma}
-        </h1>
+        <h1 className="sr-only">{l.lemma}</h1>
       </header>
 
       <section className="card-raised flex flex-col gap-4 p-5 sm:p-6">
-        <LemmaFacts l={l} />
+        <WordCard l={l} detail={detail} />
         <StatusActions l={l} status={statusOf(l, store)} onChange={() => setRev((r) => r + 1)} />
-      </section>
-
-      <section className="flex flex-col gap-3">
-        <h2 className="font-display text-xl font-semibold tracking-tight">In the Qur’an</h2>
-        {examples === null ? (
-          <div className="h-24 skeleton rounded-xl bg-surface-2/60" />
-        ) : examples.length === 0 ? (
-          <p className="text-sm text-muted">No example verses.</p>
-        ) : (
-          examples.map((ex) => <ExampleVerse key={ex.ref} ex={ex} />)
-        )}
       </section>
 
       {l.root && family.length > 0 && (

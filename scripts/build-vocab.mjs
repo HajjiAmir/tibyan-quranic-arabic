@@ -122,13 +122,74 @@ function note(e, w, seg, s, v, wi) {
   count(e.roles, seg.role);
   count(e.pos, seg.pos);
   if (seg.verbForm) count(e.forms, seg.verbForm);
+  let here = null;
   if (w.gloss && (e.kind === 'word' || e.kind === 'pronoun' || e.kind === 'initials')) {
-    const g = contextGloss(w, seg);
-    count(e.ctx, g.toLowerCase());
-    count(e.ctxRaw, g);
+    here = contextGloss(w, seg);
+    count(e.ctx, here.toLowerCase());
+    count(e.ctxRaw, here);
   }
   count(e.desc, `${w.arabic}\u0000${seg.description}`);
-  e.occ.push({ s, v: v.id, wi, len: v.words.length });
+  e.occ.push({ s, v: v.id, wi, len: v.words.length, ...teachFacts(e, w, seg, here) });
+}
+
+// ---- teaching facts per occurrence (brief 16) ---------------------------------
+// Everything here is read off the corpus data of that one occurrence, so the
+// sense, form and example shown together on a card always belong together:
+//   use   - how the word is used there: the QAC part of speech of its head
+//           segment (ما: relative noun / negative particle / interrogative …);
+//           for an attached pronoun, its reviewed-table form (object,
+//           possessive) on the kind of word it is attached to; for a prefix,
+//           its QAC part of speech.
+//   usex  - the English for that use there: the Quran.com in-context gloss
+//           (whole words), the reviewed-table gloss (attached pronouns) or
+//           the QAC prefix gloss (prefixes).
+//   form  - verbs: tense + person/gender/number (+ passive) of the QAC tags;
+//           nouns and adjectives: number (singular / dual / plural).
+//   flabel- that form in the QAC's own description wording.
+//   spell - the word as written without attached prefixes or object/possessive
+//           endings (a verb keeps its subject ending: قَالُوا).
+//   part  - [start, end) of the attached segment inside the written word
+//           (UTF-16 offsets), when the segments spell the word exactly.
+const MOOD = /,? (indicative|subjunctive|jussive)/g;
+const NUMBER_LABEL = { S: 'singular', D: 'dual', P: 'plural' };
+function segOffsets(w, seg) {
+  const joined = w.segments.map((x) => x.arabic).join('');
+  if (joined !== w.arabic) return null;
+  let at = 0;
+  for (const x of w.segments) {
+    if (x === seg) return [at, at + x.arabic.length];
+    at += x.arabic.length;
+  }
+  return null;
+}
+function hostOf(w, seg) {
+  const i = w.segments.indexOf(seg);
+  let h = i - 1;
+  while (h >= 0 && flagsOf(w.segments[h]).includes('SUFF')) h--;
+  return h >= 0 ? w.segments[h] : null;
+}
+function teachFacts(e, w, seg, here) {
+  if (e.kind === 'suffix') {
+    const host = hostOf(w, seg);
+    return { use: `${seg.pronounForm}|${host?.role ?? '-'}`, usex: seg.gloss ?? null, spell: seg.arabic, part: segOffsets(w, seg) };
+  }
+  if (e.kind === 'prefix') return { use: seg.pos, usex: seg.gloss ?? null, spell: seg.arabic, part: segOffsets(w, seg) };
+  const out = { use: seg.pos, usex: here };
+  if (w.segments.length > 1) out.part = segOffsets(w, seg);
+  if (seg.type === 'V' && seg.tense) {
+    const pass = flagsOf(seg).includes('PASS');
+    out.form = `${seg.tense}|${seg.person ?? ''}${seg.gender ?? ''}${seg.number ?? ''}${pass ? '|PASS' : ''}`;
+    out.flabel = seg.description.replace(/^Verb — /, '').replace(MOOD, '');
+    out.spell = w.segments
+      .filter((x) => !x.prefix && (x === seg || (flagsOf(x).includes('SUFF') && flagsOf(x).includes('PRON') && x.glossSource !== 'reviewed-table')))
+      .map((x) => x.arabic)
+      .join('');
+  } else if ((seg.role === 'noun' || seg.role === 'adjective') && seg.number) {
+    out.form = seg.number;
+    out.flabel = NUMBER_LABEL[seg.number];
+    out.spell = seg.arabic;
+  }
+  return out;
 }
 
 for (let s = 1; s <= 114; s++) {
@@ -241,6 +302,20 @@ function pickExamples(occ) {
   return out;
 }
 
+// The examples shown under a word's headline meaning use that meaning: they are
+// taken from occurrences whose in-context English is the headline one (the
+// commonest), so the card never pairs "from" with a verse glossed "among".
+// Attached forms and words with several uses get one example per use instead
+// (usesOf, below); these stay as a fallback.
+function headlineExamples(e) {
+  if (e.kind === 'word' || e.kind === 'pronoun') {
+    const head = e.ctx.size ? top(e.ctx, 1)[0][0] : null;
+    const same = head ? e.occ.filter((o) => (o.usex ?? '').toLowerCase() === head) : [];
+    if (same.length) return pickExamples(same);
+  }
+  return pickExamples(e.occ);
+}
+
 const ranked = [...lemmas.values()].sort((a, b) => b.occ.length - a.occ.length || a.key.localeCompare(b.key));
 
 const rootStats = new Map();
@@ -270,7 +345,7 @@ const entries = ranked.map((e, i) => {
     inContext: top(e.ctx, 3).map(([g]) => top(new Map([...e.ctxRaw].filter(([r]) => r.toLowerCase() === g)), 1)[0][0]),
     sample: { arabic: sampleArabic, description: sampleDesc },
     count: e.occ.length,
-    examples: pickExamples(e.occ),
+    examples: headlineExamples(e),
   };
   if (e.kind !== 'word') {
     out.kind = e.kind;
@@ -287,23 +362,112 @@ const surahOf = (s) => {
   if (!surahCache.has(s)) surahCache.set(s, JSON.parse(readFileSync(join(DATA, 'surahs', `${s}.json`), 'utf8')));
   return surahCache.get(s);
 };
+function exampleOf(o) {
+  const verse = surahOf(o.s).verses.find((v) => v.id === o.v);
+  const ex = {
+    ref: `${o.s}:${o.v}`,
+    words: verse.words.map((w) => w.arabic),
+    hit: o.wi,
+    gloss: verse.words[o.wi].gloss ?? null,
+    translation: cleanTranslation(verse.translation),
+  };
+  if (o.part) ex.part = o.part;
+  return ex;
+}
+const groupBy = (occ, k) => {
+  const m = new Map();
+  for (const o of occ) {
+    if (o[k] == null) continue;
+    if (!m.has(o[k])) m.set(o[k], []);
+    m.get(o[k]).push(o);
+  }
+  return m;
+};
+const topOf = (list, k) => {
+  const m = new Map();
+  for (const o of list) if (o[k]) count(m, o[k]);
+  return m.size ? top(m, 1)[0][0] : null;
+};
+const MIN_USE = 3;
+const TENSE_ORDER = { PERF: 0, IMPF: 1, IMPV: 2 };
+const HOST_LABEL = { verb: 'verb', noun: 'noun', preposition: 'preposition', particle: 'particle', adjective: 'adjective', pronoun: 'pronoun' };
+
+// Uses: each distinct use with its own English and an example of exactly that use.
+function usesOf(e) {
+  const groups = [...groupBy(e.occ, 'use')].filter(([, g]) => g.length >= MIN_USE).sort((a, b) => b[1].length - a[1].length);
+  if (e.kind === 'suffix') {
+    return groups.slice(0, 5).map(([k, g]) => {
+      const [form, host] = k.split('|');
+      // the example must carry the gloss the use is shown with
+      const gloss = topOf(g, 'usex');
+      const ex = pickExamples(g.filter((o) => o.usex === gloss))[0];
+      const sp = new Map();
+      for (const o of g) if (letters(o.spell)) count(sp, `ـ${o.spell}`);
+      return { form, host: HOST_LABEL[host] ?? host, gloss, count: g.length, spellings: top(sp, 3), ex: exampleOf(ex) };
+    });
+  }
+  if (groups.length < 2 && e.kind !== 'prefix') return null;
+  return groups.slice(0, 6).map(([k, g]) => {
+    const gloss = topOf(g, 'usex');
+    const ex = pickExamples(gloss ? g.filter((o) => o.usex === gloss) : g)[0];
+    return { label: k, gloss, count: g.length, ex: exampleOf(ex) };
+  });
+}
+
+// Forms: verbs by tense and person/gender/number, nouns by number; each with a real example.
+function formsOf(e) {
+  const groups = [...groupBy(e.occ, 'form')];
+  if (groups.length < 2) return null;
+  const isVerb = groups.some(([k]) => k.includes('|'));
+  const rows = groups.map(([k, g]) => {
+    const spell = topOf(g, 'spell');
+    const same = g.filter((o) => o.spell === spell);
+    const here = topOf(same, 'usex');
+    const ex = pickExamples(here ? same.filter((o) => o.usex === here) : same)[0];
+    return { key: k, tense: isVerb ? k.split('|')[0] : null, label: g[0].flabel, spell, count: g.length, here: ex.usex ?? null, ex: exampleOf(ex) };
+  });
+  if (!isVerb) return rows.sort((a, b) => b.count - a.count).slice(0, 3);
+  // up to three forms per tense, tenses in the order perfect, imperfect, imperative
+  const out = [];
+  for (const t of ['PERF', 'IMPF', 'IMPV']) out.push(...rows.filter((r) => r.tense === t).sort((a, b) => b.count - a.count).slice(0, 3));
+  return out.sort((a, b) => TENSE_ORDER[a.tense] - TENSE_ORDER[b.tense] || b.count - a.count);
+}
+
+const detailStats = { uses: 0, forms: 0 };
 rmSync(join(DATA, 'vocab'), { recursive: true, force: true });
 mkdirSync(join(DATA, 'vocab'), { recursive: true });
 for (let c = 0; c * CHUNK < entries.length; c++) {
   const chunk = {};
   for (const e of entries.slice(c * CHUNK, (c + 1) * CHUNK)) {
-    chunk[e.id] = e.examples.map((o) => {
-      const verse = surahOf(o.s).verses.find((v) => v.id === o.v);
-      return {
-        ref: `${o.s}:${o.v}`,
-        words: verse.words.map((w) => w.arabic),
-        hit: o.wi,
-        gloss: verse.words[o.wi].gloss ?? null,
-        translation: cleanTranslation(verse.translation),
-      };
-    });
+    const src = ranked[e.id - 1];
+    const d = { ex: e.examples.map(exampleOf) };
+    if (e.kind !== 'initials') {
+      const uses = usesOf(src);
+      if (uses) {
+        d.uses = uses;
+        detailStats.uses++;
+      }
+      const forms = formsOf(src);
+      if (forms) {
+        d.forms = forms;
+        detailStats.forms++;
+      }
+    }
+    chunk[e.id] = d;
   }
   writeFileSync(join(DATA, 'vocab', `ex-${c}.json`), JSON.stringify(chunk));
+}
+
+// Root families for root cards: the most frequent words of each root, each with
+// its first example verse. 100 roots per file, in frequency order.
+const ROOT_CHUNK = 100;
+const rootOrder = [...rootStats.entries()].sort((a, b) => b[1].count - a[1].count);
+for (let c = 0; c * ROOT_CHUNK < rootOrder.length; c++) {
+  const chunk = {};
+  for (const [r, st] of rootOrder.slice(c * ROOT_CHUNK, (c + 1) * ROOT_CHUNK)) {
+    chunk[r] = st.lemmas.slice(0, 6).map((id) => ({ id, ex: entries[id - 1].examples[0] ? exampleOf(entries[id - 1].examples[0]) : null }));
+  }
+  writeFileSync(join(DATA, 'vocab', `roots-${c}.json`), JSON.stringify(chunk));
 }
 
 const out = {
@@ -320,6 +484,7 @@ const out = {
     attached: attachedTotals,
   },
   chunk: CHUNK,
+  rootChunk: ROOT_CHUNK,
   lemmas: entries.map(({ examples, ...e }) => ({ ...e, refs: examples.map((o) => `${o.s}:${o.v}`) })),
   roots: Object.fromEntries([...rootStats.entries()].sort((a, b) => b[1].count - a[1].count)),
 };
@@ -329,6 +494,7 @@ writeFileSync(join(DATA, 'vocab.json'), JSON.stringify(out));
 const words = entries.filter((e) => e.kind !== 'prefix' && e.kind !== 'suffix');
 const cov = (n) => words.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
 console.log(`vocab: ${entries.length} entries (${JSON.stringify(out.totals.kinds)}), ${rootStats.size} roots, ${totalWords} words (${noEntry} without an entry)`);
+console.log(`teaching detail: ${detailStats.uses} entries with uses, ${detailStats.forms} with forms`);
 console.log(`attached: ${attachedTotals.prefix} prefixes, ${attachedTotals.suffix} pronoun suffixes`);
 console.log(`in-context glosses: ${stripStats.changed} of ${stripStats.glosses} had leading prefix words removed`);
 console.log(

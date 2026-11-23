@@ -6,7 +6,6 @@ import {
   forget,
   isAttached,
   loadExamples,
-  markKnown,
   rootPath,
   wordPath,
   type Example,
@@ -18,20 +17,51 @@ import {
 
 // Pieces shared by the Learn page and vocabulary practice.
 
-export function ExampleVerse({ ex }: { ex: Example }) {
+/** The hit word, with only the studied segment marked when it is part of the word. */
+function HitWord({ w, part }: { w: string; part?: [number, number] | null }) {
+  if (!part || part[0] >= part[1] || part[1] > w.length)
+    return <span className="rounded-md bg-accent/15 px-1 text-accent">{w}</span>;
+  return (
+    <span className="rounded-md bg-accent/[0.08] px-1">
+      {w.slice(0, part[0])}
+      <span className="text-accent underline decoration-accent/60 decoration-2 underline-offset-[10px]">{w.slice(part[0], part[1])}</span>
+      {w.slice(part[1])}
+    </span>
+  );
+}
+
+export function ExampleVerse({
+  ex,
+  label,
+  compact,
+  hideGloss,
+  hideTranslation,
+}: {
+  ex: Example;
+  label?: string;
+  compact?: boolean;
+  /** In a test: keep the answer (the in-context English, or the whole translation) back until it is answered. */
+  hideGloss?: boolean;
+  hideTranslation?: boolean;
+}) {
   const [s, v] = ex.ref.split(':');
   return (
-    <figure className="flex flex-col gap-1.5 rounded-xl border border-line/70 bg-paper/50 px-4 py-3">
-      <p lang="ar" dir="rtl" className="ar text-[1.45rem] leading-[2.1]">
+    <figure className={`flex flex-col gap-1.5 rounded-xl border border-line/70 bg-paper/50 ${compact ? 'px-3 py-2.5' : 'px-4 py-3'}`}>
+      {label && <span className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">{label}</span>}
+      <p lang="ar" dir="rtl" className={`ar ${compact ? 'text-[1.3rem]' : 'text-[1.45rem]'} leading-[2.1]`}>
         {ex.words.map((w, i) => (
           <span key={i}>
             {i > 0 && ' '}
-            <span className={i === ex.hit ? 'rounded-md bg-accent/15 px-1 text-accent' : undefined}>{w}</span>
+            {i === ex.hit ? <HitWord w={w} part={ex.part} /> : <span>{w}</span>}
           </span>
         ))}
       </p>
       <figcaption className="flex flex-col gap-1 text-[0.86rem] leading-relaxed text-ink/85">
-        <span>{ex.translation}</span>
+        {hideTranslation ? (
+          <span className="text-muted">Translation shown after you answer.</span>
+        ) : (
+          <span>{ex.translation}</span>
+        )}
         <span className="text-xs text-muted">
           <Link
             to={`/surah/${s}?v=${v}`}
@@ -40,7 +70,7 @@ export function ExampleVerse({ ex }: { ex: Example }) {
           >
             {ex.ref} →
           </Link>
-          {ex.gloss && <> · here: “{ex.gloss}”</>}
+          {ex.gloss && !hideGloss && <> · here: “{ex.gloss}”</>}
         </span>
       </figcaption>
     </figure>
@@ -205,14 +235,14 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
           <h2 className="font-display text-[1.35rem] font-semibold leading-snug tracking-tight text-balance">
             {m.known === 0
               ? 'Start with the words the Qur’an uses most'
-              : `You now understand about ${pct(m.coverage)}% of the words in the Qur’an`}
+              : `The words you have learned cover about ${pct(m.coverage)}% of the Qur’an`}
           </h2>
           <p className="text-sm leading-relaxed text-muted text-pretty">
             {m.known === 0 ? (
               <>The 100 most frequent words make up {pct(marks[0].at)}% of all the words in the Qur’an.</>
             ) : (
               <>
-                The <span className="tnum">{m.known.toLocaleString()}</span> words you know occur{' '}
+                The <span className="tnum">{m.known.toLocaleString()}</span> words you have learned occur{' '}
                 <span className="tnum">{m.coveredWords.toLocaleString()}</span> times among its{' '}
                 <span className="tnum">{index.totals.words.toLocaleString()}</span> words.
               </>
@@ -246,8 +276,8 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
       </div>
 
       <dl className="grid grid-cols-2 gap-2.5 sm:grid-cols-4">
-        <Tile label="Words known" value={m.known} sub={`${m.learning} learning`} />
-        <Tile label="Roots known" value={m.rootsKnown} sub={`of ${index.totals.roots.toLocaleString()}`} />
+        <Tile label="Words learned" value={m.known} sub={`${m.secure} secure`} />
+        <Tile label="Roots learned" value={m.rootsKnown} sub={`of ${index.totals.roots.toLocaleString()}`} />
         <Tile label="Due for review" value={m.due} sub={m.due ? 'ready now' : 'all caught up'} />
         <Tile label="Day streak" value={m.streak} sub={m.streak === 1 ? 'day' : 'days'} />
       </dl>
@@ -255,7 +285,7 @@ export function Dashboard({ index, m }: { index: VocabIndex; m: Mastery }) {
         <p className="text-center text-xs leading-relaxed text-muted text-pretty sm:text-left">
           Attached forms (<bdi lang="ar" className="ar-naskh">وَ</bdi>, <bdi lang="ar" className="ar-naskh">ٱل</bdi>,{' '}
           <bdi lang="ar" className="ar-naskh">ـهُمْ</bdi> …): <span className="tnum font-medium text-ink">{m.attachedKnown}</span> of{' '}
-          <span className="tnum">{m.attachedTotal}</span> known. They are not added to coverage, because every word already
+          <span className="tnum">{m.attachedTotal}</span> learned. They are not added to coverage, because every word already
           counts once, for its main word.
         </p>
       )}
@@ -273,23 +303,20 @@ function Tile({ label, value, sub }: { label: string; value: number; sub: string
   );
 }
 
-/** "I know this word" / Reset, shared by the list rows and the word page. */
+/**
+ * Where an entry stands in the learning loop. Nothing is marked known by hand:
+ * an entry is banked by passing its batch test (brief 16). Reset takes it out.
+ */
 export function StatusActions({ l, status, onChange }: { l: Lemma; status: Status; onChange: () => void }) {
   return (
-    <div className="flex flex-wrap gap-2">
-      {status !== 'known' ? (
-        <button
-          onClick={() => {
-            markKnown(l);
-            onChange();
-          }}
-          className="btn btn-sm border-emerald/60 bg-emerald/10 text-emerald hover:bg-emerald/15"
-        >
-          I know this {isAttached(l) ? 'form' : 'word'}
-        </button>
-      ) : (
-        <span className="inline-flex h-8 items-center rounded-[10px] bg-emerald/10 px-3.5 text-xs font-semibold text-emerald">Known ✓</span>
-      )}
+    <div className="flex flex-wrap items-center gap-2">
+      <span
+        className={`inline-flex h-8 items-center rounded-[10px] px-3.5 text-xs font-semibold ${
+          status === 'new' ? 'bg-surface-2 text-muted' : 'bg-emerald/10 text-emerald'
+        }`}
+      >
+        {status === 'new' ? 'Not learned yet — learn it in its batch' : status === 'known' ? 'Learned · secure ✓' : 'Learned ✓ · in review'}
+      </span>
       {status !== 'new' && (
         <button
           onClick={() => {
