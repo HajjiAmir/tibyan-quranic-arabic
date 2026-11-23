@@ -3,7 +3,7 @@
 // same Leitner boxes as surah practice but tracked per lemma, so knowing a
 // lemma counts everywhere it occurs.
 
-import type { Role } from '../types';
+import type { Role, Word } from '../types';
 import { createTrack, KNOWN_BOX } from './practice';
 
 export interface Lemma {
@@ -131,6 +131,23 @@ export async function loadDetail(id: number, chunk: number): Promise<Detail> {
 
 export async function loadExamples(id: number, chunk: number): Promise<Example[]> {
   return (await loadDetail(id, chunk)).ex;
+}
+
+const verseCache = new Map<string, Promise<Word[]>>();
+/** An example verse word by word (public/data/verses/<s>-<v>.json, built by build-vocab.mjs). */
+export function loadVerseWords(ref: string): Promise<Word[]> {
+  let p = verseCache.get(ref);
+  if (!p) {
+    p = fetch(`${BASE}data/verses/${ref.replace(':', '-')}.json`)
+      .then((r) => {
+        if (!r.ok) throw new Error(`Failed to load verse ${ref} (${r.status})`);
+        return r.json();
+      })
+      .then((d: { words: Word[] }) => d.words);
+    p.catch(() => verseCache.delete(ref));
+    verseCache.set(ref, p);
+  }
+  return p;
 }
 
 /** A root's most frequent words, each with its first example verse. */

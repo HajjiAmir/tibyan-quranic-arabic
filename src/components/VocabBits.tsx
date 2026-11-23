@@ -6,6 +6,7 @@ import {
   forget,
   isAttached,
   loadExamples,
+  loadVerseWords,
   rootPath,
   wordPath,
   type Example,
@@ -14,6 +15,9 @@ import {
   type Status,
   type VocabIndex,
 } from '../lib/vocab';
+
+import WordByWord from './WordByWord';
+import type { Word } from '../types';
 
 // Pieces shared by the Learn page and vocabulary practice.
 
@@ -45,17 +49,22 @@ export function ExampleVerse({
   hideTranslation?: boolean;
 }) {
   const [s, v] = ex.ref.split(':');
+  const words = useVerseWords(ex.ref);
   return (
     <figure className={`flex flex-col gap-1.5 rounded-xl border border-line/70 bg-paper/50 ${compact ? 'px-3 py-2.5' : 'px-4 py-3'}`}>
       {label && <span className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">{label}</span>}
-      <p lang="ar" dir="rtl" className={`ar ${compact ? 'text-[1.3rem]' : 'text-[1.45rem]'} leading-[2.1]`}>
-        {ex.words.map((w, i) => (
-          <span key={i}>
-            {i > 0 && ' '}
-            {i === ex.hit ? <HitWord w={w} part={ex.part} /> : <span>{w}</span>}
-          </span>
-        ))}
-      </p>
+      {words ? (
+        <WordByWord words={words} size="compact" target={ex.hit} targetPart={ex.part} maskTarget={hideGloss} />
+      ) : (
+        <p lang="ar" dir="rtl" className={`ar ${compact ? 'text-[1.3rem]' : 'text-[1.45rem]'} leading-[2.1]`}>
+          {ex.words.map((w, i) => (
+            <span key={i}>
+              {i > 0 && ' '}
+              {i === ex.hit ? <HitWord w={w} part={ex.part} /> : <span>{w}</span>}
+            </span>
+          ))}
+        </p>
+      )}
       <figcaption className="flex flex-col gap-1 text-[0.86rem] leading-relaxed text-ink/85">
         {hideTranslation ? (
           <span className="text-muted">Translation shown after you answer.</span>
@@ -75,6 +84,22 @@ export function ExampleVerse({
       </figcaption>
     </figure>
   );
+}
+
+/** The example's words in full (role, English, grammar); null until loaded or if unavailable. */
+function useVerseWords(ref: string): Word[] | null {
+  const [w, setW] = useState<Word[] | null>(null);
+  useEffect(() => {
+    setW(null);
+    let live = true;
+    loadVerseWords(ref)
+      .then((x) => live && setW(x))
+      .catch(() => live && setW(null));
+    return () => {
+      live = false;
+    };
+  }, [ref]);
+  return w;
 }
 
 export function useExamples(lemma: Lemma | null, chunk: number) {

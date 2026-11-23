@@ -362,8 +362,10 @@ const surahOf = (s) => {
   if (!surahCache.has(s)) surahCache.set(s, JSON.parse(readFileSync(join(DATA, 'surahs', `${s}.json`), 'utf8')));
   return surahCache.get(s);
 };
+const usedVerses = new Set();
 function exampleOf(o) {
   const verse = surahOf(o.s).verses.find((v) => v.id === o.v);
+  usedVerses.add(`${o.s}:${o.v}`);
   const ex = {
     ref: `${o.s}:${o.v}`,
     words: verse.words.map((w) => w.arabic),
@@ -469,6 +471,18 @@ for (let c = 0; c * ROOT_CHUNK < rootOrder.length; c++) {
   }
   writeFileSync(join(DATA, 'vocab', `roots-${c}.json`), JSON.stringify(chunk));
 }
+
+// Every example verse word by word (brief 16, piece 2): the reader's own Word
+// objects (QAC segments and roles, Quran.com word-by-word English and
+// transliteration), one small file per verse, loaded only when a card shows it.
+rmSync(join(DATA, 'verses'), { recursive: true, force: true });
+mkdirSync(join(DATA, 'verses'), { recursive: true });
+for (const ref of usedVerses) {
+  const [s, v] = ref.split(':').map(Number);
+  const verse = surahOf(s).verses.find((x) => x.id === v);
+  writeFileSync(join(DATA, 'verses', `${s}-${v}.json`), JSON.stringify({ words: verse.words }));
+}
+console.log(`example verses word by word: ${usedVerses.size} files`);
 
 const out = {
   about:

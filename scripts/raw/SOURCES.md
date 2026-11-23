@@ -251,6 +251,10 @@ and nothing typed by hand:
   dictionary meanings. The corpus has no gloss for a root itself, so the "core
   sense" is those meanings.
 - **Verse translations** in examples: Saheeh International.
+- **Example verses word by word** (piece 2): `public/data/verses/<surah>-<verse>.json`
+  holds the reader's own word data for each example verse. That is the QAC
+  segments and roles, plus the Quran.com word-by-word English and
+  transliteration. It is copied unchanged from `public/data/surahs`.
 
 ## Fonts
 

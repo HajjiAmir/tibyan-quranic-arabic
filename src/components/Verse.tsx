@@ -1,11 +1,8 @@
-import { useCallback, useState, type ReactNode } from 'react';
-import { roleVar } from '../lib/data';
+import { useState, type ReactNode } from 'react';
 import type { TajweedLegend, Verse as VerseT } from '../types';
 import type { Recitation } from '../lib/useRecitation';
 import { VerseAudio } from './AudioControls';
-import BottomSheet from './BottomSheet';
-import GrammarPanel from './GrammarPanel';
-import { usePhone } from '../lib/useMedia';
+import WordByWord from './WordByWord';
 import TajweedText from './TajweedText';
 
 interface Props {
@@ -83,15 +80,6 @@ export default function Verse({
   rec,
 }: Props) {
   const reciting = rec.state.verse === verse.id;
-  const [selected, setSelected] = useState<number | null>(null);
-  const selectedWord = verse.words.find((w) => w.position === selected) ?? null;
-  const phone = usePhone();
-  const close = useCallback(() => setSelected(null), []);
-  const idx = selectedWord ? verse.words.indexOf(selectedWord) : -1;
-  const step = (d: number) => {
-    const w = verse.words[idx + d];
-    if (w) setSelected(w.position);
-  };
 
   return (
     <article
@@ -149,73 +137,9 @@ export default function Verse({
       </p>
 
       {/* interlinear, colour-coded word-by-word analysis */}
-      <div
-        dir="rtl"
-        className="relative mt-5 flex flex-wrap items-start gap-x-1 gap-y-3 border-t border-dashed border-line/70 pt-5"
-      >
-        {verse.words.map((w) => {
-          const isSel = w.position === selected;
-          return (
-            <button
-              key={w.position}
-              onClick={() => setSelected(isSel ? null : w.position)}
-              className={`flex min-w-[2.75rem] flex-col items-center gap-0.5 rounded-xl px-2.5 pb-1.5 pt-0.5 transition-colors duration-300 ${
-                isSel ? 'word-bloom bg-surface ring-1 ring-accent/45 shadow-sm' : 'hover:bg-surface/80'
-              }`}
-              title={[w.gloss, ...w.segments.map((s) => s.description)].filter(Boolean).join(' · ')}
-            >
-              <span className="ar text-[1.65rem] leading-[1.9]">
-                {w.segments.map((s, i) => (
-                  <span
-                    key={i}
-                    style={{ color: colorWords ? roleVar(s.role) : 'rgb(var(--ink))' }}
-                  >
-                    {s.arabic}
-                  </span>
-                ))}
-              </span>
-              {showGloss && w.gloss && (
-                <span dir="ltr" className="max-w-[8.5rem] text-center text-[11.5px] leading-snug text-muted">
-                  {w.gloss}
-                </span>
-              )}
-            </button>
-          );
-        })}
+      <div className="relative mt-5 border-t border-dashed border-line/70 pt-5">
+        <WordByWord words={verse.words} colorWords={colorWords} showGloss={showGloss} />
       </div>
-
-      {/* On a phone the word's grammar opens as a bottom sheet; on wider screens, inline. */}
-      {selectedWord && !phone && <GrammarPanel word={selectedWord} />}
-      {selectedWord && phone && (
-        <BottomSheet
-          label={`Grammar of ${selectedWord.arabic}`}
-          onClose={close}
-          footer={
-            <div className="flex items-center justify-between gap-2">
-              {/* Reading order is right to left, so the next word sits on the left. */}
-              <button
-                onClick={() => step(1)}
-                disabled={idx >= verse.words.length - 1}
-                className="btn btn-sm btn-secondary flex-1 disabled:opacity-35"
-              >
-                ← Next word
-              </button>
-              <span className="tnum shrink-0 px-1 text-[11px] text-muted">
-                {idx + 1} / {verse.words.length}
-              </span>
-              <button
-                onClick={() => step(-1)}
-                disabled={idx <= 0}
-                className="btn btn-sm btn-secondary flex-1 disabled:opacity-35"
-              >
-                Previous word →
-              </button>
-            </div>
-          }
-        >
-          <GrammarPanel word={selectedWord} bare />
-        </BottomSheet>
-      )}
 
       {showTranslation && <Translation text={verse.translation} footnotes={verse.footnotes} />}
     </article>
