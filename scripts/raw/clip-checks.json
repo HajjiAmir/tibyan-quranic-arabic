@@ -1,0 +1,4854 @@
+{
+ "about": "Measured choice of the verse each of the 400 most frequent words is heard from (brief 16, piece 3). For each word, up to six of its best-placed occurrences (pause-ranked) were cut from Mishary Alafasy's recitation (verses.quran.com/Alafasy, Quran.com word timings) with the app's own cut rules (src/lib/wordAudio.ts, clipOf) and the occurrence whose louder edge is quietest was kept; an occurrence whose published timing is under 0.25 s loses to any longer one. Only the choice and its measurement are stored: no audio, no timings. Fields: ref and hit (word index) chosen, loudness at the start and end cut in dB, and the pause-ranked first pick with its loudness, for comparison. Measured 2026-11-23 in a browser (Web Audio decode, 20 ms RMS).",
+ "chosen": {
+  "3": {
+   "lemma": "مِن",
+   "ref": "80:18",
+   "hit": 0,
+   "startDb": -60,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "114:6",
+    "hit": 0,
+    "startDb": -37,
+    "endDb": -19
+   }
+  },
+  "7": {
+   "lemma": "اللَّه",
+   "ref": "11:2",
+   "hit": 3,
+   "startDb": -29,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "33:3",
+    "hit": 2,
+    "startDb": -24,
+    "endDb": -40
+   }
+  },
+  "9": {
+   "lemma": "ما",
+   "ref": "69:2",
+   "hit": 0,
+   "startDb": -52,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "37:25",
+    "hit": 0,
+    "startDb": -33,
+    "endDb": -22
+   }
+  },
+  "12": {
+   "lemma": "فِي",
+   "ref": "37:43",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "26:147",
+    "hit": 0,
+    "startDb": -46,
+    "endDb": -32
+   }
+  },
+  "13": {
+   "lemma": "لا",
+   "ref": "74:28",
+   "hit": 0,
+   "startDb": -43,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "56:33",
+    "hit": 0,
+    "startDb": -61,
+    "endDb": -25
+   }
+  },
+  "14": {
+   "lemma": "إِنّ",
+   "ref": "37:4",
+   "hit": 0,
+   "startDb": -42,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "37:4",
+    "hit": 0,
+    "startDb": -42,
+    "endDb": -29
+   }
+  },
+  "15": {
+   "lemma": "قالَ",
+   "ref": "7:15",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "20:19",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -31
+   }
+  },
+  "16": {
+   "lemma": "الَّذِي",
+   "ref": "87:2",
+   "hit": 0,
+   "startDb": -75,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "87:2",
+    "hit": 0,
+    "startDb": -75,
+    "endDb": -35
+   }
+  },
+  "17": {
+   "lemma": "عَلَى",
+   "ref": "56:15",
+   "hit": 0,
+   "startDb": -54,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "38:33",
+    "hit": 1,
+    "startDb": -22,
+    "endDb": -42
+   }
+  },
+  "18": {
+   "lemma": "كانَ",
+   "ref": "17:58",
+   "hit": 13,
+   "startDb": -41,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "2:213",
+    "hit": 0,
+    "startDb": -57,
+    "endDb": -22
+   }
+  },
+  "19": {
+   "lemma": "ل",
+   "ref": "47:11",
+   "hit": 10,
+   "startDb": -26,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "47:6",
+    "hit": 3,
+    "startDb": -23,
+    "endDb": -38
+   }
+  },
+  "23": {
+   "lemma": "ذا",
+   "ref": "3:160",
+   "hit": 9,
+   "startDb": -30,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "57:11",
+    "hit": 1,
+    "startDb": -26,
+    "endDb": -19
+   }
+  },
+  "25": {
+   "lemma": "رَبّ",
+   "ref": "23:94",
+   "hit": 0,
+   "startDb": -45,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "7:122",
+    "hit": 0,
+    "startDb": -35,
+    "endDb": -22
+   }
+  },
+  "26": {
+   "lemma": "مَن",
+   "ref": "30:44",
+   "hit": 0,
+   "startDb": -41,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "50:33",
+    "hit": 0,
+    "startDb": -42,
+    "endDb": -29
+   }
+  },
+  "27": {
+   "lemma": "إِلَى",
+   "ref": "77:22",
+   "hit": 0,
+   "startDb": -58,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "6:50",
+    "hit": 20,
+    "startDb": -33,
+    "endDb": -50
+   }
+  },
+  "28": {
+   "lemma": "إِن",
+   "ref": "35:23",
+   "hit": 0,
+   "startDb": -45,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "35:23",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -39
+   }
+  },
+  "29": {
+   "lemma": "إِلّا",
+   "ref": "20:3",
+   "hit": 0,
+   "startDb": -41,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "74:39",
+    "hit": 0,
+    "startDb": -53,
+    "endDb": -26
+   }
+  },
+  "30": {
+   "lemma": "أَن",
+   "ref": "68:14",
+   "hit": 0,
+   "startDb": -43,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "80:2",
+    "hit": 0,
+    "startDb": -56,
+    "endDb": -34
+   }
+  },
+  "31": {
+   "lemma": "آمَنَ",
+   "ref": "69:41",
+   "hit": 6,
+   "startDb": -37,
+   "endDb": -50,
+   "firstPick": {
+    "ref": "77:50",
+    "hit": 3,
+    "startDb": -22,
+    "endDb": -42
+   }
+  },
+  "32": {
+   "lemma": "ب",
+   "ref": "62:3",
+   "hit": 4,
+   "startDb": -35,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "75:16",
+    "hit": 5,
+    "startDb": -31,
+    "endDb": -42
+   }
+  },
+  "33": {
+   "lemma": "و",
+   "ref": "56:84",
+   "hit": 0,
+   "startDb": -59,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "28:9",
+    "hit": 6,
+    "startDb": -25,
+    "endDb": -45
+   }
+  },
+  "35": {
+   "lemma": "يَوْم",
+   "ref": "79:6",
+   "hit": 0,
+   "startDb": -54,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "18:19",
+    "hit": 14,
+    "startDb": -23,
+    "endDb": -45
+   }
+  },
+  "36": {
+   "lemma": "عَن",
+   "ref": "78:2",
+   "hit": 0,
+   "startDb": -42,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "78:2",
+    "hit": 0,
+    "startDb": -42,
+    "endDb": -26
+   }
+  },
+  "37": {
+   "lemma": "أَرْض",
+   "ref": "4:97",
+   "hit": 17,
+   "startDb": -31,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "11:64",
+    "hit": 9,
+    "startDb": -29,
+    "endDb": -24
+   }
+  },
+  "38": {
+   "lemma": "إِذا",
+   "ref": "82:1",
+   "hit": 0,
+   "startDb": -50,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "56:1",
+    "hit": 0,
+    "startDb": -71,
+    "endDb": -20
+   }
+  },
+  "39": {
+   "lemma": "قَد",
+   "ref": "23:66",
+   "hit": 0,
+   "startDb": -40,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "23:1",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -30
+   }
+  },
+  "40": {
+   "lemma": "قَوْم",
+   "ref": "26:11",
+   "hit": 0,
+   "startDb": -36,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "26:11",
+    "hit": 0,
+    "startDb": -36,
+    "endDb": -31
+   }
+  },
+  "41": {
+   "lemma": "آيَة",
+   "ref": "7:64",
+   "hit": 9,
+   "startDb": -32,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "24:18",
+    "hit": 3,
+    "startDb": -18,
+    "endDb": -43
+   }
+  },
+  "42": {
+   "lemma": "عَلِمَ",
+   "ref": "73:20",
+   "hit": 19,
+   "startDb": -44,
+   "endDb": -22,
+   "firstPick": {
+    "ref": "2:235",
+    "hit": 13,
+    "startDb": -46,
+    "endDb": -18
+   }
+  },
+  "43": {
+   "lemma": "أَنّ",
+   "ref": "104:3",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "4:116",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -25
+   }
+  },
+  "45": {
+   "lemma": "كُلّ",
+   "ref": "17:38",
+   "hit": 0,
+   "startDb": -45,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "55:26",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -24
+   }
+  },
+  "46": {
+   "lemma": "لَم",
+   "ref": "37:29",
+   "hit": 2,
+   "startDb": -32,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "112:3",
+    "hit": 0,
+    "startDb": -55,
+    "endDb": -22
+   }
+  },
+  "47": {
+   "lemma": "جَعَلَ",
+   "ref": "32:8",
+   "hit": 1,
+   "startDb": -28,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "5:97",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -20
+   }
+  },
+  "48": {
+   "lemma": "ثُمّ",
+   "ref": "18:92",
+   "hit": 0,
+   "startDb": -43,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "18:89",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -28
+   }
+  },
+  "49": {
+   "lemma": "رَسُول",
+   "ref": "10:47",
+   "hit": 2,
+   "startDb": -25,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "10:47",
+    "hit": 2,
+    "startDb": -25,
+    "endDb": -40
+   }
+  },
+  "51": {
+   "lemma": "عَذاب",
+   "ref": "38:8",
+   "hit": 14,
+   "startDb": -28,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "89:13",
+    "hit": 4,
+    "startDb": -21,
+    "endDb": -42
+   }
+  },
+  "52": {
+   "lemma": "سَماء",
+   "ref": "41:12",
+   "hit": 8,
+   "startDb": -30,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "41:12",
+    "hit": 8,
+    "startDb": -30,
+    "endDb": -36
+   }
+  },
+  "53": {
+   "lemma": "نَفْس",
+   "ref": "74:38",
+   "hit": 1,
+   "startDb": -22,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "13:42",
+    "hit": 12,
+    "startDb": -21,
+    "endDb": -39
+   }
+  },
+  "54": {
+   "lemma": "كَفَرَ",
+   "ref": "2:258",
+   "hit": 37,
+   "startDb": -39,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "54:14",
+    "hit": 5,
+    "startDb": -35,
+    "endDb": -43
+   }
+  },
+  "56": {
+   "lemma": "شَىْء",
+   "ref": "6:159",
+   "hit": 9,
+   "startDb": -33,
+   "endDb": -52,
+   "firstPick": {
+    "ref": "29:42",
+    "hit": 8,
+    "startDb": -28,
+    "endDb": -43
+   }
+  },
+  "57": {
+   "lemma": "أَو",
+   "ref": "96:12",
+   "hit": 0,
+   "startDb": -41,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "96:12",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -36
+   }
+  },
+  "58": {
+   "lemma": "جاءَ",
+   "ref": "23:99",
+   "hit": 2,
+   "startDb": -28,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "15:61",
+    "hit": 1,
+    "startDb": -31,
+    "endDb": -23
+   }
+  },
+  "59": {
+   "lemma": "عَمِلَ",
+   "ref": "16:97",
+   "hit": 1,
+   "startDb": -27,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "30:44",
+    "hit": 5,
+    "startDb": -22,
+    "endDb": -21
+   }
+  },
+  "60": {
+   "lemma": "آتَى",
+   "ref": "7:190",
+   "hit": 7,
+   "startDb": -32,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "16:55",
+    "hit": 2,
+    "startDb": -26,
+    "endDb": -31
+   }
+  },
+  "61": {
+   "lemma": "رَأَى",
+   "ref": "53:11",
+   "hit": 4,
+   "startDb": -22,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "53:11",
+    "hit": 4,
+    "startDb": -22,
+    "endDb": -38
+   }
+  },
+  "62": {
+   "lemma": "بَيْن",
+   "ref": "49:10",
+   "hit": 4,
+   "startDb": -33,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "86:7",
+    "hit": 2,
+    "startDb": -26,
+    "endDb": -28
+   }
+  },
+  "64": {
+   "lemma": "أَتَى",
+   "ref": "20:60",
+   "hit": 5,
+   "startDb": -36,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "20:60",
+    "hit": 5,
+    "startDb": -36,
+    "endDb": -40
+   }
+  },
+  "66": {
+   "lemma": "كِتاب",
+   "ref": "18:27",
+   "hit": 5,
+   "startDb": -39,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "13:38",
+    "hit": 20,
+    "startDb": -32,
+    "endDb": -30
+   }
+  },
+  "67": {
+   "lemma": "حَقّ",
+   "ref": "3:112",
+   "hit": 29,
+   "startDb": -41,
+   "endDb": -52,
+   "firstPick": {
+    "ref": "40:77",
+    "hit": 4,
+    "startDb": -30,
+    "endDb": -43
+   }
+  },
+  "68": {
+   "lemma": "قَبْل",
+   "ref": "7:101",
+   "hit": 16,
+   "startDb": -42,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "30:42",
+    "hit": 10,
+    "startDb": -38,
+    "endDb": -41
+   }
+  },
+  "69": {
+   "lemma": "ناس",
+   "ref": "22:75",
+   "hit": 6,
+   "startDb": -25,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "114:6",
+    "hit": 2,
+    "startDb": -23,
+    "endDb": -43
+   }
+  },
+  "70": {
+   "lemma": "إِذ",
+   "ref": "19:3",
+   "hit": 0,
+   "startDb": -47,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "91:12",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -23
+   }
+  },
+  "71": {
+   "lemma": "شاءَ",
+   "ref": "9:28",
+   "hit": 22,
+   "startDb": -31,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "9:28",
+    "hit": 22,
+    "startDb": -31,
+    "endDb": -48
+   }
+  },
+  "72": {
+   "lemma": "أَيّ",
+   "ref": "6:19",
+   "hit": 1,
+   "startDb": -41,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "80:18",
+    "hit": 1,
+    "startDb": -36,
+    "endDb": -26
+   }
+  },
+  "73": {
+   "lemma": "مُؤْمِن",
+   "ref": "64:2",
+   "hit": 6,
+   "startDb": -31,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "64:2",
+    "hit": 6,
+    "startDb": -31,
+    "endDb": -48
+   }
+  },
+  "74": {
+   "lemma": "لَو",
+   "ref": "21:99",
+   "hit": 0,
+   "startDb": -38,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "37:168",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -33
+   }
+  },
+  "75": {
+   "lemma": "بَعْد",
+   "ref": "30:4",
+   "hit": 8,
+   "startDb": -28,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "30:4",
+    "hit": 8,
+    "startDb": -28,
+    "endDb": -43
+   }
+  },
+  "76": {
+   "lemma": "عِند",
+   "ref": "53:14",
+   "hit": 0,
+   "startDb": -41,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "53:14",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -29
+   }
+  },
+  "77": {
+   "lemma": "خَلَقَ",
+   "ref": "86:5",
+   "hit": 3,
+   "startDb": -35,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "86:5",
+    "hit": 3,
+    "startDb": -35,
+    "endDb": -38
+   }
+  },
+  "78": {
+   "lemma": "أَنزَلَ",
+   "ref": "18:1",
+   "hit": 3,
+   "startDb": -35,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "13:17",
+    "hit": 0,
+    "startDb": -43,
+    "endDb": -21
+   }
+  },
+  "80": {
+   "lemma": "خَيْر",
+   "ref": "23:72",
+   "hit": 5,
+   "startDb": -36,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "7:26",
+    "hit": 12,
+    "startDb": -34,
+    "endDb": -48
+   }
+  },
+  "81": {
+   "lemma": "سَبِيل",
+   "ref": "42:41",
+   "hit": 8,
+   "startDb": -36,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "42:41",
+    "hit": 8,
+    "startDb": -36,
+    "endDb": -45
+   }
+  },
+  "82": {
+   "lemma": "كَذَّبَ",
+   "ref": "39:25",
+   "hit": 0,
+   "startDb": -39,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "26:176",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -26
+   }
+  },
+  "83": {
+   "lemma": "دَعا",
+   "ref": "39:8",
+   "hit": 4,
+   "startDb": -33,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "41:33",
+    "hit": 4,
+    "startDb": -31,
+    "endDb": -22
+   }
+  },
+  "84": {
+   "lemma": "أَمْر",
+   "ref": "44:4",
+   "hit": 3,
+   "startDb": -34,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "97:4",
+    "hit": 8,
+    "startDb": -30,
+    "endDb": -45
+   }
+  },
+  "85": {
+   "lemma": "اتَّقَى",
+   "ref": "53:32",
+   "hit": 30,
+   "startDb": -39,
+   "endDb": -60,
+   "firstPick": {
+    "ref": "53:32",
+    "hit": 30,
+    "startDb": -39,
+    "endDb": -60
+   }
+  },
+  "86": {
+   "lemma": "لَمّا",
+   "ref": "18:59",
+   "hit": 3,
+   "startDb": -25,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "80:23",
+    "hit": 1,
+    "startDb": -21,
+    "endDb": -21
+   }
+  },
+  "87": {
+   "lemma": "مَع",
+   "ref": "15:31",
+   "hit": 5,
+   "startDb": -25,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "74:45",
+    "hit": 2,
+    "startDb": -25,
+    "endDb": -23
+   }
+  },
+  "88": {
+   "lemma": "عَلِيم",
+   "ref": "26:37",
+   "hit": 3,
+   "startDb": -29,
+   "endDb": -54,
+   "firstPick": {
+    "ref": "7:112",
+    "hit": 3,
+    "startDb": -23,
+    "endDb": -44
+   }
+  },
+  "89": {
+   "lemma": "بَعْض",
+   "ref": "5:51",
+   "hit": 10,
+   "startDb": -29,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "17:21",
+    "hit": 5,
+    "startDb": -27,
+    "endDb": -40
+   }
+  },
+  "90": {
+   "lemma": "ذُو",
+   "ref": "53:6",
+   "hit": 0,
+   "startDb": -48,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "53:6",
+    "hit": 0,
+    "startDb": -48,
+    "endDb": -27
+   }
+  },
+  "91": {
+   "lemma": "كافِر",
+   "ref": "2:41",
+   "hit": 9,
+   "startDb": -31,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "64:2",
+    "hit": 4,
+    "startDb": -38,
+    "endDb": -23
+   }
+  },
+  "92": {
+   "lemma": "آخِر",
+   "ref": "37:78",
+   "hit": 3,
+   "startDb": -25,
+   "endDb": -54,
+   "firstPick": {
+    "ref": "56:14",
+    "hit": 2,
+    "startDb": -22,
+    "endDb": -39
+   }
+  },
+  "93": {
+   "lemma": "إِلٰه",
+   "ref": "23:91",
+   "hit": 9,
+   "startDb": -34,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "43:84",
+    "hit": 7,
+    "startDb": -25,
+    "endDb": -33
+   }
+  },
+  "94": {
+   "lemma": "جَنَّة",
+   "ref": "70:38",
+   "hit": 6,
+   "startDb": -27,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "53:15",
+    "hit": 1,
+    "startDb": -31,
+    "endDb": -24
+   }
+  },
+  "95": {
+   "lemma": "غَيْر",
+   "ref": "50:31",
+   "hit": 3,
+   "startDb": -27,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "74:10",
+    "hit": 2,
+    "startDb": -22,
+    "endDb": -25
+   }
+  },
+  "96": {
+   "lemma": "نار",
+   "ref": "101:11",
+   "hit": 0,
+   "startDb": -33,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "55:15",
+    "hit": 5,
+    "startDb": -26,
+    "endDb": -38
+   }
+  },
+  "97": {
+   "lemma": "دُون",
+   "ref": "53:58",
+   "hit": 3,
+   "startDb": -28,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "37:86",
+    "hit": 2,
+    "startDb": -28,
+    "endDb": -24
+   }
+  },
+  "98": {
+   "lemma": "هَدَى",
+   "ref": "20:50",
+   "hit": 8,
+   "startDb": -37,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "20:79",
+    "hit": 4,
+    "startDb": -33,
+    "endDb": -46
+   }
+  },
+  "100": {
+   "lemma": "حَتَّى",
+   "ref": "43:38",
+   "hit": 0,
+   "startDb": -53,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "74:47",
+    "hit": 0,
+    "startDb": -51,
+    "endDb": -26
+   }
+  },
+  "101": {
+   "lemma": "أَرادَ",
+   "ref": "17:19",
+   "hit": 1,
+   "startDb": -31,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "36:82",
+    "hit": 3,
+    "startDb": -27,
+    "endDb": -27
+   }
+  },
+  "102": {
+   "lemma": "أَم",
+   "ref": "43:79",
+   "hit": 0,
+   "startDb": -52,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "37:156",
+    "hit": 0,
+    "startDb": -44,
+    "endDb": -24
+   }
+  },
+  "103": {
+   "lemma": "اتَّبَعَ",
+   "ref": "16:123",
+   "hit": 4,
+   "startDb": -40,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "6:106",
+    "hit": 0,
+    "startDb": -54,
+    "endDb": -32
+   }
+  },
+  "104": {
+   "lemma": "مُوسَى",
+   "ref": "20:9",
+   "hit": 3,
+   "startDb": -29,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "20:9",
+    "hit": 3,
+    "startDb": -29,
+    "endDb": -39
+   }
+  },
+  "105": {
+   "lemma": "قَلْب",
+   "ref": "50:37",
+   "hit": 7,
+   "startDb": -35,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "50:37",
+    "hit": 7,
+    "startDb": -35,
+    "endDb": -36
+   }
+  },
+  "106": {
+   "lemma": "عَبْد",
+   "ref": "50:8",
+   "hit": 3,
+   "startDb": -31,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "50:8",
+    "hit": 3,
+    "startDb": -31,
+    "endDb": -27
+   }
+  },
+  "107": {
+   "lemma": "أَرْسَلَ",
+   "ref": "25:48",
+   "hit": 2,
+   "startDb": -37,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "26:17",
+    "hit": 1,
+    "startDb": -27,
+    "endDb": -22
+   }
+  },
+  "108": {
+   "lemma": "ظالِم",
+   "ref": "18:35",
+   "hit": 3,
+   "startDb": -28,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "18:35",
+    "hit": 3,
+    "startDb": -28,
+    "endDb": -27
+   }
+  },
+  "109": {
+   "lemma": "لَعَلّ",
+   "ref": "33:63",
+   "hit": 11,
+   "startDb": -22,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "42:17",
+    "hit": 8,
+    "startDb": -21,
+    "endDb": -29
+   }
+  },
+  "110": {
+   "lemma": "أَخَذَ",
+   "ref": "6:46",
+   "hit": 3,
+   "startDb": -42,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "11:102",
+    "hit": 4,
+    "startDb": -23,
+    "endDb": -21
+   }
+  },
+  "111": {
+   "lemma": "أَهْل",
+   "ref": "38:64",
+   "hit": 4,
+   "startDb": -27,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "15:67",
+    "hit": 1,
+    "startDb": -21,
+    "endDb": -20
+   }
+  },
+  "112": {
+   "lemma": "بَل",
+   "ref": "37:26",
+   "hit": 0,
+   "startDb": -42,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "37:12",
+    "hit": 0,
+    "startDb": -44,
+    "endDb": -24
+   }
+  },
+  "113": {
+   "lemma": "اتَّخَذَ",
+   "ref": "25:28",
+   "hit": 3,
+   "startDb": -30,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "19:88",
+    "hit": 1,
+    "startDb": -28,
+    "endDb": -25
+   }
+  },
+  "114": {
+   "lemma": "عَبَدَ",
+   "ref": "26:75",
+   "hit": 4,
+   "startDb": -41,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "37:161",
+    "hit": 2,
+    "startDb": -34,
+    "endDb": -45
+   }
+  },
+  "115": {
+   "lemma": "يَد",
+   "ref": "48:10",
+   "hit": 6,
+   "startDb": -25,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "48:10",
+    "hit": 6,
+    "startDb": -25,
+    "endDb": -25
+   }
+  },
+  "117": {
+   "lemma": "مُبِين",
+   "ref": "37:156",
+   "hit": 3,
+   "startDb": -33,
+   "endDb": -59,
+   "firstPick": {
+    "ref": "26:195",
+    "hit": 2,
+    "startDb": -18,
+    "endDb": -36
+   }
+  },
+  "118": {
+   "lemma": "رَحِيم",
+   "ref": "16:47",
+   "hit": 7,
+   "startDb": -32,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "41:32",
+    "hit": 3,
+    "startDb": -26,
+    "endDb": -39
+   }
+  },
+  "119": {
+   "lemma": "دُنْيا",
+   "ref": "43:35",
+   "hit": 7,
+   "startDb": -36,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "79:38",
+    "hit": 2,
+    "startDb": -32,
+    "endDb": -43
+   }
+  },
+  "120": {
+   "lemma": "رَحْمَة",
+   "ref": "44:6",
+   "hit": 0,
+   "startDb": -39,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "3:8",
+    "hit": 11,
+    "startDb": -25,
+    "endDb": -43
+   }
+  },
+  "121": {
+   "lemma": "ظَلَمَ",
+   "ref": "4:148",
+   "hit": 9,
+   "startDb": -26,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "4:148",
+    "hit": 9,
+    "startDb": -26,
+    "endDb": -41
+   }
+  },
+  "122": {
+   "lemma": "عَظِيم",
+   "ref": "68:4",
+   "hit": 3,
+   "startDb": -26,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "37:107",
+    "hit": 2,
+    "startDb": -23,
+    "endDb": -32
+   }
+  },
+  "123": {
+   "lemma": "سَأَلَ",
+   "ref": "70:1",
+   "hit": 0,
+   "startDb": -58,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "70:1",
+    "hit": 0,
+    "startDb": -58,
+    "endDb": -27
+   }
+  },
+  "124": {
+   "lemma": "وَجَدَ",
+   "ref": "12:75",
+   "hit": 3,
+   "startDb": -26,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "12:75",
+    "hit": 3,
+    "startDb": -26,
+    "endDb": -33
+   }
+  },
+  "125": {
+   "lemma": "أَجْر",
+   "ref": "26:180",
+   "hit": 4,
+   "startDb": -35,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "12:104",
+    "hit": 4,
+    "startDb": -31,
+    "endDb": -44
+   }
+  },
+  "126": {
+   "lemma": "عِلْم",
+   "ref": "6:100",
+   "hit": 10,
+   "startDb": -30,
+   "endDb": -56,
+   "firstPick": {
+    "ref": "6:100",
+    "hit": 10,
+    "startDb": -30,
+    "endDb": -56
+   }
+  },
+  "127": {
+   "lemma": "لَن",
+   "ref": "60:3",
+   "hit": 0,
+   "startDb": -46,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "3:111",
+    "hit": 0,
+    "startDb": -38,
+    "endDb": -24
+   }
+  },
+  "128": {
+   "lemma": "ف",
+   "ref": "17:7",
+   "hit": 6,
+   "startDb": -36,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "17:7",
+    "hit": 6,
+    "startDb": -36,
+    "endDb": -47
+   }
+  },
+  "129": {
+   "lemma": "عَزِيز",
+   "ref": "58:21",
+   "hit": 8,
+   "startDb": -29,
+   "endDb": -55,
+   "firstPick": {
+    "ref": "22:74",
+    "hit": 8,
+    "startDb": -24,
+    "endDb": -38
+   }
+  },
+  "130": {
+   "lemma": "أَخْرَجَ",
+   "ref": "14:5",
+   "hit": 5,
+   "startDb": -35,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "79:31",
+    "hit": 0,
+    "startDb": -57,
+    "endDb": -26
+   }
+  },
+  "131": {
+   "lemma": "حَكِيم",
+   "ref": "43:4",
+   "hit": 6,
+   "startDb": -39,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "44:4",
+    "hit": 4,
+    "startDb": -37,
+    "endDb": -42
+   }
+  },
+  "132": {
+   "lemma": "أَكَلَ",
+   "ref": "5:3",
+   "hit": 16,
+   "startDb": -32,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "5:3",
+    "hit": 16,
+    "startDb": -32,
+    "endDb": -31
+   }
+  },
+  "133": {
+   "lemma": "هَل",
+   "ref": "79:15",
+   "hit": 0,
+   "startDb": -74,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "79:15",
+    "hit": 0,
+    "startDb": -74,
+    "endDb": -31
+   }
+  },
+  "134": {
+   "lemma": "دِين",
+   "ref": "109:6",
+   "hit": 3,
+   "startDb": -34,
+   "endDb": -51,
+   "firstPick": {
+    "ref": "109:6",
+    "hit": 3,
+    "startDb": -34,
+    "endDb": -51
+   }
+  },
+  "135": {
+   "lemma": "قَوْل",
+   "ref": "50:18",
+   "hit": 3,
+   "startDb": -38,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "2:263",
+    "hit": 0,
+    "startDb": -76,
+    "endDb": -15
+   }
+  },
+  "136": {
+   "lemma": "غَفُور",
+   "ref": "34:15",
+   "hit": 19,
+   "startDb": -29,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "22:60",
+    "hit": 15,
+    "startDb": -25,
+    "endDb": -33
+   }
+  },
+  "137": {
+   "lemma": "لَيْسَ",
+   "ref": "4:123",
+   "hit": 0,
+   "startDb": -38,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "56:2",
+    "hit": 0,
+    "startDb": -63,
+    "endDb": -25
+   }
+  },
+  "138": {
+   "lemma": "شَيْطان",
+   "ref": "37:65",
+   "hit": 3,
+   "startDb": -34,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "26:210",
+    "hit": 3,
+    "startDb": -20,
+    "endDb": -40
+   }
+  },
+  "139": {
+   "lemma": "فَعَلَ",
+   "ref": "34:54",
+   "hit": 6,
+   "startDb": -29,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "89:6",
+    "hit": 3,
+    "startDb": -37,
+    "endDb": -26
+   }
+  },
+  "140": {
+   "lemma": "مَثَل",
+   "ref": "18:54",
+   "hit": 8,
+   "startDb": -23,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "18:54",
+    "hit": 8,
+    "startDb": -23,
+    "endDb": -37
+   }
+  },
+  "141": {
+   "lemma": "مَلَك",
+   "ref": "6:8",
+   "hit": 4,
+   "startDb": -31,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "11:12",
+    "hit": 18,
+    "startDb": -26,
+    "endDb": -46
+   }
+  },
+  "142": {
+   "lemma": "نَظَرَ",
+   "ref": "74:21",
+   "hit": 1,
+   "startDb": -28,
+   "endDb": -72,
+   "firstPick": {
+    "ref": "74:21",
+    "hit": 1,
+    "startDb": -28,
+    "endDb": -72
+   }
+  },
+  "143": {
+   "lemma": "مال",
+   "ref": "6:152",
+   "hit": 2,
+   "startDb": -28,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "68:14",
+    "hit": 3,
+    "startDb": -25,
+    "endDb": -22
+   }
+  },
+  "144": {
+   "lemma": "وَلِيّ",
+   "ref": "6:51",
+   "hit": 12,
+   "startDb": -28,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "7:196",
+    "hit": 1,
+    "startDb": -23,
+    "endDb": -24
+   }
+  },
+  "145": {
+   "lemma": "هُدًى",
+   "ref": "20:10",
+   "hit": 17,
+   "startDb": -38,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "18:13",
+    "hit": 10,
+    "startDb": -29,
+    "endDb": -33
+   }
+  },
+  "146": {
+   "lemma": "ذَكَرَ",
+   "ref": "6:118",
+   "hit": 2,
+   "startDb": -31,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "6:118",
+    "hit": 2,
+    "startDb": -31,
+    "endDb": -30
+   }
+  },
+  "147": {
+   "lemma": "فَضْل",
+   "ref": "7:39",
+   "hit": 8,
+   "startDb": -36,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "24:10",
+    "hit": 1,
+    "startDb": -28,
+    "endDb": -23
+   }
+  },
+  "148": {
+   "lemma": "لَيْل",
+   "ref": "37:138",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "57:6",
+    "hit": 7,
+    "startDb": -27,
+    "endDb": -48
+   }
+  },
+  "149": {
+   "lemma": "خافَ",
+   "ref": "11:103",
+   "hit": 5,
+   "startDb": -30,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "55:46",
+    "hit": 1,
+    "startDb": -32,
+    "endDb": -23
+   }
+  },
+  "150": {
+   "lemma": "صَلاة",
+   "ref": "35:18",
+   "hit": 25,
+   "startDb": -32,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "2:45",
+    "hit": 2,
+    "startDb": -21,
+    "endDb": -39
+   }
+  },
+  "151": {
+   "lemma": "قَتَلَ",
+   "ref": "74:20",
+   "hit": 1,
+   "startDb": -35,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "85:4",
+    "hit": 0,
+    "startDb": -77,
+    "endDb": -28
+   }
+  },
+  "152": {
+   "lemma": "كَيْف",
+   "ref": "37:154",
+   "hit": 2,
+   "startDb": -34,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "2:28",
+    "hit": 0,
+    "startDb": -65,
+    "endDb": -33
+   }
+  },
+  "153": {
+   "lemma": "أَوَّل",
+   "ref": "20:65",
+   "hit": 8,
+   "startDb": -29,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "39:12",
+    "hit": 3,
+    "startDb": -35,
+    "endDb": -25
+   }
+  },
+  "154": {
+   "lemma": "أَكْثَر",
+   "ref": "34:35",
+   "hit": 2,
+   "startDb": -35,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "37:71",
+    "hit": 3,
+    "startDb": -28,
+    "endDb": -23
+   }
+  },
+  "155": {
+   "lemma": "بُنَىّ",
+   "ref": "44:30",
+   "hit": 2,
+   "startDb": -32,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "26:59",
+    "hit": 2,
+    "startDb": -25,
+    "endDb": -30
+   }
+  },
+  "156": {
+   "lemma": "رَجَعَ",
+   "ref": "7:150",
+   "hit": 1,
+   "startDb": -25,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "7:150",
+    "hit": 1,
+    "startDb": -25,
+    "endDb": -24
+   }
+  },
+  "157": {
+   "lemma": "أَصْحاب",
+   "ref": "56:41",
+   "hit": 0,
+   "startDb": -55,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "56:8",
+    "hit": 0,
+    "startDb": -62,
+    "endDb": -23
+   }
+  },
+  "158": {
+   "lemma": "تَوَلَّى",
+   "ref": "53:33",
+   "hit": 2,
+   "startDb": -38,
+   "endDb": -49,
+   "firstPick": {
+    "ref": "53:33",
+    "hit": 2,
+    "startDb": -38,
+    "endDb": -49
+   }
+  },
+  "159": {
+   "lemma": "سَمِعَ",
+   "ref": "3:181",
+   "hit": 1,
+   "startDb": -28,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "58:1",
+    "hit": 1,
+    "startDb": -33,
+    "endDb": -20
+   }
+  },
+  "160": {
+   "lemma": "أَمَرَ",
+   "ref": "96:12",
+   "hit": 1,
+   "startDb": -36,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "12:40",
+    "hit": 19,
+    "startDb": -40,
+    "endDb": -27
+   }
+  },
+  "161": {
+   "lemma": "جَهَنَّم",
+   "ref": "21:29",
+   "hit": 9,
+   "startDb": -38,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "3:197",
+    "hit": 4,
+    "startDb": -28,
+    "endDb": -20
+   }
+  },
+  "163": {
+   "lemma": "حَياة",
+   "ref": "23:37",
+   "hit": 3,
+   "startDb": -33,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "89:24",
+    "hit": 3,
+    "startDb": -22,
+    "endDb": -35
+   }
+  },
+  "164": {
+   "lemma": "دَخَلَ",
+   "ref": "71:28",
+   "hit": 5,
+   "startDb": -30,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "71:28",
+    "hit": 5,
+    "startDb": -30,
+    "endDb": -28
+   }
+  },
+  "165": {
+   "lemma": "ذِكْر",
+   "ref": "38:49",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "38:49",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -44
+   }
+  },
+  "166": {
+   "lemma": "زَوْج",
+   "ref": "50:7",
+   "hit": 9,
+   "startDb": -35,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "26:7",
+    "hit": 9,
+    "startDb": -27,
+    "endDb": -42
+   }
+  },
+  "167": {
+   "lemma": "أَخ",
+   "ref": "4:12",
+   "hit": 57,
+   "startDb": -41,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "12:77",
+    "hit": 5,
+    "startDb": -28,
+    "endDb": -20
+   }
+  },
+  "168": {
+   "lemma": "لَوْلا",
+   "ref": "8:68",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "8:68",
+    "hit": 0,
+    "startDb": -44,
+    "endDb": -32
+   }
+  },
+  "169": {
+   "lemma": "مِثْل",
+   "ref": "40:31",
+   "hit": 0,
+   "startDb": -40,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "40:31",
+    "hit": 0,
+    "startDb": -40,
+    "endDb": -29
+   }
+  },
+  "170": {
+   "lemma": "نَبِيّ",
+   "ref": "6:112",
+   "hit": 3,
+   "startDb": -28,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "43:6",
+    "hit": 3,
+    "startDb": -27,
+    "endDb": -37
+   }
+  },
+  "171": {
+   "lemma": "أَحَد",
+   "ref": "112:4",
+   "hit": 4,
+   "startDb": -37,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "89:26",
+    "hit": 3,
+    "startDb": -32,
+    "endDb": -36
+   }
+  },
+  "172": {
+   "lemma": "خالِد",
+   "ref": "43:74",
+   "hit": 5,
+   "startDb": -37,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "23:11",
+    "hit": 5,
+    "startDb": -35,
+    "endDb": -50
+   }
+  },
+  "173": {
+   "lemma": "صالِح",
+   "ref": "21:86",
+   "hit": 5,
+   "startDb": -35,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "37:100",
+    "hit": 4,
+    "startDb": -27,
+    "endDb": -41
+   }
+  },
+  "174": {
+   "lemma": "فِرْعَوْن",
+   "ref": "44:31",
+   "hit": 1,
+   "startDb": -38,
+   "endDb": -52,
+   "firstPick": {
+    "ref": "26:11",
+    "hit": 1,
+    "startDb": -31,
+    "endDb": -39
+   }
+  },
+  "175": {
+   "lemma": "جَزَى",
+   "ref": "92:19",
+   "hit": 5,
+   "startDb": -39,
+   "endDb": -67,
+   "firstPick": {
+    "ref": "92:19",
+    "hit": 5,
+    "startDb": -39,
+    "endDb": -67
+   }
+  },
+  "176": {
+   "lemma": "عالَم",
+   "ref": "7:121",
+   "hit": 3,
+   "startDb": -25,
+   "endDb": -50,
+   "firstPick": {
+    "ref": "1:2",
+    "hit": 3,
+    "startDb": -23,
+    "endDb": -35
+   }
+  },
+  "177": {
+   "lemma": "أَطاعَ",
+   "ref": "4:80",
+   "hit": 4,
+   "startDb": -30,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "4:80",
+    "hit": 4,
+    "startDb": -30,
+    "endDb": -23
+   }
+  },
+  "178": {
+   "lemma": "أَلِيم",
+   "ref": "11:26",
+   "hit": 10,
+   "startDb": -37,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "84:24",
+    "hit": 2,
+    "startDb": -31,
+    "endDb": -45
+   }
+  },
+  "179": {
+   "lemma": "أَوْحَى",
+   "ref": "53:10",
+   "hit": 4,
+   "startDb": -37,
+   "endDb": -54,
+   "firstPick": {
+    "ref": "53:10",
+    "hit": 4,
+    "startDb": -37,
+    "endDb": -54
+   }
+  },
+  "180": {
+   "lemma": "وَجْه",
+   "ref": "12:9",
+   "hit": 7,
+   "startDb": -25,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "92:20",
+    "hit": 2,
+    "startDb": -21,
+    "endDb": -20
+   }
+  },
+  "181": {
+   "lemma": "أَشْرَكَ",
+   "ref": "18:42",
+   "hit": 16,
+   "startDb": -32,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "18:38",
+    "hit": 5,
+    "startDb": -22,
+    "endDb": -28
+   }
+  },
+  "182": {
+   "lemma": "أَلْقَى",
+   "ref": "20:65",
+   "hit": 10,
+   "startDb": -34,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "20:65",
+    "hit": 10,
+    "startDb": -34,
+    "endDb": -32
+   }
+  },
+  "183": {
+   "lemma": "إِنسان",
+   "ref": "53:24",
+   "hit": 1,
+   "startDb": -26,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "55:3",
+    "hit": 1,
+    "startDb": -22,
+    "endDb": -44
+   }
+  },
+  "184": {
+   "lemma": "بَيِّنَة",
+   "ref": "2:211",
+   "hit": 7,
+   "startDb": -27,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "2:211",
+    "hit": 7,
+    "startDb": -27,
+    "endDb": -41
+   }
+  },
+  "185": {
+   "lemma": "عَمَل",
+   "ref": "5:90",
+   "hit": 10,
+   "startDb": -27,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "25:23",
+    "hit": 5,
+    "startDb": -25,
+    "endDb": -32
+   }
+  },
+  "186": {
+   "lemma": "آخَر",
+   "ref": "2:185",
+   "hit": 26,
+   "startDb": -31,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "2:184",
+    "hit": 12,
+    "startDb": -28,
+    "endDb": -41
+   }
+  },
+  "187": {
+   "lemma": "قُرْءان",
+   "ref": "85:21",
+   "hit": 2,
+   "startDb": -29,
+   "endDb": -22,
+   "firstPick": {
+    "ref": "85:21",
+    "hit": 2,
+    "startDb": -29,
+    "endDb": -22
+   }
+  },
+  "188": {
+   "lemma": "قَلِيل",
+   "ref": "34:16",
+   "hit": 15,
+   "startDb": -40,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "34:16",
+    "hit": 15,
+    "startDb": -40,
+    "endDb": -44
+   }
+  },
+  "189": {
+   "lemma": "قِيامَة",
+   "ref": "22:17",
+   "hit": 15,
+   "startDb": -26,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "75:1",
+    "hit": 3,
+    "startDb": -25,
+    "endDb": -38
+   }
+  },
+  "190": {
+   "lemma": "وَعَدَ",
+   "ref": "48:29",
+   "hit": 44,
+   "startDb": -43,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "5:9",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -23
+   }
+  },
+  "191": {
+   "lemma": "إِبْراهِيم",
+   "ref": "26:69",
+   "hit": 3,
+   "startDb": -30,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "37:104",
+    "hit": 2,
+    "startDb": -26,
+    "endDb": -52
+   }
+  },
+  "192": {
+   "lemma": "أَنفَقَ",
+   "ref": "57:10",
+   "hit": 15,
+   "startDb": -34,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "18:42",
+    "hit": 7,
+    "startDb": -25,
+    "endDb": -31
+   }
+  },
+  "194": {
+   "lemma": "بَيْت",
+   "ref": "28:12",
+   "hit": 10,
+   "startDb": -31,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "51:36",
+    "hit": 4,
+    "startDb": -28,
+    "endDb": -25
+   }
+  },
+  "195": {
+   "lemma": "غَفَرَ",
+   "ref": "36:27",
+   "hit": 1,
+   "startDb": -21,
+   "endDb": -22,
+   "firstPick": {
+    "ref": "36:27",
+    "hit": 1,
+    "startDb": -21,
+    "endDb": -22
+   }
+  },
+  "196": {
+   "lemma": "لٰكِن",
+   "ref": "19:38",
+   "hit": 5,
+   "startDb": -39,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "4:166",
+    "hit": 0,
+    "startDb": -44,
+    "endDb": -24
+   }
+  },
+  "197": {
+   "lemma": "لٰكِنّ",
+   "ref": "43:78",
+   "hit": 3,
+   "startDb": -30,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "18:38",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -28
+   }
+  },
+  "198": {
+   "lemma": "يَمِين",
+   "ref": "34:15",
+   "hit": 8,
+   "startDb": -26,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "34:15",
+    "hit": 8,
+    "startDb": -26,
+    "endDb": -23
+   }
+  },
+  "199": {
+   "lemma": "آباء",
+   "ref": "43:24",
+   "hit": 7,
+   "startDb": -36,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "18:5",
+    "hit": 6,
+    "startDb": -28,
+    "endDb": -50
+   }
+  },
+  "200": {
+   "lemma": "أَحْبَبْ",
+   "ref": "49:12",
+   "hit": 17,
+   "startDb": -44,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "3:92",
+    "hit": 6,
+    "startDb": -32,
+    "endDb": -47
+   }
+  },
+  "201": {
+   "lemma": "أَصابَ",
+   "ref": "38:36",
+   "hit": 7,
+   "startDb": -28,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "38:36",
+    "hit": 7,
+    "startDb": -28,
+    "endDb": -33
+   }
+  },
+  "202": {
+   "lemma": "أَضَلَّ",
+   "ref": "47:1",
+   "hit": 6,
+   "startDb": -32,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "36:62",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -24
+   }
+  },
+  "203": {
+   "lemma": "أُمَّة",
+   "ref": "23:43",
+   "hit": 3,
+   "startDb": -33,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "16:92",
+    "hit": 19,
+    "startDb": -26,
+    "endDb": -50
+   }
+  },
+  "204": {
+   "lemma": "ابْن",
+   "ref": "43:57",
+   "hit": 2,
+   "startDb": -28,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "19:34",
+    "hit": 2,
+    "startDb": -28,
+    "endDb": -22
+   }
+  },
+  "205": {
+   "lemma": "تابَ",
+   "ref": "20:82",
+   "hit": 3,
+   "startDb": -41,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "20:82",
+    "hit": 3,
+    "startDb": -41,
+    "endDb": -25
+   }
+  },
+  "206": {
+   "lemma": "كَثِير",
+   "ref": "42:34",
+   "hit": 6,
+   "startDb": -44,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "42:34",
+    "hit": 6,
+    "startDb": -44,
+    "endDb": -47
+   }
+  },
+  "207": {
+   "lemma": "ماء",
+   "ref": "78:14",
+   "hit": 3,
+   "startDb": -28,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "16:10",
+    "hit": 5,
+    "startDb": -22,
+    "endDb": -39
+   }
+  },
+  "208": {
+   "lemma": "صالِحَة",
+   "ref": "42:23",
+   "hit": 8,
+   "startDb": -30,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "34:4",
+    "hit": 4,
+    "startDb": -28,
+    "endDb": -44
+   }
+  },
+  "209": {
+   "lemma": "كَسَبَ",
+   "ref": "111:2",
+   "hit": 5,
+   "startDb": -39,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "111:2",
+    "hit": 5,
+    "startDb": -39,
+    "endDb": -44
+   }
+  },
+  "210": {
+   "lemma": "نَزَّلَ",
+   "ref": "43:31",
+   "hit": 2,
+   "startDb": -26,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "3:3",
+    "hit": 0,
+    "startDb": -55,
+    "endDb": -19
+   }
+  },
+  "211": {
+   "lemma": "تَلَى",
+   "ref": "91:2",
+   "hit": 2,
+   "startDb": -34,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "91:2",
+    "hit": 2,
+    "startDb": -34,
+    "endDb": -36
+   }
+  },
+  "212": {
+   "lemma": "رَزَقَ",
+   "ref": "20:132",
+   "hit": 9,
+   "startDb": -29,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "3:169",
+    "hit": 12,
+    "startDb": -24,
+    "endDb": -40
+   }
+  },
+  "213": {
+   "lemma": "صادِق",
+   "ref": "19:54",
+   "hit": 6,
+   "startDb": -24,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "19:54",
+    "hit": 6,
+    "startDb": -24,
+    "endDb": -23
+   }
+  },
+  "214": {
+   "lemma": "قَضَى",
+   "ref": "6:2",
+   "hit": 6,
+   "startDb": -42,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "12:41",
+    "hit": 14,
+    "startDb": -43,
+    "endDb": -19
+   }
+  },
+  "215": {
+   "lemma": "نِساء",
+   "ref": "49:11",
+   "hit": 16,
+   "startDb": -28,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "3:42",
+    "hit": 10,
+    "startDb": -27,
+    "endDb": -23
+   }
+  },
+  "216": {
+   "lemma": "نَصَرَ",
+   "ref": "23:65",
+   "hit": 6,
+   "startDb": -30,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "7:192",
+    "hit": 6,
+    "startDb": -27,
+    "endDb": -42
+   }
+  },
+  "217": {
+   "lemma": "سَيِّئَة",
+   "ref": "42:40",
+   "hit": 1,
+   "startDb": -31,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "2:81",
+    "hit": 3,
+    "startDb": -25,
+    "endDb": -19
+   }
+  },
+  "218": {
+   "lemma": "صَبَرَ",
+   "ref": "46:35",
+   "hit": 2,
+   "startDb": -25,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "42:43",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -24
+   }
+  },
+  "219": {
+   "lemma": "نَذِير",
+   "ref": "11:12",
+   "hit": 21,
+   "startDb": -28,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "35:23",
+    "hit": 3,
+    "startDb": -25,
+    "endDb": -37
+   }
+  },
+  "220": {
+   "lemma": "جَرَيْ",
+   "ref": "54:14",
+   "hit": 0,
+   "startDb": -48,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "55:50",
+    "hit": 2,
+    "startDb": -31,
+    "endDb": -16
+   }
+  },
+  "221": {
+   "lemma": "رَحْمٰن",
+   "ref": "55:1",
+   "hit": 0,
+   "startDb": -55,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "55:1",
+    "hit": 0,
+    "startDb": -55,
+    "endDb": -39
+   }
+  },
+  "222": {
+   "lemma": "عَيْن",
+   "ref": "88:5",
+   "hit": 2,
+   "startDb": -27,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "88:12",
+    "hit": 1,
+    "startDb": -19,
+    "endDb": -28
+   }
+  },
+  "223": {
+   "lemma": "قَرْيَة",
+   "ref": "21:6",
+   "hit": 4,
+   "startDb": -41,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "21:95",
+    "hit": 2,
+    "startDb": -29,
+    "endDb": -29
+   }
+  },
+  "224": {
+   "lemma": "نَهار",
+   "ref": "46:35",
+   "hit": 20,
+   "startDb": -27,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "46:35",
+    "hit": 20,
+    "startDb": -27,
+    "endDb": -24
+   }
+  },
+  "225": {
+   "lemma": "شَدِيد",
+   "ref": "42:16",
+   "hit": 17,
+   "startDb": -39,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "11:80",
+    "hit": 10,
+    "startDb": -29,
+    "endDb": -43
+   }
+  },
+  "226": {
+   "lemma": "شَهِيد",
+   "ref": "22:17",
+   "hit": 21,
+   "startDb": -32,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "85:9",
+    "hit": 9,
+    "startDb": -28,
+    "endDb": -48
+   }
+  },
+  "227": {
+   "lemma": "مَسَّ",
+   "ref": "7:95",
+   "hit": 9,
+   "startDb": -26,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "7:95",
+    "hit": 9,
+    "startDb": -26,
+    "endDb": -29
+   }
+  },
+  "228": {
+   "lemma": "وَلَد",
+   "ref": "4:12",
+   "hit": 33,
+   "startDb": -30,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "4:176",
+    "hit": 24,
+    "startDb": -24,
+    "endDb": -45
+   }
+  },
+  "230": {
+   "lemma": "أَمّا",
+   "ref": "80:5",
+   "hit": 0,
+   "startDb": -56,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "80:5",
+    "hit": 0,
+    "startDb": -56,
+    "endDb": -25
+   }
+  },
+  "231": {
+   "lemma": "رِزْق",
+   "ref": "45:5",
+   "hit": 9,
+   "startDb": -33,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "37:41",
+    "hit": 2,
+    "startDb": -27,
+    "endDb": -40
+   }
+  },
+  "232": {
+   "lemma": "ضَرَبَ",
+   "ref": "43:57",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "39:29",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -24
+   }
+  },
+  "233": {
+   "lemma": "أَقامَ",
+   "ref": "18:77",
+   "hit": 17,
+   "startDb": -33,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "18:77",
+    "hit": 17,
+    "startDb": -33,
+    "endDb": -37
+   }
+  },
+  "234": {
+   "lemma": "قاتَلَ",
+   "ref": "4:90",
+   "hit": 22,
+   "startDb": -40,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "4:90",
+    "hit": 22,
+    "startDb": -40,
+    "endDb": -44
+   }
+  },
+  "235": {
+   "lemma": "نَهَر",
+   "ref": "71:12",
+   "hit": 8,
+   "startDb": -28,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "54:54",
+    "hit": 4,
+    "startDb": -24,
+    "endDb": -35
+   }
+  },
+  "236": {
+   "lemma": "جَمِيع",
+   "ref": "54:44",
+   "hit": 3,
+   "startDb": -36,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "54:44",
+    "hit": 3,
+    "startDb": -36,
+    "endDb": -25
+   }
+  },
+  "237": {
+   "lemma": "خَرَجَ",
+   "ref": "59:2",
+   "hit": 15,
+   "startDb": -39,
+   "endDb": -50,
+   "firstPick": {
+    "ref": "30:25",
+    "hit": 15,
+    "startDb": -36,
+    "endDb": -34
+   }
+  },
+  "238": {
+   "lemma": "ضَلَّ",
+   "ref": "27:92",
+   "hit": 9,
+   "startDb": -31,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "37:71",
+    "hit": 1,
+    "startDb": -28,
+    "endDb": -30
+   }
+  },
+  "239": {
+   "lemma": "أَجَل",
+   "ref": "7:34",
+   "hit": 2,
+   "startDb": -39,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "10:49",
+    "hit": 13,
+    "startDb": -32,
+    "endDb": -41
+   }
+  },
+  "240": {
+   "lemma": "بَعَثَ",
+   "ref": "3:164",
+   "hit": 6,
+   "startDb": -33,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "25:41",
+    "hit": 8,
+    "startDb": -26,
+    "endDb": -24
+   }
+  },
+  "241": {
+   "lemma": "خَلْق",
+   "ref": "50:15",
+   "hit": 8,
+   "startDb": -35,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "32:7",
+    "hit": 6,
+    "startDb": -33,
+    "endDb": -25
+   }
+  },
+  "242": {
+   "lemma": "مُجْرِم",
+   "ref": "68:35",
+   "hit": 2,
+   "startDb": -34,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "68:35",
+    "hit": 2,
+    "startDb": -34,
+    "endDb": -43
+   }
+  },
+  "243": {
+   "lemma": "أَحْيا",
+   "ref": "5:32",
+   "hit": 24,
+   "startDb": -26,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "5:32",
+    "hit": 24,
+    "startDb": -26,
+    "endDb": -28
+   }
+  },
+  "244": {
+   "lemma": "أَهْلَكَ",
+   "ref": "53:50",
+   "hit": 1,
+   "startDb": -35,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "53:50",
+    "hit": 1,
+    "startDb": -35,
+    "endDb": -38
+   }
+  },
+  "245": {
+   "lemma": "بَصِير",
+   "ref": "34:11",
+   "hit": 11,
+   "startDb": -34,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "22:75",
+    "hit": 10,
+    "startDb": -22,
+    "endDb": -43
+   }
+  },
+  "246": {
+   "lemma": "تَحْت",
+   "ref": "20:6",
+   "hit": 10,
+   "startDb": -40,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "20:6",
+    "hit": 10,
+    "startDb": -40,
+    "endDb": -40
+   }
+  },
+  "247": {
+   "lemma": "تَذَكَّرَ",
+   "ref": "35:37",
+   "hit": 17,
+   "startDb": -35,
+   "endDb": -20,
+   "firstPick": {
+    "ref": "35:37",
+    "hit": 17,
+    "startDb": -35,
+    "endDb": -20
+   }
+  },
+  "248": {
+   "lemma": "افْتَرَى",
+   "ref": "20:61",
+   "hit": 14,
+   "startDb": -31,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "20:61",
+    "hit": 14,
+    "startDb": -31,
+    "endDb": -33
+   }
+  },
+  "249": {
+   "lemma": "سُوء",
+   "ref": "40:52",
+   "hit": 8,
+   "startDb": -30,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "16:28",
+    "hit": 11,
+    "startDb": -23,
+    "endDb": -43
+   }
+  },
+  "250": {
+   "lemma": "عَدُوّ",
+   "ref": "18:50",
+   "hit": 22,
+   "startDb": -28,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "18:50",
+    "hit": 22,
+    "startDb": -28,
+    "endDb": -43
+   }
+  },
+  "251": {
+   "lemma": "مَوْت",
+   "ref": "57:17",
+   "hit": 6,
+   "startDb": -26,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "57:17",
+    "hit": 6,
+    "startDb": -26,
+    "endDb": -47
+   }
+  },
+  "252": {
+   "lemma": "نِعْمَة",
+   "ref": "37:57",
+   "hit": 1,
+   "startDb": -24,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "54:35",
+    "hit": 0,
+    "startDb": -54,
+    "endDb": -23
+   }
+  },
+  "255": {
+   "lemma": "أَعْلَم",
+   "ref": "4:45",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "84:23",
+    "hit": 1,
+    "startDb": -25,
+    "endDb": -26
+   }
+  },
+  "256": {
+   "lemma": "زادَ",
+   "ref": "74:15",
+   "hit": 3,
+   "startDb": -31,
+   "endDb": -84,
+   "firstPick": {
+    "ref": "74:15",
+    "hit": 3,
+    "startDb": -31,
+    "endDb": -84
+   }
+  },
+  "257": {
+   "lemma": "عَقَلُ",
+   "ref": "12:2",
+   "hit": 5,
+   "startDb": -39,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "37:138",
+    "hit": 2,
+    "startDb": -34,
+    "endDb": -47
+   }
+  },
+  "258": {
+   "lemma": "غَيْب",
+   "ref": "18:26",
+   "hit": 6,
+   "startDb": -30,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "35:38",
+    "hit": 3,
+    "startDb": -21,
+    "endDb": -27
+   }
+  },
+  "259": {
+   "lemma": "كَتَبَ",
+   "ref": "6:12",
+   "hit": 8,
+   "startDb": -45,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "58:21",
+    "hit": 0,
+    "startDb": -59,
+    "endDb": -20
+   }
+  },
+  "260": {
+   "lemma": "مُتَّقي",
+   "ref": "2:2",
+   "hit": 6,
+   "startDb": -27,
+   "endDb": -60,
+   "firstPick": {
+    "ref": "26:90",
+    "hit": 2,
+    "startDb": -21,
+    "endDb": -38
+   }
+  },
+  "261": {
+   "lemma": "وَعْد",
+   "ref": "4:122",
+   "hit": 13,
+   "startDb": -45,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "30:6",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -22
+   }
+  },
+  "263": {
+   "lemma": "بَصَر",
+   "ref": "54:50",
+   "hit": 5,
+   "startDb": -31,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "75:7",
+    "hit": 2,
+    "startDb": -22,
+    "endDb": -64
+   }
+  },
+  "264": {
+   "lemma": "دار",
+   "ref": "6:127",
+   "hit": 1,
+   "startDb": -36,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "6:127",
+    "hit": 1,
+    "startDb": -36,
+    "endDb": -31
+   }
+  },
+  "265": {
+   "lemma": "ساعَة",
+   "ref": "7:34",
+   "hit": 8,
+   "startDb": -34,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "30:55",
+    "hit": 8,
+    "startDb": -30,
+    "endDb": -38
+   }
+  },
+  "266": {
+   "lemma": "مُلْك",
+   "ref": "57:5",
+   "hit": 1,
+   "startDb": -27,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "24:42",
+    "hit": 1,
+    "startDb": -24,
+    "endDb": -31
+   }
+  },
+  "267": {
+   "lemma": "سَمِيع",
+   "ref": "7:200",
+   "hit": 8,
+   "startDb": -27,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "2:227",
+    "hit": 5,
+    "startDb": -26,
+    "endDb": -22
+   }
+  },
+  "268": {
+   "lemma": "ظَنَّ",
+   "ref": "12:42",
+   "hit": 2,
+   "startDb": -30,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "84:14",
+    "hit": 1,
+    "startDb": -27,
+    "endDb": -34
+   }
+  },
+  "269": {
+   "lemma": "أَب",
+   "ref": "12:59",
+   "hit": 8,
+   "startDb": -31,
+   "endDb": -49,
+   "firstPick": {
+    "ref": "80:35",
+    "hit": 1,
+    "startDb": -20,
+    "endDb": -41
+   }
+  },
+  "270": {
+   "lemma": "شَكَرَ",
+   "ref": "54:35",
+   "hit": 6,
+   "startDb": -32,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "54:35",
+    "hit": 6,
+    "startDb": -32,
+    "endDb": -41
+   }
+  },
+  "271": {
+   "lemma": "نَبَّأَ",
+   "ref": "18:78",
+   "hit": 5,
+   "startDb": -42,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "15:51",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -22
+   }
+  },
+  "272": {
+   "lemma": "إِيمان",
+   "ref": "9:66",
+   "hit": 5,
+   "startDb": -32,
+   "endDb": -51,
+   "firstPick": {
+    "ref": "9:66",
+    "hit": 5,
+    "startDb": -32,
+    "endDb": -51
+   }
+  },
+  "273": {
+   "lemma": "حَكَمَ",
+   "ref": "40:48",
+   "hit": 9,
+   "startDb": -29,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "40:48",
+    "hit": 9,
+    "startDb": -29,
+    "endDb": -29
+   }
+  },
+  "274": {
+   "lemma": "خَبِير",
+   "ref": "11:1",
+   "hit": 9,
+   "startDb": -38,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "11:1",
+    "hit": 9,
+    "startDb": -38,
+    "endDb": -44
+   }
+  },
+  "275": {
+   "lemma": "صِراط",
+   "ref": "38:22",
+   "hit": 22,
+   "startDb": -34,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "38:22",
+    "hit": 22,
+    "startDb": -34,
+    "endDb": -43
+   }
+  },
+  "276": {
+   "lemma": "قَدِير",
+   "ref": "42:50",
+   "hit": 10,
+   "startDb": -43,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "11:4",
+    "hit": 7,
+    "startDb": -35,
+    "endDb": -45
+   }
+  },
+  "277": {
+   "lemma": "يَذَرَ",
+   "ref": "23:54",
+   "hit": 0,
+   "startDb": -43,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "74:28",
+    "hit": 3,
+    "startDb": -33,
+    "endDb": -39
+   }
+  },
+  "278": {
+   "lemma": "أَنذَرَ",
+   "ref": "71:1",
+   "hit": 6,
+   "startDb": -39,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "36:6",
+    "hit": 3,
+    "startDb": -31,
+    "endDb": -25
+   }
+  },
+  "279": {
+   "lemma": "حَسِبَ",
+   "ref": "45:21",
+   "hit": 1,
+   "startDb": -34,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "29:4",
+    "hit": 1,
+    "startDb": -32,
+    "endDb": -26
+   }
+  },
+  "280": {
+   "lemma": "شَهِدَ",
+   "ref": "43:86",
+   "hit": 9,
+   "startDb": -31,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "3:18",
+    "hit": 0,
+    "startDb": -39,
+    "endDb": -19
+   }
+  },
+  "281": {
+   "lemma": "صَدْر",
+   "ref": "94:1",
+   "hit": 3,
+   "startDb": -38,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "94:1",
+    "hit": 3,
+    "startDb": -38,
+    "endDb": -42
+   }
+  },
+  "282": {
+   "lemma": "مُشْرِك",
+   "ref": "24:3",
+   "hit": 13,
+   "startDb": -27,
+   "endDb": -55,
+   "firstPick": {
+    "ref": "24:3",
+    "hit": 13,
+    "startDb": -27,
+    "endDb": -55
+   }
+  },
+  "283": {
+   "lemma": "مَلَكَتْ",
+   "ref": "4:3",
+   "hit": 22,
+   "startDb": -28,
+   "endDb": -47,
+   "firstPick": {
+    "ref": "23:6",
+    "hit": 5,
+    "startDb": -26,
+    "endDb": -43
+   }
+  },
+  "284": {
+   "lemma": "نادَى",
+   "ref": "21:83",
+   "hit": 2,
+   "startDb": -31,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "19:3",
+    "hit": 1,
+    "startDb": -34,
+    "endDb": -20
+   }
+  },
+  "285": {
+   "lemma": "إِسْرائِيل",
+   "ref": "26:197",
+   "hit": 8,
+   "startDb": -39,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "26:59",
+    "hit": 3,
+    "startDb": -30,
+    "endDb": -41
+   }
+  },
+  "286": {
+   "lemma": "حَمْد",
+   "ref": "25:58",
+   "hit": 7,
+   "startDb": -34,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "25:58",
+    "hit": 7,
+    "startDb": -34,
+    "endDb": -46
+   }
+  },
+  "287": {
+   "lemma": "نُوح",
+   "ref": "17:17",
+   "hit": 6,
+   "startDb": -31,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "17:3",
+    "hit": 4,
+    "startDb": -29,
+    "endDb": -49
+   }
+  },
+  "288": {
+   "lemma": "نُور",
+   "ref": "24:40",
+   "hit": 32,
+   "startDb": -29,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "24:40",
+    "hit": 32,
+    "startDb": -29,
+    "endDb": -44
+   }
+  },
+  "289": {
+   "lemma": "أُدْخِلَ",
+   "ref": "21:75",
+   "hit": 0,
+   "startDb": -47,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "47:6",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -26
+   }
+  },
+  "290": {
+   "lemma": "اسْتَطاعَ",
+   "ref": "3:97",
+   "hit": 15,
+   "startDb": -26,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "3:97",
+    "hit": 15,
+    "startDb": -26,
+    "endDb": -30
+   }
+  },
+  "291": {
+   "lemma": "جَزاء",
+   "ref": "56:24",
+   "hit": 0,
+   "startDb": -67,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "56:24",
+    "hit": 0,
+    "startDb": -67,
+    "endDb": -32
+   }
+  },
+  "292": {
+   "lemma": "سَبَّحَ",
+   "ref": "87:1",
+   "hit": 0,
+   "startDb": -68,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "87:1",
+    "hit": 0,
+    "startDb": -68,
+    "endDb": -33
+   }
+  },
+  "293": {
+   "lemma": "سَلام",
+   "ref": "14:23",
+   "hit": 16,
+   "startDb": -30,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "56:26",
+    "hit": 3,
+    "startDb": -28,
+    "endDb": -23
+   }
+  },
+  "294": {
+   "lemma": "سَوْف",
+   "ref": "11:93",
+   "hit": 6,
+   "startDb": -39,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "11:93",
+    "hit": 6,
+    "startDb": -39,
+    "endDb": -31
+   }
+  },
+  "295": {
+   "lemma": "كَلِمَة",
+   "ref": "14:24",
+   "hit": 6,
+   "startDb": -40,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "43:28",
+    "hit": 1,
+    "startDb": -33,
+    "endDb": -30
+   }
+  },
+  "296": {
+   "lemma": "بَحْر",
+   "ref": "24:40",
+   "hit": 3,
+   "startDb": -31,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "24:40",
+    "hit": 3,
+    "startDb": -31,
+    "endDb": -26
+   }
+  },
+  "297": {
+   "lemma": "حَمَلَ",
+   "ref": "20:111",
+   "hit": 7,
+   "startDb": -29,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "20:111",
+    "hit": 7,
+    "startDb": -29,
+    "endDb": -25
+   }
+  },
+  "298": {
+   "lemma": "سُبْحان",
+   "ref": "17:93",
+   "hit": 19,
+   "startDb": -27,
+   "endDb": -19,
+   "firstPick": {
+    "ref": "17:93",
+    "hit": 19,
+    "startDb": -27,
+    "endDb": -19
+   }
+  },
+  "299": {
+   "lemma": "عَذَّبَ",
+   "ref": "17:54",
+   "hit": 9,
+   "startDb": -32,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "17:54",
+    "hit": 9,
+    "startDb": -32,
+    "endDb": -38
+   }
+  },
+  "300": {
+   "lemma": "عَلَّمَ",
+   "ref": "96:4",
+   "hit": 1,
+   "startDb": -25,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "96:5",
+    "hit": 0,
+    "startDb": -49,
+    "endDb": -23
+   }
+  },
+  "301": {
+   "lemma": "فَوْق",
+   "ref": "22:19",
+   "hit": 14,
+   "startDb": -33,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "6:18",
+    "hit": 2,
+    "startDb": -40,
+    "endDb": -26
+   }
+  },
+  "302": {
+   "lemma": "أَرَيْ",
+   "ref": "40:81",
+   "hit": 0,
+   "startDb": -45,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "20:23",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -31
+   }
+  },
+  "303": {
+   "lemma": "اسْتَغْفَرَ",
+   "ref": "9:80",
+   "hit": 0,
+   "startDb": -50,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "9:80",
+    "hit": 0,
+    "startDb": -50,
+    "endDb": -29
+   }
+  },
+  "304": {
+   "lemma": "اسْتَكْبَرَ",
+   "ref": "38:74",
+   "hit": 2,
+   "startDb": -33,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "38:74",
+    "hit": 2,
+    "startDb": -33,
+    "endDb": -26
+   }
+  },
+  "305": {
+   "lemma": "اهْتَدَى",
+   "ref": "17:15",
+   "hit": 1,
+   "startDb": -32,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "20:82",
+    "hit": 8,
+    "startDb": -27,
+    "endDb": -53
+   }
+  },
+  "306": {
+   "lemma": "بِئْسَ",
+   "ref": "18:29",
+   "hit": 24,
+   "startDb": -47,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "11:99",
+    "hit": 6,
+    "startDb": -43,
+    "endDb": -29
+   }
+  },
+  "307": {
+   "lemma": "بَلَغَ",
+   "ref": "6:19",
+   "hit": 17,
+   "startDb": -38,
+   "endDb": -50,
+   "firstPick": {
+    "ref": "6:19",
+    "hit": 17,
+    "startDb": -38,
+    "endDb": -50
+   }
+  },
+  "308": {
+   "lemma": "تَرَكَ",
+   "ref": "4:7",
+   "hit": 9,
+   "startDb": -43,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "4:176",
+    "hit": 17,
+    "startDb": -40,
+    "endDb": -47
+   }
+  },
+  "309": {
+   "lemma": "تَوَكَّلْ",
+   "ref": "7:89",
+   "hit": 32,
+   "startDb": -32,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "16:42",
+    "hit": 4,
+    "startDb": -24,
+    "endDb": -37
+   }
+  },
+  "310": {
+   "lemma": "خَشِيَ",
+   "ref": "4:25",
+   "hit": 48,
+   "startDb": -32,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "50:33",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -24
+   }
+  },
+  "311": {
+   "lemma": "شَرِيك",
+   "ref": "25:2",
+   "hit": 11,
+   "startDb": -34,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "6:163",
+    "hit": 1,
+    "startDb": -27,
+    "endDb": -27
+   }
+  },
+  "312": {
+   "lemma": "كَبِير",
+   "ref": "57:7",
+   "hit": 14,
+   "startDb": -42,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "67:12",
+    "hit": 8,
+    "startDb": -37,
+    "endDb": -44
+   }
+  },
+  "313": {
+   "lemma": "وَيْل",
+   "ref": "77:34",
+   "hit": 0,
+   "startDb": -57,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "77:15",
+    "hit": 0,
+    "startDb": -62,
+    "endDb": -22
+   }
+  },
+  "314": {
+   "lemma": "أَلا",
+   "ref": "37:151",
+   "hit": 0,
+   "startDb": -46,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "37:151",
+    "hit": 0,
+    "startDb": -46,
+    "endDb": -33
+   }
+  },
+  "315": {
+   "lemma": "إِذْن",
+   "ref": "10:3",
+   "hit": 22,
+   "startDb": -31,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "11:105",
+    "hit": 6,
+    "startDb": -24,
+    "endDb": -40
+   }
+  },
+  "316": {
+   "lemma": "اسْم",
+   "ref": "6:118",
+   "hit": 3,
+   "startDb": -30,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "87:1",
+    "hit": 1,
+    "startDb": -33,
+    "endDb": -24
+   }
+  },
+  "317": {
+   "lemma": "جَبَل",
+   "ref": "59:21",
+   "hit": 5,
+   "startDb": -28,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "59:21",
+    "hit": 5,
+    "startDb": -28,
+    "endDb": -24
+   }
+  },
+  "318": {
+   "lemma": "حَرَّمَ",
+   "ref": "6:143",
+   "hit": 10,
+   "startDb": -36,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "3:50",
+    "hit": 10,
+    "startDb": -39,
+    "endDb": -27
+   }
+  },
+  "319": {
+   "lemma": "حِساب",
+   "ref": "2:212",
+   "hit": 19,
+   "startDb": -34,
+   "endDb": -38,
+   "firstPick": {
+    "ref": "38:39",
+    "hit": 6,
+    "startDb": -38,
+    "endDb": -24
+   }
+  },
+  "320": {
+   "lemma": "ماتَ",
+   "ref": "9:84",
+   "hit": 5,
+   "startDb": -23,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "9:84",
+    "hit": 5,
+    "startDb": -23,
+    "endDb": -30
+   }
+  },
+  "321": {
+   "lemma": "مُسْلِم",
+   "ref": "43:69",
+   "hit": 4,
+   "startDb": -28,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "27:31",
+    "hit": 4,
+    "startDb": -21,
+    "endDb": -41
+   }
+  },
+  "322": {
+   "lemma": "بُشِّرَ",
+   "ref": "43:17",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -36,
+   "firstPick": {
+    "ref": "4:138",
+    "hit": 0,
+    "startDb": -43,
+    "endDb": -23
+   }
+  },
+  "323": {
+   "lemma": "رَضِيَ",
+   "ref": "5:119",
+   "hit": 16,
+   "startDb": -35,
+   "endDb": -21,
+   "firstPick": {
+    "ref": "5:119",
+    "hit": 16,
+    "startDb": -35,
+    "endDb": -21
+   }
+  },
+  "324": {
+   "lemma": "ضَلال",
+   "ref": "10:32",
+   "hit": 8,
+   "startDb": -29,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "71:24",
+    "hit": 7,
+    "startDb": -24,
+    "endDb": -27
+   }
+  },
+  "325": {
+   "lemma": "مُحْسِن",
+   "ref": "4:125",
+   "hit": 8,
+   "startDb": -29,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "37:113",
+    "hit": 6,
+    "startDb": -27,
+    "endDb": -26
+   }
+  },
+  "326": {
+   "lemma": "مَعْرُوف",
+   "ref": "4:114",
+   "hit": 11,
+   "startDb": -32,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "47:21",
+    "hit": 2,
+    "startDb": -26,
+    "endDb": -46
+   }
+  },
+  "327": {
+   "lemma": "مَيِّت",
+   "ref": "39:30",
+   "hit": 1,
+   "startDb": -26,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "39:30",
+    "hit": 1,
+    "startDb": -26,
+    "endDb": -26
+   }
+  },
+  "328": {
+   "lemma": "بَشَر",
+   "ref": "16:103",
+   "hit": 6,
+   "startDb": -36,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "16:103",
+    "hit": 6,
+    "startDb": -36,
+    "endDb": -46
+   }
+  },
+  "329": {
+   "lemma": "حَشَرَ",
+   "ref": "46:6",
+   "hit": 1,
+   "startDb": -31,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "46:6",
+    "hit": 1,
+    "startDb": -31,
+    "endDb": -24
+   }
+  },
+  "330": {
+   "lemma": "ذَنب",
+   "ref": "26:14",
+   "hit": 2,
+   "startDb": -29,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "81:9",
+    "hit": 1,
+    "startDb": -22,
+    "endDb": -26
+   }
+  },
+  "331": {
+   "lemma": "سُلْطان",
+   "ref": "7:71",
+   "hit": 19,
+   "startDb": -39,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "69:29",
+    "hit": 2,
+    "startDb": -28,
+    "endDb": -36
+   }
+  },
+  "332": {
+   "lemma": "صَدَّ",
+   "ref": "4:55",
+   "hit": 6,
+   "startDb": -31,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "4:55",
+    "hit": 6,
+    "startDb": -31,
+    "endDb": -23
+   }
+  },
+  "333": {
+   "lemma": "عَصا",
+   "ref": "11:63",
+   "hit": 17,
+   "startDb": -27,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "79:21",
+    "hit": 1,
+    "startDb": -24,
+    "endDb": -66
+   }
+  },
+  "334": {
+   "lemma": "فاسِق",
+   "ref": "49:6",
+   "hit": 5,
+   "startDb": -35,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "49:6",
+    "hit": 5,
+    "startDb": -35,
+    "endDb": -32
+   }
+  },
+  "335": {
+   "lemma": "كُفْر",
+   "ref": "31:23",
+   "hit": 4,
+   "startDb": -39,
+   "endDb": -52,
+   "firstPick": {
+    "ref": "18:80",
+    "hit": 9,
+    "startDb": -20,
+    "endDb": -26
+   }
+  },
+  "336": {
+   "lemma": "مُسْتَقِيم",
+   "ref": "36:61",
+   "hit": 4,
+   "startDb": -33,
+   "endDb": -64,
+   "firstPick": {
+    "ref": "36:4",
+    "hit": 2,
+    "startDb": -32,
+    "endDb": -35
+   }
+  },
+  "337": {
+   "lemma": "نَجَّى",
+   "ref": "37:76",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "26:170",
+    "hit": 0,
+    "startDb": -41,
+    "endDb": -19
+   }
+  },
+  "338": {
+   "lemma": "نَعَم",
+   "ref": "37:18",
+   "hit": 1,
+   "startDb": -26,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "7:44",
+    "hit": 19,
+    "startDb": -23,
+    "endDb": -39
+   }
+  },
+  "339": {
+   "lemma": "يَحْزُن",
+   "ref": "33:51",
+   "hit": 21,
+   "startDb": -22,
+   "endDb": -22,
+   "firstPick": {
+    "ref": "33:51",
+    "hit": 21,
+    "startDb": -22,
+    "endDb": -22
+   }
+  },
+  "340": {
+   "lemma": "أَحْسَن",
+   "ref": "95:4",
+   "hit": 4,
+   "startDb": -35,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "17:53",
+    "hit": 5,
+    "startDb": -26,
+    "endDb": -42
+   }
+  },
+  "341": {
+   "lemma": "ذاقُ",
+   "ref": "65:9",
+   "hit": 0,
+   "startDb": -52,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "54:39",
+    "hit": 0,
+    "startDb": -50,
+    "endDb": -20
+   }
+  },
+  "342": {
+   "lemma": "رَدَّ",
+   "ref": "10:30",
+   "hit": 6,
+   "startDb": -45,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "4:86",
+    "hit": 7,
+    "startDb": -27,
+    "endDb": -45
+   }
+  },
+  "343": {
+   "lemma": "إِثْم",
+   "ref": "49:12",
+   "hit": 10,
+   "startDb": -35,
+   "endDb": -54,
+   "firstPick": {
+    "ref": "49:12",
+    "hit": 10,
+    "startDb": -35,
+    "endDb": -54
+   }
+  },
+  "344": {
+   "lemma": "اخْتَلَفَ",
+   "ref": "3:19",
+   "hit": 6,
+   "startDb": -32,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "3:19",
+    "hit": 6,
+    "startDb": -32,
+    "endDb": -33
+   }
+  },
+  "345": {
+   "lemma": "اسْتَوَى",
+   "ref": "20:5",
+   "hit": 3,
+   "startDb": -37,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "20:5",
+    "hit": 3,
+    "startDb": -37,
+    "endDb": -39
+   }
+  },
+  "346": {
+   "lemma": "بَيَّنُ",
+   "ref": "2:221",
+   "hit": 34,
+   "startDb": -45,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "24:18",
+    "hit": 0,
+    "startDb": -45,
+    "endDb": -21
+   }
+  },
+  "347": {
+   "lemma": "حِين",
+   "ref": "37:148",
+   "hit": 3,
+   "startDb": -34,
+   "endDb": -46,
+   "firstPick": {
+    "ref": "37:148",
+    "hit": 3,
+    "startDb": -34,
+    "endDb": -46
+   }
+  },
+  "348": {
+   "lemma": "ذَهَبَ",
+   "ref": "11:10",
+   "hit": 7,
+   "startDb": -28,
+   "endDb": -31,
+   "firstPick": {
+    "ref": "75:33",
+    "hit": 1,
+    "startDb": -28,
+    "endDb": -27
+   }
+  },
+  "349": {
+   "lemma": "سَجَدَ",
+   "ref": "3:113",
+   "hit": 13,
+   "startDb": -29,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "55:6",
+    "hit": 2,
+    "startDb": -22,
+    "endDb": -33
+   }
+  },
+  "350": {
+   "lemma": "مَتاع",
+   "ref": "16:117",
+   "hit": 0,
+   "startDb": -44,
+   "endDb": -37,
+   "firstPick": {
+    "ref": "13:26",
+    "hit": 15,
+    "startDb": -22,
+    "endDb": -47
+   }
+  },
+  "351": {
+   "lemma": "مُرْسَل",
+   "ref": "7:75",
+   "hit": 14,
+   "startDb": -24,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "7:75",
+    "hit": 14,
+    "startDb": -24,
+    "endDb": -23
+   }
+  },
+  "352": {
+   "lemma": "نَسِيَ",
+   "ref": "39:8",
+   "hit": 13,
+   "startDb": -25,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "39:8",
+    "hit": 13,
+    "startDb": -25,
+    "endDb": -27
+   }
+  },
+  "353": {
+   "lemma": "نَصِير",
+   "ref": "42:31",
+   "hit": 13,
+   "startDb": -27,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "42:31",
+    "hit": 13,
+    "startDb": -27,
+    "endDb": -43
+   }
+  },
+  "354": {
+   "lemma": "آلاء",
+   "ref": "55:16",
+   "hit": 1,
+   "startDb": -35,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "53:55",
+    "hit": 1,
+    "startDb": -30,
+    "endDb": -24
+   }
+  },
+  "355": {
+   "lemma": "أُمّ",
+   "ref": "43:4",
+   "hit": 2,
+   "startDb": -42,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "43:4",
+    "hit": 2,
+    "startDb": -42,
+    "endDb": -27
+   }
+  },
+  "356": {
+   "lemma": "ابْتَغَى",
+   "ref": "6:114",
+   "hit": 2,
+   "startDb": -31,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "23:7",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -23
+   }
+  },
+  "357": {
+   "lemma": "فِتْنَة",
+   "ref": "64:15",
+   "hit": 3,
+   "startDb": -37,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "64:15",
+    "hit": 3,
+    "startDb": -37,
+    "endDb": -45
+   }
+  },
+  "358": {
+   "lemma": "مَرْيَم",
+   "ref": "5:78",
+   "hit": 11,
+   "startDb": -27,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "19:34",
+    "hit": 3,
+    "startDb": -22,
+    "endDb": -38
+   }
+  },
+  "359": {
+   "lemma": "حَرام",
+   "ref": "16:116",
+   "hit": 9,
+   "startDb": -34,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "16:116",
+    "hit": 9,
+    "startDb": -34,
+    "endDb": -26
+   }
+  },
+  "360": {
+   "lemma": "شَمْس",
+   "ref": "36:38",
+   "hit": 0,
+   "startDb": -52,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "55:5",
+    "hit": 0,
+    "startDb": -51,
+    "endDb": -23
+   }
+  },
+  "361": {
+   "lemma": "فَرِيق",
+   "ref": "42:7",
+   "hit": 16,
+   "startDb": -51,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "42:7",
+    "hit": 16,
+    "startDb": -51,
+    "endDb": -29
+   }
+  },
+  "362": {
+   "lemma": "قامَ",
+   "ref": "72:19",
+   "hit": 2,
+   "startDb": -29,
+   "endDb": -20,
+   "firstPick": {
+    "ref": "72:19",
+    "hit": 2,
+    "startDb": -29,
+    "endDb": -20
+   }
+  },
+  "363": {
+   "lemma": "كَذِب",
+   "ref": "12:18",
+   "hit": 4,
+   "startDb": -37,
+   "endDb": -41,
+   "firstPick": {
+    "ref": "12:18",
+    "hit": 4,
+    "startDb": -37,
+    "endDb": -41
+   }
+  },
+  "364": {
+   "lemma": "كَلّا",
+   "ref": "104:4",
+   "hit": 0,
+   "startDb": -65,
+   "endDb": -40,
+   "firstPick": {
+    "ref": "19:82",
+    "hit": 0,
+    "startDb": -35,
+    "endDb": -36
+   }
+  },
+  "365": {
+   "lemma": "أَعْرَضَ",
+   "ref": "12:29",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "20:100",
+    "hit": 1,
+    "startDb": -29,
+    "endDb": -19
+   }
+  },
+  "366": {
+   "lemma": "خاسِر",
+   "ref": "5:30",
+   "hit": 8,
+   "startDb": -27,
+   "endDb": -42,
+   "firstPick": {
+    "ref": "16:109",
+    "hit": 6,
+    "startDb": -22,
+    "endDb": -37
+   }
+  },
+  "367": {
+   "lemma": "ذُرِّيَّة",
+   "ref": "17:3",
+   "hit": 0,
+   "startDb": -64,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "3:34",
+    "hit": 0,
+    "startDb": -42,
+    "endDb": -22
+   }
+  },
+  "368": {
+   "lemma": "زَكاة",
+   "ref": "21:73",
+   "hit": 11,
+   "startDb": -32,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "98:5",
+    "hit": 12,
+    "startDb": -31,
+    "endDb": -43
+   }
+  },
+  "369": {
+   "lemma": "عاقِبَة",
+   "ref": "20:132",
+   "hit": 10,
+   "startDb": -46,
+   "endDb": -27,
+   "firstPick": {
+    "ref": "28:83",
+    "hit": 12,
+    "startDb": -33,
+    "endDb": -22
+   }
+  },
+  "370": {
+   "lemma": "كاذِب",
+   "ref": "56:2",
+   "hit": 2,
+   "startDb": -40,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "56:2",
+    "hit": 2,
+    "startDb": -40,
+    "endDb": -43
+   }
+  },
+  "371": {
+   "lemma": "كَفَى",
+   "ref": "46:8",
+   "hit": 17,
+   "startDb": -45,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "46:8",
+    "hit": 17,
+    "startDb": -45,
+    "endDb": -28
+   }
+  },
+  "372": {
+   "lemma": "نَهَى",
+   "ref": "6:26",
+   "hit": 1,
+   "startDb": -32,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "96:9",
+    "hit": 2,
+    "startDb": -21,
+    "endDb": -33
+   }
+  },
+  "373": {
+   "lemma": "أَشَدّ",
+   "ref": "79:27",
+   "hit": 1,
+   "startDb": -37,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "79:27",
+    "hit": 1,
+    "startDb": -37,
+    "endDb": -35
+   }
+  },
+  "374": {
+   "lemma": "إِذًا",
+   "ref": "17:75",
+   "hit": 0,
+   "startDb": -56,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "17:75",
+    "hit": 0,
+    "startDb": -56,
+    "endDb": -32
+   }
+  },
+  "375": {
+   "lemma": "حَسَنَة",
+   "ref": "39:10",
+   "hit": 11,
+   "startDb": -34,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "16:30",
+    "hit": 13,
+    "startDb": -28,
+    "endDb": -40
+   }
+  },
+  "376": {
+   "lemma": "حَيْث",
+   "ref": "15:65",
+   "hit": 12,
+   "startDb": -32,
+   "endDb": -32,
+   "firstPick": {
+    "ref": "7:182",
+    "hit": 5,
+    "startDb": -39,
+    "endDb": -22
+   }
+  },
+  "377": {
+   "lemma": "نَفَعَ",
+   "ref": "74:48",
+   "hit": 1,
+   "startDb": -36,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "22:12",
+    "hit": 9,
+    "startDb": -21,
+    "endDb": -42
+   }
+  },
+  "378": {
+   "lemma": "واحِدَة",
+   "ref": "4:102",
+   "hit": 38,
+   "startDb": -26,
+   "endDb": -48,
+   "firstPick": {
+    "ref": "79:13",
+    "hit": 3,
+    "startDb": -24,
+    "endDb": -44
+   }
+  },
+  "379": {
+   "lemma": "حُكْم",
+   "ref": "5:43",
+   "hit": 5,
+   "startDb": -28,
+   "endDb": -25,
+   "firstPick": {
+    "ref": "5:43",
+    "hit": 5,
+    "startDb": -28,
+    "endDb": -25
+   }
+  },
+  "380": {
+   "lemma": "ساءَ",
+   "ref": "6:136",
+   "hit": 28,
+   "startDb": -48,
+   "endDb": -30,
+   "firstPick": {
+    "ref": "7:177",
+    "hit": 0,
+    "startDb": -43,
+    "endDb": -26
+   }
+  },
+  "381": {
+   "lemma": "شَرّ",
+   "ref": "113:5",
+   "hit": 1,
+   "startDb": -29,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "113:2",
+    "hit": 1,
+    "startDb": -23,
+    "endDb": -21
+   }
+  },
+  "382": {
+   "lemma": "طَيِّبَة",
+   "ref": "3:38",
+   "hit": 11,
+   "startDb": -40,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "24:61",
+    "hit": 68,
+    "startDb": -33,
+    "endDb": -40
+   }
+  },
+  "383": {
+   "lemma": "عاد",
+   "ref": "54:18",
+   "hit": 1,
+   "startDb": -34,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "11:59",
+    "hit": 1,
+    "startDb": -17,
+    "endDb": -33
+   }
+  },
+  "384": {
+   "lemma": "عَسَى",
+   "ref": "17:8",
+   "hit": 0,
+   "startDb": -40,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "68:32",
+    "hit": 0,
+    "startDb": -60,
+    "endDb": -19
+   }
+  },
+  "385": {
+   "lemma": "قُوَّة",
+   "ref": "41:15",
+   "hit": 11,
+   "startDb": -37,
+   "endDb": -44,
+   "firstPick": {
+    "ref": "35:44",
+    "hit": 14,
+    "startDb": -36,
+    "endDb": -45
+   }
+  },
+  "386": {
+   "lemma": "كَرِيم",
+   "ref": "56:77",
+   "hit": 2,
+   "startDb": -40,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "26:58",
+    "hit": 2,
+    "startDb": -38,
+    "endDb": -34
+   }
+  },
+  "387": {
+   "lemma": "لَبِثَ",
+   "ref": "11:69",
+   "hit": 10,
+   "startDb": -23,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "11:69",
+    "hit": 10,
+    "startDb": -23,
+    "endDb": -29
+   }
+  },
+  "388": {
+   "lemma": "مَلَأ",
+   "ref": "11:38",
+   "hit": 5,
+   "startDb": -24,
+   "endDb": -21,
+   "firstPick": {
+    "ref": "11:38",
+    "hit": 5,
+    "startDb": -24,
+    "endDb": -21
+   }
+  },
+  "389": {
+   "lemma": "واحِد",
+   "ref": "21:108",
+   "hit": 7,
+   "startDb": -27,
+   "endDb": -45,
+   "firstPick": {
+    "ref": "37:4",
+    "hit": 2,
+    "startDb": -25,
+    "endDb": -39
+   }
+  },
+  "390": {
+   "lemma": "وَلَّى",
+   "ref": "31:7",
+   "hit": 4,
+   "startDb": -29,
+   "endDb": -28,
+   "firstPick": {
+    "ref": "31:7",
+    "hit": 4,
+    "startDb": -29,
+    "endDb": -28
+   }
+  },
+  "391": {
+   "lemma": "أَبْصَرَ",
+   "ref": "18:26",
+   "hit": 9,
+   "startDb": -48,
+   "endDb": -34,
+   "firstPick": {
+    "ref": "18:26",
+    "hit": 9,
+    "startDb": -48,
+    "endDb": -34
+   }
+  },
+  "392": {
+   "lemma": "جُند",
+   "ref": "67:20",
+   "hit": 4,
+   "startDb": -33,
+   "endDb": -29,
+   "firstPick": {
+    "ref": "38:11",
+    "hit": 0,
+    "startDb": -29,
+    "endDb": -26
+   }
+  },
+  "393": {
+   "lemma": "رَجُل",
+   "ref": "43:31",
+   "hit": 6,
+   "startDb": -28,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "23:25",
+    "hit": 3,
+    "startDb": -25,
+    "endDb": -31
+   }
+  },
+  "394": {
+   "lemma": "رِيح",
+   "ref": "46:24",
+   "hit": 14,
+   "startDb": -31,
+   "endDb": -33,
+   "firstPick": {
+    "ref": "46:24",
+    "hit": 14,
+    "startDb": -31,
+    "endDb": -33
+   }
+  },
+  "395": {
+   "lemma": "عَرْش",
+   "ref": "69:17",
+   "hit": 4,
+   "startDb": -22,
+   "endDb": -26,
+   "firstPick": {
+    "ref": "69:17",
+    "hit": 4,
+    "startDb": -22,
+    "endDb": -26
+   }
+  },
+  "396": {
+   "lemma": "عَهْد",
+   "ref": "7:102",
+   "hit": 4,
+   "startDb": -23,
+   "endDb": -23,
+   "firstPick": {
+    "ref": "7:102",
+    "hit": 4,
+    "startDb": -23,
+    "endDb": -23
+   }
+  },
+  "397": {
+   "lemma": "كَأَنّ",
+   "ref": "31:7",
+   "hit": 9,
+   "startDb": -40,
+   "endDb": -39,
+   "firstPick": {
+    "ref": "31:7",
+    "hit": 9,
+    "startDb": -40,
+    "endDb": -39
+   }
+  },
+  "398": {
+   "lemma": "نَبَأ",
+   "ref": "6:67",
+   "hit": 1,
+   "startDb": -30,
+   "endDb": -35,
+   "firstPick": {
+    "ref": "26:69",
+    "hit": 2,
+    "startDb": -21,
+    "endDb": -30
+   }
+  },
+  "399": {
+   "lemma": "أَبَدًا",
+   "ref": "18:20",
+   "hit": 12,
+   "startDb": -39,
+   "endDb": -43,
+   "firstPick": {
+    "ref": "18:3",
+    "hit": 2,
+    "startDb": -36,
+    "endDb": -35
+   }
+  },
+  "400": {
+   "lemma": "أَصْبَحَ",
+   "ref": "67:30",
+   "hit": 3,
+   "startDb": -30,
+   "endDb": -24,
+   "firstPick": {
+    "ref": "67:30",
+    "hit": 3,
+    "startDb": -30,
+    "endDb": -24
+   }
+  }
+ }
+}

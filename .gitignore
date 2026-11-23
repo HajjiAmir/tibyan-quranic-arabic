@@ -13,6 +13,8 @@ scripts/raw/*
 # Context sources are kept: sunnah.com cannot be re-fetched by script, and these
 # files are the audit trail for the scholarly review.
 !scripts/raw/context/
+# Measured word-clip choices (brief 16, piece 3): made in a browser, not re-fetchable by script.
+!scripts/raw/clip-checks.json
 
 # tsc -b build outputs
 *.tsbuildinfo
