@@ -97,6 +97,8 @@ export interface Detail {
   ex: Example[];
   uses?: Use[];
   forms?: Form[];
+  /** A verse where the word is spelled exactly as the headword: where its sound is taken from. */
+  sound?: { ref: string; hit: number };
 }
 
 const BASE = import.meta.env.BASE_URL;

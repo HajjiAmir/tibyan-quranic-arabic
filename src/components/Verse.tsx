@@ -69,6 +69,7 @@ const AR_DIGITS = '٠١٢٣٤٥٦٧٨٩';
 const arabicNumber = (n: number) => String(n).replace(/\d/g, (d) => AR_DIGITS[Number(d)]);
 
 export default function Verse({
+  surahId,
   verse,
   showTranslation,
   colorWords,
@@ -138,7 +139,7 @@ export default function Verse({
 
       {/* interlinear, colour-coded word-by-word analysis */}
       <div className="relative mt-5 border-t border-dashed border-line/70 pt-5">
-        <WordByWord words={verse.words} colorWords={colorWords} showGloss={showGloss} />
+        <WordByWord words={verse.words} colorWords={colorWords} showGloss={showGloss} verseRef={`${surahId}:${verse.id}`} />
       </div>
 
       {showTranslation && <Translation text={verse.translation} footnotes={verse.footnotes} />}

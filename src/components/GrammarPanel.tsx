@@ -1,6 +1,8 @@
 import { roleBgVar, roleVar } from '../lib/data';
 import type { ReactNode } from 'react';
 import type { Role, Segment, Word } from '../types';
+import { WORD_AUDIO_CREDIT } from '../lib/wordAudio';
+import { SpeakButton } from './Speak';
 
 function Tag({ label, value, arabic }: { label: string; value: string; arabic?: boolean }) {
   return (
@@ -46,7 +48,7 @@ export function SegmentGloss({ seg }: { seg: Segment }) {
 }
 
 /** One word's grammar. `bare` drops the card chrome, for use inside the phone bottom sheet. */
-export default function GrammarPanel({ word, bare = false }: { word: Word; bare?: boolean }) {
+export default function GrammarPanel({ word, bare = false, verseRef }: { word: Word; bare?: boolean; verseRef?: string }) {
   const anySegGloss = word.segments.some((s) => s.gloss);
   return (
     <div className={bare ? 'relative' : 'relative mt-4 overflow-hidden card'}>
@@ -61,7 +63,10 @@ export default function GrammarPanel({ word, bare = false }: { word: Word; bare?
             {word.lemma && <Tag label="lemma" value={word.lemma} arabic />}
           </span>
         </div>
-        <span className="ar shrink-0 text-[2.4rem] leading-[1.6]">{word.arabic}</span>
+        <span className="flex shrink-0 items-center gap-1">
+          {verseRef && <SpeakButton verseRef={verseRef} position={word.position} label={word.translit ?? word.arabic} />}
+          <span className="ar text-[2.4rem] leading-[1.6]">{word.arabic}</span>
+        </span>
       </div>
 
       <ul className="flex flex-col divide-y divide-line/70">
@@ -100,7 +105,8 @@ export default function GrammarPanel({ word, bare = false }: { word: Word; bare?
         {anySegGloss
           ? ' Part meanings: prefixes and stems from the corpus; the article and attached pronouns are standard grammatical equivalents.'
           : ''}{' '}
-        Parts with no sourced English are left blank.
+        Parts with no sourced English are left blank. Transliteration from Quran.com.
+        {verseRef ? ` ${WORD_AUDIO_CREDIT}.` : ''}
       </p>
     </div>
   );

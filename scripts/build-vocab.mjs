@@ -363,6 +363,7 @@ const surahOf = (s) => {
   return surahCache.get(s);
 };
 const usedVerses = new Set();
+const wordAt = (o) => surahOf(o.s).verses.find((v) => v.id === o.v).words[o.wi].arabic;
 function exampleOf(o) {
   const verse = surahOf(o.s).verses.find((v) => v.id === o.v);
   usedVerses.add(`${o.s}:${o.v}`);
@@ -425,7 +426,11 @@ function formsOf(e) {
     const spell = topOf(g, 'spell');
     const same = g.filter((o) => o.spell === spell);
     const here = topOf(same, 'usex');
-    const ex = pickExamples(here ? same.filter((o) => o.usex === here) : same)[0];
+    const pool = here ? same.filter((o) => o.usex === here) : same;
+    // Prefer a verse where the whole word is the form alone (no prefix or suffix), so the
+    // transliteration and recording heard beside it are of that very spelling.
+    const alone = pool.filter((o) => wordAt(o) === spell);
+    const ex = pickExamples(alone.length ? alone : pool)[0];
     return { key: k, tense: isVerb ? k.split('|')[0] : null, label: g[0].flabel, spell, count: g.length, here: ex.usex ?? null, ex: exampleOf(ex) };
   });
   if (!isVerb) return rows.sort((a, b) => b.count - a.count).slice(0, 3);
@@ -435,7 +440,9 @@ function formsOf(e) {
   return out.sort((a, b) => TENSE_ORDER[a.tense] - TENSE_ORDER[b.tense] || b.count - a.count);
 }
 
-const detailStats = { uses: 0, forms: 0 };
+const detailStats = { uses: 0, forms: 0, sound: 0 };
+const AR_MARKS = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g;
+const bareAr = (s) => s.replace(AR_MARKS, '').replace(/[ٱأإآ]/g, 'ا').replace(/ى/g, 'ي');
 rmSync(join(DATA, 'vocab'), { recursive: true, force: true });
 mkdirSync(join(DATA, 'vocab'), { recursive: true });
 for (let c = 0; c * CHUNK < entries.length; c++) {
@@ -448,6 +455,17 @@ for (let c = 0; c * CHUNK < entries.length; c++) {
       if (uses) {
         d.uses = uses;
         detailStats.uses++;
+      }
+      // A verse where the word stands exactly as the headword, to hear it by
+      // (Quran.com word-by-word transliteration and recording); none when it never does.
+      if (!e.kind || e.kind === 'word') {
+        const h = bareAr(src.lemma);
+        const o = pickExamples(src.occ.filter((x) => bareAr(wordAt(x)) === h))[0];
+        if (o) {
+          usedVerses.add(`${o.s}:${o.v}`);
+          d.sound = { ref: `${o.s}:${o.v}`, hit: o.wi };
+          detailStats.sound++;
+        }
       }
       const forms = formsOf(src);
       if (forms) {
@@ -508,7 +526,7 @@ writeFileSync(join(DATA, 'vocab.json'), JSON.stringify(out));
 const words = entries.filter((e) => e.kind !== 'prefix' && e.kind !== 'suffix');
 const cov = (n) => words.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
 console.log(`vocab: ${entries.length} entries (${JSON.stringify(out.totals.kinds)}), ${rootStats.size} roots, ${totalWords} words (${noEntry} without an entry)`);
-console.log(`teaching detail: ${detailStats.uses} entries with uses, ${detailStats.forms} with forms`);
+console.log(`teaching detail: ${detailStats.uses} entries with uses, ${detailStats.forms} with forms, ${detailStats.sound} heard as spelled`);
 console.log(`attached: ${attachedTotals.prefix} prefixes, ${attachedTotals.suffix} pronoun suffixes`);
 console.log(`in-context glosses: ${stripStats.changed} of ${stripStats.glosses} had leading prefix words removed`);
 console.log(

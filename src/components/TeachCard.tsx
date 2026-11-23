@@ -16,6 +16,7 @@ import {
   type VocabIndex,
 } from '../lib/vocab';
 import { ExampleVerse } from './VocabBits';
+import { Pronounce, SpeakButton, soundSample, useExampleWord } from './Speak';
 
 // Teaching cards for the learning loop (brief 16). Every line on them comes from
 // the built data: QAC parts of speech, forms and dictionary glosses, Quran.com
@@ -79,6 +80,10 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
   const uses = detail?.uses ?? [];
   const forms = detail?.forms ?? [];
   const multi = !attached && uses.length >= 2;
+  // Its sound: a real occurrence of the headline sense (attached forms have no sound of their own).
+  const sample = attached || !detail
+    ? null
+    : (detail.sound ?? soundSample(l.lemma, [...forms.map((f) => f.ex), ...uses.map((u) => u.ex), ...detail.ex]));
   const posLine = l.kind ? KIND_LABEL[l.kind] : l.pos.map(([p]) => p).slice(0, 2).join(' · ');
 
   return (
@@ -87,6 +92,7 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
         <p lang="ar" className="ar text-[3rem] leading-[1.8]">
           {l.lemma}
         </p>
+        {!attached && detail && <Pronounce ex={sample} headword={l.lemma} center />}
         {!multi && <p className="font-display text-[1.35rem] font-semibold leading-snug">{displayMeaning(l)}</p>}
         <p className="text-xs text-muted">
           {posLine}
@@ -232,14 +238,33 @@ function Forms({ forms, verb }: { forms: Form[]; verb: boolean }) {
 }
 
 function FormRow({ f }: { f: Form }) {
+  // The example word of this form: its transliteration and recording (Quran.com word by word).
+  const w = useExampleWord(f.ex);
   return (
     <div className="flex flex-col gap-1.5">
       <div className="flex items-center justify-between gap-3">
-        <div className="flex min-w-0 items-center gap-3">
+        <div className="flex min-w-0 items-center gap-2">
+          {w && <SpeakButton verseRef={f.ex.ref} position={w.position} label={w.translit ?? w.arabic} size="sm" />}
           <bdi lang="ar" className="ar-naskh shrink-0 text-[1.5rem] leading-[1.6]">
             {f.spell}
           </bdi>
           <span className="min-w-0 text-[0.85rem] leading-snug">
+            {w?.translit && (
+              <span className="italic">
+                {w.translit}
+                {w.arabic !== f.spell && (
+                  <span className="not-italic text-muted">
+                    {' '}
+                    (heard as{' '}
+                    <bdi lang="ar" className="ar-naskh text-[0.95rem] text-ink">
+                      {w.arabic}
+                    </bdi>
+                    )
+                  </span>
+                )}
+                {' · '}
+              </span>
+            )}
             <span className="text-muted">{f.label}</span>
             {f.here && <span className="font-medium"> · “{f.here}”</span>}
           </span>

@@ -19,6 +19,8 @@ export default function WordByWord({
   target,
   targetPart,
   maskTarget = false,
+  showTranslit = false,
+  verseRef,
 }: {
   words: Word[];
   colorWords?: boolean;
@@ -30,6 +32,10 @@ export default function WordByWord({
   targetPart?: [number, number] | null;
   /** In a test: hide the target's colour, English and grammar until it is answered. */
   maskTarget?: boolean;
+  /** Each word's transliteration (Quran.com word by word) under its Arabic. */
+  showTranslit?: boolean;
+  /** "s:v", so a tapped word can be heard (recorded word audio). */
+  verseRef?: string;
 }) {
   const [selected, setSelected] = useState<number | null>(null);
   const phone = usePhone();
@@ -88,6 +94,11 @@ export default function WordByWord({
                   );
                 })}
               </span>
+              {showTranslit && w.translit && (
+                <span dir="ltr" className={`max-w-[8.5rem] text-center italic leading-snug text-ink/75 ${compact ? 'text-[11px]' : 'text-[11.5px]'}`}>
+                  {w.translit}
+                </span>
+              )}
               {showGloss && (
                 <span dir="ltr" className={`max-w-[8.5rem] text-center leading-snug text-muted ${compact ? 'text-[11px]' : 'text-[11.5px]'}`}>
                   {masked ? '?' : w.gloss}
@@ -99,7 +110,7 @@ export default function WordByWord({
       </div>
 
       {/* On a phone the word's grammar opens as a bottom sheet; on wider screens, inline. */}
-      {selectedWord && !phone && <GrammarPanel word={selectedWord} />}
+      {selectedWord && !phone && <GrammarPanel word={selectedWord} verseRef={verseRef} />}
       {selectedWord && phone && selected !== null && (
         <BottomSheet
           label={`Grammar of ${selectedWord.arabic}`}
@@ -123,7 +134,7 @@ export default function WordByWord({
             </div>
           }
         >
-          <GrammarPanel word={selectedWord} bare />
+          <GrammarPanel word={selectedWord} verseRef={verseRef} bare />
         </BottomSheet>
       )}
     </>

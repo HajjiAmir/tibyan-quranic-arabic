@@ -256,6 +256,32 @@ and nothing typed by hand:
   segments and roles, plus the Quran.com word-by-word English and
   transliteration. It is copied unchanged from `public/data/surahs`.
 
+## Word pronunciation: transliteration and recorded word audio (brief 16, piece 3)
+
+- **Transliteration.** Quran.com word-by-word transliteration (API v4, `word.transliteration.text`), already
+  stored per word in our data (`translit`, fetched by `scripts/fetch-raw.mjs`). It is aligned to the Uthmani
+  text word by word; nothing is generated from a letter map. Checked on 2026-11-23: positions and
+  transliterations for 2:255, 3:7 and 9:1 match the live API exactly.
+- **Word audio.** The recorded word-by-word recitation Quran.com plays when a word is tapped, streamed from
+  `https://audio.qurancdn.com/wbw/SSS_VVV_WWW.mp3` (Quran.com word positions, the same as ours). No synthetic
+  speech anywhere. Files are streamed on tap, never bundled, stored or rehosted.
+  - Licence: Quran Foundation Developer Terms, https://api-docs.quran.foundation/legal/developer-terms/ —
+    recordings from audio.qurancdn.com are "QF Content" whether or not obtained through the APIs; free,
+    non-exclusive, revocable licence, commercial use allowed; credit the Quran Foundation and the reciter;
+    no caching beyond one week; no rehosting.
+  - Credit shown in the app wherever a word can be heard: "Word recitation: Quran Foundation (Quran.com word
+    by word)". **Quran.com does not publish the name of the word-audio reciter** (checked the API, which gives
+    only `audio_url`, and https://quran.com/product-updates/updated-word-by-word-recitation-feature), so the
+    reciter cannot be named yet.
+  - QUL (https://qul.tarteel.ai) was checked as a second source: its word-segmented Alafasy recitation says
+    "We don't have copyright information for this resource", so it was not used.
+- **Which occurrence a headword is heard by.** `scripts/build-vocab.mjs` stores `sound` per word: a verse
+  where the word stands spelled exactly as the headword (diacritics and alif forms aside), for 2,105 of
+  4,769 words. Otherwise the card plays a real occurrence and says which spelling is heard ("heard as …").
+  Verb and noun form rows prefer a verse where the form stands alone, and say "heard as …" when it never
+  does with that meaning. Attached forms (prefixes, suffixes) and roots have no sound of their own and get
+  none; their example words can each be heard.
+
 ## Fonts
 
 Self-hosted from npm (Fontsource), all SIL Open Font License 1.1: **Amiri Quran**

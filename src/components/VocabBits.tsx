@@ -54,7 +54,7 @@ export function ExampleVerse({
     <figure className={`flex flex-col gap-1.5 rounded-xl border border-line/70 bg-paper/50 ${compact ? 'px-3 py-2.5' : 'px-4 py-3'}`}>
       {label && <span className="text-[10.5px] font-medium uppercase tracking-[0.12em] text-muted">{label}</span>}
       {words ? (
-        <WordByWord words={words} size="compact" target={ex.hit} targetPart={ex.part} maskTarget={hideGloss} />
+        <WordByWord words={words} size="compact" target={ex.hit} targetPart={ex.part} maskTarget={hideGloss} showTranslit verseRef={ex.ref} />
       ) : (
         <p lang="ar" dir="rtl" className={`ar ${compact ? 'text-[1.3rem]' : 'text-[1.45rem]'} leading-[2.1]`}>
           {ex.words.map((w, i) => (
