@@ -200,6 +200,10 @@ export interface Question {
   answer: string;
   /** Deck whose retention this question updates. */
   deck: Deck;
+  /** An orienting line under the prompt. */
+  hint?: string;
+  /** Grammar options shown meaning-first: the plain explanation leads, the term follows. */
+  views?: Record<string, { lead?: string; terms: string[] }>;
 }
 
 export type QuizFocus = 'mixed' | 'meaning' | 'grammar';
@@ -271,11 +275,13 @@ export function buildQuiz(items: Item[], focus: QuizFocus = 'mixed', count = 10)
       qs.push({
         kind: 'role',
         item,
-        prompt: 'What role does this word play?',
+        prompt: 'What job does this word do?',
+        hint: item.gloss ? `Here it means “${item.gloss}”.` : undefined,
         cue: item.arabic,
         options: shuffle([...opts]),
         answer,
         deck: 'grammar',
+        views: Object.fromEntries([...opts].map((o) => [o, { terms: [o] }])),
       });
     }
   }

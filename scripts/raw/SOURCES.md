@@ -312,3 +312,17 @@ and nothing typed by hand:
 Self-hosted from npm (Fontsource), all SIL Open Font License 1.1: **Amiri Quran**
 (Quran text), **Amiri** (Arabic titles), **Scheherazade New** (small Arabic
 labels), **Inter** and **Lora** (Latin).
+
+## Grammar glossary (brief 17)
+
+`public/data/glossary.json`, built by `npm run build:glossary` (`scripts/build-glossary.mjs`) from the wording in `scripts/glossary-text.mjs`.
+
+- **What it is.** One plain-English explanation per grammatical term the app shows: every part-of-speech label, every feature (case, gender, number, person, tense, mood, voice, definiteness), verb forms 1–11, and the app's own terms (root, lemma, prefix, suffix, pronoun uses). There are 89 entries covering 115 labels. The build stops if the data shows a term with no entry.
+- **Labels and data are unchanged.** The labels are the Quranic Arabic Corpus's, as already shown; the glossary only explains them.
+- **Wording.** Plain summaries of standard grammar, each citing what it was checked against:
+  - Quranic Arabic Corpus documentation: [tagset](https://corpus.quran.com/documentation/tagset.jsp), [morphological features](https://corpus.quran.com/documentation/morphologicalfeatures.jsp), [verb forms](https://corpus.quran.com/documentation/verbforms.jsp), [moods](https://corpus.quran.com/documentation/mood.jsp), [the particle fa](https://corpus.quran.com/documentation/particlefa.jsp), [inna](https://corpus.quran.com/documentation/particleinna.jsp), and the other QAC grammar pages linked in each entry.
+  - Where QAC has no page: Wikipedia ([Arabic verbs](https://en.wikipedia.org/wiki/Arabic_verbs), [Iʿrab](https://en.wikipedia.org/wiki/I%CA%BFrab), [Nunation](https://en.wikipedia.org/wiki/Nunation)) and Arabic Wikipedia (اسم الإشارة, الحروف المقطعة).
+- **No Qur'an text written by hand.** The explanations name single particles and textbook words only. Each entry's Qur'an example is a real word picked from the app's data (Al-Fatiha first, then the short surahs), shown with the QAC word-by-word English. Three examples are pinned (17:23, 98:5, 3:159) because the first match's English was misleading.
+- **Known gaps.**
+  - The data labels both QAC's retraction (RET, بَلْ) and amendment (AMD, لَٰكِنْ) "Retraction particle"; that entry explains both and says so.
+  - The attention هَا, distance lām and address kāf appear as separate parts in the morphology file the app uses, but QAC's website shows ذَٰلِكَ as one word. Those entries cite the Arabic grammar of demonstratives.

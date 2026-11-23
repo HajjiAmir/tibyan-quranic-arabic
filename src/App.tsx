@@ -8,6 +8,7 @@ import Learn from './pages/Learn';
 import LearnStudy from './pages/LearnStudy';
 import LearnWord from './pages/LearnWord';
 import { RootFamily, RootsIndex } from './pages/LearnRoots';
+import { TermHost } from './components/Term';
 
 function ThemeButton() {
   const [theme, cycle] = useTheme();
@@ -167,6 +168,7 @@ export default function App() {
           </Routes>
         </div>
       </main>
+      <TermHost />
     </div>
   );
 }

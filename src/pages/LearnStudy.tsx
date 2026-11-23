@@ -1,3 +1,4 @@
+import OptionCard from '../components/OptionCard';
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { CardFront, RootCard, WordCard, useDetail } from '../components/TeachCard';
@@ -348,7 +349,10 @@ function TestPhase({
             <ExampleVerse ex={q.example} compact hideGloss={!picked} hideTranslation={!picked && q.kind !== 'use'} />
           </div>
         )}
-        <p className="text-sm font-medium text-muted">{q.prompt}</p>
+        <div className="flex flex-col gap-0.5">
+          <p className="text-sm font-medium text-muted">{q.prompt}</p>
+          {q.hint && <p className="text-[0.95rem] font-semibold">{q.hint}</p>}
+        </div>
       </div>
 
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -362,17 +366,16 @@ function TestPhase({
             else cls = 'border-line bg-surface opacity-60';
           }
           return (
-            <button
+            <OptionCard
               key={opt}
-              onClick={() => pick(opt)}
+              option={opt}
+              view={q.views?.[opt]}
+              arabic={q.optionsArabic}
+              onPick={() => pick(opt)}
               disabled={!!picked}
-              className={`min-h-[48px] rounded-xl border px-4 py-2.5 text-center font-medium transition-colors ${cls}`}
+              stateClass={cls}
               style={picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined}
-            >
-              <span lang={q.optionsArabic ? 'ar' : undefined} className={q.optionsArabic ? 'ar-naskh text-2xl leading-[1.7]' : 'text-sm'}>
-                {opt}
-              </span>
-            </button>
+            />
           );
         })}
       </div>

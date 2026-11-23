@@ -16,6 +16,7 @@ import {
   type QuizFocus,
 } from '../lib/practice';
 import GrammarPanel from '../components/GrammarPanel';
+import OptionCard from '../components/OptionCard';
 import { Segmented, StatBar } from '../components/PracticeKit';
 
 type Mode = 'flashcards' | 'quiz';
@@ -266,6 +267,7 @@ function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
           <p className="ar mb-3 text-[3.2rem] leading-[1.9]">{q.cue}</p>
         )}
         <p className="text-sm font-medium text-muted">{q.prompt}</p>
+        {q.hint && <p className="mt-1 text-sm text-muted">{q.hint}</p>}
       </div>
 
       <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
@@ -279,17 +281,16 @@ function Quiz({ items, focus }: { items: Item[]; focus: QuizFocus }) {
           }
           const arabicOpt = q.kind === 'root' || q.kind === 'word';
           return (
-            <button
+            <OptionCard
               key={opt}
-              onClick={() => pick(opt)}
+              option={opt}
+              view={q.views?.[opt]}
+              arabic={arabicOpt}
+              onPick={() => pick(opt)}
               disabled={!!picked}
-              className={`rounded-xl border px-4 py-3 text-center font-medium transition-colors ${cls}`}
-              style={
-                picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined
-              }
-            >
-              <span className={arabicOpt ? 'ar-naskh text-2xl' : 'text-sm'}>{opt}</span>
-            </button>
+              stateClass={cls}
+              style={picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined}
+            />
           );
         })}
       </div>

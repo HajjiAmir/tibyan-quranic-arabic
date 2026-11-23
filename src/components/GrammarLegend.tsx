@@ -1,9 +1,12 @@
 import { useState } from 'react';
 import { ROLE_ORDER, roleBgVar, roleVar } from '../lib/data';
 import type { Legend } from '../types';
+import { findTerm, useGlossary } from '../lib/glossary';
+import { Term } from './Term';
 
 export default function GrammarLegend({ legend }: { legend: Legend }) {
   const [open, setOpen] = useState(false);
+  const g = useGlossary();
   return (
     <section className="card">
       <button
@@ -43,11 +46,11 @@ export default function GrammarLegend({ legend }: { legend: Legend }) {
                 <div className="min-w-0">
                   <div className="flex items-baseline gap-2">
                     <span className="role-label text-sm font-semibold" style={{ ['--role-c' as string]: roleVar(role) }}>
-                      {info.label}
+                      <Term label={info.label} />
                     </span>
                     <span className="ar-naskh text-sm text-ink/70">{info.arabic}</span>
                   </div>
-                  <p className="text-xs leading-snug text-muted">{info.desc}</p>
+                  <p className="text-xs leading-snug text-muted">{findTerm(g, info.label)?.short ?? info.desc}</p>
                 </div>
               </div>
             );

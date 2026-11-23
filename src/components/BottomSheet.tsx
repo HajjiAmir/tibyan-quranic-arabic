@@ -1,6 +1,10 @@
 import { useEffect, useRef, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 
+// Open sheets, newest last: Escape closes only the top one (a term explanation
+// can open over a word's grammar sheet).
+const stack: symbol[] = [];
+
 /**
  * A phone bottom sheet: slides up from the bottom edge over a dimmed page, sits
  * above the home indicator (safe-area inset), scrolls inside itself, and closes
@@ -12,30 +16,36 @@ export default function BottomSheet({
   onClose,
   children,
   footer,
+  center = false,
 }: {
   label: string;
   onClose: () => void;
   children: ReactNode;
   footer?: ReactNode;
+  /** On wide screens, a centred card instead of a sheet from the bottom edge. */
+  center?: boolean;
 }) {
   const sheet = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const before = document.activeElement as HTMLElement | null;
     sheet.current?.focus({ preventScroll: true });
-    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && onClose();
+    const me = Symbol('sheet');
+    stack.push(me);
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && stack[stack.length - 1] === me && onClose();
     document.addEventListener('keydown', onKey);
     const prevOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     return () => {
       document.removeEventListener('keydown', onKey);
+      stack.splice(stack.indexOf(me), 1);
       document.body.style.overflow = prevOverflow;
       before?.focus?.({ preventScroll: true });
     };
   }, [onClose]);
 
   return createPortal(
-    <div className="fixed inset-0 z-50 flex flex-col justify-end">
+    <div className={`fixed inset-0 z-50 flex flex-col justify-end ${center ? 'md:items-center md:justify-center md:p-6' : ''}`}>
       <button
         aria-label="Close"
         tabIndex={-1}
@@ -48,7 +58,9 @@ export default function BottomSheet({
         aria-modal="true"
         aria-label={label}
         tabIndex={-1}
-        className="sheet-panel relative flex max-h-[min(80dvh,40rem)] flex-col rounded-t-[22px] border-t border-[color:var(--border-strong)] bg-surface outline-none"
+        className={`sheet-panel relative flex max-h-[min(80dvh,40rem)] flex-col rounded-t-[22px] border-t border-[color:var(--border-strong)] bg-surface outline-none ${
+          center ? 'md:w-full md:max-w-lg md:rounded-[22px] md:border' : ''
+        }`}
         style={{ boxShadow: '0 -18px 50px -20px rgb(0 0 0 / 0.55)' }}
       >
         <div className="flex shrink-0 items-center justify-between px-3 pt-2">

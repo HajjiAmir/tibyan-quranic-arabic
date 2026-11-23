@@ -18,6 +18,7 @@ import {
 import { ExampleVerse } from './VocabBits';
 import { WORD_AUDIO_CREDIT } from '../lib/wordAudio';
 import { Pronounce, SpeakButton, soundSample, useExampleWord } from './Speak';
+import { Term, TermList } from './Term';
 
 // Teaching cards for the learning loop (brief 16). Every line on them comes from
 // the built data: QAC parts of speech, forms and dictionary glosses, Quran.com
@@ -39,6 +40,8 @@ export function useDetail(l: Lemma | null, chunk: number): Detail | null {
   }, [l, chunk]);
   return d;
 }
+
+const TENSE_TERM: Record<string, string> = { PERF: 'perfect', IMPF: 'imperfect', IMPV: 'imperative' };
 
 const TENSE: Record<string, string> = {
   PERF: 'Perfect (past)',
@@ -85,7 +88,7 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
   const sample = attached || !detail
     ? null
     : (detail.sound ?? soundSample(l.lemma, [...forms.map((f) => f.ex), ...uses.map((u) => u.ex), ...detail.ex]));
-  const posLine = l.kind ? KIND_LABEL[l.kind] : l.pos.map(([p]) => p).slice(0, 2).join(' · ');
+  const posTerms = l.kind ? [KIND_LABEL[l.kind]] : l.pos.map(([p]) => p).slice(0, 2);
 
   return (
     <div className="flex flex-col gap-5">
@@ -96,12 +99,24 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
         {!attached && detail && <Pronounce ex={sample} headword={l.lemma} center />}
         {!multi && <p className="font-display text-[1.35rem] font-semibold leading-snug">{displayMeaning(l)}</p>}
         <p className="text-xs text-muted">
-          {posLine}
-          {l.form ? ` · Form ${l.form}` : ''} · <span className="tnum">{l.count.toLocaleString()}×</span>{' '}
+          {posTerms.map((p, i) => (
+            <span key={p}>
+              {i > 0 && ' · '}
+              <Term label={p} here={{ arabic: l.lemma, gloss: displayMeaning(l) }} />
+            </span>
+          ))}
+          {l.form && (
+            <>
+              {' · '}
+              <Term label={`form ${l.form}`}>Form {l.form}</Term>
+            </>
+          )}{' '}
+          · <span className="tnum">{l.count.toLocaleString()}×</span>{' '}
           {attached ? 'attached' : 'in the Qur’an'}
           {l.root && (
             <>
-              {' · root '}
+              {' · '}
+              <Term label="root" />{' '}
               <Link to={rootPath(l.root)} className="underline decoration-accent/40 underline-offset-4 hover:text-accent">
                 <bdi lang="ar" className="ar-naskh text-[0.95rem]">
                   {l.root.split('').join(' ')}
@@ -133,7 +148,10 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
                 <div className="flex items-baseline justify-between gap-3">
                   <p className="min-w-0 text-[0.95rem]">
                     <span className="font-semibold">{u.gloss ?? '—'}</span>
-                    <span className="text-muted"> · {u.label}</span>
+                    <span className="text-muted">
+                      {' · '}
+                      <Term label={u.label ?? ""} here={{ arabic: l.lemma, gloss: u.gloss }} />
+                    </span>
                   </p>
                   <Count n={u.count} />
                 </div>
@@ -159,7 +177,7 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
                 <div className="flex items-baseline justify-between gap-3">
                   <p className="min-w-0 text-[0.95rem]">
                     <span className="font-semibold">{u.gloss ?? '—'}</span>
-                    <span className="text-muted"> · {useLabel(u)}</span>
+                    <span className="text-muted"> · {u.form ? <UseFormLabel u={u} /> : <Term label={useLabel(u)} here={{ arabic: l.lemma, gloss: u.gloss }} />}</span>
                   </p>
                   <Count n={u.count} />
                 </div>
@@ -221,7 +239,7 @@ function Forms({ forms, verb }: { forms: Form[]; verb: boolean }) {
     : ([[null, forms]] as const);
   return (
     <Section
-      title={verb ? 'Its forms in use' : 'Singular, dual, plural'}
+      title={verb ? 'Its forms in use' : 'One, two, three or more'}
       sub={
         verb
           ? 'The commonest forms of each tense, as the Quranic Arabic Corpus describes them (person, gender, number), each in a verse.'
@@ -231,7 +249,11 @@ function Forms({ forms, verb }: { forms: Form[]; verb: boolean }) {
       <div className="flex flex-col gap-4">
         {groups.map(([t, g]) => (
           <div key={t ?? 'n'} className="flex flex-col gap-2.5">
-            {t && <h4 className="font-display text-[1rem] font-semibold">{TENSE[t]}</h4>}
+            {t && (
+              <h4 className="font-display text-[1rem] font-semibold">
+                <Term label={TENSE_TERM[t]}>{TENSE[t]}</Term>
+              </h4>
+            )}
             {g.map((f) => (
               <FormRow key={f.key} f={f} />
             ))}
@@ -270,7 +292,7 @@ function FormRow({ f }: { f: Form }) {
                 {' · '}
               </span>
             )}
-            <span className="text-muted">{f.label}</span>
+            <TermList text={f.label} className="text-muted" here={w ? { arabic: w.arabic, gloss: f.here } : undefined} />
             {f.here && <span className="font-medium"> · “{f.here}”</span>}
           </span>
         </div>
@@ -342,8 +364,13 @@ export function RootCard({ index, root }: { index: VocabIndex; root: string }) {
                       <span className="font-medium">{displayMeaning(w)}</span>
                       <span className="text-muted">
                         {' '}
-                        · {w.pos[0]?.[0]}
-                        {w.form ? ` · Form ${w.form}` : ''}
+                        · {w.pos[0]?.[0] && <Term label={w.pos[0][0]} />}
+                        {w.form && (
+                          <>
+                            {' · '}
+                            <Term label={`form ${w.form}`}>Form {w.form}</Term>
+                          </>
+                        )}
                       </span>
                     </span>
                   </div>
@@ -361,5 +388,15 @@ export function RootCard({ index, root }: { index: VocabIndex; root: string }) {
         )}
       </Section>
     </div>
+  );
+}
+
+/** An attached pronoun's use ("Possessive · on a noun"), each part tappable. */
+function UseFormLabel({ u }: { u: { form?: string; host?: string } }) {
+  const kind = u.form === 'possessive' ? 'Possessive' : u.form === 'object' ? 'Object' : 'After a particle';
+  return (
+    <>
+      <Term label={kind} /> · on a <Term label={u.host ?? ''} />
+    </>
   );
 }

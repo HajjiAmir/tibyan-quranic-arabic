@@ -17,6 +17,7 @@ import {
 } from '../lib/vocab';
 
 import WordByWord from './WordByWord';
+import { Term, TermLine } from './Term';
 import type { Word } from '../types';
 
 // Pieces shared by the Learn page and vocabulary practice.
@@ -155,7 +156,11 @@ export function LemmaFacts({ l }: { l: Lemma }) {
         </ul>
       )}
       <dl className="flex flex-wrap gap-1.5 text-xs">
-        {l.kind && <Chip label="Type">{KIND_LABEL[l.kind]}</Chip>}
+        {l.kind && (
+          <Chip label="Type">
+            <Term label={KIND_LABEL[l.kind]} />
+          </Chip>
+        )}
         {l.root && (
           <Chip label="Root">
             <Link
@@ -172,8 +177,19 @@ export function LemmaFacts({ l }: { l: Lemma }) {
         )}
         {!attached && (
           <Chip label="Form">
-            {l.pos.map(([p, n]) => (l.pos.length > 1 ? `${p} (${n})` : p)).join(' · ')}
-            {l.form ? ` · Form ${l.form}` : ''}
+            {l.pos.map(([p, n], i) => (
+              <span key={p}>
+                {i > 0 && ' · '}
+                <Term label={p} />
+                {l.pos.length > 1 ? ` (${n})` : ''}
+              </span>
+            ))}
+            {l.form && (
+              <>
+                {' · '}
+                <Term label={`form ${l.form}`}>Form {l.form}</Term>
+              </>
+            )}
           </Chip>
         )}
         <Chip label={attached ? 'Attached' : 'Occurs'}>
@@ -194,7 +210,8 @@ export function LemmaFacts({ l }: { l: Lemma }) {
         </p>
       )}
       <p className="text-xs text-muted">
-        e.g. <bdi lang="ar" className="ar-naskh text-[1rem]">{l.sample.arabic}</bdi> — {l.sample.description}
+        e.g. <bdi lang="ar" className="ar-naskh text-[1rem]">{l.sample.arabic}</bdi> —{' '}
+        <TermLine text={l.sample.description} here={{ arabic: l.sample.arabic }} />
       </p>
     </div>
   );

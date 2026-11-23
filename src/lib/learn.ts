@@ -16,6 +16,7 @@
 // table, and Saheeh International translations of the example verses.
 
 import { KNOWN_BOX, normGloss, shuffle, type Track } from './practice';
+import { plainForm } from './glossary';
 import {
   displayMeaning,
   familySense,
@@ -159,6 +160,21 @@ export interface Question {
   options: string[];
   optionsArabic: boolean;
   answer: string;
+  /** A short orienting line under the prompt. */
+  hint?: string;
+  /**
+   * Grammar options shown meaning-first (brief 17): `lead` is the everyday meaning,
+   * the glossary's plain line follows, and the technical terms come second, small
+   * and tappable. Keyed by option.
+   */
+  views?: Record<string, OptionView>;
+}
+
+export interface OptionView {
+  /** Plain meaning; when absent, the first term's plain line leads. */
+  lead?: string;
+  /** The QAC terms, shown second. */
+  terms: string[];
 }
 
 const spaced = (root: string) => root.split('').join(' ');
@@ -261,10 +277,25 @@ export function makeQuestion(index: VocabIndex, item: LearnItem, detail: Detail 
       if (uses.length >= 2) {
         builders.use = () => {
           const u = uses[Math.floor(Math.random() * uses.length)];
-          const opts = [...new Set(uses.map((x) => `${x.label} — ${x.gloss ?? '…'}`))].slice(0, 4);
-          const answer = `${u.label} — ${u.gloss ?? '…'}`;
+          const key = (x: (typeof uses)[number]) => `${x.label} — ${x.gloss ?? '…'}`;
+          const opts = [...new Set(uses.map(key))].slice(0, 4);
+          const answer = key(u);
           if (!opts.includes(answer)) opts[opts.length - 1] = answer;
-          return { item, kind: 'use', prompt: `How is ${l.lemma} used in this verse?`, cue: null, cueArabic: false, example: u.ex, options: shuffle(opts), optionsArabic: false, answer };
+          const views: Record<string, OptionView> = {};
+          for (const x of uses) views[key(x)] = { lead: x.gloss ? `“${x.gloss}”` : undefined, terms: x.label ? [x.label] : [] };
+          return {
+            item,
+            kind: 'use',
+            prompt: `How is ${l.lemma} used in this verse?`,
+            hint: `Which meaning does ${l.lemma} carry here?`,
+            cue: null,
+            cueArabic: false,
+            example: u.ex,
+            options: shuffle(opts),
+            optionsArabic: false,
+            answer,
+            views,
+          };
         };
         kinds.push('use', 'use');
       }
@@ -273,7 +304,23 @@ export function makeQuestion(index: VocabIndex, item: LearnItem, detail: Detail 
           const f = forms[Math.floor(Math.random() * forms.length)];
           const wrong = distract(forms.filter((x) => x.label !== f.label).map((x) => x.label), [f.label]);
           if (wrong.length < 2) return null;
-          return { item, kind: 'form', prompt: 'Which form is the highlighted word?', cue: null, cueArabic: false, example: f.ex, options: shuffle([f.label, ...wrong]), optionsArabic: false, answer: f.label };
+          const options = shuffle([f.label, ...wrong]);
+          const views: Record<string, OptionView> = {};
+          for (const o of options) views[o] = { lead: plainForm(o), terms: o.split(', ') };
+          const verb = !!f.tense;
+          return {
+            item,
+            kind: 'form',
+            prompt: 'Which form is the highlighted word?',
+            hint: verb ? 'When does it happen, and who is it about?' : 'How many does it speak of?',
+            cue: null,
+            cueArabic: false,
+            example: f.ex,
+            options,
+            optionsArabic: false,
+            answer: f.label,
+            views,
+          };
         };
         kinds.push('form');
       }

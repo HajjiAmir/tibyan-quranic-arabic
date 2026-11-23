@@ -3,11 +3,14 @@ import type { ReactNode } from 'react';
 import type { Role, Segment, Word } from '../types';
 import { WORD_AUDIO_CREDIT } from '../lib/wordAudio';
 import { SpeakButton } from './Speak';
+import { Term, TermLine } from './Term';
 
-function Tag({ label, value, arabic }: { label: string; value: string; arabic?: boolean }) {
+function Tag({ label, value, arabic, term }: { label: string; value: string; arabic?: boolean; term?: string }) {
   return (
     <span className="inline-flex items-baseline gap-1.5 rounded-md border border-line/70 px-2 py-0.5 text-[11px]">
-      <span className="text-muted">{label}</span>
+      <span className="text-muted">
+        <Term label={term ?? label}>{label}</Term>
+      </span>
       <span className={arabic ? 'ar-naskh text-[0.95rem] leading-none' : 'font-medium'}>{value}</span>
     </span>
   );
@@ -41,7 +44,7 @@ export function SegmentGloss({ seg }: { seg: Segment }) {
     <span className="inline-flex items-baseline gap-1.5">
       <span className="text-[0.95rem] font-medium text-ink">&ldquo;{seg.gloss}&rdquo;</span>
       <span className="text-[10px] uppercase tracking-[0.08em] text-muted" title={title}>
-        {label}
+        <Term label={label} />
       </span>
     </span>
   );
@@ -74,19 +77,25 @@ export default function GrammarPanel({ word, bare = false, verseRef }: { word: W
           <li key={i} className="grid grid-cols-[1fr_auto] items-start gap-x-4 px-5 py-3.5">
             <div className="flex min-w-0 flex-col gap-1.5">
               <div className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
-                <RoleChip role={seg.role}>{seg.description}</RoleChip>
+                <RoleChip role={seg.role}>
+                  <TermLine text={seg.description} here={{ arabic: seg.arabic, gloss: seg.gloss, word: word.arabic, wordGloss: word.gloss }} />
+                </RoleChip>
                 {seg.prefix && (
-                  <span className="text-[10px] uppercase tracking-[0.08em] text-muted">prefix</span>
+                  <span className="text-[10px] uppercase tracking-[0.08em] text-muted">
+                    <Term label="prefix" />
+                  </span>
                 )}
                 {seg.flags.includes('SUFF') && (
-                  <span className="text-[10px] uppercase tracking-[0.08em] text-muted">suffix</span>
+                  <span className="text-[10px] uppercase tracking-[0.08em] text-muted">
+                    <Term label="suffix" />
+                  </span>
                 )}
               </div>
               <SegmentGloss seg={seg} />
               {(seg.root || seg.verbForm) && (
                 <div className="flex flex-wrap gap-1.5">
                   {seg.root && <Tag label="root" value={seg.root} arabic />}
-                  {seg.verbForm && <Tag label="form" value={seg.verbForm} />}
+                  {seg.verbForm && <Tag label="form" term={`form ${seg.verbForm}`} value={seg.verbForm} />}
                 </div>
               )}
             </div>

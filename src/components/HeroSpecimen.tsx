@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { TermLine } from './Term';
 import { Link } from 'react-router-dom';
 import { loadSurah, roleVar } from '../lib/data';
 import type { Verse } from '../types';
@@ -74,7 +75,9 @@ export default function HeroSpecimen() {
             <span aria-hidden className="h-[2px] w-9 rounded-full" style={{ background: roleVar(seg.role), opacity: 0.85 }} />
             <span dir="ltr" className="flex flex-col items-center gap-1.5 text-center">
               <SegmentGloss seg={seg} />
-              <RoleChip role={seg.role}>{seg.description}</RoleChip>
+              <RoleChip role={seg.role}>
+                <TermLine text={seg.description} here={{ arabic: seg.arabic, gloss: seg.gloss, word: word.arabic, wordGloss: word.gloss }} />
+              </RoleChip>
             </span>
           </li>
         ))}
