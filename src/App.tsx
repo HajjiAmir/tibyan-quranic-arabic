@@ -6,6 +6,7 @@ import Reader from './pages/Reader';
 import Practice from './pages/Practice';
 import Learn from './pages/Learn';
 import LearnStudy from './pages/LearnStudy';
+import LearnReview from './pages/LearnReview';
 import LearnWord from './pages/LearnWord';
 import { RootFamily, RootsIndex } from './pages/LearnRoots';
 import { TermHost } from './components/Term';
@@ -161,6 +162,7 @@ export default function App() {
             <Route path="/surah/:id/practice" element={<Practice />} />
             <Route path="/learn" element={<Learn />} />
             <Route path="/learn/study/:track" element={<LearnStudy />} />
+            <Route path="/learn/review/:track" element={<LearnReview />} />
             <Route path="/learn/practice" element={<Navigate to="/learn/study/words" replace />} />
             <Route path="/learn/word/:key" element={<LearnWord />} />
             <Route path="/learn/roots" element={<RootsIndex />} />

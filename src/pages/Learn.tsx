@@ -1,15 +1,16 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
+import ReviewLibrary from '../components/ReviewLibrary';
+import { itemLabel } from '../components/ReviewKit';
+import { passedBatches } from '../lib/review';
 import { Segmented } from '../components/PracticeKit';
 import { Dashboard, StatusActions, StatusDot } from '../components/VocabBits';
 import { WordCard, useDetail } from '../components/TeachCard';
 import { RootsPreview } from './LearnRoots';
-import { BATCH, TRACKS, trackState, type LearnItem, type TrackId } from '../lib/learn';
+import { BATCH, TRACKS, trackState, type TrackId } from '../lib/learn';
 import {
   KIND_LABEL,
   displayMeaning,
-  familySense,
-  rootFamily,
   inPool,
   loadVocab,
   mastery,
@@ -40,6 +41,12 @@ export default function Learn() {
   const [open, setOpen] = useState<number | null>(null);
   // Bumped after any change to progress, so derived numbers recompute.
   const [rev, setRev] = useState(0);
+  const [params, setParams] = useSearchParams();
+  const mode = params.get('mode') === 'review' ? 'review' : 'learn';
+  const setMode = (m: 'learn' | 'review') => {
+    setParams(m === 'review' ? { mode: 'review' } : {}, { replace: true });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   useEffect(() => {
     loadVocab().then(setIndex).catch((e) => setErr(String(e)));
@@ -73,64 +80,103 @@ export default function Learn() {
 
       <Dashboard index={index} m={m} />
 
-      <PathPanel index={index} rev={rev} />
+      <ModeSwitch index={index} mode={mode} onChange={setMode} />
 
-      <RootsPreview index={index} />
-
-      <section className="flex flex-col gap-3">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h2 className="font-display text-xl font-semibold tracking-tight">Every word, in order</h2>
-            <p className="text-xs text-muted">
-              {list.length.toLocaleString()} words and forms in frequency order
-              {firstNew ? ` · next new word: #${firstNew.id}` : ''}
-            </p>
-          </div>
-          <Segmented
-            value={pool}
-            onChange={setPool}
-            options={[
-              ['all', 'All'],
-              ['content', 'Content'],
-              ['function', 'Function'],
-            ]}
-          />
+      {mode === 'review' ? (
+        <div key="review" className="mode-in">
+          <ReviewLibrary index={index} onLearn={() => setMode('learn')} />
         </div>
+      ) : (
+        <div key="learn" className="mode-in flex flex-col gap-8 sm:gap-10">
+          <PathPanel index={index} rev={rev} />
 
-        <ol className="flex flex-col overflow-hidden card">
-          {list.slice(0, shown).map((l) => (
-            <Row
-              key={l.id}
-              l={l}
-              chunk={index.chunk}
-              status={statusOf(l, store)}
-              open={open === l.id}
-              onToggle={() => setOpen((o) => (o === l.id ? null : l.id))}
-              onChange={() => setRev((r) => r + 1)}
-            />
-          ))}
-        </ol>
-        {shown < list.length && (
-          <button
-            onClick={() => setShown((n) => n + PAGE)}
-            className="btn btn-secondary self-center font-medium"
-          >
-            Show {Math.min(PAGE, list.length - shown)} more
-          </button>
-        )}
-        <p className="text-xs leading-relaxed text-muted">
-          Counted per word: each of the Qur’an’s {index.totals.words.toLocaleString()} words counts once, for its main
-          word — a corpus lemma, a separate pronoun (<bdi lang="ar" className="ar-naskh">هُوَ</bdi>,{' '}
-          <bdi lang="ar" className="ar-naskh">نَحْنُ</bdi> …) or a set of Quranic initials. Attached prefixes (
-          <bdi lang="ar" className="ar-naskh">وَ</bdi>, <bdi lang="ar" className="ar-naskh">بِ</bdi>,{' '}
-          <bdi lang="ar" className="ar-naskh">ٱل</bdi> …) and attached pronouns (<bdi lang="ar" className="ar-naskh">ـهُ</bdi>,{' '}
-          <bdi lang="ar" className="ar-naskh">ـكُمْ</bdi> …) are listed too, ranked by how often they are attached, but are not
-          added to coverage. A word counts as learned once its batch test is passed, and as secure after a few spaced
-          refreshers answered right.
-          Lemmas, roots, grammar and prefix meanings: Quranic Arabic Corpus; pronoun and article meanings: the reviewed
-          pronoun table; meanings in context: Quran.com word-by-word; verse translations: Saheeh International.
-        </p>
-      </section>
+          <RootsPreview index={index} />
+
+          <section className="flex flex-col gap-3">
+            <div className="flex flex-wrap items-end justify-between gap-3">
+              <div>
+                <h2 className="font-display text-xl font-semibold tracking-tight">Every word, in order</h2>
+                <p className="text-xs text-muted">
+                  {list.length.toLocaleString()} words and forms in frequency order
+                  {firstNew ? ` · next new word: #${firstNew.id}` : ''}
+                </p>
+              </div>
+              <Segmented
+                value={pool}
+                onChange={setPool}
+                options={[
+                  ['all', 'All'],
+                  ['content', 'Content'],
+                  ['function', 'Function'],
+                ]}
+              />
+            </div>
+
+            <ol className="flex flex-col overflow-hidden card">
+              {list.slice(0, shown).map((l) => (
+                <Row
+                  key={l.id}
+                  l={l}
+                  chunk={index.chunk}
+                  status={statusOf(l, store)}
+                  open={open === l.id}
+                  onToggle={() => setOpen((o) => (o === l.id ? null : l.id))}
+                  onChange={() => setRev((r) => r + 1)}
+                />
+              ))}
+            </ol>
+            {shown < list.length && (
+              <button
+                onClick={() => setShown((n) => n + PAGE)}
+                className="btn btn-secondary self-center font-medium"
+              >
+                Show {Math.min(PAGE, list.length - shown)} more
+              </button>
+            )}
+            <p className="text-xs leading-relaxed text-muted">
+              Counted per word: each of the Qur’an’s {index.totals.words.toLocaleString()} words counts once, for its main
+              word — a corpus lemma, a separate pronoun (<bdi lang="ar" className="ar-naskh">هُوَ</bdi>,{' '}
+              <bdi lang="ar" className="ar-naskh">نَحْنُ</bdi> …) or a set of Quranic initials. Attached prefixes (
+              <bdi lang="ar" className="ar-naskh">وَ</bdi>, <bdi lang="ar" className="ar-naskh">بِ</bdi>,{' '}
+              <bdi lang="ar" className="ar-naskh">ٱل</bdi> …) and attached pronouns (<bdi lang="ar" className="ar-naskh">ـهُ</bdi>,{' '}
+              <bdi lang="ar" className="ar-naskh">ـكُمْ</bdi> …) are listed too, ranked by how often they are attached, but are not
+              added to coverage. A word counts as learned once its batch test is passed, and as secure after a few spaced
+              refreshers answered right.
+              Lemmas, roots, grammar and prefix meanings: Quranic Arabic Corpus; pronoun and article meanings: the reviewed
+              pronoun table; meanings in context: Quran.com word-by-word; verse translations: Saheeh International.
+            </p>
+          </section>
+        </div>
+      )}
+    </div>
+  );
+}
+
+/** Two modes: go forward through new batches, or go back over what is passed. */
+function ModeSwitch({ index, mode, onChange }: { index: VocabIndex; mode: 'learn' | 'review'; onChange: (m: 'learn' | 'review') => void }) {
+  const passed = useMemo(() => (['words', 'roots', 'attached'] as TrackId[]).flatMap((t) => passedBatches(index, t)), [index]);
+  const due = passed.reduce((n, b) => n + b.due, 0);
+  const next = useMemo(() => trackState(index, 'words'), [index]);
+  const opts: ['learn' | 'review', string, string][] = [
+    ['learn', 'Learn new', next.current < next.batches ? `Words · batch ${next.current + 1} next` : 'Every word learned'],
+    ['review', 'Review', passed.length ? `${passed.length} ${passed.length === 1 ? 'batch' : 'batches'} passed${due ? ` · ${due} due` : ''}` : 'Your passed batches'],
+  ];
+  return (
+    <div className="grid grid-cols-2 gap-1 rounded-2xl border border-line bg-surface/70 p-1 shadow-[var(--elev-1)]" role="tablist" aria-label="Mode">
+      {opts.map(([m, label, sub]) => (
+        <button
+          key={m}
+          role="tab"
+          aria-selected={mode === m}
+          onClick={() => onChange(m)}
+          className={`flex min-h-[56px] flex-col items-center justify-center rounded-xl px-2 py-2 text-center transition-colors duration-300 ${
+            mode === m ? 'bg-accent/15 text-ink ring-1 ring-accent/45' : 'text-muted hover:text-ink'
+          }`}
+        >
+          <span className="font-display text-[1.05rem] font-semibold leading-tight">{label}</span>
+          <span className="tnum mt-0.5 text-[11px] leading-tight opacity-80">{sub}</span>
+        </button>
+      ))}
     </div>
   );
 }
@@ -198,11 +244,6 @@ const readTrack = (): TrackId => {
     return 'words';
   }
 };
-
-function itemLabel(index: VocabIndex, i: LearnItem): { ar: string; en: string } {
-  if (i.track === 'roots') return { ar: i.root.split('').join(' '), en: familySense(rootFamily(index, i.root), 1)[0] ?? '' };
-  return { ar: i.lemma.lemma, en: displayMeaning(i.lemma) };
-}
 
 function LockIcon() {
   return (

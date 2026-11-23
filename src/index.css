@@ -793,3 +793,14 @@ h1.font-display, h2.font-display, .display-light { font-weight: 340; letter-spac
 /* The crescent sits just under the header, clear of the eyebrow on phones. */
 .crescent-pos { top: calc(4.1rem + env(safe-area-inset-top, 0px)); }
 @media (min-width: 640px) { .crescent-pos { top: calc(5.5rem + env(safe-area-inset-top, 0px)); } }
+
+/* Mastery rings (review library, brief 18): the secure arc draws in once. */
+.ring-arc {
+  transition: stroke-dashoffset 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  animation: ring-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+@keyframes ring-in { from { stroke-dashoffset: var(--ring-c); } }
+
+/* Switching Learn new / Review: the new mode settles in gently. */
+.mode-in { animation: mode-in 0.45s cubic-bezier(0.22, 1, 0.36, 1) backwards; }
+@keyframes mode-in { from { opacity: 0; transform: translateY(6px); } }

@@ -16,6 +16,7 @@ import {
   type TrackId,
 } from '../lib/learn';
 import { loadVocab, type Detail, type VocabIndex } from '../lib/vocab';
+import { recordAnswer } from '../lib/review';
 
 const isTrack = (t: string | undefined): t is TrackId => t === 'words' || t === 'roots' || t === 'attached';
 
@@ -161,7 +162,7 @@ function Run({ index, session, onAgain }: { index: VocabIndex; session: Session;
 
 /* ------------------------------- learn phase -------------------------------- */
 
-function TeachingCard({ index, item, detail }: { index: VocabIndex; item: LearnItem; detail: Detail | null }) {
+export function TeachingCard({ index, item, detail }: { index: VocabIndex; item: LearnItem; detail: Detail | null }) {
   return item.track === 'roots' ? <RootCard index={index} root={item.root} /> : <WordCard l={item.lemma} detail={detail} />;
 }
 
@@ -298,6 +299,7 @@ function TestPhase({
     if (picked) return;
     setPicked(opt);
     if (opt !== q.answer) missed.add(slot.item.key);
+    recordAnswer(slot.item.track, slot.item.key, opt === q.answer);
   }
   function next() {
     const key = slot.item.key;
@@ -335,6 +337,32 @@ function TestPhase({
         ))}
       </div>
 
+      <QuestionCard q={q} picked={picked} onPick={pick} />
+
+      {picked && (
+        <div className="flex flex-col gap-4">
+          <p className="text-center text-sm font-semibold" style={{ color: right ? 'rgb(var(--emerald))' : 'var(--role-negation)' }}>
+            {right ? 'Right.' : `Not this time — read the card again. It will be asked again before ${session.mode === 'review' ? 'this review' : 'the batch'} counts.`}
+          </p>
+          {!right && (
+            <article className="card-raised p-5 sm:p-6">
+              <TeachingCard index={index} item={slot.item} detail={details.get(slot.item.key) ?? null} />
+            </article>
+          )}
+          <button onClick={next} className="btn btn-primary self-center">
+            {right ? (queue.length > 1 ? 'Next →' : 'Finish') : 'Ask me again later →'}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
+
+/** A question: its cue, example verse, prompt and options (shared with the review page). */
+export function QuestionCard({ q, picked, onPick }: { q: Question; picked: string | null; onPick: (opt: string) => void }) {
+  return (
+    <>
       <div className="card-raised flex flex-col gap-3 p-5 text-center sm:p-6">
         {q.cue &&
           (q.cueArabic ? (
@@ -371,7 +399,7 @@ function TestPhase({
               option={opt}
               view={q.views?.[opt]}
               arabic={q.optionsArabic}
-              onPick={() => pick(opt)}
+              onPick={() => onPick(opt)}
               disabled={!!picked}
               stateClass={cls}
               style={picked && isPicked && !isAnswer ? { borderColor: 'var(--role-negation)', color: 'var(--role-negation)' } : undefined}
@@ -380,22 +408,7 @@ function TestPhase({
         })}
       </div>
 
-      {picked && (
-        <div className="flex flex-col gap-4">
-          <p className="text-center text-sm font-semibold" style={{ color: right ? 'rgb(var(--emerald))' : 'var(--role-negation)' }}>
-            {right ? 'Right.' : `Not this time — read the card again. It will be asked again before ${session.mode === 'review' ? 'this review' : 'the batch'} counts.`}
-          </p>
-          {!right && (
-            <article className="card-raised p-5 sm:p-6">
-              <TeachingCard index={index} item={slot.item} detail={details.get(slot.item.key) ?? null} />
-            </article>
-          )}
-          <button onClick={next} className="btn btn-primary self-center">
-            {right ? (queue.length > 1 ? 'Next →' : 'Finish') : 'Ask me again later →'}
-          </button>
-        </div>
-      )}
-    </div>
+    </>
   );
 }
 

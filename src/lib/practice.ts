@@ -43,8 +43,8 @@ export interface Box {
 }
 export type Store = Record<string, Box>;
 
-const DAY = 86_400_000;
-const INTERVALS = [0, 0.02, 1, 3, 7, 16]; // days, indexed by box (box 1..5)
+export const DAY = 86_400_000;
+export const INTERVALS = [0, 0.02, 1, 3, 7, 16]; // days, indexed by box (box 1..5)
 export const KNOWN_BOX = 4;
 
 export interface Track {
