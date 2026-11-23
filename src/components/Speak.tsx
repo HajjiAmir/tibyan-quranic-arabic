@@ -1,26 +1,25 @@
 import { useEffect, useState } from 'react';
 import { loadVerseWords, type Example } from '../lib/vocab';
-import { playWord, useWordAudio, wordAudioUrl } from '../lib/wordAudio';
+import { playWord, useWordAudio, wordKey } from '../lib/wordAudio';
 import type { Word } from '../types';
 
 /**
- * Tap to hear one word of the Qur'an, as recorded word by word (see lib/wordAudio).
+ * Tap to hear one word of the Qur'an, cut from Mishary Alafasy's recitation of its verse (see lib/wordAudio).
  * A 44px target; while it plays the icon turns accent (no animation).
  */
 export function SpeakButton({ verseRef, position, label, size = 'md' }: { verseRef: string; position: number; label: string; size?: 'sm' | 'md' }) {
-  const url = wordAudioUrl(verseRef, position);
-  const st = useWordAudio(url);
+  const st = useWordAudio(wordKey(verseRef, position));
   const on = st === 'playing' || st === 'loading';
   return (
     <button
       type="button"
       onClick={(e) => {
         e.stopPropagation();
-        playWord(url);
+        playWord(verseRef, position);
       }}
       aria-label={st === 'error' ? `Could not play ${label}. Try again` : on ? `Stop ${label}` : `Hear ${label}`}
       aria-pressed={on}
-      title={st === 'error' ? 'Could not load the recording. Check your connection.' : 'Hear this word recited'}
+      title={st === 'error' ? 'Could not load the recitation. Check your connection.' : 'Hear this word as Mishary Alafasy recites it'}
       className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full transition-colors ${
         on ? 'text-accent' : st === 'error' ? 'text-muted' : 'text-muted hover:text-accent'
       }`}
@@ -87,7 +86,7 @@ export function soundSample(headword: string, candidates: (Example | null | unde
 
 /**
  * How a headword sounds: the transliteration and recording of a real occurrence
- * (Quran.com word by word), never generated. When the verse word is not spelled
+ * (Quran.com transliteration; Alafasy's recitation), never generated. When the verse word is not spelled
  * exactly as the headword (a prefix, an ending), it says which word is heard.
  */
 export function Pronounce({ ex, headword, center = false }: { ex: Pick<Example, 'ref' | 'hit'> | null | undefined; headword: string; center?: boolean }) {

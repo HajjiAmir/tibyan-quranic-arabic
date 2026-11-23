@@ -262,25 +262,50 @@ and nothing typed by hand:
   stored per word in our data (`translit`, fetched by `scripts/fetch-raw.mjs`). It is aligned to the Uthmani
   text word by word; nothing is generated from a letter map. Checked on 2026-11-23: positions and
   transliterations for 2:255, 3:7 and 9:1 match the live API exactly.
-- **Word audio.** The recorded word-by-word recitation Quran.com plays when a word is tapped, streamed from
-  `https://audio.qurancdn.com/wbw/SSS_VVV_WWW.mp3` (Quran.com word positions, the same as ours). No synthetic
-  speech anywhere. Files are streamed on tap, never bundled, stored or rehosted.
+- **Word audio (owner decision, 2026-11-23: a named reciter).** Each word is cut from **Mishary Rashid
+  Alafasy**'s murattal recitation of its verse, at the word timings Quran.com publishes for that recording.
+  No synthetic speech anywhere.
+  - Recording: `https://verses.quran.com/Alafasy/mp3/SSSVVV.mp3` (one file per verse).
+  - Timings: `https://api.quran.com/api/v4/recitations/7/by_ayah/S:V?fields=segments` →
+    `[index, word position, from ms, to ms]` (recitation 7 = Mishari Rashid al-Afasy, murattal). Word positions
+    are Quran.com's, the same as ours.
   - Licence: Quran Foundation Developer Terms, https://api-docs.quran.foundation/legal/developer-terms/ —
-    recordings from audio.qurancdn.com are "QF Content" whether or not obtained through the APIs; free,
-    non-exclusive, revocable licence, commercial use allowed; credit the Quran Foundation and the reciter;
-    no caching beyond one week; no rehosting.
-  - Credit shown in the app wherever a word can be heard: "Word recitation: Quran Foundation (Quran.com word
-    by word)". **Quran.com does not publish the name of the word-audio reciter** (checked the API, which gives
-    only `audio_url`, and https://quran.com/product-updates/updated-word-by-word-recitation-feature), so the
-    reciter cannot be named yet.
+    verses.quran.com and api.quran.com are Quran Foundation content; free, non-exclusive, revocable licence,
+    commercial use allowed; credit the Quran Foundation and the reciter; no caching beyond one week; no
+    rehosting. Both are fetched when a word is tapped and held in memory for that visit only (never bundled,
+    stored or rehosted). Credit shown wherever a word can be heard: "Recitation: Mishary Rashid Alafasy (word
+    timings via Quran.com / Quran Foundation)".
+  - Cutting: the published timings can be a little off, so each cut moves to the quietest 20 ms within
+    0.1 s outward of the published boundary, and inward no more than 0.1 s or a quarter of the word (pulled toward the boundary), and is faded over
+    12 ms (`src/lib/wordAudio.ts`, `clipOf`). A wider 0.2 s window was tried and dropped: it could reach a
+    silent stop consonant inside the next word (مِن before نُّطْفَة) and let a syllable of it in.
+  - Known limit: the published timings are occasionally wrong, and a cut can only be as good as the timing
+    near it. Example: 2:2 gives هُدًى 0.19 s where the recording holds it for about a second, so tapping that
+    word in the reader plays only its start. A cut that falls in a quiet moment inside a word measures clean,
+    so the edge measurement below cannot catch this; clip length is checked for the measured words only.
+  - Superseded: Quran.com's own word-by-word recordings (`audio.qurancdn.com/wbw/`) were used first; Quran.com
+    does not name their reciter, so they were replaced.
   - QUL (https://qul.tarteel.ai) was checked as a second source: its word-segmented Alafasy recitation says
     "We don't have copyright information for this resource", so it was not used.
-- **Which occurrence a headword is heard by.** `scripts/build-vocab.mjs` stores `sound` per word: a verse
-  where the word stands spelled exactly as the headword (diacritics and alif forms aside), for 2,105 of
-  4,769 words. Otherwise the card plays a real occurrence and says which spelling is heard ("heard as …").
-  Verb and noun form rows prefer a verse where the form stands alone, and say "heard as …" when it never
-  does with that meaning. Attached forms (prefixes, suffixes) and roots have no sound of their own and get
-  none; their example words can each be heard.
+- **Which occurrence a word is heard by** (`scripts/build-vocab.mjs`, `sound` per word):
+  1. A verse where the word is spelled exactly as the headword (diacritics and alif forms aside), when there
+     is one (2,105 of 4,769 words); otherwise any occurrence, and the card says which spelling is heard.
+  2. Among those, where the recitation pauses around it: a pause after the word first (its ending is what runs
+     into the next word), then before it. Pause places: the verse edges (each verse is its own recording) and
+     the Uthmani pause marks in the Quran.com word text (`scripts/raw/wbw-en`). Ranked by how reliably Alafasy
+     actually pauses there, measured on 48 boundaries across 15 surahs (2026-11-23): verse end > ۚ (and ۘ) >
+     ۗ ۛ ۖ > ۙ or no mark.
+  3. For the 400 most frequent words, the choice is measured: up to six of the best-placed occurrences are
+     cut with the app's own rules and the one with the quietest louder edge is kept (an occurrence whose published timing is under 0.25 s loses to any longer one)
+     (`scripts/raw/clip-checks.json`, choices and loudness only). Over the 373 words with a choice to make,
+     clips with both cuts at or below −30 dB rose from 105 to 204, and clips with a cut in mid-sound (above
+     −25 dB) fell from 151 to 32. To re-measure: `CLIP_CANDIDATES=public/__clip-candidates.json npm run
+     build:vocab`, then run `inspectClip` (`src/lib/wordAudio.ts`) over the candidates in the dev server.
+  - Verb and noun form rows use a verse where the form stands alone when there is one, then the same pause
+    ranking (not measured). Attached forms (prefixes, suffixes) and roots have no sound of their own; their
+    example words can each be heard.
+  - A word heard at the end of a verse or at a pause mark is recited in its pausal form (as Alafasy stops on
+    it), which can differ in its last vowel from the connected-reading transliteration shown.
 
 ## Fonts
 

@@ -16,6 +16,7 @@ import {
   type VocabIndex,
 } from '../lib/vocab';
 import { ExampleVerse } from './VocabBits';
+import { WORD_AUDIO_CREDIT } from '../lib/wordAudio';
 import { Pronounce, SpeakButton, soundSample, useExampleWord } from './Speak';
 
 // Teaching cards for the learning loop (brief 16). Every line on them comes from
@@ -192,6 +193,10 @@ export function WordCard({ l, detail }: { l: Lemma; detail: Detail | null }) {
           ))}
         </Section>
       )}
+
+      <p className="text-[11px] leading-snug text-muted/90">
+        Transliteration: Quran.com. {WORD_AUDIO_CREDIT}.
+      </p>
 
       {l.spellings && !attached && (
         <p className="text-xs text-muted">

@@ -418,6 +418,41 @@ function usesOf(e) {
 }
 
 // Forms: verbs by tense and person/gender/number, nouns by number; each with a real example.
+// Where Mishary Alafasy pauses, for clean word clips (brief 16, piece 3). A word is
+// cleanest heard where the recitation stops around it: the ends of the verse (each
+// verse is its own recording) and the Uthmani pause marks in the Quran.com word text
+// (scripts/raw/wbw-en). Ranked by how reliably the recitation actually pauses there,
+// measured on the recordings (see SOURCES.md): verse end > ۚ / ۘ > ۗ ۛ ۖ > ۙ or none.
+const MARK_PAUSE = { '\u06DA': 3, '\u06D8': 3, '\u06D7': 2, '\u06DB': 2, '\u06D6': 2 };
+const VERSE_EDGE = 4;
+const pauseAfter = new Map(); // "s:v" -> score after each word
+for (let s = 1; s <= 114; s++) {
+  for (const w of JSON.parse(readFileSync(join(ROOT, 'scripts/raw/wbw-en', `${s}.json`), 'utf8'))) {
+    const [, v] = w.location.split(':');
+    const key = `${s}:${v}`;
+    if (!pauseAfter.has(key)) pauseAfter.set(key, []);
+    const m = w.text.match(/[\u06D6-\u06DB]/);
+    pauseAfter.get(key).push(m ? (MARK_PAUSE[m[0]] ?? 0) : 0);
+  }
+}
+/** How cleanly an occurrence stands in the recitation: [pause after, pause before]. */
+function pauseOf(o) {
+  const after = pauseAfter.get(`${o.s}:${o.v}`) ?? [];
+  const end = o.wi === after.length - 1 ? VERSE_EDGE : (after[o.wi] ?? 0);
+  const start = o.wi === 0 ? VERSE_EDGE : (after[o.wi - 1] ?? 0);
+  return [end, start];
+}
+/** The occurrences that stand most cleanly: a pause after first, then before (pickExamples order within a rank). */
+function cleanest(occ) {
+  const score = (o) => {
+    const [e, st] = pauseOf(o);
+    // A pause after the word matters most: a word's ending is what runs into the next word.
+    return e * 10 + st;
+  };
+  const best = Math.max(...occ.map(score));
+  return occ.filter((o) => score(o) === best);
+}
+
 function formsOf(e) {
   const groups = [...groupBy(e.occ, 'form')];
   if (groups.length < 2) return null;
@@ -430,7 +465,7 @@ function formsOf(e) {
     // Prefer a verse where the whole word is the form alone (no prefix or suffix), so the
     // transliteration and recording heard beside it are of that very spelling.
     const alone = pool.filter((o) => wordAt(o) === spell);
-    const ex = pickExamples(alone.length ? alone : pool)[0];
+    const ex = pickExamples(cleanest(alone.length ? alone : pool))[0];
     return { key: k, tense: isVerb ? k.split('|')[0] : null, label: g[0].flabel, spell, count: g.length, here: ex.usex ?? null, ex: exampleOf(ex) };
   });
   if (!isVerb) return rows.sort((a, b) => b.count - a.count).slice(0, 3);
@@ -441,6 +476,16 @@ function formsOf(e) {
 }
 
 const detailStats = { uses: 0, forms: 0, sound: 0 };
+const soundStats = {};
+const CANDIDATES = process.env.CLIP_CANDIDATES ?? null; // write candidates for scripts/check-clips.md
+const CANDIDATE_RANKS = 400;
+const candidateOut = {};
+let clipChecks = {};
+try {
+  clipChecks = JSON.parse(readFileSync(join(ROOT, 'scripts/raw/clip-checks.json'), 'utf8')).chosen ?? {};
+} catch {
+  /* none yet */
+}
 const AR_MARKS = /[\u0610-\u061A\u064B-\u065F\u0670\u06D6-\u06ED\u0640]/g;
 const bareAr = (s) => s.replace(AR_MARKS, '').replace(/[ٱأإآ]/g, 'ا').replace(/ى/g, 'ي');
 rmSync(join(DATA, 'vocab'), { recursive: true, force: true });
@@ -458,10 +503,33 @@ for (let c = 0; c * CHUNK < entries.length; c++) {
       }
       // A verse where the word stands exactly as the headword, to hear it by
       // (Quran.com word-by-word transliteration and recording); none when it never does.
-      if (!e.kind || e.kind === 'word') {
+      if (!e.kind || e.kind === 'word' || e.kind === 'initials') {
         const h = bareAr(src.lemma);
-        const o = pickExamples(src.occ.filter((x) => bareAr(wordAt(x)) === h))[0];
+        const exact = src.occ.filter((x) => bareAr(wordAt(x)) === h);
+        // Never spelled exactly so: the cleanest occurrence of any spelling (the card says which).
+        let o = pickExamples(cleanest(exact.length ? exact : src.occ))[0];
+        // The 400 most frequent words: chosen by measuring the cut among the best-placed candidates
+        // (scripts/raw/clip-checks.json, see SOURCES.md); CLIP_CANDIDATES=path writes the candidates to measure.
+        const checked = clipChecks[e.id];
+        if (checked) o = (exact.length ? exact : src.occ).find((x) => `${x.s}:${x.v}` === checked.ref && x.wi === checked.hit) ?? o;
+        if (o && CANDIDATES && e.id <= CANDIDATE_RANKS) {
+          const pool = (exact.length ? exact : src.occ)
+            .map((x) => ({ x, p: pauseOf(x) }))
+            .sort((a, b) => b.p[0] - a.p[0] || b.p[1] - a.p[1] || a.x.len - b.x.len);
+          const seen = new Set();
+          const list = [];
+          for (const { x } of [{ x: o }, ...pool]) {
+            const k = `${x.s}:${x.v}#${x.wi}`;
+            if (seen.has(k)) continue;
+            seen.add(k);
+            list.push([`${x.s}:${x.v}`, x.wi]);
+            if (list.length >= 6) break;
+          }
+          candidateOut[e.id] = { lemma: src.lemma, list };
+        }
         if (o) {
+          const [pe, ps] = pauseOf(o);
+          soundStats[`${exact.length ? 'exact' : 'other'} end${pe} start${ps}`] = (soundStats[`${exact.length ? 'exact' : 'other'} end${pe} start${ps}`] ?? 0) + 1;
           usedVerses.add(`${o.s}:${o.v}`);
           d.sound = { ref: `${o.s}:${o.v}`, hit: o.wi };
           detailStats.sound++;
@@ -526,7 +594,9 @@ writeFileSync(join(DATA, 'vocab.json'), JSON.stringify(out));
 const words = entries.filter((e) => e.kind !== 'prefix' && e.kind !== 'suffix');
 const cov = (n) => words.slice(0, n).reduce((t, e) => t + e.count, 0) / totalWords;
 console.log(`vocab: ${entries.length} entries (${JSON.stringify(out.totals.kinds)}), ${rootStats.size} roots, ${totalWords} words (${noEntry} without an entry)`);
-console.log(`teaching detail: ${detailStats.uses} entries with uses, ${detailStats.forms} with forms, ${detailStats.sound} heard as spelled`);
+console.log(`teaching detail: ${detailStats.uses} entries with uses, ${detailStats.forms} with forms, ${detailStats.sound} with a sound occurrence`);
+if (CANDIDATES) writeFileSync(CANDIDATES, JSON.stringify(candidateOut));
+console.log('sound occurrences by pause (end/start: 4 verse edge, 3 ۚ ۘ, 2 ۗ ۛ ۖ, 0 none):', JSON.stringify(Object.fromEntries(Object.entries(soundStats).sort((a, b) => b[1] - a[1]))));
 console.log(`attached: ${attachedTotals.prefix} prefixes, ${attachedTotals.suffix} pronoun suffixes`);
 console.log(`in-context glosses: ${stripStats.changed} of ${stripStats.glosses} had leading prefix words removed`);
 console.log(
